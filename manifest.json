@@ -1,0 +1,16 @@
+{
+  "name": "MACHINGA NTAJA DREAM LEAGUE",
+  "short_name": "MNDL",
+  "description": "Machinga Ntaja Dream League Official",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#0a0a0f",
+  "theme_color": "#FFD60A",
+  "icons": [
+    {
+      "src": "https://cdn-icons-png.flaticon.com/512/1165/1165187.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
