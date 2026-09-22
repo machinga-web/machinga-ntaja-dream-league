@@ -3,26 +3,30 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>MNDL - VICTOR EDWARD BOSS EDITION 👑</title>
+<title>MNDL - VICTOR EDWARD 👑</title>
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-body{background:#0a0a0a;color:#FFD60A;font-family:Arial, sans-serif;text-align:center;padding:10px}
-.header{background:#000;border:3px solid #FFD60A;border-radius:15px;padding:15px;margin-bottom:12px}
-.header h1{font-size:20px;color:#FFD60A}
-.header p{font-size:11px;color:#fff;margin-top:4px}
-.team{background:#1a1a1a;border:2px solid #333;border-radius:10px;padding:10px;margin:6px 0;display:flex;justify-content:space-between;font-size:13px}
-.team.top{border-color:#FFD60A;background:#222;box-shadow:0 0 12px #FFD60A}
-.table-box{background:#111;border:2px solid #FFD60A;border-radius:12px;padding:10px;margin:12px 0;overflow-x:auto}
-table{width:100%;border-collapse:collapse;color:#fff;font-size:13px}
-th{background:#FFD60A;color:#000;padding:8px;font-size:12px}
-td{padding:7px;border-bottom:1px solid #333}
+body{background:#0a0a0a;color:#FFD60A;font-family:Arial;text-align:center;padding:8px}
+.header{background:#000;border:3px solid #FFD60A;border-radius:15px;padding:14px;margin-bottom:10px}
+.team{background:#1a1a1a;border:2px solid #333;border-radius:10px;padding:10px;margin:5px 0;display:flex;justify-content:space-between;font-size:13px}
+.team.top{border-color:#FFD60A;background:#222;box-shadow:0 0 10px #FFD60A}
+.table-box{background:#111;border:2px solid #FFD60A;border-radius:12px;padding:10px;margin:10px 0}
+table{width:100%;border-collapse:collapse;color:#fff;font-size:12px}
+th{background:#FFD60A;color:#000;padding:7px}
+td{padding:6px;border-bottom:1px solid #333}
 .top-team{background:#222;color:#FFD60A;font-weight:bold}
-.fixtures{background:#111;border:2px solid #FFD60A;border-radius:12px;padding:12px;margin:12px 0}
-.match{background:#1a1a1a;border-radius:8px;padding:10px;margin:6px 0;display:flex;justify-content:space-between;align-items:center;font-size:12px;border:1px solid #333}
-.btn{background:#FFD60A;color:#000;border:none;padding:12px 20px;border-radius:25px;font-weight:bold;margin:6px;cursor:pointer;font-size:13px}
-.btn-play{background:#00ff88;color:#000}
-.footer{margin-top:15px;font-size:10px;color:#888;padding:10px}
-.day-title{color:#FFD60A;font-weight:bold;font-size:14px;margin:10px 0 5px 0;text-align:left;border-bottom:1px solid #333;padding-bottom:3px}
+
+/* FIXTURES NGATI SCREENSHOT */
+.fixtures-box{background:#000;border:2px solid #FFD60A;border-radius:15px;padding:12px;margin:12px 0;text-align:left}
+.day-badge{background:#FFD700;color:#000;padding:6px 16px;border-radius:20px;font-weight:bold;display:inline-block;margin:14px 0 8px 0;font-size:14px}
+.match-card{background:#141414;border:1px solid #333;border-radius:12px;padding:12px;margin:8px 0;display:flex;justify-content:center;align-items:center;gap:6px}
+.team-name{color:#FFD60A;font-size:12px;width:85px;text-align:right}
+.team-name.right{text-align:left}
+.score-box{background:#000;border:2px solid #FFD60A;border-radius:8px;width:52px;height:32px;color:#fff;text-align:center;font-weight:bold;font-size:16px}
+.score-box:disabled{opacity:0.5}
+.sungani-btn{background:#FFD700;color:#000;border:none;width:100%;padding:10px;border-radius:10px;font-weight:bold;margin:6px 0 12px 0;cursor:pointer;font-size:13px}
+.sungani-btn:disabled{background:#555;color:#888}
+.reset-btn{background:#FFD60A;color:#000;border:none;padding:12px 20px;border-radius:25px;font-weight:bold;margin:10px;cursor:pointer}
 </style>
 </head>
 <body>
@@ -30,37 +34,116 @@ td{padding:7px;border-bottom:1px solid #333}
 <div class="header">
 <h1>👑 MNDL - VICTOR EDWARD 👑</h1>
 <p>💛 MACHINGA NTAJA DREAM LEAGUE 💛</p>
-<p>Kill Me Or You KILLED - MY TEAM - BOSS CHAMPION!</p>
 </div>
 
 <div id="teams"></div>
 
 <div class="table-box">
-<h3 style="color:#FFD60A;margin-bottom:10px">🏆 TABLE - AMENE ALI NDI POINTS AMBIRI #1 🏆</h3>
+<h3 style="margin-bottom:8px">🏆 TABLE - AMENE ALI NDI POINTS AMBIRI #1 🏆</h3>
 <table>
 <thead><tr><th>#</th><th>Team</th><th>P</th><th>W</th><th>D</th><th>L</th><th>Pts</th></tr></thead>
 <tbody id="table"></tbody>
 </table>
 </div>
 
-<div class="fixtures">
-<h3 style="color:#FFD60A;margin-bottom:12px">⚽ FIXTURES - DAY 1 MPaka DAY 6 ⚽</h3>
+<div class="fixtures-box">
+<h3 style="color:#fff;border-left:4px solid #FFD60A;padding-left:8px">📅 Fixtures - Masewera Onse</h3>
 <div id="fixtures"></div>
-<div style="margin-top:12px">
-<button class="btn btn-play" onclick="playAll()">▶️ SEWERANI MATCH</button>
-<button class="btn" onclick="resetLeague()">🔄 YAMBANSO LEAGUE</button>
+<button class="reset-btn" onclick="resetLeague()">🔄 YAMBANSO LEAGUE</button>
 </div>
-</div>
-
-<div class="footer">👑 BOSS VICTOR EDWARD - MNDL 2025 - MACHINGA NTAJA DREAM LEAGUE 👑<br>💛 Kill Me Or You KILLED NDEKHA PAMWAMBA! 💛</div>
 
 <script>
 let teams=[
-{name:"Kill Me Or You KILLED - VICTOR EDWARD",p:0,w:0,d:0,l:0,pts:0},
+{name:"Kill Me Or You KILLED",p:0,w:0,d:0,l:0,pts:0},
 {name:"Night Plus Champion",p:0,w:0,d:0,l:0,pts:0},
 {name:"TBO City FC",p:0,w:0,d:0,l:0,pts:0},
 {name:"Umbwa City FC",p:0,w:0,d:0,l:0,pts:0}
 ];
 
 let fixtures=[
-[0,1],[2
+[0,1],[2,3],
+[1,3],[2,0],
+[0,3],[1,2],
+[1,0],[3,2],
+[3,1],[0,2],
+[3,0],[2,1]
+];
+
+let results=Array(fixtures.length).fill(null);
+
+function render(){
+  document.getElementById('teams').innerHTML=teams.map(t=>{
+    let isKill=t.name.includes("KILL");
+    return `<div class="team ${isKill?'top':''}"><span>${isKill?'👑 ':'⚽ '}${t.name}${isKill?' - VICTOR EDWARD':''}</span><span><b>${t.pts} PTS</b></span></div>`
+  }).join('');
+
+  // TABLE YA FAIR - AMENE ALI NDI POINTS AMBIRI #1
+  let sorted=[...teams].map((t,idx)=>({...t,orig:idx})).sort((a,b)=> b.pts - a.pts || b.w - a.w);
+  document.getElementById('table').innerHTML=sorted.map((t,i)=>{
+    let isKill=t.name.includes("KILL");
+    let crown=i===0?"👑 ":"";
+    let name=t.name.length>20?t.name.substring(0,18)+"..":t.name;
+    return `<tr class="${i===0?'top-team':''}"><td>${crown}${i+1}</td><td style="text-align:left">${name}${isKill?' - BOSS':''}</td><td>${t.p}</td><td>${t.w}</td><td>${t.d}</td><td>${t.l}</td><td><b>${t.pts}</b></td></tr>`
+  }).join('');
+
+  // FIXTURES NGATI SCREENSHOT
+  let html="";
+  let day=0;
+  for(let i=0;i<fixtures.length;i++){
+    if(i%2===0){
+      day++;
+      html+=`<div class="day-badge">DAY ${day}</div>`;
+    }
+    let a=fixtures[i][0], b=fixtures[i][1];
+    let t1=teams[a].name, t2=teams[b].name;
+    let res=results[i];
+    let v1=res?res[0]:"", v2=res?res[1]:"";
+    let disabled=res?"disabled":"";
+    html+=`
+      <div class="match-card">
+        <div class="team-name">${t1}</div>
+        <input id="s${i}_0" class="score-box" type="number" min="0" value="${v1}" ${disabled} placeholder="0">
+        <span style="color:#fff">-</span>
+        <input id="s${i}_1" class="score-box" type="number" min="0" value="${v2}" ${disabled} placeholder="0">
+        <div class="team-name right">${t2}</div>
+      </div>
+      <button class="sungani-btn" ${disabled} onclick="sungani(${i})">Sungani ${t1} vs ${t2} ${res?'✅':''}</button>
+    `;
+  }
+  document.getElementById('fixtures').innerHTML=html;
+}
+
+function sungani(idx){
+  let g1=document.getElementById(`s${idx}_0`).value;
+  let g2=document.getElementById(`s${idx}_1`).value;
+  if(g1===""||g2===""){alert("Lowetsani Zigoli Zonse BOSS!");return;}
+  g1=parseInt(g1); g2=parseInt(g2);
+  if(results[idx]) return;
+
+  results[idx]=[g1,g2];
+  let a=fixtures[idx][0], b=fixtures[idx][1];
+  teams[a].p++; teams[b].p++;
+  if(g1>g2){teams[a].w++; teams[a].pts+=3; teams[b].l++;}
+  else if(g2>g1){teams[b].w++; teams[b].pts+=3; teams[a].l++;}
+  else{teams[a].d++; teams[b].d++; teams[a].pts++; teams[b].pts++;}
+
+  render();
+
+  // Ngati League Yatha - Onetsani Champion
+  if(results.every(r=>r!==null)){
+    let sorted=[...teams].sort((x,y)=> y.pts - x.pts);
+    setTimeout(()=>alert(`🏆 CHAMPION BOSS: ${sorted[0].name} ndi ${sorted[0].pts} Points! 👑`),300);
+  }
+}
+
+function resetLeague(){
+  if(!confirm("Mukufuna kuyambanso BOSS VICTOR?")) return;
+  teams.forEach(t=>{t.p=0;t.w=0;t.d=0;t.l=0;t.pts=0;});
+  results=Array(fixtures.length).fill(null);
+  render();
+}
+
+render();
+</script>
+</body>
+</html>
