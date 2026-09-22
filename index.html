@@ -1,150 +1,20 @@
-<!DOCTYPE html>
-<html lang="ny">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>MNDL - Victor Edward</title>
-<link rel="manifest" href="manifest.json">
-<meta name="theme-color" content="#FFD60A">
-<style>
-*{margin:0;padding:0;box-sizing:border-box}
-body{background:#000;color:#FFD60A;font-family:Arial,sans-serif;padding:10px}
-h1{text-align:center;font-size:22px;margin:10px 0}
-.owner{text-align:center;background:linear-gradient(90deg,#FFD60A,#fff);color:#000;padding:12px;border-radius:25px;font-weight:bold;margin:10px 0;font-size:16px;border:2px solid #fff}
-.card{background:#111;border:2px solid #FFD60A;border-radius:12px;padding:12px;margin:10px 0}
-h2{color:#fff;font-size:16px;margin-bottom:8px;border-left:4px solid #FFD60A;padding-left:8px}
-.team{display:flex;justify-content:space-between;padding:12px;border-bottom:1px solid #222;font-size:14px;border-radius:8px;margin:3px 0}
-.team.top{background:#FFD60A;color:#000;font-weight:bold;border:2px solid #fff}
-.fixture{background:#1a1a1a;border:1px solid #333;border-radius:10px;padding:12px;margin:8px 0;display:flex;justify-content:space-between;align-items:center}
-.btn{background:#FFD60A;color:#000;border:none;padding:12px;border-radius:8px;font-weight:bold;width:100%;margin:6px 0;font-size:15px}
-.btn2{background:#fff}
-input{width:50px;background:#000;color:#fff;border:2px solid #FFD60A;text-align:center;padding:6px;border-radius:6px;font-weight:bold}
-table{width:100%;border-collapse:collapse}
-th{background:#FFD60A;color:#000;padding:8px;font-size:12px}
-td{padding:8px;text-align:center;border-bottom:1px solid #222;font-size:13px}
-tr.top-team{background:#FFD60A;color:#000;font-weight:bold}
-.day{background:#FFD60A;color:#000;padding:6px 12px;border-radius:20px;font-weight:bold;font-size:13px;margin:12px 0;display:inline-block}
-</style>
-</head>
-<body>
-<h1>⚽ MACHINGA NTAJA<br>DREAM LEAGUE</h1>
-<div class="owner">👑 VICTOR EDWARD EDITION 👑</div>
-<p style="text-align:center;color:#fff;font-size:12px">4 Teams - My Team is Champion!</p>
-
-<div class="card">
-<h2>🏆 Ma Team 4 - Team Yanu Pamwamba!</h2>
-<div id="teams"></div>
-</div>
-
-<div class="card">
-<h2>📊 Table</h2>
-<table>
-<tr><th>#</th><th style="text-align:left">Team</th><th>P</th><th>W</th><th>D</th><th>L</th><th>Pts</th></tr>
-<tbody id="table"></tbody>
-</table>
-</div>
-
-<div class="card">
-<h2>📅 Fixtures - Masewera Onse</h2>
-<div id="fixtures"></div>
-<button class="btn" onclick="generateFixtures()">Pangani Fixtures Zatsopano 🔄</button>
-<button class="btn btn2" onclick="resetAll()">Bwezeretsani Zonse</button>
-</div>
-
-<div class="card" style="text-align:center">
-<p style="color:#FFD60A;font-weight:bold">👑 VICTOR EDWARD - OWNER</p>
-<p style="color:#fff;font-size:11px">Team: Kill Me Or You KILLED</p>
-</div>
-
-<script>
-const teamNames=[
-"👑 Kill Me Or You KILLED", // TEAM YANU BOSS - PAMWAMBA!
-"Night Plus Champion",
-"TBO City FC",
-"Umbwa City FC"
-];
-
-let teams = JSON.parse(localStorage.getItem('mndl_victor_4')||'null') || teamNames.map(n=>({name:n,p:0,w:0,d:0,l:0,pts:0}));
-let fixtures = JSON.parse(localStorage.getItem('mndl_fix_4')||'null') || [];
-
-function save(){localStorage.setItem('mndl_victor_4',JSON.stringify(teams)); localStorage.setItem('mndl_fix_4',JSON.stringify(fixtures));}
-
-function generateFixtures(){
- fixtures=[
-  {round:1, home:"👑 Kill Me Or You KILLED", away:"Night Plus Champion", hg:null, ag:null, played:false},
-  {round:1, home:"TBO City FC", away:"Umbwa City FC", hg:null, ag:null, played:false},
-  {round:2, home:"Night Plus Champion", away:"Umbwa City FC", hg:null, ag:null, played:false},
-  {round:2, home:"TBO City FC", away:"👑 Kill Me Or You KILLED", hg:null, ag:null, played:false},
-  {round:3, home:"👑 Kill Me Or You KILLED", away:"Umbwa City FC", hg:null, ag:null, played:false},
-  {round:3, home:"Night Plus Champion", away:"TBO City FC", hg:null, ag:null, played:false},
-  {round:4, home:"Night Plus Champion", away:"👑 Kill Me Or You KILLED", hg:null, ag:null, played:false},
-  {round:4, home:"Umbwa City FC", away:"TBO City FC", hg:null, ag:null, played:false},
-  {round:5, home:"Umbwa City FC", away:"Night Plus Champion", hg:null, ag:null, played:false},
-  {round:5, home:"👑 Kill Me Or You KILLED", away:"TBO City FC", hg:null, ag:null, played:false},
-  {round:6, home:"Umbwa City FC", away:"👑 Kill Me Or You KILLED", hg:null, ag:null, played:false},
-  {round:6, home:"TBO City FC", away:"Night Plus Champion", hg:null, ag:null, played:false},
- ];
- save(); renderFixtures();
-}
-
 function render(){
- document.getElementById('teams').innerHTML=teams.map((t,i)=>{
-  if(i==0) return `<div class="team top"><span>👑 ${t.name} - MY TEAM</span><span>${t.pts} PTS - TOP!</span></div>`;
-  return `<div class="team"><span>⚽ ${t.name}</span><span>${t.pts} pts</span></div>`;
- }).join('');
+  document.getElementById('teams').innerHTML=teams.map((t,i)=>{
+    if(t.name.includes("KILL")){
+      return `<div class="team ${i==0?'top':''}"><span>👑 ${t.name} ${t.pts>=0?'- MY TEAM':''}</span><span>${t.pts} PTS</span></div>`
+    }
+    return `<div class="team"><span>⚽ ${t.name}</span><span>${t.pts} pts</span></div>`
+  }).join('');
 
- let sorted=[...teams].sort((a,b)=>{
-  if(a.name.includes("KILL ME")||a.name.includes("Kill")) return -1;
-  if(b.name.includes("KILL ME")||b.name.includes("Kill")) return 1;
-  return b.pts-a.pts;
- });
-
- document.getElementById('table').innerHTML=sorted.map((t,i)=>{
-  if(t.name.includes("KILL ME")||t.name.includes("Kill")) return `<tr class="top-team"><td>👑1</td><td style="text-align:left">${t.name}</td><td>${t.p}</td><td>${t.w}</td><td>${t.d}</td><td>${t.l}</td><td><b>${t.pts}</b></td></tr>`;
-  return `<tr><td>${i+1}</td><td style="text-align:left">${t.name}</td><td>${t.p}</td><td>${t.w}</td><td>${t.d}</td><td>${t.l}</td><td><b>${t.pts}</b></td></tr>`;
- }).join('');
+  // TABLE YA FAIR - AMENE ALI NDI POINTS AMBIRI NDI #1!
+  let sorted=[...teams].sort((a,b)=> b.pts - a.pts);
+  
+  document.getElementById('table').innerHTML=sorted.map((t,i)=>{
+    let isKill = t.name.includes("KILL");
+    let crown = i==0 ? "👑" : "";
+    let rowClass = isKill && i==0 ? "top-team" : (i==0 ? "top-team" : "");
+    let nameDisplay = isKill ? `${t.name} - VICTOR EDWARD` : t.name;
+    
+    return `<tr class="${rowClass}"><td>${crown}${i+1}</td><td style="text-align:left">${nameDisplay}</td><td>${t.p}</td><td>${t.w}</td><td>${t.d}</td><td>${t.l}</td><td><b>${t.pts}</b></td></tr>`
+  }).join('');
 }
-
-function renderFixtures(){
- if(fixtures.length==0){generateFixtures(); return;}
- let html=''; let cur=0;
- fixtures.forEach((f,idx)=>{
-  if(f.round!=cur){cur=f.round; html+=`<div class="day">DAY ${cur}</div>`;}
-  html+=`<div class="fixture">
-   <span style="width:30%;text-align:right;font-size:11px">${f.home.replace('👑 ','')}</span>
-   <span style="display:flex;gap:4px;align-items:center"><input id="h${idx}" type="number" value="${f.hg??''}" ${f.played?'disabled':''} placeholder="0"><span>-</span><input id="a${idx}" type="number" value="${f.ag??''}" ${f.played?'disabled':''} placeholder="0"></span>
-   <span style="width:30%;font-size:11px">${f.away.replace('👑 ','')}</span>
-  </div>
-  ${!f.played?`<button class="btn" style="padding:6px;font-size:12px" onclick="saveScore(${idx})">Sungani ${f.home.replace('👑 ','')} vs ${f.away.replace('👑 ','')} ✅</button>`:`<p style="color:#0f0;font-size:12px;text-align:center">✅ ${f.hg}-${f.ag} Yatha</p>`}`;
- });
- document.getElementById('fixtures').innerHTML=html;
-}
-
-function saveScore(idx){
- let hg=parseInt(document.getElementById('h'+idx).value);
- let ag=parseInt(document.getElementById('a'+idx).value);
- if(isNaN(hg)||isNaN(ag)){alert("Ikani zigoli BOSS!"); return;}
- let f=fixtures[idx]; if(f.played) return;
- f.hg=hg; f.ag=ag; f.played=true;
- let ht=teams.find(t=>t.name==f.home);
- let at=teams.find(t=>t.name==f.away);
- ht.p++; at.p++;
- if(hg>ag){ht.w++; ht.pts+=3; at.l++;}
- else if(ag>hg){at.w++; at.pts+=3; ht.l++;}
- else{ht.d++; at.d++; ht.pts+=1; at.pts+=1;}
- save(); render(); renderFixtures();
-}
-
-function resetAll(){
- if(confirm("Bwezeretsa zonse BOSS?")){
-  localStorage.clear();
-  teams=teamNames.map(n=>({name:n,p:0,w:0,d:0,l:0,pts:0}));
-  fixtures=[]; render(); renderFixtures();
- }
-}
-
-render(); renderFixtures();
-if('serviceWorker' in navigator){navigator.serviceWorker.register('sw.js');}
-</script>
-</body>
-</html>
