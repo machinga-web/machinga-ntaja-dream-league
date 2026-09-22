@@ -3,147 +3,121 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>MNDL - VICTOR EDWARD 👑</title>
+<title>VICTOR EDWARD CHAT 👑</title>
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-body{background:#0a0a0a;color:#FFD60A;font-family:Arial;text-align:center;padding:8px}
-.header{background:#000;border:3px solid #FFD60A;border-radius:15px;padding:14px;margin-bottom:10px}
-.team{background:#1a1a1a;border:2px solid #333;border-radius:10px;padding:10px;margin:5px 0;display:flex;justify-content:space-between;font-size:13px}
-.team.top{border-color:#FFD60A;background:#222;box-shadow:0 0 10px #FFD60A}
-.table-box{background:#111;border:2px solid #FFD60A;border-radius:12px;padding:10px;margin:10px 0}
-table{width:100%;border-collapse:collapse;color:#fff;font-size:12px}
-th{background:#FFD60A;color:#000;padding:7px}
-td{padding:6px;border-bottom:1px solid #333}
-.top-team{background:#222;color:#FFD60A;font-weight:bold}
-
-/* FIXTURES NGATI SCREENSHOT */
-.fixtures-box{background:#000;border:2px solid #FFD60A;border-radius:15px;padding:12px;margin:12px 0;text-align:left}
-.day-badge{background:#FFD700;color:#000;padding:6px 16px;border-radius:20px;font-weight:bold;display:inline-block;margin:14px 0 8px 0;font-size:14px}
-.match-card{background:#141414;border:1px solid #333;border-radius:12px;padding:12px;margin:8px 0;display:flex;justify-content:center;align-items:center;gap:6px}
-.team-name{color:#FFD60A;font-size:12px;width:85px;text-align:right}
-.team-name.right{text-align:left}
-.score-box{background:#000;border:2px solid #FFD60A;border-radius:8px;width:52px;height:32px;color:#fff;text-align:center;font-weight:bold;font-size:16px}
-.score-box:disabled{opacity:0.5}
-.sungani-btn{background:#FFD700;color:#000;border:none;width:100%;padding:10px;border-radius:10px;font-weight:bold;margin:6px 0 12px 0;cursor:pointer;font-size:13px}
-.sungani-btn:disabled{background:#555;color:#888}
-.reset-btn{background:#FFD60A;color:#000;border:none;padding:12px 20px;border-radius:25px;font-weight:bold;margin:10px;cursor:pointer}
+body{background:#111b21;font-family:Arial;height:100vh;display:flex;flex-direction:column}
+.top{background:#000;padding:12px;display:flex;align-items:center;gap:12px;color:#fff;border-bottom:3px solid #FFD60A}
+.top .logo{width:45px;height:45px;border-radius:50%;background:#FFD60A;display:flex;align-items:center;justify-content:center;font-size:24px;border:2px solid #FFD60A}
+.top h2{font-size:17px;color:#FFD60A} .top p{font-size:11px;color:#8696a0}
+.login{flex:1;background:#0a0a0a;display:flex;flex-direction:column;justify-content:center;align-items:center;padding:20px}
+.login-box{background:#000;padding:25px;border-radius:15px;width:90%;max-width:350px;text-align:center;border:2px solid #FFD60A;box-shadow:0 0 20px rgba(255,214,10,0.3)}
+.login-box h1{color:#FFD60A;margin-bottom:8px;font-size:22px}
+.login-box h3{color:#fff;font-size:13px;margin-bottom:15px}
+.login-box input{width:100%;padding:14px;border:2px solid #333;border-radius:25px;background:#111;color:#fff;margin:10px 0;text-align:center;font-size:15px}
+.btn{background:#FFD60A;color:#000;border:none;padding:14px;width:100%;border-radius:25px;font-weight:bold;cursor:pointer;margin-top:10px;font-size:16px}
+.chat{display:none;flex:1;flex-direction:column}
+.msgs{flex:1;overflow-y:auto;padding:12px;background:#0b141a;background-image:url('https://user-images.githubusercontent.com/15075759/28719144-86dc0f70-73b1-11e7-911d-60d70fcded21.png')}
+.bubble{max-width:78%;padding:9px 12px;border-radius:12px;margin:7px 0;position:relative;word-wrap:break-word;font-size:14px;line-height:18px;box-shadow:0 1px 1px rgba(0,0,0,0.4)}
+.bubble.other{background:#202c33;color:#e9edef;align-self:flex-start;border-top-left-radius:0;border:1px solid #333}
+.bubble.me{background:#FFD60A;color:#000;align-self:flex-end;margin-left:auto;border-top-right-radius:0;font-weight:500}
+.bubble .name{color:#FFD60A;font-size:11px;font-weight:bold;margin-bottom:3px}
+.bubble.me .name{color:#000}
+.bubble .time{font-size:10px;color:#555;float:right;margin-left:10px;margin-top:6px}
+.bubble.other .time{color:#8696a0}
+.input-bar{background:#000;padding:10px;display:flex;align-items:center;gap:8px;border-top:2px solid #FFD60A}
+.input-bar input{flex:1;padding:13px 16px;border-radius:25px;border:2px solid #333;background:#111;color:#fff;font-size:15px}
+.send{background:#FFD60A;width:48px;height:48px;border-radius:50%;border:none;color:#000;font-size:20px;cursor:pointer;display:flex;align-items:center;justify-content:center;font-weight:bold}
 </style>
 </head>
 <body>
 
-<div class="header">
-<h1>👑 MNDL - VICTOR EDWARD 👑</h1>
-<p>💛 MACHINGA NTAJA DREAM LEAGUE 💛</p>
+<div class="top">
+<div class="logo">👑</div>
+<div>
+<h2>VICTOR EDWARD CHAT 👑</h2>
+<p>MACHINGA NTAJA - WhatsApp Yanu Yaulere 💛</p>
+</div>
 </div>
 
-<div id="teams"></div>
-
-<div class="table-box">
-<h3 style="margin-bottom:8px">🏆 TABLE - AMENE ALI NDI POINTS AMBIRI #1 🏆</h3>
-<table>
-<thead><tr><th>#</th><th>Team</th><th>P</th><th>W</th><th>D</th><th>L</th><th>Pts</th></tr></thead>
-<tbody id="table"></tbody>
-</table>
+<div id="login" class="login">
+<div class="login-box">
+<h1>👑 VICTOR EDWARD CHAT</h1>
+<h3>Machinga Ntaja Dream League</h3>
+<p style="color:#888;font-size:12px;margin-bottom:10px">WhatsApp Yanu - Yaulere - Data Yochepa!</p>
+<input id="userName" placeholder="Dzina Lanu - VICTOR EDWARD" maxlength="25">
+<button class="btn" onclick="joinChat()">💛 LOWANI MU CHAT</button>
+<p style="color:#555;font-size:10px;margin-top:12px">🔒 Yotetezeka | ⚡ 1KB pa uthenga | 🌍 Kutali</p>
+</div>
 </div>
 
-<div class="fixtures-box">
-<h3 style="color:#fff;border-left:4px solid #FFD60A;padding-left:8px">📅 Fixtures - Masewera Onse</h3>
-<div id="fixtures"></div>
-<button class="reset-btn" onclick="resetLeague()">🔄 YAMBANSO LEAGUE</button>
+<div id="chat" class="chat">
+<div class="msgs" id="msgs"></div>
+<div class="input-bar">
+<input id="msgIn" placeholder="Lembani uthenga BOSS..." onkeypress="if(event.key==='Enter')sendMsg()">
+<button class="send" onclick="sendMsg()">➤</button>
+</div>
 </div>
 
 <script>
-let teams=[
-{name:"Kill Me Or You KILLED",p:0,w:0,d:0,l:0,pts:0},
-{name:"Night Plus Champion",p:0,w:0,d:0,l:0,pts:0},
-{name:"TBO City FC",p:0,w:0,d:0,l:0,pts:0},
-{name:"Umbwa City FC",p:0,w:0,d:0,l:0,pts:0}
-];
+let myName="", topic="victor-edward-chat-mndl-2026-official", lastId="";
 
-let fixtures=[
-[0,1],[2,3],
-[1,3],[2,0],
-[0,3],[1,2],
-[1,0],[3,2],
-[3,1],[0,2],
-[3,0],[2,1]
-];
+function joinChat(){
+ let n=document.getElementById('userName').value.trim();
+ if(!n){alert("Lowetsani Dzina BOSS VICTOR!");return;}
+ myName=n;
+ document.getElementById('login').style.display='none';
+ document.getElementById('chat').style.display='flex';
+ addMsg("VICTOR EDWARD BOT","Takulandirani BOSS "+myName+"! 👑 VICTOR EDWARD CHAT yayamba! Tsopano mutha kucheza ndi anzanu a Machinga-Ntaja kutali kulikonse! 💛",false);
+ listen();
+ setInterval(listen,2500);
+}
 
-let results=Array(fixtures.length).fill(null);
+function addMsg(name,text,isMeCheck=true){
+ let box=document.getElementById('msgs');
+ let div=document.createElement('div');
+ let isMe=isMeCheck && name===myName;
+ let cls=isMe?'me':'other';
+ let time=new Date().toLocaleTimeString().slice(0,5);
+ let showName=!isMe && name!=="VICTOR EDWARD BOT";
+ div.className='bubble '+cls;
+ div.innerHTML=`${showName?`<div class="name">${name}</div>`:''}${name==="VICTOR EDWARD BOT"?`<div class="name" style="color:#FFD60A">👑 ${name}</div>`:''}<span>${text}</span><span class="time">${time} ✓✓</span>`;
+ box.appendChild(div);
+ box.scrollTop=999999;
+}
 
-function render(){
-  document.getElementById('teams').innerHTML=teams.map(t=>{
-    let isKill=t.name.includes("KILL");
-    return `<div class="team ${isKill?'top':''}"><span>${isKill?'👑 ':'⚽ '}${t.name}${isKill?' - VICTOR EDWARD':''}</span><span><b>${t.pts} PTS</b></span></div>`
-  }).join('');
+async function sendMsg(){
+ let inp=document.getElementById('msgIn');
+ let txt=inp.value.trim();
+ if(!txt) return;
+ try{
+  await fetch(`https://ntfy.sh/${topic}`,{method:'POST',body:JSON.stringify({name:myName,text:txt}),headers:{Title:"VICTOR EDWARD CHAT"}});
+  addMsg(myName,txt);
+  inp.value="";
+ }catch(e){
+  addMsg(myName,txt+" (yosungidwa)",true);
+  inp.value="";
+ }
+}
 
-  // TABLE YA FAIR - AMENE ALI NDI POINTS AMBIRI #1
-  let sorted=[...teams].map((t,idx)=>({...t,orig:idx})).sort((a,b)=> b.pts - a.pts || b.w - a.w);
-  document.getElementById('table').innerHTML=sorted.map((t,i)=>{
-    let isKill=t.name.includes("KILL");
-    let crown=i===0?"👑 ":"";
-    let name=t.name.length>20?t.name.substring(0,18)+"..":t.name;
-    return `<tr class="${i===0?'top-team':''}"><td>${crown}${i+1}</td><td style="text-align:left">${name}${isKill?' - BOSS':''}</td><td>${t.p}</td><td>${t.w}</td><td>${t.d}</td><td>${t.l}</td><td><b>${t.pts}</b></td></tr>`
-  }).join('');
-
-  // FIXTURES NGATI SCREENSHOT
-  let html="";
-  let day=0;
-  for(let i=0;i<fixtures.length;i++){
-    if(i%2===0){
-      day++;
-      html+=`<div class="day-badge">DAY ${day}</div>`;
-    }
-    let a=fixtures[i][0], b=fixtures[i][1];
-    let t1=teams[a].name, t2=teams[b].name;
-    let res=results[i];
-    let v1=res?res[0]:"", v2=res?res[1]:"";
-    let disabled=res?"disabled":"";
-    html+=`
-      <div class="match-card">
-        <div class="team-name">${t1}</div>
-        <input id="s${i}_0" class="score-box" type="number" min="0" value="${v1}" ${disabled} placeholder="0">
-        <span style="color:#fff">-</span>
-        <input id="s${i}_1" class="score-box" type="number" min="0" value="${v2}" ${disabled} placeholder="0">
-        <div class="team-name right">${t2}</div>
-      </div>
-      <button class="sungani-btn" ${disabled} onclick="sungani(${i})">Sungani ${t1} vs ${t2} ${res?'✅':''}</button>
-    `;
+async function listen(){
+ try{
+  let r=await fetch(`https://ntfy.sh/${topic}/json?poll=1`);
+  let t=await r.text();
+  let lines=t.split('\n').filter(l=>l.trim());
+  for(let l of lines){
+   try{
+    let j=JSON.parse(l);
+    if(!j.message) continue;
+    if(j.id===lastId) continue;
+    let inner=JSON.parse(j.message);
+    if(inner.name===myName) continue;
+    lastId=j.id;
+    addMsg(inner.name,inner.text,true);
+   }catch(e){}
   }
-  document.getElementById('fixtures').innerHTML=html;
+ }catch(e){}
 }
-
-function sungani(idx){
-  let g1=document.getElementById(`s${idx}_0`).value;
-  let g2=document.getElementById(`s${idx}_1`).value;
-  if(g1===""||g2===""){alert("Lowetsani Zigoli Zonse BOSS!");return;}
-  g1=parseInt(g1); g2=parseInt(g2);
-  if(results[idx]) return;
-
-  results[idx]=[g1,g2];
-  let a=fixtures[idx][0], b=fixtures[idx][1];
-  teams[a].p++; teams[b].p++;
-  if(g1>g2){teams[a].w++; teams[a].pts+=3; teams[b].l++;}
-  else if(g2>g1){teams[b].w++; teams[b].pts+=3; teams[a].l++;}
-  else{teams[a].d++; teams[b].d++; teams[a].pts++; teams[b].pts++;}
-
-  render();
-
-  // Ngati League Yatha - Onetsani Champion
-  if(results.every(r=>r!==null)){
-    let sorted=[...teams].sort((x,y)=> y.pts - x.pts);
-    setTimeout(()=>alert(`🏆 CHAMPION BOSS: ${sorted[0].name} ndi ${sorted[0].pts} Points! 👑`),300);
-  }
-}
-
-function resetLeague(){
-  if(!confirm("Mukufuna kuyambanso BOSS VICTOR?")) return;
-  teams.forEach(t=>{t.p=0;t.w=0;t.d=0;t.l=0;t.pts=0;});
-  results=Array(fixtures.length).fill(null);
-  render();
-}
-
-render();
 </script>
 </body>
 </html>
