@@ -1,34 +1,145 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ny">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>MACHINGA NTAJA DREAM LEAGUE</title>
+<title>MNDL - Dream League</title>
 <link rel="manifest" href="manifest.json">
 <meta name="theme-color" content="#FFD60A">
 <style>
-/* CSS YANU - SUNGAMO POMENEPO */
-body{
-  margin:0;
-  font-family:Arial,sans-serif;
-  background:#000;
-  color:#FFD60A;
-  text-align:center;
-}
-h1{margin-top:50px;}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#0a0a0a;color:#FFD60A;font-family:Arial,sans-serif;padding:10px}
+h1{text-align:center;font-size:22px;margin:10px 0}
+.card{background:#111;border:2px solid #FFD60A;border-radius:12px;padding:12px;margin:10px 0}
+h2{color:#fff;font-size:16px;margin-bottom:8px;border-left:4px solid #FFD60A;padding-left:8px}
+.team{display:flex;justify-content:space-between;padding:8px;border-bottom:1px solid #222;font-size:13px}
+.fixture{background:#1a1a1a;border:1px solid #333;border-radius:8px;padding:10px;margin:6px 0;display:flex;justify-content:space-between;align-items:center}
+.fixture.vs{color:#FFD60A;font-weight:bold}
+.btn{background:#FFD60A;color:#000;border:none;padding:12px;border-radius:8px;font-weight:bold;width:100%;margin:6px 0}
+.btn2{background:#fff;color:#000}
+input{width:45px;background:#000;color:#fff;border:1px solid #FFD60A;text-align:center;padding:5px;border-radius:5px}
+table{width:100%;border-collapse:collapse}
+th{background:#FFD60A;color:#000;padding:5px;font-size:11px}
+td{padding:5px;text-align:center;border-bottom:1px solid #222;font-size:12px}
+.day{background:#FFD60A;color:#000;padding:5px 10px;border-radius:20px;font-weight:bold;font-size:12px;margin:10px 0;display:inline-block}
 </style>
 </head>
 <body>
+<h1>⚽ MACHINGA NTAJA<br>DREAM LEAGUE</h1>
+<p style="text-align:center;color:#fff;font-size:12px">Umbwa City Edition - Ndi Anzanga</p>
 
-<h1>MACHINGA NTAJA DREAM LEAGUE</h1>
-<p>Welcome to MNDL - MVP Edition!</p>
+<div class="card">
+<h2>🏆 Ma Team Anu</h2>
+<div id="teams"></div>
+</div>
 
-<!-- MASEWERA ANU ALI POMENEPO - SUNGAMO CODE YANU YONSE YA MASEWERA -->
+<div class="card">
+<h2>📊 Table</h2>
+<table>
+<tr><th>#</th><th style="text-align:left">Team</th><th>P</th><th>W</th><th>D</th><th>L</th><th>Pts</th></tr>
+<tbody id="table"></tbody>
+</table>
+</div>
+
+<div class="card">
+<h2>📅 Ma Fixtures - Masewera Onse</h2>
+<div id="fixtures"></div>
+<button class="btn" onclick="generateFixtures()">PANGANI FIXTURES ZATSOPANO 🔄</button>
+<button class="btn btn2" onclick="resetAll()">Bwezeretsani Zonse</button>
+</div>
 
 <script>
-if('serviceWorker' in navigator){
-  navigator.serviceWorker.register('sw.js');
+const teamNames=[
+"Umbwa City FC",
+"Kill Me Or You Killed",
+"TBO City FC",
+"Night Plus Champion",
+"Umbwa United FC",
+"Umbwa City Stars",
+"TBO United FC",
+"Night Plus Warriors"
+];
+
+let teams = JSON.parse(localStorage.getItem('mndl_final_teams')||'null') || teamNames.map(n=>({name:n,p:0,w:0,d:0,l:0,gf:0,ga:0,pts:0}));
+let fixtures = JSON.parse(localStorage.getItem('mndl_fixtures')||'null') || [];
+
+function save(){localStorage.setItem('mndl_final_teams',JSON.stringify(teams)); localStorage.setItem('mndl_fixtures',JSON.stringify(fixtures));}
+
+function generateFixtures(){
+ fixtures=[];
+ let temp=[...teamNames];
+ // Round Robin
+ for(let round=0; round<7; round++){
+  let roundGames=[];
+  for(let i=0;i<4;i++){
+   roundGames.push({home:temp[i], away:temp[7-i], homeG:null, awayG:null, played:false, round:round+1});
+  }
+  fixtures.push(...roundGames);
+  temp.splice(1,0,temp.pop());
+ }
+ save(); renderFixtures();
+ alert("Fixtures Zapangidwa! 28 Masewera! 🔥");
 }
+
+function render(){
+ document.getElementById('teams').innerHTML=teams.map(t=>`<div class="team"><span>⚽ ${t.name}</span><span>${t.pts} pts</span></div>`).join('');
+ let sorted=[...teams].sort((a,b)=>b.pts-a.pts || (b.gf-b.ga)-(a.gf-a.ga));
+ document.getElementById('table').innerHTML=sorted.map((t,i)=>`<tr><td>${i+1}</td><td style="text-align:left">${t.name}</td><td>${t.p}</td><td>${t.w}</td><td>${t.d}</td><td>${t.l}</td><td><b>${t.pts}</b></td></tr>`).join('');
+}
+
+function renderFixtures(){
+ if(fixtures.length==0){document.getElementById('fixtures').innerHTML='<p style="color:#fff;text-align:center">Dinani Pangani Fixtures!</p>'; return;}
+ let html='';
+ let currentRound=0;
+ fixtures.forEach((f,idx)=>{
+  if(f.round!=currentRound){currentRound=f.round; html+=`<div class="day">DAY ${currentRound}</div>`;}
+  html+=`<div class="fixture">
+   <span style="width:35%;text-align:right;font-size:11px">${f.home}</span>
+   <span style="display:flex;gap:4px;align-items:center">
+    <input id="h${idx}" type="number" value="${f.homeG!==null?f.homeG:''}" ${f.played?'disabled':''} placeholder="0">
+    <span class="vs">-</span>
+    <input id="a${idx}" type="number" value="${f.awayG!==null?f.awayG:''}" ${f.played?'disabled':''} placeholder="0">
+   </span>
+   <span style="width:35%;font-size:11px">${f.away}</span>
+  </div>
+  ${!f.played?`<button class="btn" style="padding:6px;font-size:11px" onclick="saveScore(${idx})">Sungani Zotsatira za ${f.home} vs ${f.away} ✅</button>`: `<p style="color:#0f0;font-size:11px;text-align:center">✅ ${f.homeG}-${f.awayG} - Yatha</p>`}
+  `;
+ });
+ document.getElementById('fixtures').innerHTML=html;
+}
+
+function saveScore(idx){
+ let hg=parseInt(document.getElementById('h'+idx).value);
+ let ag=parseInt(document.getElementById('a'+idx).value);
+ if(isNaN(hg)||isNaN(ag)){alert("Ikani zigoli!"); return;}
+ let f=fixtures[idx];
+ if(f.played) return;
+ f.homeG=hg; f.awayG=ag; f.played=true;
+
+ let homeTeam=teams.find(t=>t.name==f.home);
+ let awayTeam=teams.find(t=>t.name==f.away);
+ homeTeam.p++; awayTeam.p++;
+ homeTeam.gf+=hg; homeTeam.ga+=ag;
+ awayTeam.gf+=ag; awayTeam.ga+=hg;
+ if(hg>ag){homeTeam.w++; homeTeam.pts+=3; awayTeam.l++;}
+ else if(ag>hg){awayTeam.w++; awayTeam.pts+=3; homeTeam.l++;}
+ else{homeTeam.d++; awayTeam.d++; homeTeam.pts+=1; awayTeam.pts+=1;}
+
+ save(); render(); renderFixtures();
+}
+
+function resetAll(){
+ if(confirm("Bwezeretsa zonse? Table ndi Fixtures zidzafa!")){
+  localStorage.clear();
+  teams=teamNames.map(n=>({name:n,p:0,w:0,d:0,l:0,gf:0,ga:0,pts:0}));
+  fixtures=[];
+  render(); renderFixtures();
+ }
+}
+
+if(fixtures.length==0) generateFixtures();
+render(); renderFixtures();
+if('serviceWorker' in navigator){navigator.serviceWorker.register('sw.js');}
 </script>
 </body>
 </html>
