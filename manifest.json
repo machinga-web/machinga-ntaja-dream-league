@@ -1,14 +1,14 @@
 {
-  "name": "MACHINGA NTAJA DREAM LEAGUE",
-  "short_name": "MNDL",
-  "description": "Machinga Ntaja Dream League Official",
-  "start_url": "./",
+  "name": "MNDL LYRICS - Victor Edward",
+  "short_name": "MNDL Lyrics",
+  "description": "Machinga Ntaja Dream League - Lyrics App",
+  "start_url": "lyrics.html",
   "display": "standalone",
-  "background_color": "#0a0a0f",
+  "background_color": "#111111",
   "theme_color": "#FFD60A",
   "icons": [
     {
-      "src": "https://cdn-icons-png.flaticon.com/512/1165/1165187.png",
+      "src": "https://cdn-icons-png.flaticon.com/512/138/138817.png",
       "sizes": "512x512",
       "type": "image/png"
     }
