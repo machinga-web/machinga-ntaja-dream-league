@@ -3,81 +3,167 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>MACHINGA BOY VIC - V4 FULL SQUAD 28</title>
+<title>Manchester City - Machinga Boy VIC - DLS Super League</title>
 <style>
-body{font-family:Arial;background:#001428;color:white;padding:6px;margin:0}
-.header{background:linear-gradient(90deg,gold,#ffcc00);color:#000;padding:14px;text-align:center;font-weight:900;font-size:17px;border-radius:12px;border:3px solid #fff}
-.logos{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin:12px 0}
-.logo-card{background:linear-gradient(180deg,#0a3d8f,#001428);border:3px solid gold;border-radius:16px;padding:12px;text-align:center;cursor:pointer}
-.logo-circle{width:70px;height:70px;background:radial-gradient(gold,#ffcc00);border-radius:50%;margin:0 auto 6px;display:flex;align-items:center;justify-content:center;font-size:32px;border:3px solid white}
-.card{background:#fff;color:#000;border-radius:12px;padding:12px;margin-bottom:12px;border-left:6px solid gold}
-table{width:100%;border-collapse:collapse} th{background:#0a3d8f;color:white;padding:6px;font-size:11px} td{padding:6px;text-align:center;border-bottom:1px solid #ddd;font-size:12px}
-.modal{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.88);z-index:999;overflow:auto}
-.modal-content{background:white;color:black;margin:3% auto;width:94%;max-width:520px;border-radius:16px;border:4px solid gold;padding:15px;max-height:85vh;overflow:auto}
-.close{float:right;font-size:28px;font-weight:bold;cursor:pointer;color:red}
-.chip{background:linear-gradient(gold,#ffcc00);padding:4px 8px;border-radius:12px;font-size:10px;font-weight:bold;margin:2px;display:inline-block;border:1px solid #000}
-.chip.gk{background:linear-gradient(#ff4444,#ff8844);color:white}
-.chip.reserve{background:#e6f0ff;border:1px solid #0a3d8f}
-.match-row{display:flex;justify-content:space-between;align-items:center;background:#f0f6ff;padding:6px;border-radius:7px;margin-bottom:4px;font-size:12px}
-button{background:gold;font-weight:bold;padding:10px;border-radius:8px;border:2px solid #000;width:100%;cursor:pointer}
-.live-input{width:28px;text-align:center;font-weight:bold;border:2px solid gold;border-radius:4px}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Arial;background:#f1f2f5;color:#1a1a1a}
+.header-dark{background:#12182b;color:white;padding:14px 16px;display:flex;align-items:center;justify-content:space-between}
+.header-left{display:flex;align-items:center;gap:12px}
+.team-logo{width:52px;height:52px;background:white;border-radius:50%;padding:3px}
+.team-logo img{width:100%;height:100%;border-radius:50%;object-fit:cover}
+.tabs{display:flex;overflow-x:auto;background:#1e2642;color:#a0a8c0;border-bottom:1px solid #2a3355;gap:0}
+.tab{padding:14px 18px;font-size:14px;white-space:nowrap;cursor:pointer;border-bottom:3px solid transparent}
+.tab.active{color:white;border-bottom:3px solid #2e7eff;font-weight:700}
+.content{padding:10px;max-width:600px;margin:auto}
+.card{background:white;border-radius:16px;padding:16px;margin-bottom:12px;box-shadow:0 1px 4px rgba(0,0,0,0.08)}
+.comp-title{font-size:12px;color:#6b7280;display:flex;justify-content:space-between;align-items:center}
+.match-main{display:flex;justify-content:space-between;align-items:center;margin:18px 0}
+.match-team{text-align:center;width:90px}
+.match-team .logo{width:56px;height:56px;background:#f3f4f6;border-radius:50%;margin:0 auto 6px;display:flex;align-items:center;justify-content:center;font-size:28px;border:2px solid #e5e7eb}
+.score{font-size:38px;font-weight:900}
+.score-draw{color:#6b7280}
+.odds-row{display:flex;gap:8px;margin-top:14px;padding-top:14px;border-top:1px solid #f0f0f0;align-items:center}
+.odds-chip{border:1px solid #d1d5db;border-radius:8px;padding:7px 12px;font-size:13px;font-weight:700;flex:1;text-align:center}
+.odds-chip.x{background:#eef2ff;border-color:#2e7eff;color:#1e3a8a}
+.recent-title{font-size:18px;font-weight:800;margin-bottom:12px;display:flex;justify-content:space-between}
+.recent-grid{display:flex;gap:10px;overflow-x:auto;padding-bottom:4px}
+.recent-item{min-width:72px;text-align:center}
+.recent-logo{width:48px;height:48px;background:#f9fafb;border-radius:50%;margin:0 auto 6px;display:flex;align-items:center;justify-content:center;font-size:24px;border:1px solid #eee}
+.recent-score{padding:4px 10px;border-radius:6px;font-weight:800;font-size:13px;color:white}
+.win{background:#22c55e} .loss{background:#ef4444}
+.date{font-size:10px;color:#6b7280;margin-top:2px}
+.squad-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.player-card{background:#f8fafc;border:1px solid #e5e7eb;border-radius:10px;padding:8px;text-align:center}
+.player-card b{font-size:11px} .player-card small{font-size:10px;color:#6b7280}
+.hidden{display:none}
 </style>
 </head>
 <body>
-<div class="header">🏆 MACHINGA BOY VIC - FULL SQUAD 28 - V4 🏆<br><small>Dinani Logo Kuti Muone Players Onse</small></div>
 
-<div class="logos">
-<div class="logo-card" onclick="showTeam('manCity')"><div class="logo-circle">🔵</div><b>MAN CITY VIC</b><br><small>28 Players - TAP</small></div>
-<div class="logo-card" onclick="showTeam('tbo')"><div class="logo-circle">🏙️</div><b>TBO CITY</b><br><small>19 Players - TAP</small></div>
-<div class="logo-card" onclick="showTeam('crazy')"><div class="logo-circle">🎮</div><b>CRAZY GAME</b><br><small>20 Players - TAP</small></div>
-<div class="logo-card" onclick="showTeam('gunman')"><div class="logo-circle">🔫</div><b>GUNMAN</b><br><small>19 Players - TAP</small></div>
+<div class="header-dark">
+  <div class="header-left">
+    <div class="team-logo"><img src="https://upload.wikimedia.org/wikipedia/en/e/eb/Manchester_City_FC_badge.svg" alt="MC"></div>
+    <div><div style="font-size:20px;font-weight:800">Manchester City</div><div style="font-size:13px;color:#a0a8c0">🏴󠁧󠁢󠁥󠁮󠁧󠁿 England • DLS Super League</div><div style="font-size:11px;color:gold">MACHINGA BOY VIC • 4.1M Followers</div></div>
+  </div>
+  <div style="font-size:22px">⭐</div>
 </div>
 
-<div class="card"><h3>📊 LOG TABLE</h3><table id="logTable"></table></div>
-<div class="card"><h3>⚔️ LIVE SCORE</h3><div id="matches"></div><button onclick="saveScores()">💾 Save</button></div>
+<div class="tabs">
+  <div class="tab" onclick="switchTab('details')">Details</div>
+  <div class="tab active" onclick="switchTab('matches')">Matches</div>
+  <div class="tab" onclick="switchTab('standings')">Standings</div>
+  <div class="tab" onclick="switchTab('squad')">Squad</div>
+  <div class="tab" onclick="switchTab('top')">Top players</div>
+  <div class="tab" onclick="switchTab('stats')">Statistics</div>
+</div>
 
-<div id="playerModal" class="modal"><div class="modal-content"><span class="close" onclick="closeModal()">&times;</span><h3 id="modalTitle" style="color:#0a3d8f;border-bottom:2px solid gold"></h3><div id="modalBody"></div><button onclick="closeModal()" style="margin-top:10px">Tsekani</button></div></div>
+<div class="content">
+
+<!-- MATCHES TAB -->
+<div id="tab-matches">
+  <div class="card">
+    <div class="comp-title"><span>⚽ England, EFL Cup, Round 4</span><span style="color:#2e7eff">›</span></div>
+    <div class="match-main">
+      <div class="match-team"><div class="logo">🔵</div><b>Man City</b></div>
+      <div style="text-align:center"><div class="score">2 <span class="score-draw">- 2</span></div><div style="background:#e5e7eb;padding:2px 8px;border-radius:4px;font-size:11px;display:inline-block;margin-top:4px">FT</div></div>
+      <div class="match-team"><div class="logo">🔵</div><b>Brighton</b></div>
+    </div>
+    <div class="odds-row"><span style="font-size:12px;color:#6b7280;flex:1">Gamble responsibly 18+</span><span class="odds-chip">1 1,85 ▲</span><span class="odds-chip x">X 3,90 ▼</span><span class="odds-chip">2 3,60 ▼</span></div>
+  </div>
+
+  <div class="card">
+    <div class="recent-title"><span>Recent form</span><span style="font-size:12px;color:#6b7280;font-weight:400">Last 5 • All competitions</span></div>
+    <div class="recent-grid">
+      <div class="recent-item"><div class="date">14/10</div><div class="recent-logo">🔴</div><div class="recent-score loss">2 - 4</div><div class="date">A • PSG</div></div>
+      <div class="recent-item"><div class="date">17/10</div><div class="recent-logo">🔵</div><div class="recent-score win">3 - 2</div><div class="date">H • Ipswich</div></div>
+      <div class="recent-item"><div class="date">20/10</div><div class="recent-logo">🟡</div><div class="recent-score win">5 - 1</div><div class="date">H • AEK</div></div>
+      <div class="recent-item"><div class="date">24/10</div><div class="recent-logo">🦁</div><div class="recent-score loss">2 - 1</div><div class="date">A • Aston Villa</div></div>
+      <div class="recent-item"><div class="date">28/10</div><div class="recent-logo">🔵</div><div class="recent-score win">(4)2-2(3)</div><div class="date">H • Brighton • Pens</div></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="comp-title" style="margin-bottom:10px"><b>DLS SUPER LEAGUE - Your League</b></div>
+    <div style="display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid #f0f0f0"><span>Man City 2-1 TBO City</span><span style="color:#22c55e;font-weight:800">W</span></div>
+    <div style="display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid #f0f0f0"><span>Crazy Game 3-0 Gunman</span><span style="color:#ef4444">L</span></div>
+    <div style="display:flex;justify-content:space-between;padding:8px 0"><span>Man City 4-0 Gunman</span><span style="color:#22c55e;font-weight:800">W</span></div>
+  </div>
+</div>
+
+<!-- SQUAD TAB - 28 PLAYERS -->
+<div id="tab-squad" class="hidden">
+  <div class="card"><b>Starting XI - 4-3-3 Attack</b><br><small style="color:#6b7280">MACHINGA BOY VIC</small>
+    <div class="squad-grid" style="margin-top:10px">
+      <div class="player-card"><b>91 Yamal RW</b><br><small>Attack</small></div>
+      <div class="player-card"><b>90 Kvaratskhelia LW</b><br><small>Attack</small></div>
+      <div class="player-card"><b>90 Ziyech RW</b><br><small>Attack</small></div>
+      <div class="player-card"><b>89 Mendes LB</b></div>
+      <div class="player-card"><b>88 Valverde CM</b></div>
+      <div class="player-card"><b>85 Szoboszlai AM</b></div>
+      <div class="player-card"><b>92 Rodri DM</b></div>
+      <div class="player-card"><b>85 Van Dijk CB</b></div>
+      <div class="player-card"><b>91 Cannavaro CB</b></div>
+      <div class="player-card"><b>89 Dias CB</b></div>
+      <div class="player-card" style="background:#fee2e2"><b>95 Donnarumma GK</b></div>
+    </div>
+  </div>
+  <div class="card"><b>SUBS (8/8) - Gold Bench</b>
+    <div class="squad-grid" style="margin-top:8px">
+      <div class="player-card" style="background:#fffbeb"><b>93 Mbappe CF</b></div>
+      <div class="player-card" style="background:#fffbeb"><b>91 Haaland CF</b></div>
+      <div class="player-card"><b>87 Dembele CF</b></div>
+      <div class="player-card"><b>87 Aubameyang CF</b></div>
+      <div class="player-card"><b>86 De Bruyne AM</b></div>
+      <div class="player-card"><b>86 Pedri CM</b></div>
+      <div class="player-card"><b>85 Bellingham AM</b></div>
+      <div class="player-card"><b>85 Caicedo DM</b></div>
+    </div>
+  </div>
+  <div class="card"><b>RESERVES - 15 Players</b>
+    <div class="squad-grid" style="margin-top:8px">
+      <div class="player-card"><b>87 Saliba CB</b></div>
+      <div class="player-card"><b>87 Raya GK</b></div>
+      <div class="player-card"><b>88 Hakimi RB</b></div>
+      <div class="player-card"><b>84 Semenyo RW</b></div>
+      <div class="player-card"><b>82 Cherki RW</b></div>
+      <div class="player-card"><b>82 Foden AM</b></div>
+      <div class="player-card"><b>82 Fernandez CM</b></div>
+      <div class="player-card"><b>81 Simon GK</b></div>
+      <div class="player-card"><b>80 Cucurella LB</b></div>
+      <div class="player-card"><b>79 Ndiaye RW</b></div>
+      <div class="player-card"><b>79 Anderson DM</b></div>
+      <div class="player-card"><b>79 Ait-Nouri LB</b></div>
+      <div class="player-card"><b>79 Khusanov CB</b></div>
+      <div class="player-card"><b>79 Nunes RB</b></div>
+      <div class="player-card"><b>75 Bouaddi CM</b></div>
+    </div>
+  </div>
+</div>
+
+<!-- STANDINGS -->
+<div id="tab-standings" class="hidden">
+  <div class="card"><b>DLS SUPER LEAGUE - 4 TEAMS</b>
+    <table style="width:100%;margin-top:10px"><tr style="color:#6b7280;font-size:11px"><th>#</th><th style="text-align:left">TEAM</th><th>P</th><th>W</th><th>Pts</th></tr>
+    <tr style="background:#f0fdf4"><td>1</td><td style="text-align:left">Crazy Game FC</td><td>3</td><td>2</td><td><b>7</b></td></tr>
+    <tr><td>2</td><td style="text-align:left">Man City FC (VIC)</td><td>3</td><td>2</td><td><b>6</b></td></tr>
+    <tr><td>3</td><td style="text-align:left">TBO City FC</td><td>3</td><td>0</td><td>2</td></tr>
+    <tr><td>4</td><td style="text-align:left">Gunman FC</td><td>3</td><td>0</td><td>1</td></tr>
+    </table>
+  </div>
+</div>
+
+</div>
 
 <script>
-const squads={
- manCity:{
-  name:"MAN CITY FC - MACHINGA BOY VIC - FULL 28",
-  formation:"4-3-3 Attack - 28 Players",
-  starting:["91 Yamal RW","90 Kvaratskhelia LW","90 Ziyech RW","89 Mendes LB","88 Valverde CM","85 Szoboszlai AM","92 Rodri DM","85 Van Dijk CB","91 Cannavaro CB","89 Dias CB","95 Donnarumma GK"],
-  subs:["93 Mbappe CF","91 Haaland CF","87 Dembele CF","87 Aubameyang CF","86 De Bruyne AM","86 Pedri CM","85 Bellingham AM","85 Caicedo DM"],
-  reserves:["87 Saliba CB","87 Raya GK","88 Hakimi RB","84 Semenyo RW","82 Cherki RW","82 Foden AM","82 Fernandez CM","81 Simon GK","80 Cucurella LB","79 Ndiaye RW","79 Anderson DM","79 Ait-Nouri LB","79 Khusanov CB","79 Nunes RB","75 Bouaddi CM"]
- },
- tbo:{name:"TBO CITY FC - HANEEF",formation:"4-2-3-1",starting:["93 Haaland CF","87 Doku LW","86 Cherki RW","92 Yamal RW","94 Rodri DM","87 Anderson DM","88 O'Reilly LB","87 Gvardiol CB","83 Khusanov CB","89 Hakimi RB","90 Donnarumma GK"],subs:["89 Guler AM","86 Foden AM","82 Ndiaye RW","89 Mendes LB","79 Rulli GK","89 Pedri CM","80 Yildiz SS","86 Kounde LB"],reserves:[]},
- crazy:{name:"CRAZY GAME FC - CFC",formation:"ULTRA 99",starting:["99 Dembele CF","99 Haaland CF","98 Fernandes AM","99 Vini Jr LW","98 Olise RW","98 Valverde CM","89 Balde LB","95 Dias CB","95 Hakimi RB","94 Courtois GK"],subs:["98 Vitinha CM","96 Mbappe CF","90 Yamal RW","82 Cancelo RB","91 Palmer AM","88 Williams LM","93 Raphinha LW","89 Cannavaro CB"],reserves:["95 Pedri CM","94 Calhanoglu DM","94 Mendes LB","90 Martinelli LW"]},
- gunman:{name:"GUNMAN FC - LAHEEMU",formation:"4-3-3",starting:["86 Raphinha LW","90 Haaland CF","90 Yamal RW","90 Dimarco LWB","82 Camavinga CM","87 Caicedo DM","91 Hakimi RB","88 Mendes LB","88 Gabriel CB","83 Alexander-Arnold RB","87 Donnarumma GK"],subs:["86 Szczesny GK","81 Huijsen CB","81 Guehi CB","85 Van Dijk CB","82 Rudiger CB","85 Bellingham AM","82 Modric CM","90 Dembele CF"],reserves:[]}
-};
-
-let fixtures=[
- {home:"Crazy Game FC",away:"Man City FC",hg:2,ag:1},
- {home:"Man City FC",away:"TBO City FC",hg:2,ag:1},
- {home:"Crazy Game FC",away:"Gunman FC",hg:3,ag:0},
- {home:"TBO City FC",away:"Gunman FC",hg:1,ag:1},
- {home:"Man City FC",away:"Gunman FC",hg:4,ag:0},
- {home:"TBO City FC",away:"Crazy Game FC",hg:2,ag:2}
-];
-
-function showTeam(k){
- let s=squads[k];
- document.getElementById("modalTitle").innerHTML=s.name+"<br><small>"+s.formation+"</small>";
- let h="<b style='color:#0a3d8f'>STARTING XI (11):</b><br>";
- s.starting.forEach(p=>{let cls=p.includes("GK")?"chip gk":"chip"; h+=`<span class="${cls}">${p}</span>`});
- h+="<br><br><b style='color:#0a3d8f'>SUBS BENCH (8/8):</b><br>";
- s.subs.forEach(p=>{h+=`<span class="chip">${p}</span>`});
- if(s.reserves.length>0){h+="<br><br><b style='color:#0a3d8f'>RESERVES ("+s.reserves.length+"):</b><br>"; s.reserves.forEach(p=>{h+=`<span class="chip reserve">${p}</span>`});}
- h+="<br><br><small>Total: "+(s.starting.length+s.subs.length+s.reserves.length)+" Players</small>";
- document.getElementById("modalBody").innerHTML=h;
- document.getElementById("playerModal").style.display="block";
+function switchTab(id){
+ document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
+ event.target.classList.add('active');
+ document.getElementById('tab-matches').classList.add('hidden');
+ document.getElementById('tab-squad').classList.add('hidden');
+ document.getElementById('tab-standings').classList.add('hidden');
+ if(document.getElementById('tab-'+id)) document.getElementById('tab-'+id).classList.remove('hidden');
+ else {document.getElementById('tab-matches').classList.remove('hidden'); alert(id+' coming soon - Squad ndi Standings zili ready!');}
 }
-function closeModal(){document.getElementById("playerModal").style.display="none";}
-function renderMatches(){let html=""; fixtures.forEach((f,i)=>{html+=`<div class="match-row"><span style="width:35%">${f.home}</span><span><input class="live-input" id="hg${i}" value="${f.hg}" type="number"> - <input class="live-input" id="ag${i}" value="${f.ag}" type="number"></span><span style="width:35%;text-align:right">${f.away}</span></div>`}); document.getElementById("matches").innerHTML=html;}
-function calculateTable(){let teams={}; ["Man City FC","TBO City FC","Crazy Game FC","Gunman FC"].forEach(t=>{teams[t]={P:0,W:0,D:0,L:0,GF:0,GA:0,Pts:0}}); fixtures.forEach(f=>{teams[f.home].P++; teams[f.away].P++; teams[f.home].GF+=f.hg; teams[f.home].GA+=f.ag; teams[f.away].GF+=f.ag; teams[f.away].GA+=f.hg; if(f.hg>f.ag){teams[f.home].W++; teams[f.home].Pts+=3; teams[f.away].L++;} else if(f.hg<f.ag){teams[f.away].W++; teams[f.away].Pts+=3; teams[f.home].L++;} else{teams[f.home].D++; teams[f.away].D++; teams[f.home].Pts+=1; teams[f.away].Pts+=1;}}); let sorted=Object.entries(teams).sort((a,b)=>b[1].Pts-a[1].Pts); let t=`<tr><th>#</th><th>TEAM</th><th>P</th><th>W</th><th>Pts</th></tr>`; sorted.forEach((en,i)=>{let c=i==0?'#fff8dc':i==1?'#e6f7ff':'white'; t+=`<tr style="background:${c}"><td>${i+1}</td><td style="text-align:left">${en[0]}</td><td>${en[1].P}</td><td>${en[1].W}</td><td><b>${en[1].Pts}</b></td></tr>`}); document.getElementById("logTable").innerHTML=t;}
-function saveScores(){fixtures.forEach((f,i)=>{f.hg=parseInt(document.getElementById("hg"+i).value)||0; f.ag=parseInt(document.getElementById("ag"+i).value)||0;}); localStorage.setItem("dls_v4",JSON.stringify(fixtures)); calculateTable(); alert("Zasungidwa!");}
-let saved=localStorage.getItem("dls_v4"); if(saved){fixtures=JSON.parse(saved);} renderMatches(); calculateTable();
 </script>
 </body>
 </html>
