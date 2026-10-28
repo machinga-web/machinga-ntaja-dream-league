@@ -1,5 +1,130 @@
-<!DOCTYPE html><html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>MNDL LYRICS 👑</title><link rel="manifest" href="manifest.json"><meta name="theme-color" content="#FFD60A"><style>*{margin:0;padding:0;box-sizing:border-box}body{background:#111;color:#fff;font-family:Arial;padding:10px}.top{background:#000;padding:15px;text-align:center;border-bottom:3px solid #FFD60A;border-radius:12px;position:sticky;top:0;z-index:10}.install{background:#FFD60A;color:#000;padding:12px;border-radius:25px;border:none;font-weight:bold;width:100%;margin:10px 0;font-size:14px}.song{background:#000;border:2px solid #222;border-radius:15px;padding:15px;margin:10px 0}.song h3{color:#FFD60A}.lyrics{background:#0b141a;padding:12px;border-radius:10px;white-space:pre-line;margin-top:10px;display:none;line-height:1.8}.btn{background:#FFD60A;color:#000;border:none;padding:8px 15px;border-radius:20px;font-weight:bold;margin-top:8px}</style></head><body><div class="top"><h1>🎵 MNDL LYRICS 👑</h1><p style="color:#888;font-size:11px;">VICTOR EDWARD - Machinga Ntaja</p><button class="install" id="installBtn" style="display:none;" onclick="installApp()">📥 DOWNLOAD APP YOMWE IYI - IKHANI PA FONI</button></div><div style="text-align:center;margin:10px;"><input id="search" placeholder="🔍 Fufuzani nyimbo..." style="width:90%;padding:12px;border-radius:25px;border:2px solid #333;background:#000;color:#fff;text-align:center;" onkeyup="searchSong()"></div><div id="list"><div class="song"><h3>🎵 MNDL Anthem</h3><button class="btn" onclick="t(this)">ONETSANI 🎤</button><div class="lyrics">Machinga Ntaja Dream League
-Victor Edward BOSS 👑
-Tili pamodzi timapambana!</div></div><div class="song"><h3>🎵 Victor BOSS</h3><button class="btn" onclick="t(this)">ONETSANI 🎤</button><div class="lyrics">Victor Edward ndi BOSS
-MNDL ndi yathu
-Timapambana nthawi zonse!</div></div></div><script>function t(b){let l=b.nextElementSibling;l.style.display=l.style.display==='block'?'none':'block'}function searchSong(){let v=search.value.toLowerCase();document.querySelectorAll('.song').forEach(s=>{s.style.display=s.innerText.toLowerCase().includes(v)?'block':'none'})}let p;window.addEventListener('beforeinstallprompt',e=>{e.preventDefault();p=e;installBtn.style.display='block'});function installApp(){if(p){p.prompt()}}if('serviceWorker' in navigator){navigator.serviceWorker.register('sw.js')}</script></body></html>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MACHINGA BOY VIC - DLS SUPER APP - LIVE</title>
+<style>
+  body{font-family:Arial;background:#001428;color:white;padding:8px}
+  .header{background:linear-gradient(90deg,gold,#ffcc00);color:#000;padding:15px;text-align:center;font-weight:900;font-size:20px;border-radius:12px;border:3px solid #fff}
+  .logos{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:15px 0}
+  .logo-card{background:linear-gradient(#0a1931,#0a3d8f);border:3px solid gold;border-radius:15px;padding:10px;text-align:center}
+  .logo-circle{width:70px;height:70px;background:gold;border-radius:50%;margin:auto;display:flex;align-items:center;justify-content:center;font-size:30px;border:3px solid white}
+  .card{background:#fff;color:#000;border-radius:12px;padding:12px;margin-bottom:12px;border-left:6px solid gold}
+  table{width:100%;border-collapse:collapse}
+  th{background:#0a3d8f;color:white;padding:8px;font-size:12px}
+  td{padding:8px;text-align:center;border-bottom:1px solid #ddd;font-size:13px}
+  .live-input{width:35px;text-align:center;font-weight:bold;border:2px solid gold;border-radius:5px}
+  button{background:gold;font-weight:bold;padding:10px;border-radius:8px;border:2px solid #000;width:100%;cursor:pointer;margin-top:5px}
+  .match-row{display:flex;justify-content:space-between;align-items:center;background:#f0f6ff;padding:8px;border-radius:8px;margin-bottom:5px}
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+  @media(max-width:700px){.logos{grid-template-columns:repeat(2,1fr)}.grid2{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="header">🏆 MACHINGA BOY VIC - DLS SUPER LEAGUE APP - LIVE SCORE 🏆</div>
+
+<!-- LOGOS -->
+<div class="logos">
+  <div class="logo-card"><div class="logo-circle">🔵</div><b>MAN CITY<br>VIC</b><br><small>4-3-3 Attack</small></div>
+  <div class="logo-card"><div class="logo-circle">🏙️</div><b>TBO CITY<br>HANEEF</b><br><small>4-2-3-1</small></div>
+  <div class="logo-card"><div class="logo-circle">🎮</div><b>CRAZY GAME<br>CFC</b><br><small>ULTRA 99</small></div>
+  <div class="logo-card"><div class="logo-circle">🔫</div><b>GUNMAN<br>LAHEEMU</b><br><small>4-3-3</small></div>
+</div>
+
+<!-- LOG TABLE AUTO -->
+<div class="card">
+  <h3>📊 LOG TABLE - Live Auto Update</h3>
+  <table id="logTable">
+    <tr><th>#</th><th>TEAM</th><th>P</th><th>W</th><th>Pts</th></tr>
+  </table>
+</div>
+
+<div class="grid2">
+  <!-- MATCHES LIVE EDIT -->
+  <div class="card">
+    <h3>⚔️ LIVE SCORE - Sinthani Zigoli Pano</h3>
+    <div id="matches"></div>
+    <button onclick="saveScores()">💾 Save & Update Table</button>
+    <button onclick="resetScores()" style="background:white">🔄 Reset</button>
+  </div>
+
+  <!-- TOP SCORER / ASSIST LIVE -->
+  <div class="card">
+    <h3>🥇 TOP SCORER - Live</h3>
+    <table id="scorerTable"></table>
+    <br>
+    <h3>🎯 TOP ASSIST - Live</h3>
+    <table id="assistTable"></table>
+    <br>
+    <input id="newScorer" placeholder="Player + Goal" style="width:48%;padding:6px">
+    <input id="newAssist" placeholder="Player + Assist" style="width:48%;padding:6px">
+    <button onclick="addStats()">➕ Add Stat</button>
+  </div>
+</div>
+
+<script>
+let teams = {
+  "Man City FC": {P:0,W:0,D:0,L:0,GF:0,GA:0,Pts:0},
+  "TBO City FC": {P:0,W:0,D:0,L:0,GF:0,GA:0,Pts:0},
+  "Crazy Game FC": {P:0,W:0,D:0,L:0,GF:0,GA:0,Pts:0},
+  "Gunman FC": {P:0,W:0,D:0,L:0,GF:0,GA:0,Pts:0}
+};
+let fixtures = [
+  {home:"Man City FC",away:"TBO City FC",hg:2,ag:1},
+  {home:"Crazy Game FC",away:"Gunman FC",hg:3,ag:0},
+  {home:"Man City FC",away:"Crazy Game FC",hg:1,ag:2},
+  {home:"TBO City FC",away:"Gunman FC",hg:1,ag:1},
+  {home:"Man City FC",away:"Gunman FC",hg:4,ag:0},
+  {home:"TBO City FC",away:"Crazy Game FC",hg:2,ag:2}
+];
+let scorers = [{p:"Haaland 99",t:"Crazy Game FC",g:6},{p:"Mbappe 93",t:"Man City FC",g:5},{p:"Haaland 93",t:"TBO City FC",g:4},{p:"Haaland 90",t:"Gunman FC",g:3}];
+let assists = [{p:"Foden 82",t:"Man City FC",a:4},{p:"Fernandes 98",t:"Crazy Game FC",a:4},{p:"Cherki 86",t:"TBO City FC",a:3},{p:"Yamal 90",t:"Gunman FC",a:2}];
+
+function renderMatches(){
+  let html="";
+  fixtures.forEach((f,i)=>{
+    html+=`<div class="match-row"><span>${f.home}</span><span><input class="live-input" id="hg${i}" value="${f.hg}" type="number"> - <input class="live-input" id="ag${i}" value="${f.ag}" type="number"></span><span>${f.away}</span></div>`;
+  });
+  document.getElementById("matches").innerHTML=html;
+}
+function calculateTable(){
+  for(let k in teams){teams[k]={P:0,W:0,D:0,L:0,GF:0,GA:0,Pts:0};}
+  fixtures.forEach(f=>{
+    teams[f.home].P++; teams[f.away].P++;
+    teams[f.home].GF+=f.hg; teams[f.home].GA+=f.ag;
+    teams[f.away].GF+=f.ag; teams[f.away].GA+=f.hg;
+    if(f.hg>f.ag){teams[f.home].W++; teams[f.home].Pts+=3; teams[f.away].L++;}
+    else if(f.hg<f.ag){teams[f.away].W++; teams[f.away].Pts+=3; teams[f.home].L++;}
+    else{teams[f.home].D++; teams[f.away].D++; teams[f.home].Pts+=1; teams[f.away].Pts+=1;}
+  });
+  let sorted=Object.entries(teams).sort((a,b)=>b[1].Pts-a[1].Pts);
+  let t=`<tr><th>#</th><th>TEAM</th><th>P</th><th>W</th><th>Pts</th></tr>`;
+  sorted.forEach((en,i)=>{t+=`<tr style="${i==0?'background:#fff8dc;font-weight:bold':''}"><td>${i+1}</td><td>${en[0]}</td><td>${en[1].P}</td><td>${en[1].W}</td><td>${en[1].Pts}</td></tr>`});
+  document.getElementById("logTable").innerHTML=t;
+}
+function renderStats(){
+  let s="<tr><th>Player</th><th>Team</th><th>G</th></tr>"; scorers.sort((a,b)=>b.g-a.g).forEach(r=>{s+=`<tr><td>${r.p}</td><td>${r.t}</td><td>${r.g}</td></tr>`}); document.getElementById("scorerTable").innerHTML=s;
+  let a="<tr><th>Player</th><th>Team</th><th>A</th></tr>"; assists.sort((a,b)=>b.a-a.a).forEach(r=>{a+=`<tr><td>${r.p}</td><td>${r.t}</td><td>${r.a}</td></tr>`}); document.getElementById("assistTable").innerHTML=a;
+}
+function saveScores(){
+  fixtures.forEach((f,i)=>{f.hg=parseInt(document.getElementById("hg"+i).value)||0; f.ag=parseInt(document.getElementById("ag"+i).value)||0;});
+  localStorage.setItem("dls_fixtures",JSON.stringify(fixtures));
+  calculateTable();
+  alert("Zasungidwa! Table yasinthidwa!");
+}
+function resetScores(){
+  localStorage.clear(); location.reload();
+}
+function addStats(){
+  let s=document.getElementById("newScorer").value;
+  let a=document.getElementById("newAssist").value;
+  if(s){let parts=s.split(" "); let g=parts.pop(); let p=parts.join(" "); scorers.push({p:p,t:"Man City FC",g:parseInt(g)||1});}
+  if(a){let parts=a.split(" "); let ass=parts.pop(); let p=parts.join(" "); assists.push({p:p,t:"Man City FC",a:parseInt(ass)||1});}
+  renderStats();
+}
+let saved=localStorage.getItem("dls_fixtures"); if(saved){fixtures=JSON.parse(saved);}
+renderMatches(); calculateTable(); renderStats();
+</script>
+</body>
+</html>
