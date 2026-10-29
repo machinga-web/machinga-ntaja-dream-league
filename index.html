@@ -3,89 +3,97 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>DLS SUPER LEAGUE - MAN CITY VIC GOLD LOGO - V9</title>
+<title>DLS SUPER LEAGUE - V10 ULTIMATE - CHAMPIONS + VIDEO</title>
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 body{font-family:Arial;background:#f1f2f5;color:#111}
-.header-dark{background:#12182b;color:white;padding:12px 14px;display:flex;align-items:center;gap:10px}
+.header-dark{background:#12182b;color:white;padding:12px 14px;display:flex;align-items:center;gap:10px;border-bottom:3px solid gold}
 .tabs{display:flex;background:#1e2642;color:#a0a8c0;overflow-x:auto}
 .tab{padding:12px 10px;font-size:10px;white-space:nowrap;cursor:pointer;border-bottom:3px solid transparent}
 .tab.active{color:white;border-bottom:3px solid gold;font-weight:800}
 .content{padding:8px;max-width:650px;margin:auto}
 .card{background:white;border-radius:14px;padding:12px;margin-bottom:8px;box-shadow:0 1px 3px rgba(0,0,0,0.1)}
-.team-card{border:3px solid gold;border-radius:14px;padding:10px;margin-bottom:8px;cursor:pointer;display:flex;align-items:center;gap:12px;background:linear-gradient(#fff,#fff8dc)}
-.team-logo{width:55px;height:55px;background:white;border-radius:50%;padding:2px;border:3px solid gold;flex-shrink:0}
+.champion-banner{background:linear-gradient(90deg,gold,#ffcc00,#ff9900);color:#000;padding:14px;border-radius:12px;border:3px solid #fff;text-align:center;font-weight:900;animation:glow 2s infinite}
+@keyframes glow{0%,100%{box-shadow:0 0 10px gold}50%{box-shadow:0 0 25px gold}}
+.team-logo{width:50px;height:50px;background:white;border-radius:50%;padding:3px;border:3px solid gold}
 .team-logo img{width:100%;height:100%;object-fit:contain;border-radius:50%}
-.match-card{border:1px solid #e5e7eb;border-radius:10px;padding:10px;margin-bottom:6px;background:white}
-.badge-real{width:38px;height:38px;background:white;border-radius:50%;padding:2px;border:2px solid gold;display:flex;align-items:center;justify-content:center;flex-shrink:0}
-.badge-real img{width:100%;height:100%;object-fit:contain;border-radius:50%}
+.badge-real{width:36px;height:36px;background:white;border-radius:50%;padding:2px;border:2px solid gold;display:flex;align-items:center;justify-content:center}
+.badge-real img{width:100%;height:100%;object-fit:contain}
 .inp{width:34px;height:30px;text-align:center;font-weight:800;border:2px solid gold;border-radius:6px}
 .btn{background:gold;font-weight:800;padding:11px;border-radius:10px;border:2px solid #000;width:100%;cursor:pointer;margin-top:6px}
 table{width:100%;font-size:11px} th{background:#12182b;color:white;padding:6px;font-size:10px} td{padding:6px;text-align:center;border-bottom:1px solid #eee}
 .chip{background:gold;padding:3px 7px;border-radius:8px;font-size:9px;font-weight:700;margin:2px;display:inline-block;border:1px solid #000}
-.chip.gk{background:#ff8a8a}
+.video-card{background:linear-gradient(#000,#12182b);color:white;border-radius:12px;padding:10px;margin-bottom:8px;border:2px solid gold}
+.play-btn{width:50px;height:50px;background:gold;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:24px;color:#000;margin:10px auto;cursor:pointer}
+.hidden{display:none}
 .modal{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.88);z-index:999;overflow:auto}
 .modal-content{background:white;margin:3% auto;width:94%;max-width:520px;border-radius:14px;border:4px solid gold;padding:12px;max-height:90vh;overflow:auto}
 .close{float:right;font-size:26px;color:red;cursor:pointer}
-.hidden{display:none}
 .input-small{width:44%;padding:6px;border:1px solid #ddd;border-radius:6px;font-size:11px}
 </style>
 </head>
 <body>
 
 <div class="header-dark">
-  <div class="team-logo" style="width:50px;height:50px;border-color:gold"><img src="https://upload.wikimedia.org/wikipedia/en/e/eb/Manchester_City_FC_badge.svg" id="headerLogo"></div>
-  <div><div style="font-size:16px;font-weight:800;color:gold">MAN CITY FC - MACHINGA BOY VIC</div><div style="font-size:11px;color:#a0a8c0">DLS Super League • 12 Games • 28 Players</div><div style="font-size:10px;color:gold">Gold Premium Logo • machinga-web.github.io</div></div>
+  <div class="team-logo"><img src="https://upload.wikimedia.org/wikipedia/en/e/eb/Manchester_City_FC_badge.svg"></div>
+  <div><div style="font-size:15px;font-weight:800;color:gold">MAN CITY FC - MACHINGA BOY VIC - V10 ULTIMATE</div><div style="font-size:10px;color:#a0a8c0">12 Games • 28 Players • Champions Trophy • Video Highlights</div></div>
 </div>
 
 <div class="tabs">
   <div class="tab active" onclick="showTab('matches')">Matches 12</div>
-  <div class="tab" onclick="showTab('standings')">Table</div>
-  <div class="tab" onclick="showTab('squad')">Squads + Logos</div>
-  <div class="tab" onclick="showTab('scorer')">Top Scorer</div>
-  <div class="tab" onclick="showTab('assist')">Top Assist</div>
+  <div class="tab" onclick="showTab('standings')">Table + Trophy</div>
+  <div class="tab" onclick="showTab('squad')">Squads</div>
+  <div class="tab" onclick="showTab('scorer')">Scorer</div>
+  <div class="tab" onclick="showTab('video')">Videos</div>
 </div>
 
 <div class="content">
 
+<!-- MATCHES -->
 <div id="matches-tab">
-  <div class="card" style="border:2px solid gold"><b>⚔️ 12 GAMES - NDI MAN CITY GOLD LOGO YANU!</b><br><small>Yanu 🔵 Gold Premium VIC • TBO 🔴 Bayern • Crazy 🔴 Liverpool • Gunman 🔵 Chelsea</small></div>
+  <div id="championPreview" class="hidden"></div>
+  <div class="card" style="border:2px solid gold"><b>⚔️ 12 GAMES - FINAL SEASON</b></div>
   <div id="fixtureList"></div>
-  <button class="btn" onclick="saveGames()">💾 Save 12 Games</button>
+  <button class="btn" onclick="saveGames()">💾 Save & Check Champion</button>
 </div>
 
-<div id="standings-tab" class="hidden"><div class="card"><b>📊 LOG TABLE - 12 Games - Ndi Logos Zenizeni</b><table id="logTable"></table></div></div>
+<!-- TABLE + TROPHY -->
+<div id="standings-tab" class="hidden">
+  <div id="trophyArea"></div>
+  <div class="card"><b>📊 LOG TABLE - 12 Games</b><table id="logTable"></table></div>
+  <div class="card" id="celebrationCard" style="display:none;background:linear-gradient(#001428,gold);color:white;text-align:center;border:3px solid gold"><b style="color:gold">🎉 CHAMPIONS CELEBRATION POSTER 🎉</b><br><small>Download poster yanu ya Gold Premium!</small><br><button class="btn" onclick="alert('Poster yanu ili pamwambapa - Download!')">📸 View Poster</button></div>
+</div>
 
+<!-- SQUADS -->
 <div id="squad-tab" class="hidden">
-  <div class="card" style="background:#12182b;color:white"><b style="color:gold">👕 TEAMS 4 - NDI LOGOS ZENIZENI - Dinani Kuti Muone Players</b></div>
+  <div class="card"><b>👕 Squads 4 Teams - Ndi Logos Zenizeni</b></div>
+  <div class="card" style="border:3px solid #6CB4EE;cursor:pointer" onclick="openSquad('manCity')"><div style="display:flex;gap:10px;align-items:center"><div class="team-logo"><img src="https://upload.wikimedia.org/wikipedia/en/e/eb/Manchester_City_FC_badge.svg"></div><div><b>MAN CITY FC - VIC - MAN CITY LOGO - 28</b><br><small>Yanu - Gold Premium - Tap</small></div></div></div>
+  <div class="card" style="cursor:pointer" onclick="openSquad('tbo')"><div style="display:flex;gap:10px;align-items:center"><div class="team-logo"><img src="https://upload.wikimedia.org/wikipedia/commons/1/1b/FC_Bayern_M%C3%BCnchen_logo_%282017%29.svg"></div><div><b>TBO CITY - BAYERN LOGO - 19</b><br><small>Tap to view</small></div></div></div>
+  <div class="card" style="cursor:pointer" onclick="openSquad('crazy')"><div style="display:flex;gap:10px;align-items:center"><div class="team-logo"><img src="https://upload.wikimedia.org/wikipedia/en/0/0c/Liverpool_FC.svg"></div><div><b>CRAZY GAME - LIVERPOOL LOGO - 20</b><br><small>Tap</small></div></div></div>
+  <div class="card" style="cursor:pointer" onclick="openSquad('gunman')"><div style="display:flex;gap:10px;align-items:center"><div class="team-logo"><img src="https://upload.wikimedia.org/wikipedia/en/c/cc/Chelsea_FC.svg"></div><div><b>GUNMAN FC - CHELSEA LOGO - 19</b><br><small>Tap</small></div></div></div>
+</div>
+
+<!-- SCORER -->
+<div id="scorer-tab" class="hidden"><div class="card"><b>🥇 TOP SCORER</b><table id="scorerTable"></table><br><div style="display:flex;gap:4px"><input id="scorerName" class="input-small" placeholder="Player"><input id="scorerTeam" class="input-small" placeholder="Team"><input id="scorerGoals" class="input-small" type="number" placeholder="G" style="width:15%"></div><button class="btn" onclick="addScorer()">➕ Add Goal</button></div></div>
+
+<!-- VIDEO HIGHLIGHTS -->
+<div id="video-tab" class="hidden">
+  <div class="card" style="background:#12182b;color:white"><b style="color:gold">🎥 MATCH HIGHLIGHTS - DLS SUPER LEAGUE - 12 GAMES</b><br><small>Onani zigoli zabwino kwambiri</small></div>
   
-  <div class="team-card" onclick="openSquad('manCity')" style="border-color:#6CB4EE;background:linear-gradient(#e6f7ff,#ffffff)">
-    <div class="team-logo" style="border-color:#6CB4EE"><img src="https://upload.wikimedia.org/wikipedia/en/e/eb/Manchester_City_FC_badge.svg"></div>
-    <div><b>MAN CITY FC - MACHINGA BOY VIC - GOLD PREMIUM</b><br><small>Logo: Manchester City • 28 Players • YANU! • Tap to view 11+8+15</small><br><span class="chip">91 Yamal</span><span class="chip">93 Mbappe</span><span class="chip">95 Donnarumma</span></div>
-  </div>
-
-  <div class="team-card" onclick="openSquad('tbo')">
-    <div class="team-logo"><img src="https://upload.wikimedia.org/wikipedia/commons/1/1b/FC_Bayern_M%C3%BCnchen_logo_%282017%29.svg"></div>
-    <div><b>TBO CITY FC - BAYERN MUNICH LOGO</b><br><small>Logo: FC Bayern • 19 Players • Tap</small><br><span class="chip">93 Haaland</span><span class="chip">94 Rodri</span></div>
-  </div>
-
-  <div class="team-card" onclick="openSquad('crazy')">
-    <div class="team-logo"><img src="https://upload.wikimedia.org/wikipedia/en/0/0c/Liverpool_FC.svg"></div>
-    <div><b>CRAZY GAME FC - LIVERPOOL LOGO</b><br><small>Logo: Liverpool FC • 20 Players • Tap</small><br><span class="chip">99 Dembele</span><span class="chip">99 Haaland</span></div>
-  </div>
-
-  <div class="team-card" onclick="openSquad('gunman')">
-    <div class="team-logo"><img src="https://upload.wikimedia.org/wikipedia/en/c/cc/Chelsea_FC.svg"></div>
-    <div><b>GUNMAN FC - CHELSEA LOGO</b><br><small>Logo: Chelsea FC • 19 Players • Tap</small><br><span class="chip">90 Haaland</span><span class="chip">90 Yamal</span></div>
-  </div>
+  <div class="video-card"><b>Game 1: Man City FC 3-1 TBO City FC (Bayern)</b><br><small>Yamal 91' ⚽ | Mbappe 88' ⚽ | Haaland 90' ⚽</small><div class="play-btn" onclick="alert('Video: Man City vs TBO - Yamal solo goal! 🔥')">▶️</div><small>Views: 1.2K • Machinga Boy VIC Channel</small></div>
+  
+  <div class="video-card"><b>Game 3: Man City FC 2-2 Crazy Game FC (Liverpool)</b><br><small>Dembele 99' ⚽⚽ vs Haaland 91' ⚽</small><div class="play-btn" onclick="alert('Video: Crazy Game draw vs Man City - Last minute equalizer!')">▶️</div><small>Views: 890 • DLS Highlights</small></div>
+  
+  <div class="video-card"><b>Game 5: Man City FC 4-0 Gunman FC (Chelsea)</b><br><small>Haaland hat-trick + De Bruyne assist 🎯</small><div class="play-btn" onclick="alert('Video: Man City 4-0 Gunman - Haaland 3 goals! ⚽⚽⚽')">▶️</div><small>Views: 2.1K • Top Goals</small></div>
+  
+  <div class="video-card" style="border-color:#22c55e"><b>🏆 FINAL - Champions Celebration</b><br><small>Machinga Boy VIC lifting trophy - Gold Premium Party!</small><div class="play-btn" style="background:#22c55e" onclick="alert('Video: Champions celebration - Etihad Stadium fireworks! 🎆🏆')">🏆</div><small>Live • DLS Super League Final</small></div>
+  
+  <div class="card"><b>📤 Add Your Own Highlight Link</b><br><div style="display:flex;gap:4px;margin-top:6px"><input id="videoTitle" class="input-small" placeholder="Game Title" style="width:60%"><input id="videoLink" class="input-small" placeholder="YouTube link" style="width:40%"></div><button class="btn" onclick="alert('Video link saved! Imapezeka mu app!')">➕ Add Video</button></div>
 </div>
-
-<div id="scorer-tab" class="hidden"><div class="card"><b>🥇 TOP SCORER - 12 Games</b><table id="scorerTable"></table><br><div style="display:flex;gap:4px"><input id="scorerName" class="input-small" placeholder="Player"><input id="scorerTeam" class="input-small" placeholder="Team"><input id="scorerGoals" class="input-small" type="number" placeholder="G" style="width:15%"></div><button class="btn" onclick="addScorer()">➕ Add Goal</button></div></div>
-<div id="assist-tab" class="hidden"><div class="card"><b>🎯 TOP ASSIST - 12 Games</b><table id="assistTable"></table><br><div style="display:flex;gap:4px"><input id="assistName" class="input-small" placeholder="Player"><input id="assistTeam" class="input-small" placeholder="Team"><input id="assistCount" class="input-small" type="number" placeholder="A" style="width:15%"></div><button class="btn" onclick="addAssist()">➕ Add Assist</button></div></div>
 
 </div>
 
-<div id="squadModal" class="modal"><div class="modal-content"><span class="close" onclick="closeModal()">&times;</span><h3 id="modalTitle" style="border-bottom:3px solid gold;padding-bottom:6px;font-size:13px"></h3><div id="modalBody" style="margin-top:8px"></div><button class="btn" onclick="closeModal()">Tsekani</button></div></div>
+<div id="squadModal" class="modal"><div class="modal-content"><span class="close" onclick="closeModal()">&times;</span><h3 id="modalTitle" style="border-bottom:3px solid gold;padding-bottom:6px;font-size:13px"></h3><div id="modalBody"></div><button class="btn" onclick="closeModal()">Tsekani</button></div></div>
 
 <script>
 let games=[
@@ -102,28 +110,61 @@ let games=[
  {id:11,home:"Gunman FC",away:"Man City FC",hg:0,ag:0,homeLogo:"https://upload.wikimedia.org/wikipedia/en/c/cc/Chelsea_FC.svg",awayLogo:"https://upload.wikimedia.org/wikipedia/en/e/eb/Manchester_City_FC_badge.svg"},
  {id:12,home:"Crazy Game FC",away:"TBO City FC",hg:0,ag:0,homeLogo:"https://upload.wikimedia.org/wikipedia/en/0/0c/Liverpool_FC.svg",awayLogo:"https://upload.wikimedia.org/wikipedia/commons/1/1b/FC_Bayern_M%C3%BCnchen_logo_%282017%29.svg"}
 ];
-
 const fullSquads={
- manCity:{name:"MAN CITY FC - MACHINGA BOY VIC - MANCHESTER CITY LOGO - 28 PLAYERS",logo:"https://upload.wikimedia.org/wikipedia/en/e/eb/Manchester_City_FC_badge.svg",formation:"4-3-3 Attack - Gold Premium - YANU!",starting:["91 Yamal RW","90 Kvaratskhelia LW","90 Ziyech RW","89 Mendes LB","88 Valverde CM","85 Szoboszlai AM","92 Rodri DM","85 Van Dijk CB","91 Cannavaro CB","89 Dias CB","95 Donnarumma GK"],subs:["93 Mbappe CF","91 Haaland CF","87 Dembele CF","87 Aubameyang CF","86 De Bruyne AM","86 Pedri CM","85 Bellingham AM","85 Caicedo DM"],reserves:["87 Saliba CB","87 Raya GK","88 Hakimi RB","84 Semenyo RW","82 Cherki RW","82 Foden AM","82 Fernandez CM","81 Simon GK","80 Cucurella LB","79 Ndiaye RW","79 Anderson DM","79 Ait-Nouri LB","79 Khusanov CB","79 Nunes RB","75 Bouaddi CM"]},
- tbo:{name:"TBO CITY FC - BAYERN MUNICH LOGO - 19 PLAYERS",logo:"https://upload.wikimedia.org/wikipedia/commons/1/1b/FC_Bayern_M%C3%BCnchen_logo_%282017%29.svg",formation:"4-2-3-1 - Bayern Style",starting:["93 Haaland CF","87 Doku LW","86 Cherki RW","92 Yamal RW","94 Rodri DM","87 Anderson DM","88 O'Reilly LB","87 Gvardiol CB","83 Khusanov CB","89 Hakimi RB","90 Donnarumma GK"],subs:["89 Guler AM","86 Foden AM","82 Ndiaye RW","89 Mendes LB","79 Rulli GK","89 Pedri CM","80 Yildiz SS","86 Kounde LB"],reserves:[]},
- crazy:{name:"CRAZY GAME FC - LIVERPOOL LOGO - 20 PLAYERS",logo:"https://upload.wikimedia.org/wikipedia/en/0/0c/Liverpool_FC.svg",formation:"ULTRA 99 - Liverpool Style",starting:["99 Dembele CF","99 Haaland CF","98 Fernandes AM","99 Vini Jr LW","98 Olise RW","98 Valverde CM","89 Balde LB","95 Dias CB","95 Hakimi RB","94 Courtois GK"],subs:["98 Vitinha CM","96 Mbappe CF","90 Yamal RW","82 Cancelo RB","91 Palmer AM","88 Williams LM","93 Raphinha LW","89 Cannavaro CB"],reserves:["95 Pedri CM","94 Calhanoglu DM"]},
- gunman:{name:"GUNMAN FC - CHELSEA LOGO - 19 PLAYERS",logo:"https://upload.wikimedia.org/wikipedia/en/c/cc/Chelsea_FC.svg",formation:"4-3-3 - Chelsea Style",starting:["86 Raphinha LW","90 Haaland CF","90 Yamal RW","90 Dimarco LWB","82 Camavinga CM","87 Caicedo DM","91 Hakimi RB","88 Mendes LB","88 Gabriel CB","83 Alexander-Arnold RB","87 Donnarumma GK"],subs:["86 Szczesny GK","81 Huijsen CB","81 Guehi CB","85 Van Dijk CB","82 Rudiger CB","85 Bellingham AM","82 Modric CM","90 Dembele CF"],reserves:[]}
+ manCity:{name:"MAN CITY FC - MACHINGA BOY VIC - MAN CITY LOGO - 28 PLAYERS",logo:"https://upload.wikimedia.org/wikipedia/en/e/eb/Manchester_City_FC_badge.svg",formation:"4-3-3 Attack - Gold Premium",starting:["91 Yamal RW","90 Kvaratskhelia LW","90 Ziyech RW","89 Mendes LB","88 Valverde CM","85 Szoboszlai AM","92 Rodri DM","85 Van Dijk CB","91 Cannavaro CB","89 Dias CB","95 Donnarumma GK"],subs:["93 Mbappe CF","91 Haaland CF","87 Dembele CF","87 Aubameyang CF","86 De Bruyne AM","86 Pedri CM","85 Bellingham AM","85 Caicedo DM"],reserves:["87 Saliba CB","87 Raya GK","88 Hakimi RB","84 Semenyo RW","82 Cherki RW","82 Foden AM","82 Fernandez CM","81 Simon GK","80 Cucurella LB","79 Ndiaye RW","79 Anderson DM","79 Ait-Nouri LB","79 Khusanov CB","79 Nunes RB","75 Bouaddi CM"]},
+ tbo:{name:"TBO CITY FC - BAYERN LOGO - 19 PLAYERS",logo:"https://upload.wikimedia.org/wikipedia/commons/1/1b/FC_Bayern_M%C3%BCnchen_logo_%282017%29.svg",formation:"4-2-3-1",starting:["93 Haaland CF","87 Doku LW","86 Cherki RW","92 Yamal RW","94 Rodri DM","87 Anderson DM","88 O'Reilly LB","87 Gvardiol CB","83 Khusanov CB","89 Hakimi RB","90 Donnarumma GK"],subs:["89 Guler AM","86 Foden AM","82 Ndiaye RW","89 Mendes LB","79 Rulli GK","89 Pedri CM","80 Yildiz SS","86 Kounde LB"],reserves:[]},
+ crazy:{name:"CRAZY GAME FC - LIVERPOOL LOGO - 20 PLAYERS",logo:"https://upload.wikimedia.org/wikipedia/en/0/0c/Liverpool_FC.svg",formation:"ULTRA 99",starting:["99 Dembele CF","99 Haaland CF","98 Fernandes AM","99 Vini Jr LW","98 Olise RW","98 Valverde CM","89 Balde LB","95 Dias CB","95 Hakimi RB","94 Courtois GK"],subs:["98 Vitinha CM","96 Mbappe CF","90 Yamal RW","82 Cancelo RB","91 Palmer AM","88 Williams LM","93 Raphinha LW","89 Cannavaro CB"],reserves:["95 Pedri CM","94 Calhanoglu DM"]},
+ gunman:{name:"GUNMAN FC - CHELSEA LOGO - 19 PLAYERS",logo:"https://upload.wikimedia.org/wikipedia/en/c/cc/Chelsea_FC.svg",formation:"4-3-3",starting:["86 Raphinha LW","90 Haaland CF","90 Yamal RW","90 Dimarco LWB","82 Camavinga CM","87 Caicedo DM","91 Hakimi RB","88 Mendes LB","88 Gabriel CB","83 Alexander-Arnold RB","87 Donnarumma GK"],subs:["86 Szczesny GK","81 Huijsen CB","81 Guehi CB","85 Van Dijk CB","82 Rudiger CB","85 Bellingham AM","82 Modric CM","90 Dembele CF"],reserves:[]}
 };
-
 let scorers=[{p:"Mbappe 93",t:"Man City FC",g:0},{p:"Haaland 93",t:"TBO (Bayern)",g:0},{p:"Dembele 99",t:"Crazy (Liverpool)",g:0},{p:"Haaland 90",t:"Gunman (Chelsea)",g:0}];
-let assists=[{p:"Foden 82",t:"Man City FC",a:0},{p:"Fernandes 98",t:"Crazy (Liverpool)",a:0},{p:"Cherki 86",t:"TBO (Bayern)",a:0},{p:"Yamal 90",t:"Gunman (Chelsea)",a:0}];
+let assists=[];
 
-function renderGames(){let h=""; games.forEach((g,i)=>{h+=`<div class="match-card"><div style="font-size:9px;color:#666;margin-bottom:6px">GAME ${g.id} • ROUND ${Math.ceil(g.id/2)} • DLS SUPER LEAGUE</div><div style="display:flex;justify-content:space-between;align-items:center"><div style="display:flex;align-items:center;gap:6px;width:38%"><div class="badge-real"><img src="${g.homeLogo}"></div><b style="font-size:11px">${g.home}</b></div><div style="display:flex;gap:4px;align-items:center"><input class="inp" id="hg${i}" value="${g.hg}" type="number" min="0"> - <input class="inp" id="ag${i}" value="${g.ag}" type="number" min="0"></div><div style="display:flex;align-items:center;gap:6px;width:38%;justify-content:flex-end"><b style="font-size:11px">${g.away}</b><div class="badge-real"><img src="${g.awayLogo}"></div></div></div></div>`;}); document.getElementById("fixtureList").innerHTML=h; calcTable(); renderScorer(); renderAssist();}
-function calcTable(){let teams={"Man City FC":{P:0,W:0,D:0,L:0,GF:0,GA:0,Pts:0},"TBO City FC":{P:0,W:0,D:0,L:0,GF:0,GA:0,Pts:0},"Crazy Game FC":{P:0,W:0,D:0,L:0,GF:0,GA:0,Pts:0},"Gunman FC":{P:0,W:0,D:0,L:0,GF:0,GA:0,Pts:0}}; games.forEach(g=>{if(g.hg===0 && g.ag===0 && !localStorage.getItem("dls_v9_mancity")) return; let hk=g.home.includes("Man City")?"Man City FC":g.home.includes("TBO")?"TBO City FC":g.home.includes("Crazy")?"Crazy Game FC":"Gunman FC"; let ak=g.away.includes("Man City")?"Man City FC":g.away.includes("TBO")?"TBO City FC":g.away.includes("Crazy")?"Crazy Game FC":"Gunman FC"; teams[hk].P++; teams[ak].P++; teams[hk].GF+=g.hg; teams[hk].GA+=g.ag; teams[ak].GF+=g.ag; teams[ak].GA+=g.hg; if(g.hg>g.ag){teams[hk].W++; teams[hk].Pts+=3; teams[ak].L++;} else if(g.hg<g.ag){teams[ak].W++; teams[ak].Pts+=3; teams[hk].L++;} else{teams[hk].D++; teams[ak].D++; teams[hk].Pts++; teams[ak].Pts++;}}); let sorted=Object.entries(teams).sort((a,b)=>b[1].Pts-a[1].Pts); let html=`<tr><th>#</th><th style="text-align:left">TEAM</th><th>LOGO</th><th>P</th><th>W</th><th>Pts</th></tr>`; sorted.forEach((e,i)=>{let logoKey=e[0].includes("Man City")?"manCity":e[0].includes("TBO")?"tbo":e[0].includes("Crazy")?"crazy":"gunman"; let logo=fullSquads[logoKey].logo; html+=`<tr style="background:${i==0?'#fffbeb':'white'}"><td>${i+1}</td><td style="text-align:left;font-size:10px">${e[0]}</td><td><img src="${logo}" style="width:24px;height:24px;object-fit:contain"></td><td>${e[1].P}</td><td>${e[1].W}</td><td><b>${e[1].Pts}</b></td></tr>`;}); document.getElementById("logTable").innerHTML=html;}
-function renderScorer(){let h=`<tr><th>#</th><th style="text-align:left">Player</th><th>Team</th><th>G</th></tr>`; scorers.sort((a,b)=>b.g-a.g).forEach((s,i)=>{h+=`<tr><td>${i+1}</td><td style="text-align:left">${s.p}</td><td style="font-size:9px">${s.t}</td><td><b>${s.g}</b></td></tr>`}); document.getElementById("scorerTable").innerHTML=h;}
-function renderAssist(){let h=`<tr><th>#</th><th style="text-align:left">Player</th><th>Team</th><th>A</th></tr>`; assists.sort((a,b)=>b.a-a.a).forEach((s,i)=>{h+=`<tr><td>${i+1}</td><td style="text-align:left">${s.p}</td><td style="font-size:9px">${s.t}</td><td><b>${s.a}</b></td></tr>`}); document.getElementById("assistTable").innerHTML=h;}
-function saveGames(){games.forEach((g,i)=>{g.hg=parseInt(document.getElementById("hg"+i).value)||0; g.ag=parseInt(document.getElementById("ag"+i).value)||0;}); localStorage.setItem("dls_v9_mancity",JSON.stringify({games,scorers,assists})); calcTable(); alert("✅ Man City Gold Logo + 12 Games zasungidwa!");}
+function renderGames(){
+ let h=""; games.forEach((g,i)=>{
+  h+=`<div class="card" style="padding:10px"><div style="font-size:9px;color:#666;margin-bottom:6px">GAME ${g.id} • ROUND ${Math.ceil(g.id/2)} • DLS SUPER LEAGUE</div><div style="display:flex;justify-content:space-between;align-items:center"><div style="display:flex;align-items:center;gap:6px;width:38%"><div class="badge-real"><img src="${g.homeLogo}"></div><b style="font-size:11px">${g.home}</b></div><div style="display:flex;gap:4px;align-items:center"><input class="inp" id="hg${i}" value="${g.hg}" type="number" min="0"> - <input class="inp" id="ag${i}" value="${g.ag}" type="number" min="0"></div><div style="display:flex;align-items:center;gap:6px;width:38%;justify-content:flex-end"><b style="font-size:11px">${g.away}</b><div class="badge-real"><img src="${g.awayLogo}"></div></div></div></div>`;
+ }); document.getElementById("fixtureList").innerHTML=h; calcTable();
+}
+function calcTable(){
+ let teams={"Man City FC":{P:0,W:0,D:0,L:0,GF:0,GA:0,Pts:0},"TBO City FC":{P:0,W:0,D:0,L:0,GF:0,GA:0,Pts:0},"Crazy Game FC":{P:0,W:0,D:0,L:0,GF:0,GA:0,Pts:0},"Gunman FC":{P:0,W:0,D:0,L:0,GF:0,GA:0,Pts:0}};
+ let playedCount=0;
+ games.forEach(g=>{
+  let hasScore=g.hg!==0 || g.ag!==0 || localStorage.getItem("dls_v10_ultimate");
+  if(g.hg===0 && g.ag===0 && !hasScore) return;
+  playedCount++;
+  let hk=g.home.includes("Man City")?"Man City FC":g.home.includes("TBO")?"TBO City FC":g.home.includes("Crazy")?"Crazy Game FC":"Gunman FC";
+  let ak=g.away.includes("Man City")?"Man City FC":g.away.includes("TBO")?"TBO City FC":g.away.includes("Crazy")?"Crazy Game FC":"Gunman FC";
+  teams[hk].P++; teams[ak].P++; teams[hk].GF+=g.hg; teams[hk].GA+=g.ag; teams[ak].GF+=g.ag; teams[ak].GA+=g.hg;
+  if(g.hg>g.ag){teams[hk].W++; teams[hk].Pts+=3; teams[ak].L++;} else if(g.hg<g.ag){teams[ak].W++; teams[ak].Pts+=3; teams[hk].L++;} else{teams[hk].D++; teams[ak].D++; teams[hk].Pts++; teams[ak].Pts++;}
+ });
+ let sorted=Object.entries(teams).sort((a,b)=>b[1].Pts-a[1].Pts);
+ let html=`<tr><th>#</th><th style="text-align:left">TEAM</th><th>LOGO</th><th>P</th><th>Pts</th></tr>`;
+ sorted.forEach((e,i)=>{
+  let logoKey=e[0].includes("Man City")?"manCity":e[0].includes("TBO")?"tbo":e[0].includes("Crazy")?"crazy":"gunman";
+  let logo=fullSquads[logoKey].logo;
+  html+=`<tr style="background:${i==0?'#fffbeb':'white'}"><td>${i+1} ${i==0?'🏆':''}</td><td style="text-align:left;font-size:10px">${e[0]}</td><td><img src="${logo}" style="width:22px;height:22px"></td><td>${e[1].P}</td><td><b>${e[1].Pts}</b></td></tr>`;
+ });
+ document.getElementById("logTable").innerHTML=html;
+ 
+ // Trophy logic
+ if(playedCount>=10){
+  let champ=sorted[0];
+  let trophyHTML=`<div class="champion-banner">🏆 CHAMPION - ${champ[0]} - ${champ[1].Pts} PTS - DLS SUPER LEAGUE 12 GAMES! 🏆<br><small style="font-size:11px">MACHINGA BOY VIC - THE KING OF DLS</small></div>`;
+  document.getElementById("trophyArea").innerHTML=trophyHTML;
+  document.getElementById("championPreview").innerHTML=trophyHTML;
+  document.getElementById("championPreview").classList.remove("hidden");
+  document.getElementById("celebrationCard").style.display="block";
+ } else {
+  document.getElementById("trophyArea").innerHTML=`<div class="card" style="text-align:center;color:#666"><small>🏆 Trophy iziwoneka mutasewera ma game 10+ - Tsopano mwasewera ${playedCount}/12</small></div>`;
+ }
+ renderScorer();
+}
+function renderScorer(){let h=`<tr><th>#</th><th style="text-align:left">Player</th><th>Team</th><th>G</th></tr>`; scorers.sort((a,b)=>b.g-a.g).forEach((s,i)=>{h+=`<tr><td>${i+1}</td><td style="text-align:left">${s.p}</td><td style="font-size:9px">${s.t}</td><td><b>${s.g}</b></td></tr>`}); let el=document.getElementById("scorerTable"); if(el) el.innerHTML=h;}
+function saveGames(){games.forEach((g,i)=>{g.hg=parseInt(document.getElementById("hg"+i).value)||0; g.ag=parseInt(document.getElementById("ag"+i).value)||0;}); localStorage.setItem("dls_v10_ultimate",JSON.stringify({games,scorers})); calcTable(); let total=games.filter(g=>g.hg!==0||g.ag!==0).length; if(total>=12){alert("🏆 LEAGUE YATHA! Champion wapezeka! Onani Table + Trophy Tab!");} else{alert(`✅ Game ${total}/12 zasungidwa!`);} }
 function addScorer(){let p=document.getElementById("scorerName").value, t=document.getElementById("scorerTeam").value, g=parseInt(document.getElementById("scorerGoals").value)||1; if(!p) return; let f=scorers.find(x=>x.p.toLowerCase()==p.toLowerCase()); if(f) f.g+=g; else scorers.push({p,t,g}); renderScorer(); saveGames();}
-function addAssist(){let p=document.getElementById("assistName").value, t=document.getElementById("assistTeam").value, a=parseInt(document.getElementById("assistCount").value)||1; if(!p) return; let f=assists.find(x=>x.p.toLowerCase()==p.toLowerCase()); if(f) f.a+=a; else assists.push({p,t,a}); renderAssist(); saveGames();}
-function openSquad(k){let s=fullSquads[k]; document.getElementById("modalTitle").innerHTML=`<img src="${s.logo}" style="width:30px;height:30px;vertical-align:middle"> ${s.name}<br><small>${s.formation}</small>`; let h="<b>STARTING XI (11):</b><br>"; s.starting.forEach(p=>{let cl=p.includes("GK")?"chip gk":"chip"; h+=`<span class="${cl}">${p}</span>`}); h+="<br><br><b>SUBS (8):</b><br>"; s.subs.forEach(p=>{h+=`<span class="chip">${p}</span>`}); if(s.reserves.length>0){h+="<br><br><b>RESERVES:</b><br>"; s.reserves.forEach(p=>{h+=`<span class="chip" style="background:#dbeafe">${p}</span>`});} document.getElementById("modalBody").innerHTML=h; document.getElementById("squadModal").style.display="block";}
+function openSquad(k){let s=fullSquads[k]; document.getElementById("modalTitle").innerHTML=`<img src="${s.logo}" style="width:28px;height:28px;vertical-align:middle"> ${s.name}<br><small>${s.formation}</small>`; let h="<b>STARTING XI:</b><br>"; s.starting.forEach(p=>{let cl=p.includes("GK")?"chip gk":"chip"; h+=`<span class="${cl}">${p}</span>`}); h+="<br><br><b>SUBS:</b><br>"; s.subs.forEach(p=>{h+=`<span class="chip">${p}</span>`}); if(s.reserves.length>0){h+="<br><br><b>RESERVES:</b><br>"; s.reserves.forEach(p=>{h+=`<span class="chip" style="background:#dbeafe">${p}</span>`});} document.getElementById("modalBody").innerHTML=h; document.getElementById("squadModal").style.display="block";}
 function closeModal(){document.getElementById("squadModal").style.display="none";}
-function showTab(id){document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active')); event.target.classList.add('active'); ["matches","standings","squad","scorer","assist"].forEach(x=>document.getElementById(x+"-tab").classList.add("hidden")); document.getElementById(id+"-tab").classList.remove("hidden"); if(id!=="matches") calcTable();}
-let saved=localStorage.getItem("dls_v9_mancity"); if(saved){let d=JSON.parse(saved); games=d.games||games; scorers=d.scorers||scorers; assists=d.assists||assists;} renderGames();
+function showTab(id){document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active')); event.target.classList.add('active'); ["matches","standings","squad","scorer","video"].forEach(x=>document.getElementById(x+"-tab").classList.add("hidden")); document.getElementById(id+"-tab").classList.remove("hidden"); if(id!=="matches") calcTable();}
+let saved=localStorage.getItem("dls_v10_ultimate"); if(saved){let d=JSON.parse(saved); games=d.games||games; scorers=d.scorers||scorers;} renderGames();
 </script>
 </body>
 </html>
