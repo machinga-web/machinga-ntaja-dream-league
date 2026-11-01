@@ -3,144 +3,42 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>DLS26 V17 FINAL</title>
+<title>MACHINGA V16 - NO 28 PLAYERS</title>
 <style>
-*{margin:0;padding:0;box-sizing:border-box}
-body{background:#060f1e;color:white;font-family:Arial;padding-bottom:70px}
-.welcome{position:fixed;inset:0;background:radial-gradient(circle at top,#1a3a6a,#060f1e);display:flex;flex-direction:column;align-items:center;justify-content:center;z-index:9999;text-align:center;animation:hide 0.6s 4s forwards}
-.welcome h1{background:linear-gradient(90deg,#ffd700,#fff);-webkit-background-clip:text;-webkit-text-fill-color:transparent;font-size:34px;font-weight:900}
+body{background:#0a1628;color:white;font-family:Arial;margin:0}
+.welcome{position:fixed;inset:0;background:linear-gradient(135deg,#000,#1a3a5f,#d4af37);display:flex;flex-direction:column;align-items:center;justify-content:center;z-index:9999;text-align:center;animation:hide 0.8s 4s forwards}
 @keyframes hide{to{opacity:0;visibility:hidden}}
-.header{background:#0a1a35;padding:12px;border-bottom:3px solid #ffd700;display:flex;gap:12px}
-.header img{width:50px;height:50px;background:white;border-radius:50%;border:2px solid #ffd700}
-.tabs{display:flex;gap:8px;padding:10px;background:#0a1a35;overflow-x:auto;position:sticky;top:0}
-.tabs button{padding:8px 14px;border-radius:20px;border:1px solid #2a4a7a;background:#1a2a4a;color:#8aa0c0;font-size:12px;cursor:pointer}
-.tabs button.active{background:#ffd700;color:#000;font-weight:bold}
-.team-chips{display:flex;gap:8px;padding:10px;overflow-x:auto}
-.team-chips button{padding:8px 14px;border-radius:20px;border:1px solid #ffd700;background:#111e36;color:#ffd700;font-size:12px;cursor:pointer}
-.team-chips button.active{background:#ffd700;color:#000;font-weight:bold}
-.card{background:linear-gradient(135deg,#d4af37,#f9e27b);color:#000;border-radius:12px;padding:12px;margin:10px;font-weight:bold}
-.game{background:#111e36;border:1px solid #2a4a7a;border-radius:12px;padding:10px;margin:8px 10px;display:flex;justify-content:space-between}
-.game b{color:#ffd700;font-size:18px}
-.pitch{background:radial-gradient(circle,#2a8a2a,#0f5a0f);border:2px solid #ffd700;border-radius:12px;margin:10px;padding:10px}
-.player-card{background:linear-gradient(135deg,#ffeb3b,#d4af37);color:#000;border-radius:8px;padding:5px 6px;font-size:10px;font-weight:bold;text-align:center;width:72px;margin:4px}
-.line{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin:8px 0}
-.scorer-table{background:#111e36;border-radius:12px;margin:10px;overflow:hidden}
-.scorer-table table{width:100%;border-collapse:collapse}
-.scorer-table th{background:#1a2a4a;padding:8px;font-size:11px;color:#8aa0c0;text-align:left}
-.scorer-table td{padding:10px 8px;border-top:1px solid #1a2a4a;font-size:13px}
-.rank{width:30px;text-align:center;background:#ffd700;color:#000;border-radius:50%;display:inline-block;font-weight:bold}
-.hidden{display:none}
+.header{background:#0a1628;padding:12px;display:flex;align-items:center;gap:12px;border-bottom:2px solid #d4af37}
+.tabs{background:#1a2a4a;display:flex;gap:10px;padding:10px}
+.tabs span{padding:8px 14px;border-radius:20px;background:#2a3a5a;font-size:12px}
+.tabs span.active{background:#d4af37;color:black;font-weight:bold}
+.card{background:#d4af37;color:black;border-radius:12px;padding:12px;margin:10px;font-weight:bold}
+.game{background:#111a2a;border:1px solid #d4af37;border-radius:12px;padding:12px;margin:8px 10px;display:flex;justify-content:space-between;align-items:center}
+.game b{color:#d4af37;font-size:20px}
 </style>
 </head>
 <body>
-<div class="welcome" id="welcome">
-<div style="font-size:50px">🏆</div>
-<h1>WELCOME TO DLS26<br>THE TOURNAMENT POWER</h1>
-<p style="margin-top:12px;color:#a3c5e8">Your DLS Super League journey starts now!</p>
-<p style="margin-top:20px;font-size:12px;color:#ffd700">4 TEAMS • 12 GAMES • MACHINGA BOY VIC</p>
+<div class="welcome" id="w">
+<h1 style="font-size:32px;color:#d4af37">WELCOME TO DLS26<br>THE TOURNAMENT POWER</h1>
+<p>🏆 Your DLS Super League journey starts now • Good luck!</p>
 </div>
 
 <div class="header">
-<img src="https://upload.wikimedia.org/wikipedia/en/e/eb/Manchester_City_FC_badge.svg">
-<div><h3 style="color:#ffd700">MAN CITY FC - MACHINGA BOY VIC</h3><p style="font-size:11px;color:#8aa0c0">DLS Super League • 12 Games • 4 Teams • Gold Premium</p></div>
+<img src="https://upload.wikimedia.org/wikipedia/en/e/eb/Manchester_City_FC_badge.svg" style="width:50px;height:50px;background:white;border-radius:50%;border:2px solid #d4af37">
+<div><h2 style="color:white;margin:0">MAN CITY FC - MACHINGA BOY VIC</h2><p style="font-size:11px;color:#d4af37">DLS Super League • 12 Games • Gold Premium</p></div>
 </div>
 
-<div class="tabs">
-<button class="active" onclick="showTab('matches')">Matches 12</button>
-<button onclick="showTab('table')">Table</button>
-<button onclick="showTab('scorer')">Top Scorer</button>
-<button onclick="showTab('assist')">Top Assist</button>
-<button onclick="showTab('squads')">Squads + Logos</button>
-</div>
+<div class="tabs"><span class="active">Matches 12</span><span>Standings</span><span>Staderboard</span></div>
 
-<div id="matchesTab">
-<div class="card">⚔️ 12 GAMES - NDI MAN CITY GOLD LOGO YANU<br><small>Tournament • 6 Fixtures Today • Group Stage</small></div>
-<div class="game"><span>🔵 MAN CITY</span><b>0-0</b><span>TBO 🔴</span></div>
-<div class="game"><span>🟣 CRAZY</span><b>0-0</b><span>GUNMAN 🔵</span></div>
-<div class="game"><span>🔵 MAN CITY</span><b>0-0</b><span>CRAZY 🟣</span></div>
-<div class="game"><span>🔴 TBO</span><b>0-0</b><span>GUNMAN 🔵</span></div>
-<div class="game"><span>🔵 MAN CITY</span><b>0-0</b><span>GUNMAN 🔵</span></div>
-<div class="game"><span>🔴 TBO</span><b>0-0</b><span>CRAZY 🟣</span></div>
-</div>
+<div class="card">12 GAMES - NDI MAN CITY GOLD LOGO YANU<br><small>Tournament • 6 Fixtures Today • Group Stage • 12 Total Games</small></div>
 
-<div id="tableTab" class="hidden">
-<div class="scorer-table"><table><tr><th>#</th><th>Team</th><th>P</th><th>Pts</th></tr>
-<tr><td><span class="rank">1</span></td><td>MAN CITY</td><td>0</td><td>0</td></tr>
-<tr><td><span class="rank">2</span></td><td>TBO CITY</td><td>0</td><td>0</td></tr>
-<tr><td><span class="rank">3</span></td><td>CRAZY GAME</td><td>0</td><td>0</td></tr>
-<tr><td><span class="rank">4</span></td><td>GUNMAN</td><td>0</td><td>0</td></tr>
-</table></div>
-</div>
+<div class="game"><span>MAN CITY</span><b>0 - 0</b><span>TBO</span></div>
+<div class="game"><span>Crazy</span><b>0 - 0</b><span>Gunman</span></div>
+<div class="game"><span>Lions</span><b>0 - 0</b><span>Thunder</span></div>
+<div class="game"><span>Eagles</span><b>0 - 0</b><span>Sharks</span></div>
+<div class="game"><span>Phoenix</span><b>0 - 0</b><span>Wolves</span></div>
+<div class="game"><span>Royals</span><b>0 - 0</b><span>Titans</span></div>
 
-<div id="scorerTab" class="hidden">
-<div class="scorer-table"><table><tr><th>#</th><th>Player</th><th>Team</th><th>Goals</th></tr>
-<tr><td><span class="rank">1</span></td><td>Haaland</td><td>TBO/CRAZY/GUN</td><td>0</td></tr>
-<tr><td><span class="rank">2</span></td><td>Mbappe</td><td>VIC/CRAZY</td><td>0</td></tr>
-<tr><td><span class="rank">3</span></td><td>Yamal</td><td>TBO/VIC</td><td>0</td></tr>
-<tr><td>4</td><td>Dembele 99</td><td>CRAZY</td><td>0</td></tr>
-<tr><td>5</td><td>Vini Jr 99</td><td>CRAZY</td><td>0</td></tr>
-<tr><td>6</td><td>Raphinha</td><td>GUNMAN</td><td>0</td></tr>
-</table></div>
-</div>
-
-<div id="assistTab" class="hidden">
-<div class="scorer-table"><table><tr><th>#</th><th>Player</th><th>Team</th><th>Assists</th></tr>
-<tr><td><span class="rank">1</span></td><td>Pedri 95</td><td>CRAZY/TBO</td><td>0</td></tr>
-<tr><td><span class="rank">2</span></td><td>Bellingham 85</td><td>GUNMAN</td><td>0</td></tr>
-<tr><td><span class="rank">3</span></td><td>Cherki 86</td><td>TBO</td><td>0</td></tr>
-<tr><td>4</td><td>Rodri 94</td><td>TBO</td><td>0</td></tr>
-<tr><td>5</td><td>Fernandes 98</td><td>CRAZY</td><td>0</td></tr>
-<tr><td>6</td><td>Camavinga 82</td><td>GUNMAN</td><td>0</td></tr>
-</table></div>
-</div>
-
-<div id="squadsTab" class="hidden">
-<div class="team-chips">
-<button class="active" onclick="showTeam('mancity')">MAN CITY - VIC</button>
-<button onclick="showTeam('tbo')">TBO - HANEEF</button>
-<button onclick="showTeam('crazy')">CRAZY - CFC</button>
-<button onclick="showTeam('gunman')">GUNMAN - LAHEEMU</button>
-</div>
-
-<div id="mancityTeam"><div class="pitch"><div style="text-align:center;color:#ffd700;font-size:12px">MAN CITY FC - VIC - 4-3-3</div>
-<div class="line"><div class="player-card">MBAPPE 93</div><div class="player-card">AUBA 87</div><div class="player-card">YAMAL 92</div></div>
-<div class="line"><div class="player-card">BELLINGHAM 85</div><div class="player-card">PEDRI 86</div><div class="player-card">RODRI 93</div></div>
-<div class="line"><div class="player-card">MENDES 89</div><div class="player-card">DIAS 90</div><div class="player-card">CANNAVARO 91</div><div class="player-card">HAKIMI 86</div></div>
-<div class="line"><div class="player-card">DONNARUMMA 95 GK</div></div></div></div>
-
-<div id="tboTeam" class="hidden"><div class="pitch"><div style="text-align:center;color:#ffd700;font-size:12px">TBO CITY FC - HANEEF - 4-2-3-1</div>
-<div class="line"><div class="player-card">HAALAND 93</div></div>
-<div class="line"><div class="player-card">DOKU 87</div><div class="player-card">CHERKI 86</div><div class="player-card">YAMAL 93</div></div>
-<div class="line"><div class="player-card">RODRI 94</div><div class="player-card">ANDERSON 87</div></div>
-<div class="line"><div class="player-card">O'REILLY 88</div><div class="player-card">GVARDIOL 87</div><div class="player-card">KHUSANOV 83</div><div class="player-card">HAKIMI 87</div></div>
-<div class="line"><div class="player-card">DONNARUMMA 90</div></div></div></div>
-
-<div id="crazyTeam" class="hidden"><div class="pitch"><div style="text-align:center;color:#ffd700;font-size:12px">CRAZY GAME FC - 99 RATED!</div>
-<div class="line"><div class="player-card">DEMBELE 99</div><div class="player-card">HAALAND 99</div></div>
-<div class="line"><div class="player-card">VINI JR 99</div><div class="player-card">FERNANDES 98</div><div class="player-card">OLISE 98</div></div>
-<div class="line"><div class="player-card">VALVERDE 98</div></div>
-<div class="line"><div class="player-card">BALDE</div><div class="player-card">HAKIMI</div><div class="player-card">HAKIMI</div></div>
-<div class="line"><div class="player-card">COURTOIS 94</div></div></div></div>
-
-<div id="gunmanTeam" class="hidden"><div class="pitch"><div style="text-align:center;color:#ffd700;font-size:12px">GUNMAN FC - LAHEEMU</div>
-<div class="line"><div class="player-card">RAPHINHA 86</div><div class="player-card">HAALAND 90</div><div class="player-card">YAMAL 90</div></div>
-<div class="line"><div class="player-card">CAMAVINGA 82</div><div class="player-card">CAICEDO 87</div><div class="player-card">HAKIMI 91</div></div>
-<div class="line"><div class="player-card">MENDES 88</div><div class="player-card">GABRIEL 88</div><div class="player-card">A. ARNOLD 83</div></div>
-<div class="line"><div class="player-card">DONNARUMMA 87</div></div></div></div>
-</div>
-
-<script>
-setTimeout(()=>document.getElementById('welcome').style.display='none',4000);
-function showTab(id){
-['matches','table','scorer','assist','squads'].forEach(t=>document.getElementById(t+'Tab').classList.add('hidden'));
-document.getElementById(id+'Tab').classList.remove('hidden');
-document.querySelectorAll('.tabs button').forEach(b=>b.classList.remove('active')); event.target.classList.add('active');
-}
-function showTeam(id){
-['mancity','tbo','crazy','gunman'].forEach(t=>document.getElementById(t+'Team').classList.add('hidden'));
-document.getElementById(id+'Team').classList.remove('hidden');
-document.querySelectorAll('.team-chips button').forEach(b=>b.classList.remove('active')); event.target.classList.add('active');
-}
-</script>
+<script>setTimeout(()=>document.getElementById('w').style.display='none',4000)</script>
 </body>
-                              </html>
+</html>
