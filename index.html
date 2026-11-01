@@ -1,36 +1,53 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>MACHINGA BOY VIC V13</title>
+<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MACHINGA BOY VIC V15 - FINAL</title>
 <style>
-body{background:#0a1628;color:white;font-family:Arial;padding:15px}
-.welcome{background:linear-gradient(90deg,#6caddf,white);color:#0a1628;text-align:center;padding:20px;border-radius:15px;font-weight:900;font-size:22px;margin-bottom:15px;animation:pop 1s}
-@keyframes pop{0%{transform:scale(0.8)}100%{transform:scale(1)}}
-.card{background:white;color:#0a1628;border-radius:10px;padding:10px;margin:10px 0}
-.grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
-.btn{width:100%;padding:15px;border-radius:10px;border:none;font-weight:bold;margin-top:10px;font-size:16px}
-.blue{background:#2196F3;color:white}
-.green{background:#25D366;color:white}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#eef2f7;font-family:Arial}
+.welcome-overlay{position:fixed;inset:0;background:linear-gradient(135deg,#0a1628,#1e3a5f,#6caddf);display:flex;flex-direction:column;align-items:center;justify-content:center;z-index:9999;color:white;text-align:center;animation:hideWelcome 0.8s ease 4s forwards}
+.welcome-overlay h1{font-size:32px;font-weight:900}
+.welcome-overlay h1 .gold{background:white;color:#0a1628;padding:6px 14px;border-radius:10px;margin-top:10px;display:inline-block;font-size:22px}
+.loading{margin-top:25px;width:200px;height:4px;background:rgba(255,255,255,0.2);border-radius:10px;overflow:hidden}
+.loading-bar{height:100%;background:#ffeb3b;width:0%;animation:load 3.5s ease forwards}
+@keyframes load{to{width:100%}}@keyframes hideWelcome{to{opacity:0;visibility:hidden}}
+.header-main{background:#0a1628;color:white;padding:12px;display:flex;align-items:center;gap:12px}
+.header-main img{width:55px;height:55px;background:white;border-radius:50%;border:3px solid #ffeb3b}
+.header-main h2{color:#ffeb3b;font-size:16px}
+.tabs{background:#1a2a4a;display:flex;gap:15px;padding:10px}
+.tabs span{color:#8a9ab5;font-size:12px}.tabs span.active{color:white;border-bottom:3px solid #ffeb3b;font-weight:bold}
+.content{padding:10px}
+.card{background:white;border-radius:14px;padding:14px;margin-bottom:12px;border:2px solid #ffeb3b}
+.game{background:white;border-radius:14px;padding:10px;margin-bottom:10px;display:flex;align-items:center;justify-content:space-between}
+.game img{width:38px;height:38px;border-radius:50%;border:2px solid #ffeb3b}
+.game .score b{border:2px solid #ffeb3b;border-radius:8px;width:36px;height:30px;display:flex;align-items:center;justify-content:center}
 </style>
 </head>
 <body>
-<div class="welcome">
-WELCOME TO DLS26<br>THE TOURNAMENT POWER<br>
-<span style="font-size:14px">MACHINGA BOY VIC - MAN CITY FC</span>
+<div class="welcome-overlay" id="welcome">
+<h1>WELCOME TO DLS26<br><span class="gold">THE TOURNAMENT POWER</span></h1>
+<p style="margin-top:15px">MACHINGA BOY VIC • 28 PLAYERS</p>
+<div class="loading"><div class="loading-bar"></div></div>
 </div>
 
-<div class="card">
-<h3>STARTING XI - 11</h3>
-<p>1. Mbappe 93 CF, 2. Yamal 92 RW, 3. Bellingham 85 AM, 4. Kvara 90 LW, 5. Pedri 86 CM, 6. Rodri 93 DM, 7. Mendes 89 LB, 8. Dias 90 CB, 9. Cannavaro 91 CB, 10. Hakimi 86 RB, 11. Donnarumma 95 GK</p>
+<div style="background:#ffeb3b;padding:10px">✕ machinga-web.github.io</div>
+<div class="header-main">
+<img src="https://upload.wikimedia.org/wikipedia/en/e/eb/Manchester_City_FC_badge.svg">
+<div><h2>MAN CITY FC - MACHINGA BOY VIC</h2><p>DLS Super League • 12 Games • 28 Players</p><p style="color:#ffeb3b">Gold Premium Logo</p></div>
 </div>
-<div class="card">
-<h3>SUBS + RESERVES - 17</h3>
-<p>12 Saliba 87, 13 Haaland 91, 14 Aubameyang 87, 15 De Bruyne 87, 16 Dembele 87, 17 Foden 82, 18 Ziyech 90, 19 Van Dijk 85, 20 Valverde 88, 21 Semenyo 85, 22 Caicedo 85, 23 Szoboszlai 85, 24 Simon 82, 25 Cucurella 81, 26 Anderson 80, 27 Khusanov 80, 28 Nunes 79</p>
+<div class="tabs"><span class="active">Matches 12</span><span>Table</span><span>Squads + Logos</span><span>Top Scorer</span><span>Top Assist</span></div>
+<div class="content">
+<div class="card">⚔️ <b>12 GAMES - NDI MAN CITY GOLD LOGO YANU!</b><br>Yanu 🔵 Gold Premium VIC • TBO 🔴 Bayern • Crazy 🔴 Liverpool • Gunman 🔵 Chelsea</div>
+<div class="game"><div style="display:flex;align-items:center;gap:8px"><img src="https://upload.wikimedia.org/wikipedia/en/e/eb/Manchester_City_FC_badge.svg">Man City FC</div><div class="score"><b>0</b>-<b>0</b></div><div>TBO City FC <img src="https://upload.wikimedia.org/wikipedia/commons/1/1b/FC_Bayern_M%C3%BCnchen_logo_%282017%29.svg"></div></div>
+<div class="game"><div><img src="https://upload.wikimedia.org/wikipedia/en/0/0c/Liverpool_FC.svg">Crazy Game FC</div><div class="score"><b>0</b>-<b>0</b></div><div>Gunman FC <img src="https://upload.wikimedia.org/wikipedia/en/c/cc/Chelsea_FC.svg"></div></div>
+<div class="game"><div><img src="https://upload.wikimedia.org/wikipedia/en/e/eb/Manchester_City_FC_badge.svg">Man City FC</div><div class="score"><b>0</b>-<b>0</b></div><div>Crazy Game FC <img src="https://upload.wikimedia.org/wikipedia/en/0/0c/Liverpool_FC.svg"></div></div>
+<div class="game"><div><img src="https://upload.wikimedia.org/wikipedia/commons/1/1b/FC_Bayern_M%C3%BCnchen_logo_%282017%29.svg">TBO City FC</div><div class="score"><b>0</b>-<b>0</b></div><div>Gunman FC <img src="https://upload.wikimedia.org/wikipedia/en/c/cc/Chelsea_FC.svg"></div></div>
+<div class="game"><div><img src="https://upload.wikimedia.org/wikipedia/en/e/eb/Manchester_City_FC_badge.svg">Man City FC</div><div class="score"><b>0</b>-<b>0</b></div><div>Gunman FC <img src="https://upload.wikimedia.org/wikipedia/en/c/cc/Chelsea_FC.svg"></div></div>
+<div class="game"><div><img src="https://upload.wikimedia.org/wikipedia/commons/1/1b/FC_Bayern_M%C3%BCnchen_logo_%282017%29.svg">TBO City FC</div><div class="score"><b>0</b>-<b>0</b></div><div>Crazy Game FC <img src="https://upload.wikimedia.org/wikipedia/en/0/0c/Liverpool_FC.svg"></div></div>
+<div class="card"><h3>28 PLAYERS ANU - MAN CITY</h3><p>Starting 11: Mbappe 93, Yamal 92, Bellingham 85, Kvara 90, Pedri 86, Rodri 93, Mendes 89, Dias 90, Cannavaro 91, Hakimi 86, Donnarumma 95<br>Subs 17: Saliba 87, Haaland 91, Aubameyang 87, De Bruyne 87, Dembele 87, Foden 82, Ziyech 90, Van Dijk 85, Valverde 88, Semenyo 85, Caicedo 85, Szoboszlai 85, Simon 82, Cucurella 81, Anderson 80, Khusanov 80, Nunes 79</p></div>
 </div>
-
-<button class="btn blue" onclick="window.open('https://machinga-web.github.io')">🌐 Visit Website</button>
-<button class="btn green" onclick="window.open('https://wa.me/265')">💬 Join WhatsApp Tournament</button>
-<button class="btn" style="background:white;color:#0a1628" onclick="window.print()">🖨️ Sindikizani Pepala La 28</button>
+<script>setTimeout(()=>{document.getElementById('welcome').style.display='none'},4500);</script>
 </body>
 </html>
