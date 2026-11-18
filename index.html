@@ -1,95 +1,131 @@
 <!DOCTYPE html>
 <html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>DLS FRIEND ZONE - VICTOR EDWARD - V29</title>
+<title>DLS FRIEND ZONE COMPETITIONS - VICTOR EDWARD</title>
 <style>
 *{margin:0;padding:0;box-sizing:border-box;font-family:Arial}
 body{background:#f2f2f2;padding-bottom:90px}
-header{background:#1a2a5e;color:#fff;padding:12px;position:sticky;top:0;z-index:99}
-.tabs{display:flex;gap:6px;margin-top:10px;overflow-x:auto}
-.tabs button{flex-shrink:0;padding:12px 16px;border:0;border-radius:8px;background:rgba(255,255,255,.25);color:#fff;font-weight:bold;font-size:14px}
+header{background:#2e7d32;color:#fff;padding:10px 12px;position:sticky;top:0;z-index:99}
+header b{font-size:17px;white-space:nowrap;overflow:hidden;display:block}
+.tabs{display:flex;gap:6px;margin-top:10px;overflow-x:auto;padding-bottom:2px}
+.tabs button{flex-shrink:0;padding:11px 16px;border:0;border-radius:10px;background:rgba(255,255,255,.22);color:#fff;font-weight:bold;font-size:14px}
 .tabs button.active{background:#fff;color:#111}
 .tabs button.gold{background:#FFD700;color:#111}
-.page{display:none;padding:14px}.page.active{display:block}
-.card{background:#fff;border-radius:12px;padding:14px;margin-bottom:12px}
+.page{display:none;padding:12px}.page.active{display:block}
+.card{background:#fff;border-radius:14px;padding:14px;margin-bottom:12px}
 .btn{background:#1a2a5e;color:#fff;border:0;padding:14px;border-radius:10px;font-weight:bold;width:100%;margin-top:8px;font-size:15px}
 .btn-gold{background:#FFD700;color:#111}.btn-green{background:#2e7d32}
 input,select{width:100%;padding:12px;margin:6px 0;border:1px solid #ddd;border-radius:8px;font-size:15px}
-.cat{display:flex;align-items:center;gap:12px;background:#fff;padding:12px;border-radius:10px;margin-bottom:2px;cursor:pointer;border-bottom:1px solid #eee}
+/* COPAFACIL TOP 3 */
+.top3{display:flex;gap:8px;margin-bottom:12px}
+.top3>div{flex:1;background:#fff;border-radius:14px;padding:14px 6px;text-align:center}
+.top3 b{font-size:14px;line-height:1.2;display:block}
+/* ORGANIZER HEADER NGATI COPAFACIL */
+.org{display:flex;gap:12px;align-items:center}
+.org-logo{width:70px;height:70px;border-radius:50%;background:#111;color:#FFD700;display:grid;place-items:center;font-weight:900;font-size:11px;text-align:center;border:3px solid #FFD700;flex-shrink:0;line-height:1.2}
+.org-banner{flex:1;background:linear-gradient(135deg,#111,#4a148c);color:#FFD700;padding:12px;border-radius:12px;font-weight:900;font-size:18px;line-height:1.1}
+.follow{background:#1a2a5e;color:#fff;border:0;padding:10px 16px;border-radius:20px;font-weight:bold;flex-shrink:0}
+.info{font-size:14px;line-height:1.9;color:#333}
+.info b{font-size:16px;color:#111}
+.org-pill{background:#FFD700;color:#111;padding:10px 14px;border-radius:20px;font-weight:900;display:inline-block;margin:8px 0}
+/* CATEGORIES - 8 OKHA */
+.cat{display:flex;align-items:center;gap:12px;background:#fff;padding:12px;border-radius:12px;margin-bottom:2px;cursor:pointer;border-bottom:1px solid #eee}
 .cat:active{background:#FFF8E1}
+.cat-num{width:38px;height:38px;border-radius:50%;background:#1a2a5e;color:#fff;display:grid;place-items:center;font-weight:900;flex-shrink:0}
 .cat-logo{width:52px;height:52px;border-radius:50%;background:#111;color:#FFD700;display:grid;place-items:center;font-weight:900;font-size:9px;text-align:center;border:2px solid gold;flex-shrink:0;line-height:1.2}
-.pill{flex:1;color:#fff;font-weight:bold;font-size:14px;padding:13px 12px;border-radius:6px;line-height:1.3}
-.c-red{background:#e53935}.c-navy{background:#283593}.c-black{background:#111}.c-gold{background:#d69a1a}.c-purple{background:#d3a6e8}.c-blue{background:#5c7bc0}.c-brownred{background:#c05a5a}.c-olive{background:#b8b84a}.c-green{background:#2e7d32}.c-teal{background:#00838f}.c-brightgreen{background:#43a047}.c-cyan{background:#00838f}
-.bottom{position:fixed;bottom:0;left:0;right:0;background:#1a2a5e;color:#fff;display:flex;justify-content:space-around;padding:14px 2px;font-size:12px;z-index:99}
+.pill{flex:1;color:#fff;font-weight:bold;font-size:14px;padding:13px 12px;border-radius:8px;line-height:1.3}
+.c-red{background:#e53935}.c-navy{background:#283593}.c-black{background:#111}.c-gold{background:#d69a1a}.c-purple{background:#7b1fa2}.c-blue{background:#1565c0}.c-green{background:#2e7d32}.c-teal{background:#00838f}
+.bottom{position:fixed;bottom:0;left:0;right:0;background:#2e7d32;color:#fff;display:flex;justify-content:space-around;padding:14px 2px;font-size:12px;z-index:99}
 .bottom span{flex:1;text-align:center;padding:6px}.bottom span.active{color:#FFD700;font-weight:bold}
-.podium{display:flex;align-items:flex-end;gap:8px;text-align:center}.podium>div{flex:1}.box{color:#fff;padding:16px 0;font-weight:900;font-size:20px;border-radius:6px}.gold{background:#FFC107;color:#333}.silver{background:#9e9e9e}.bronze{background:#FF7043}
-.info{font-size:13px;line-height:2;color:#333;margin-top:10px}
-.hero{text-align:center;background:linear-gradient(135deg,#2e7d32,#111);color:#fff;border-radius:12px;padding:16px;margin-bottom:12px}
 .team-row{display:flex;align-items:center;gap:12px;background:#fff;padding:10px;border-radius:10px;margin-bottom:6px;border:1px solid #eee}
 .team-logo{width:52px;height:52px;border-radius:50%;display:grid;place-items:center;color:#fff;font-weight:900;font-size:12px;flex-shrink:0;border:2px solid #ddd;text-align:center;line-height:1.1}
 table{width:100%;border-collapse:collapse;background:#fff;font-size:12px}th,td{padding:9px 5px;text-align:center;border-bottom:1px solid #eee}th:first-child,td:first-child{text-align:left}
 </style></head>
 <body>
-<header><b>DLS FRIEND ZONE - VICTOR EDWARD</b>
+<header><b>DLS FRIEND ZONE COM...</b>
 <div class="tabs">
 <button id="btn-home" class="active" onclick="goPage('home')">🏠 Home</button>
-<button id="btn-cats" onclick="goPage('cats')">☰ Categories</button>
+<button id="btn-cats" onclick="goPage('cats')">Categories</button>
+<button id="btn-games" onclick="goPage('games')">Games</button>
+<button id="btn-tablePage" onclick="goPage('tablePage')">Table</button>
 <button id="btn-register" class="gold" onclick="goPage('register')">📝 Register</button>
 <button id="btn-admin" onclick="goPage('admin')">+ Admin</button>
-<button id="btn-media" onclick="goPage('media')">🏆 Ranking</button>
 </div></header>
 
+<!-- HOME - NGATI COPAFACIL MU CHITHUNZI CHANU -->
 <div id="home" class="page active">
-<div class="card" style="text-align:center;background:#111;color:#fff"><h2 style="color:#FFD700">🏆 DLS FRIEND ZONE</h2><p>👑 ORGANIZER: <b>VICTOR EDWARD</b></p><p>📞 +27 65 367 4390</p></div>
-<div class="card"><h2>DLS FRIEND ZONE COMPETITIONS</h2><p style="color:#888">Dinani League iliyonse kuti muwone ma Team ake!</p></div>
+<!-- TOP SCORER / TOP ASSIST / TEAMS -->
+<div class="top3">
+<div><div>🏅</div><b>TOP<br>SCORER</b><p style="margin-top:8px">-</p><small>0 goals</small></div>
+<div><div>🎯</div><b>TOP<br>ASSIST</b><p style="margin-top:8px">-</p><small>0 assists</small></div>
+<div><div>👥</div><b>TEAMS</b><p style="margin-top:8px;font-size:18px"><span id="teamCountTop">0</span></p><small>Registered</small></div>
+</div>
+
+<div class="card">
+<div class="org">
+<div class="org-logo">DLS<br>FRIEND<br>ZONE</div>
+<div class="org-banner">DLS<br>FRIEND ZONE</div>
+<button class="follow">✓ Following</button>
+</div>
+<p style="color:#2e7d32;font-size:13px;margin-top:10px">• Private • 33 followers</p>
+<h1 style="font-size:26px;line-height:1.1;margin:6px 0">DLS FRIEND ZONE<br>COMPETITIONS</h1>
+<p style="color:#888;font-size:16px">DFZ WORLD CUP</p>
+<div class="info" style="margin-top:10px">
+📅 PERIOD<br><b>16 Nov 2026</b><br>
+• STATUS<br><b>Not provided</b><br>
+👤 ORGANIZER<br><b>VICTOR EDWARD</b><br>
+</div>
+<div class="org-pill">👑 ORGANIZER: VICTOR EDWARD</div>
+<div class="info">
+🌐 TOURNAMENT WEBSITE<br><b>copafacil.com/-26jid</b><br>
+📞 TELEPHONE<br><b>+27 65 367 4390</b>
+</div>
+</div>
+
 <button class="btn btn-gold" onclick="goPage('register')">📝 REGISTER TEAM YANU APA</button>
-<button class="btn" onclick="goPage('cats')">🏆 ONANI MA CATEGORIES ONSE - DINANI APA</button>
-<button class="btn" style="background:#111" onclick="openLeague('premier')">🏴󐁧󐁢󐁥󐁮󐁧󐁿 PREMIER LEAGUE S4 - MA TEAM 20</button>
-<button class="btn" style="background:#283593" onclick="openLeague('s5')">⭐ LEAGUE S5 - MA TEAM 20</button>
-<button class="btn" style="background:#b8b84a;color:#111" onclick="openLeague('s2')">🟢 LEAGUE S2 - MA TEAM 16</button>
-<button class="btn" style="background:#2e7d32" onclick="openLeague('clubworld')">🌍 CLUB WORLD CUP - MA TEAM 24</button>
-<button class="btn" style="background:#d69a1a" onclick="openLeague('laliga')">🇪🇸 LALIGA S3 - MA TEAM 20</button>
-<button class="btn" style="background:#283593" onclick="openLeague('elite')">🔵 ELITE CUP - MA TEAM 16</button>
-<button class="btn" style="background:#8e24aa" onclick="openLeague('diamond')">💎 DIAMOND CUP - MA TEAM 16</button>
-<button class="btn" style="background:#43a047" onclick="openLeague('s7')">🟢 LEAGUE S7 - MA TEAM 20</button>
+<button class="btn" onclick="goPage('cats')">🏆 ONANI MA CATEGORIES - 8 LEAGUES</button>
+<button class="btn" style="background:#111" onclick="openLeague('premier')">1️⃣ PREMIER LEAGUE - MA TEAM 20</button>
+<button class="btn" style="background:#d69a1a" onclick="openLeague('laliga')">2️⃣ LALIGA - MA TEAM 20</button>
+<button class="btn" style="background:#e53935" onclick="openLeague('champions')">3️⃣ CHAMPION LEAGUE - MA TEAM 16</button>
+<button class="btn" style="background:#283593" onclick="openLeague('facup')">4️⃣ FA CUP - MA TEAM 16</button>
+<button class="btn" style="background:#7b1fa2" onclick="openLeague('uefa')">5️⃣ UEFA CHAMPION CUP - MA TEAM 16</button>
+<button class="btn" style="background:#2e7d32" onclick="openLeague('worldcup')">6️⃣ WORLD CUP - MA TEAM 24</button>
+<button class="btn" style="background:#00838f" onclick="openLeague('tournament')">7️⃣ TOURNAMENT CUP - MA TEAM 16</button>
+<button class="btn" style="background:#111" onclick="openLeague('challenge')">8️⃣ FRIEND CHALLENGE - MA TEAM 16</button>
 </div>
 
-<!-- CATEGORIES - ZONSE - MUKADINA ILIYONSE IMAONESA MA TEAM -->
+<!-- CATEGORIES - MA LEAGUE 8 OKHA OMWE MWANENA -->
 <div id="cats" class="page">
-<div class="card" style="text-align:center"><h2>🏆 Categories</h2><p style="color:#888;font-size:13px">Dinani League iliyonse - Idzatsegula ndi kuonesa ma Team ake!</p></div>
-<div class="cat" onclick="openLeague('worldcup')"><div class="cat-logo">DLS<br>FRIEND<br>ZONE</div><div class="pill c-green">DFZ WORLD CUP 🌍 - MA TEAM 24</div><span>›</span></div>
-<div class="cat" onclick="openLeague('elite')"><div class="cat-logo">DLS<br>FRIEND<br>ZONE</div><div class="pill c-navy">DLS FRIEND ZONE ELITE CUP 🔵 - MA TEAM 16</div><span>›</span></div>
-<div class="cat" onclick="openLeague('diamond')"><div class="cat-logo">DLS<br>FRIEND<br>ZONE</div><div class="pill" style="background:#8e24aa">DFZ DIAMOND CUP 💎 - MA TEAM 16</div><span>›</span></div>
-<div class="cat" onclick="openLeague('clubworld')" style="border:3px solid #2e7d32"><div class="cat-logo">DLS<br>FRIEND<br>ZONE</div><div class="pill c-green">DFZ CLUB WORLD CUP 🌍 - MA TEAM 24</div><span>›</span></div>
-<div class="cat" onclick="openLeague('independence')"><div class="cat-logo">DLS<br>FRIEND<br>ZONE</div><div class="pill c-blue">DFZ INDEPENDENCE TOURNAMENT - MA TEAM 16</div><span>›</span></div>
-<div class="cat" onclick="openLeague('s7')"><div class="cat-logo">DLS<br>FRIEND<br>ZONE</div><div class="pill c-brightgreen">FRIEND ZONE LEAGUE S7 🟢 - MA TEAM 20</div><span>›</span></div>
-<div class="cat" onclick="openLeague('supercup')"><div class="cat-logo">DLS<br>FRIEND<br>ZONE</div><div class="pill c-green">SUPER CUP FINAL - MA TEAM 2</div><span>›</span></div>
-<div class="cat" onclick="openLeague('europa')"><div class="cat-logo">DLS<br>FRIEND<br>ZONE</div><div class="pill c-cyan">FRIEND ZONE EUROPA LEAGUE - MA TEAM 16</div><span>›</span></div>
-<div class="cat" onclick="openLeague('champions')"><div class="cat-logo">DLS<br>FRIEND<br>ZONE</div><div class="pill c-red">FRIEND ZONE CHAMPIONS LEAGUE - MA TEAM 16</div><span>›</span></div>
-<div class="cat" onclick="openLeague('mini')"><div class="cat-logo">DLS<br>FRIEND<br>ZONE</div><div class="pill c-red">FRIEND ZONE MINI TOURNAMENT - MA TEAM 16</div><span>›</span></div>
-<div class="cat" onclick="openLeague('s5')" style="border:3px solid #283593"><div class="cat-logo">FRIEND<br>ZONE</div><div class="pill c-navy">FRIEND ZONE LEAGUE S5 ⭐ - MA TEAM 20</div><span>›</span></div>
-<div class="cat" onclick="openLeague('premier')" style="border:3px solid #111"><div class="cat-logo">DLS<br>FRIEND<br>ZONE</div><div class="pill c-black">DLS FRIEND ZONE PREMIER LEAGUE S4 🏴󐁧󐁢󐁥󐁮󐁧󐁿 - MA TEAM 20</div><span>›</span></div>
-<div class="cat" onclick="openLeague('laliga')" style="border:3px solid #d69a1a"><div class="cat-logo">DLS<br>FRIEND<br>ZONE</div><div class="pill c-gold">DLS FRIEND ZONE LALIGA S3 🇪🇸 - MA TEAM 20</div><span>›</span></div>
-<div class="cat" onclick="openLeague('european')"><div class="cat-logo">DLS<br>FRIEND<br>ZONE</div><div class="pill c-purple">FRIEND ZONE EUROPEAN LEAGUE - MA TEAM 16</div><span>›</span></div>
-<div class="cat" onclick="openLeague('champions2')"><div class="cat-logo">FRIEND<br>ZONE</div><div class="pill c-blue">FRIEND ZONE CHAMPIONS LEAGUE - MA TEAM 16</div><span>›</span></div>
-<div class="cat" onclick="openLeague('mini2')"><div class="cat-logo">FRIEND<br>ZONE</div><div class="pill c-brownred">FRIEND ZONE MINI TOURNAMENT - MA TEAM 16</div><span>›</span></div>
-<div class="cat" onclick="openLeague('s2')" style="border:3px solid #b8b84a"><div class="cat-logo">DLS<br>FRIEND<br>ZONE</div><div class="pill c-olive">FRIEND ZONE LEAGUE S2 🟢 - MA TEAM 16</div><span>›</span></div>
+<div class="card" style="text-align:center"><h2>🏆 Categories</h2><p style="color:#888;font-size:13px">Ma League 8 okha • Dinani League iliyonse kuti muwone ma Team ake!</p></div>
+<div class="cat" onclick="openLeague('premier')"><div class="cat-num">1</div><div class="cat-logo">DLS<br>FRIEND<br>ZONE</div><div class="pill c-black">PREMIER LEAGUE 🏴󐁧󐁢󐁥󐁮󐁧󐁿</div><span>›</span></div>
+<div class="cat" onclick="openLeague('laliga')"><div class="cat-num">2</div><div class="cat-logo">DLS<br>FRIEND<br>ZONE</div><div class="pill c-gold">LALIGA 🇪🇸</div><span>›</span></div>
+<div class="cat" onclick="openLeague('champions')"><div class="cat-num">3</div><div class="cat-logo">DLS<br>FRIEND<br>ZONE</div><div class="pill c-red">CHAMPION LEAGUE 🔴</div><span>›</span></div>
+<div class="cat" onclick="openLeague('facup')"><div class="cat-num">4</div><div class="cat-logo">DLS<br>FRIEND<br>ZONE</div><div class="pill c-navy">FA CUP 🔵</div><span>›</span></div>
+<div class="cat" onclick="openLeague('uefa')"><div class="cat-num">5</div><div class="cat-logo">DLS<br>FRIEND<br>ZONE</div><div class="pill c-purple">UEFA CHAMPION CUP 🟣</div><span>›</span></div>
+<div class="cat" onclick="openLeague('worldcup')"><div class="cat-num">6</div><div class="cat-logo">DLS<br>FRIEND<br>ZONE</div><div class="pill c-green">WORLD CUP 🌍</div><span>›</span></div>
+<div class="cat" onclick="openLeague('tournament')"><div class="cat-num">7</div><div class="cat-logo">DLS<br>FRIEND<br>ZONE</div><div class="pill c-teal">TOURNAMENT CUP 🏆</div><span>›</span></div>
+<div class="cat" onclick="openLeague('challenge')"><div class="cat-num">8</div><div class="cat-logo">DLS<br>FRIEND<br>ZONE</div><div class="pill c-blue">FRIEND CHALLENGE 🤝</div><span>›</span></div>
+<button class="btn btn-gold" onclick="goPage('register')">📝 REGISTER TEAM</button>
+<button class="btn" onclick="goPage('home')">⬅ BWERERANI KU HOME</button>
 </div>
 
-<!-- LEAGUE DETAIL PAGE - IMODZI YOKHA - IMAONESA LEAGUE ILIYONSE -->
+<!-- LEAGUE DETAIL - IMODZI - IMAONESA LEAGUE ILIYONSE + MA TEAM -->
 <div id="leagueDetail" class="page">
 <div class="card" style="text-align:center;background:#111;color:#fff"><h2 id="ldTitle" style="color:#FFD700">LEAGUE</h2><p>👑 ORGANIZER: VICTOR EDWARD • 📞 +27 65 367 4390</p><p id="ldSub" style="font-size:13px;margin-top:6px"></p><p id="ldChampion" style="margin-top:8px;font-weight:bold;color:#FFD700"></p></div>
+<div class="top3"><div><div>🏅</div><b>TOP<br>SCORER</b><p>-</p><small>0 goals</small></div><div><div>🎯</div><b>TOP<br>ASSIST</b><p>-</p><small>0 assists</small></div><div><div>👥</div><b>TEAMS</b><p id="ldCount">0</p><small>Registered</small></div></div>
 <div class="card"><h3>🏆 TABLE</h3><div id="ldTable"></div></div>
 <h3 style="margin-bottom:8px">👥 MA TEAM ONSE - NDI LOGO</h3>
 <div id="ldTeams"></div>
 <button class="btn btn-gold" onclick="goPage('register')">📝 REGISTER TEAM MU LEAGUE IYI</button>
 <button class="btn" onclick="goPage('cats')">⬅ BWERERANI KU CATEGORIES</button>
-<button class="btn" onclick="goPage('home')">🏠 BWERERANI KU HOME</button>
 </div>
+
+<div id="games" class="page"><div class="card"><h2>⚽ Games</h2><p>Games zidzawonekera apa mukayika ma result mu Admin.</p><br><p>PREMIER: MAN CITY vs ARSENAL</p><br><p>LALIGA: REAL MADRID vs BARCELONA</p><br><p>CHAMPIONS: PIRATE ZN vs M-RISE</p><br><p>WORLD CUP: PORTUGAL vs ENGLAND</p></div></div>
+<div id="tablePage" class="page"><div class="card"><h2>📊 Table</h2><p>Dinani League mu Categories kuti muwone Table yake.</p><br><button class="btn" onclick="goPage('cats')">🏆 ONANI CATEGORIES</button></div></div>
 
 <div id="register" class="page">
 <div class="card"><h2>📝 REGISTER TEAM</h2><p>Organizer: <b>VICTOR EDWARD</b> • 📞 +27 65 367 4390</p><br>
-<label>Tournament</label><select id="regTour"><option>DFZ WORLD CUP</option><option>DLS FRIEND ZONE ELITE CUP</option><option>DFZ DIAMOND CUP</option><option>DFZ CLUB WORLD CUP</option><option>DLS FRIEND ZONE LALIGA S3</option><option>DLS FRIEND ZONE PREMIER LEAGUE S4</option><option>FRIEND ZONE LEAGUE S5</option><option>FRIEND ZONE LEAGUE S2</option><option>FRIEND ZONE LEAGUE S7</option><option>FRIEND ZONE EUROPEAN LEAGUE</option><option>FRIEND ZONE CHAMPIONS LEAGUE</option><option>FRIEND ZONE MINI TOURNAMENT</option></select>
-<label>Dzina la Team *</label><input id="regTeamName" placeholder="Ex: MAN CITY / EVABEL DYNASTY">
+<label>Tournament - Sankhani League</label><select id="regTour"><option>PREMIER LEAGUE</option><option>LALIGA</option><option>CHAMPION LEAGUE</option><option>FA CUP</option><option>UEFA CHAMPION CUP</option><option>WORLD CUP</option><option>TOURNAMENT CUP</option><option>FRIEND CHALLENGE</option></select>
+<label>Dzina la Team *</label><input id="regTeamName" placeholder="Ex: MAN CITY / REAL MADRID">
 <label>Manager *</label><input id="regManager" placeholder="Ex: Machinga Boy Vic">
 <label>Phone *</label><input id="regPhone" value="+27 ">
 <label>Captain</label><input id="regCaptain" placeholder="Ex: Haaland">
@@ -99,26 +135,60 @@ table{width:100%;border-collapse:collapse;background:#fff;font-size:12px}th,td{p
 <div class="card"><h3>Ma Team Olembetsedwa: <span id="teamCount">0</span></h3><div id="teamsList"><p>Palibe team pano.</p></div></div>
 </div>
 <div id="admin" class="page"><div class="card"><h2>📸 Admin - VICTOR EDWARD</h2><p>Apa mumayika ma result a game.</p><br><label>Home Team</label><input id="fHome" placeholder="Ex: MAN CITY"><label>Away Team</label><input id="fAway" placeholder="Ex: ARSENAL"><button class="btn btn-green" onclick="alert('Admin ikugwira ntchito!')">✅ SAVE GAME</button></div></div>
-<div id="media" class="page"><div class="card"><h2>🏆 Ranking</h2><p>Top Scorer ndi Top Assist zidzawonekera apa.</p></div></div>
 
 <div class="bottom">
 <span id="b-home" class="active" onclick="goPage('home')">🏠<br>Home</span>
 <span id="b-cats" onclick="goPage('cats')">☰<br>Categories</span>
+<span id="b-games" onclick="goPage('games')">⚽<br>Games</span>
+<span id="b-tablePage" onclick="goPage('tablePage')">📊<br>Table</span>
 <span id="b-register" onclick="goPage('register')">📝<br>Register</span>
 <span id="b-admin" onclick="goPage('admin')">+<br>Admin</span>
-<span id="b-media" onclick="goPage('media')">🏆<br>Ranking</span>
 </div>
 <script>
 var LEAGUES={
-worldcup:{title:'🌍 DFZ WORLD CUP',sub:'16 Nov 2026 • Ma Team 24 • 6 Groups',champ:'',table:'GROUP A: PORTUGAL 6, AUSTRIA 3, BELGIUM 3, SOUTH KOREA 0',teams:[['PORTUGAL','POR','#046a38'],['ENGLAND','ENG','#fff','#111'],['COLOMBIA','COL','#ffeb3b','#111'],['NIGERIA','NGA','#2e7d32'],['SPAIN','ESP','#d32f2f'],['FRANCE','FRA','#283593'],['GERMANY','GER','#111'],['BRAZIL','BRA','#ffeb3b','#111'],['ARGENTINA','ARG','#00bcd4'],['ITALY','ITA','#283593'],['BELGIUM','BEL','#d32f2f'],['AUSTRIA','AUT','#d32f2f'],['SOUTH KOREA','KOR','#d32f2f'],['MOROCCO','MAR','#2e7d32'],['USA','USA','#283593'],['JAPAN','JPN','#d32f2f']]},
-elite:{title:'🔵 DLS FRIEND ZONE ELITE CUP',sub:'1 Nov - 10 Nov 2026 • Ma Team 16',champ:'🏆 CHAMPION: NON CHALLANT GUY 1:0 BADDEST FC',table:'FINAL: BADDEST FC 0:1 NON CHALLANT GUY',teams:[['NON CHALLANT GUY','NCG','#111'],['BADDEST FC','BF','#e91e63'],['EVABEL DYNASTY','EVA','#e91e63'],['THE VISION','VIS','#2196f3'],['ALANI FC','ALA','#9c27b0'],['PARIS SG','PAR','#5c6bc0'],['M-RISE','M-RI','#9c27b0'],['AJ STAR','AJ','#ff9800'],['PIRATE ZN','PIR','#e53935'],['BALLERINO UNITED','BAL','#2e7d32'],['LA MASIA ACADEMY','LAM','#a50044'],['KOLI MONEY','KOL','#111'],['CHELSEA FOR LIFE','CHE','#283593'],['GENERAL LAMZY','GEN','#00838f'],['KELLY MONEY','KEL','#f44336'],['KAPZY FC','KAP','#ff9800']]},
-diamond:{title:'💎 DFZ DIAMOND CUP',sub:'21 Oct 2026 • Ma Team 16',champ:'🏆 CHAMPION: PARIS SG 1:0 NON CHALLANT GUY',table:'FINAL: PARIS SG 1:0 NON CHALLANT GUY',teams:[['PARIS SG','PAR','#5c6bc0'],['NON CHALLANT GUY','NCG','#111'],['EVABEL DYNASTY','EVA','#e91e63'],['THE VISION','VIS','#2196f3'],['ALANI FC','ALA','#9c27b0'],['M-RISE','M-RI','#9c27b0'],['AJ STAR','AJ','#ff9800'],['PIRATE ZN','PIR','#e53935'],['BADDEST FC','BF','#e91e63'],['BALLERINO UNITED','BAL','#2e7d32'],['LA MASIA ACADEMY','LAM','#a50044'],['KOLI MONEY','KOL','#111'],['CHELSEA FOR LIFE','CHE','#283593'],['GENERAL LAMZY','GEN','#00838f'],['KELLY MONEY','KEL','#f44336'],['TOP PLAYER FC','TOP','#43a047']]},
-clubworld:{title:'🌍 DFZ CLUB WORLD CUP',sub:'14 Oct - 19 Oct 2026 • Ma Team 24 • 6 Groups',champ:'🏆 CHAMPION: PARIS SAINT-GERMAN 3:2 FLAMENGO',table:'GROUP A: FLAMENGO 9, PALMEIRAS 4, INTER 4, DORTMUND 0 | GROUP B: BARCELONA 7, ATLETICO 7, MIAMI 1, AJAX 1 | GROUP C: AL AHLY 9, LIVERPOOL 6, MAN CITY 1, CHELSEA 1 | GROUP D: ARSENAL 7, BENFICA 6, MAMELODI 5, BAYERN 2 | GROUP E: PARIS SG 7, REAL MADRID 7, AC MILAN 1, MAN UTD 1 | GROUP F: AL NASSR 4, JUVENTUS 4, AL HILAL 2, PORTO 1',teams:[['FLAMENGO','FLA','#f44336'],['PALMEIRAS','PAL','#2e7d32'],['INTER MILAN','INT','#111'],['BORUSSIA DORTMUND','BVB','#ffeb3b','#111'],['BARCELONA','BAR','#a50044'],['ATLETICO MADRID','ATM','#cb3524'],['INTER MIAMI','MIA','#ff9800'],['AJAX','AJA','#d32f2f'],['AL AHLY','AHL','#b71c1c'],['LIVERPOOL','LIV','#d32f2f'],['MANCHESTER CITY','MCI','#6cabdd','#111'],['CHELSEA','CHE','#034694'],['ARSENAL','ARS','#ef0107'],['BENFICA','BEN','#e30613'],['MAMELODI SUNDOWNS','SUN','#ffeb3b','#111'],['BAYERN MUNICH','BAY','#dc052d'],['PARIS SAINT-GERMAN','PSG','#004170'],['REAL MADRID','RMA','#fff','#111'],['AC MILAN','MIL','#fb090b'],['MANCHESTER UNITED','MUN','#da291c'],['AL NASSR','NAS','#ffeb3b','#111'],['JUVENTUS','JUV','#111'],['AL HILAL','HIL','#0066b3'],['PORTO','POR','#003da5']]},
-independence:{title:'🇿🇦 DFZ INDEPENDENCE TOURNAMENT',sub:'1 Oct 2026 • Ma Team 16',champ:'🏆 CHAMPION: THE VISION',table:'FINAL: THE VISION vs ALANI FC',teams:[['THE VISION','VIS','#2196f3'],['ALANI FC','ALA','#9c27b0'],['EVABEL DYNASTY','EVA','#e91e63'],['NON CHALLANT GUY','NCG','#111'],['PARIS SG','PAR','#5c6bc0'],['M-RISE','M-RI','#9c27b0'],['AJ STAR','AJ','#ff9800'],['PIRATE ZN','PIR','#e53935'],['BALLERINO UNITED','BAL','#2e7d32'],['LA MASIA ACADEMY','LAM','#a50044'],['BADDEST FC','BF','#e91e63'],['KOLI MONEY','KOL','#111'],['CHELSEA FOR LIFE','CHE','#283593'],['GENERAL LAMZY','GEN','#00838f'],['KELLY MONEY','KEL','#f44336'],['KAPZY FC','KAP','#ff9800']]},
-s7:{title:'🟢 FRIEND ZONE LEAGUE S7',sub:'29 Sep - 13 Oct 2026 • Ma Team 20',champ:'🏆 CHAMPION: EVABEL DYNASTY 129 PTS',table:'1 EVABEL DYNASTY 129 | 2 THE VISION 121 | 3 ALANI 107 | 4 NON CHALLANT 105',teams:[['EVABEL DYNASTY','EVA','#e91e63'],['THE VISION','VIS','#2196f3'],['ALANI FC','ALA','#9c27b0'],['NON CHALLANT GUY','NCG','#111'],['PARIS SG','PAR','#5c6bc0'],['M-RISE','M-RI','#9c27b0'],['AJ STAR','AJ','#ff9800'],['PIRATE ZN','PIR','#e53935'],['BALLERINO UNITED','BAL','#2e7d32'],['LA MASIA ACADEMY','LAM','#a50044'],['BADDEST FC','BF','#e91e63'],['KOLI MONEY','KOL','#111'],['CHELSEA FOR LIFE','CHE','#283593'],['GENERAL LAMZY','GEN','#00838f'],['KELLY MONEY','KEL','#f44336'],['KAPZY FC','KAP','#ff9800'],['TOP PLAYER FC','TOP','#43a047'],['UNDERDOG FC','UND','#795548'],['REDSTAR FC','RED','#607d8b'],['GOD NEVER FAIL','GOD','#9e9e9e']]},
-supercup:{title:'🏆 SUPER CUP FINAL',sub:'27 Sep 2026 • Ma Team 2',champ:'🏆 CHAMPION: BULL SHIT 5:2 PIRATE ZN',table:'FINAL: BULL SHIT 5:2 PIRATE ZN',teams:[['BULL SHIT','BUL','#2e7d32'],['PIRATE ZN','PIR','#e53935']]},
-europa:{title:'🟢 FRIEND ZONE EUROPA LEAGUE',sub:'20 Sep - 27 Sep 2026 • Ma Team 16',champ:'🏆 CHAMPION: BULL SHIT',table:'FINAL: BULL SHIT Champion',teams:[['BULL SHIT','BUL','#2e7d32'],['PIRATE ZN','PIR','#e53935'],['EVABEL DYNASTY','EVA','#e91e63'],['THE VISION','VIS','#2196f3'],['ALANI FC','ALA','#9c27b0'],['NON CHALLANT GUY','NCG','#111'],['PARIS SG','PAR','#5c6bc0'],['M-RISE','M-RI','#9c27b0'],['AJ STAR','AJ','#ff9800'],['BALLERINO UNITED','BAL','#2e7d32'],['LA MASIA ACADEMY','LAM','#a50044'],['BADDEST FC','BF','#e91e63'],['KOLI MONEY','KOL','#111'],['CHELSEA FOR LIFE','CHE','#283593'],['GENERAL LAMZY','GEN','#00838f'],['KELLY MONEY','KEL','#f44336']]},
-champions:{title:'🔴 FRIEND ZONE CHAMPIONS LEAGUE',sub:'20 Sep - 27 Sep 2026 • Ma Team 16',champ:'🏆 CHAMPION: PIRATE ZN 2:1 M-RISE',table:'FINAL: M-RISE 1:2 PIRATE ZN',teams:[['PIRATE ZN','PIR','#e53935'],['M-RISE','M-RI','#9c27b0'],['EVABEL DYNASTY','EVA','#e91e63'],['THE VISION','VIS','#2196f3'],['ALANI FC','ALA','#9c27b0'],['NON CHALLANT GUY','NCG','#111'],['PARIS SG','PAR','#5c6bc0'],['AJ STAR','AJ','#ff9800'],['BALLERINO UNITED','BAL','#2e7d32'],['LA MASIA ACADEMY','LAM','#a50044'],['BADDEST FC','BF','#e91e63'],['KOLI MONEY','KOL','#111'],['CHELSEA FOR LIFE','CHE','#283593'],['GENERAL LAMZY','GEN','#00838f'],['KELLY MONEY','KEL','#f44336'],['BULL SHIT','BUL','#2e7d32']]},
-mini:{title:'🔴 FRIEND ZONE MINI TOURNAMENT',sub:'25 Mar - 31 Mar 2026 • Ma Team 16',champ:'🏆 CHAMPION: HOLLYDEE FC',table:'FINAL: HOLLYDEE FC Champion',teams:[['HOLLYDEE FC','HOL','#ff9800'],['LIVERPOOL','LIV','#d32f2f'],['HOME OF LEGENDS','LEG','#FFD700','#111'],['ALANI FC','ALA','#9c27b0'],['THE VISION','VIS','#2196f3'],['EVABEL DYNASTY','EVA','#e91e63'],['NON CHALLANT GUY','NCG','#111'],['PARIS SG','PAR','#5c6bc0'],['M-RISE','M-RI','#9c27b0'],['PIRATE ZN','PIR','#e53935'],['AJ STAR','AJ','#ff9800'],['BULL SHIT','BUL','#2e7d32'],['GLE MERLIN DL','GLE','#00838f'],['TOP PLAYER FC','TOP','#795548'],['KAPZY FC','KAP','#607d8b'],['SAMMY FC','SAM','#43a047']]},
-s5:{title:'⭐ FRIEND ZONE LEAGUE S5',sub:'Ma Team 20',champ:'🏆 CHAMPION: EVABEL DYNASTY 112 PTS',table:'1 EVABEL 112 | 2 THE VISION 105 | 3 ALANI 98 | 4 NON CHALLANT 92 | 5 PARIS SG 88',teams:[['EVABEL DYNASTY','EVA','#e91e63'],['THE VISION','VIS','#2196f3'],['ALANI FC','ALA','#9c27b0'],['NON CHALLANT GUY','NCG','#111'],['PARIS SG','PAR','#5c6bc0'],['M-RISE','M-RI','#9c27b0'],['AJ STAR','AJ','#ff9800'],['PIRATE ZN','PIR','#e53935'],['BALLERINO UNITED','BAL','#2e7d32'],['LA MASIA ACADEMY','LAM','#a50044'],['BADDEST FC','BF','#e91e63'],['KOLI MONEY','KOL','#111'],['CHELSEA FOR LIFE','CHE','#283593'],['GENERAL LAMZY','GEN','#00838f'],['KELLY MONEY','KEL','#f44336'],['KAPZY FC','KAP','#ff9800'],['TOP PLAYER FC','TOP','#43a047'],['UNDERDOG FC','UND','#795548'],['REDSTAR FC','RED','#607d8b'],['GOD NEVER FAIL','GOD','#9e9e9e']]},
-premier:{title:'🏴󐁧󐁢󐁥󐁮󐁧󐁿 PREMIER LEAGUE S4',sub:'Ma Team 20 • England',champ:'🏆 CHAMPION: MANCHESTER CITY 58 PTS',table:'1 MAN CITY 58 | 2 ARSENAL 55 | 3 LIVERPOOL 52 | 4 EVABEL 49 | 5 CHELSEA 46',teams:[['MANCHESTER CITY','MC
+premier:{title:'1️⃣ PREMIER LEAGUE',sub:'Ma Team 20 • England',champ:'🏆 CHAMPION: MANCHESTER CITY 58 PTS',table:'1 MAN CITY 58 | 2 ARSENAL 55 | 3 LIVERPOOL 52 | 4 EVABEL 49 | 5 CHELSEA 46',teams:[['MANCHESTER CITY','MCI','#6cabdd','#111'],['ARSENAL','ARS','#ef0107'],['LIVERPOOL','LIV','#d32f2f'],['EVABEL DYNASTY','EVA','#e91e63'],['CHELSEA','CHE','#034694'],['THE VISION','VIS','#2196f3'],['MANCHESTER UNITED','MUN','#da291c'],['ALANI FC','ALA','#9c27b0'],['TOTTENHAM','TOT','#132257'],['NON CHALLANT GUY','NCG','#111'],['NEWCASTLE UNITED','NEW','#000'],['ASTON VILLA','AVL','#95bfe5','#111'],['BRIGHTON','BHA','#0057b8'],['WEST HAM','WHU','#7a263a'],['PARIS SG','PAR','#5c6bc0'],['M-RISE','M-RI','#9c27b0'],['AJ STAR','AJ','#ff9800'],['PIRATE ZN','PIR','#e53935'],['EVERTON','EVE','#034694'],['NOTTINGHAM FOREST','FOR','#dd0000']]},
+laliga:{title:'2️⃣ LALIGA',sub:'Ma Team 20 • Spain',champ:'🏆 CHAMPION: REAL MADRID 52 PTS',table:'1 REAL MADRID 52 | 2 BARCELONA 48 | 3 ATLETICO 45 | 4 SEVILLA 41 | 5 ALANI 39',teams:[['REAL MADRID','RMA','#fff','#111'],['BARCELONA','BAR','#a50044'],['ATLETICO MADRID','ATM','#cb3524'],['SEVILLA','SEV','#d00027'],['ALANI FC','ALA','#9c27b0'],['THE VISION','VIS','#2196f3'],['VALENCIA','VAL','#ff9800'],['VILLARREAL','VIL','#ffeb3b','#111'],['REAL SOCIEDAD','RSO','#0067b1'],['NON CHALLANT GUY','NCG','#111'],['EVABEL DYNASTY','EVA','#e91e63'],['ATHLETIC BILBAO','ATH','#d32f2f'],['GETAFE','GET','#2e7d32'],['CELTA VIGO','CEL','#00bcd4'],['PARIS SG','PAR','#5c6bc0'],['M-RISE','M-RI','#9c27b0'],['AJ STAR','AJ','#ff9800'],['PIRATE ZN','PIR','#e53935'],['ESPANYOL','ESP','#111'],['OSASUNA','OSA','#795548']]},
+champions:{title:'3️⃣ CHAMPION LEAGUE',sub:'Ma Team 16 • Europe',champ:'🏆 CHAMPION: PIRATE ZN 2:1 M-RISE',table:'FINAL: M-RISE 1:2 PIRATE ZN',teams:[['PIRATE ZN','PIR','#e53935'],['M-RISE','M-RI','#9c27b0'],['EVABEL DYNASTY','EVA','#e91e63'],['THE VISION','VIS','#2196f3'],['ALANI FC','ALA','#9c27b0'],['NON CHALLANT GUY','NCG','#111'],['PARIS SG','PAR','#5c6bc0'],['AJ STAR','AJ','#ff9800'],['BALLERINO UNITED','BAL','#2e7d32'],['LA MASIA ACADEMY','LAM','#a50044'],['BADDEST FC','BF','#e91e63'],['KOLI MONEY','KOL','#111'],['CHELSEA FOR LIFE','CHE','#283593'],['GENERAL LAMZY','GEN','#00838f'],['KELLY MONEY','KEL','#f44336'],['BULL SHIT','BUL','#2e7d32']]},
+facup:{title:'4️⃣ FA CUP',sub:'Ma Team 16 • England Knockout',champ:'🏆 CHAMPION: ARSENAL',table:'FINAL: ARSENAL vs MAN CITY',teams:[['ARSENAL','ARS','#ef0107'],['MANCHESTER CITY','MCI','#6cabdd','#111'],['LIVERPOOL','LIV','#d32f2f'],['CHELSEA','CHE','#034694'],['MANCHESTER UNITED','MUN','#da291c'],['TOTTENHAM','TOT','#132257'],['NEWCASTLE UNITED','NEW','#000'],['ASTON VILLA','AVL','#95bfe5','#111'],['BRIGHTON','BHA','#0057b8'],['WEST HAM','WHU','#7a263a'],['EVERTON','EVE','#034694'],['NOTTINGHAM FOREST','FOR','#dd0000'],['EVABEL DYNASTY','EVA','#e91e63'],['THE VISION','VIS','#2196f3'],['ALANI FC','ALA','#9c27b0'],['NON CHALLANT GUY','NCG','#111']]},
+uefa:{title:'5️⃣ UEFA CHAMPION CUP',sub:'Ma Team 16 • Europe',champ:'🏆 CHAMPION: REAL MADRID',table:'FINAL: REAL MADRID vs MAN CITY',teams:[['REAL MADRID','RMA','#fff','#111'],['MANCHESTER CITY','MCI','#6cabdd','#111'],['BARCELONA','BAR','#a50044'],['BAYERN MUNICH','BAY','#dc052d'],['PARIS SG','PAR','#004170'],['LIVERPOOL','LIV','#d32f2f'],['ARSENAL','ARS','#ef0107'],['CHELSEA','CHE','#034694'],['INTER MILAN','INT','#111'],['AC MILAN','MIL','#fb090b'],['JUVENTUS','JUV','#111'],['ATLETICO MADRID','ATM','#cb3524'],['EVABEL DYNASTY','EVA','#e91e63'],['THE VISION','VIS','#2196f3'],['ALANI FC','ALA','#9c27b0'],['NON CHALLANT GUY','NCG','#111']]},
+worldcup:{title:'6️⃣ WORLD CUP',sub:'Ma Team 24 • 6 Groups',champ:'🏆 CHAMPION: PORTUGAL',table:'GROUP A: PORTUGAL 6, AUSTRIA 3, BELGIUM 3, SOUTH KOREA 0',teams:[['PORTUGAL','POR','#046a38'],['ENGLAND','ENG','#fff','#111'],['COLOMBIA','COL','#ffeb3b','#111'],['NIGERIA','NGA','#2e7d32'],['SPAIN','ESP','#d32f2f'],['FRANCE','FRA','#283593'],['GERMANY','GER','#111'],['BRAZIL','BRA','#ffeb3b','#111'],['ARGENTINA','ARG','#00bcd4'],['ITALY','ITA','#283593'],['BELGIUM','BEL','#d32f2f'],['AUSTRIA','AUT','#d32f2f'],['SOUTH KOREA','KOR','#d32f2f'],['MOROCCO','MAR','#2e7d32'],['USA','USA','#283593'],['JAPAN','JPN','#d32f2f'],['CROATIA','CRO','#d32f2f'],['NETHERLANDS','NED','#ff9800'],['MEXICO','MEX','#2e7d32'],['SENEGAL','SEN','#2e7d32'],['GHANA','GHA','#ffeb3b','#111'],['EGYPT','EGY','#b71c1c'],['SOUTH AFRICA','RSA','#2e7d32'],['CAMEROON','CMR','#2e7d32']]},
+tournament:{title:'7️⃣ TOURNAMENT CUP',sub:'Ma Team 16 • Knockout',champ:'🏆 CHAMPION: EVABEL DYNASTY',table:'FINAL: EVABEL DYNASTY vs THE VISION',teams:[['EVABEL DYNASTY','EVA','#e91e63'],['THE VISION','VIS','#2196f3'],['ALANI FC','ALA','#9c27b0'],['NON CHALLANT GUY','NCG','#111'],['PARIS SG','PAR','#5c6bc0'],['M-RISE','M-RI','#9c27b0'],['AJ STAR','AJ','#ff9800'],['PIRATE ZN','PIR','#e53935'],['BALLERINO UNITED','BAL','#2e7d32'],['LA MASIA ACADEMY','LAM','#a50044'],['BADDEST FC','BF','#e91e63'],['KOLI MONEY','KOL','#111'],['CHELSEA FOR LIFE','CHE','#283593'],['GENERAL LAMZY','GEN','#00838f'],['KELLY MONEY','KEL','#f44336'],['KAPZY FC','KAP','#ff9800']]},
+challenge:{title:'8️⃣ FRIEND CHALLENGE',sub:'Ma Team 16 • Friendly Challenge',champ:'🏆 CHAMPION: HOLLYDEE FC',table:'CHALLENGE: HOLLYDEE FC vs LIVERPOOL',teams:[['HOLLYDEE FC','HOL','#ff9800'],['LIVERPOOL','LIV','#d32f2f'],['HOME OF LEGENDS','LEG','#FFD700','#111'],['ALANI FC','ALA','#9c27b0'],['THE VISION','VIS','#2196f3'],['EVABEL DYNASTY','EVA','#e91e63'],['NON CHALLANT GUY','NCG','#111'],['PARIS SG','PAR','#5c6bc0'],['M-RISE','M-RI','#9c27b0'],['PIRATE ZN','PIR','#e53935'],['AJ STAR','AJ','#ff9800'],['BULL SHIT','BUL','#2e7d32'],['GLE MERLIN DL','GLE','#00838f'],['TOP PLAYER FC','TOP','#795548'],['KAPZY FC','KAP','#607d8b'],['SAMMY FC','SAM','#43a047']]}
+};
+function goPage(id){
+  var all=document.getElementsByClassName('page');
+  for(var i=0;i<all.length;i++){all[i].style.display='none'; all[i].classList.remove('active');}
+  var t=document.getElementById(id);
+  if(t){t.style.display='block'; t.classList.add('active');}
+  var tabs=document.querySelectorAll('.tabs button');
+  for(var j=0;j<tabs.length;j++){tabs[j].classList.remove('active');}
+  var btn=document.getElementById('btn-'+id);
+  if(btn){btn.classList.add('active');}
+  var bots=document.querySelectorAll('.bottom span');
+  for(var k=0;k<bots.length;k++){bots[k].classList.remove('active');}
+  var b=document.getElementById('b-'+id);
+  if(b){b.classList.add('active');}
+  window.scrollTo(0,0);
+}
+function openLeague(key){
+  var L=LEAGUES[key]; if(!L) return;
+  document.getElementById('ldTitle').textContent=L.title;
+  document.getElementById('ldSub').textContent=L.sub;
+  document.getElementById('ldChampion').textContent=L.champ;
+  document.getElementById('ldTable').innerHTML='<p>'+L.table+'</p>';
+  document.getElementById('ldCount').textContent=L.teams.length;
+  var html='';
+  for(var i=0;i<L.teams.length;i++){
+    var tm=L.teams[i]; var bg=tm[2]; var fg=tm[3]||'#fff';
+    html+='<div class="team-row"><div class="team-logo" style="background:'+bg+';color:'+fg+'">'+tm[1]+'</div><div style="flex:1"><b>'+tm[0]+'</b><br><small>'+L.title+' • DLS Friend Zone</small></div><span>⚽</span></div>';
+  }
+  document.getElementById('ldTeams').innerHTML=html;
+  var sel=document.getElementById('regTour');
+  var map={premier:'PREMIER LEAGUE',laliga:'LALIGA',champions:'CHAMPION LEAGUE',facup:'FA CUP',uefa:'UEFA CHAMPION CUP',worldcup:'WORLD CUP',tournament:'TOURNAMENT CUP',challenge:'FRIEND CHALLENGE'};
+  if(map[key]) sel.value=map[key];
+  goPage('leagueDetail');
+}
+var teams=[];
+function registerTeam(){
+  var n=document.getElementById('regTeamName').value;
+  var m=document.getElementByI
