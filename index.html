@@ -8,14 +8,13 @@
 body{background:#f2f2f2;padding-bottom:80px}
 header{background:#1a2a5e;color:#fff;padding:12px;position:sticky;top:0;z-index:20}
 header.green{background:#2e7d32}header.navy{background:#1a2a5e}header.purple{background:#8e24aa}header.lightblue{background:#5c6bc0}header.brightgreen{background:#43a047}header.teal{background:#00838f}header.red{background:#d32f2f}
-.top{display:flex;justify-content:space-between;font-weight:bold;font-size:15px;align-items:center}
-.top img{width:38px;height:38px;border-radius:50%;border:2px solid gold;object-fit:cover}
+.top{display:flex;justify-content:space-between;font-weight:bold;font-size:15px}
 .tabs{display:flex;gap:5px;margin-top:10px;overflow-x:auto}.tabs button{flex:1;white-space:nowrap;border:0;padding:9px 8px;border-radius:8px;background:rgba(255,255,255,.2);color:#fff;font-weight:bold;cursor:pointer;font-size:12px}.tabs button.active{background:#fff;color:#111}
 .page{display:none;padding:12px}.page.active{display:block}
 .card{background:#fff;border-radius:12px;padding:14px;margin-bottom:12px}
 .logo-row{display:flex;gap:10px;align-items:center}
-.logo{width:70px;height:70px;border-radius:50%;border:2px solid gold;object-fit:cover;flex-shrink:0}
-.banner{flex:1;height:70px;background:linear-gradient(135deg,#111,#4a148c);color:#FFD700;display:grid;place-items:center;font-weight:900;border-radius:10px;text-align:center;font-size:13px}
+.logo{width:62px;height:62px;border-radius:50%;background:#111;color:#FFD700;display:grid;place-items:center;font-weight:900;font-size:11px;text-align:center;border:2px solid gold;overflow:hidden}.logo img{width:100%;height:100%;object-fit:cover}
+.banner{flex:1;height:70px;background:linear-gradient(135deg,#111,#4a148c);color:#FFD700;display:grid;place-items:center;font-weight:900;border-radius:10px}
 .follow{background:#1a2a5e;color:#fff;border:0;padding:8px 14px;border-radius:20px;font-weight:bold}
 .info{font-size:13px;line-height:2;color:#333;margin-top:10px}
 .podium{display:flex;align-items:flex-end;gap:8px;text-align:center}.podium>div{flex:1}.box{color:#fff;padding:16px 0;font-weight:900;font-size:20px;border-radius:6px}.gold{background:#FFC107;color:#333}.silver{background:#9e9e9e}.bronze{background:#FF7043}
@@ -25,7 +24,7 @@ header.green{background:#2e7d32}header.navy{background:#1a2a5e}header.purple{bac
 .match{background:#fff;border-radius:10px;padding:12px;margin-bottom:8px;text-align:center}
 .teams{display:flex;justify-content:space-between;align-items:center;margin-top:8px}
 .team{width:32%;text-align:center;font-size:12px;font-weight:bold}.badge{width:48px;height:48px;border-radius:50%;display:grid;place-items:center;color:#fff;font-weight:900;margin:auto;border:3px solid #ddd;font-size:11px;overflow:hidden}.badge img{width:100%;height:100%;object-fit:cover}
-.score{font-size:22px;font-weight:900}
+.score{font-size:22px;font-weight:900}.status{font-size:10px;background:#e8f5e9;padding:3px 8px;border-radius:10px;color:#2e7d32;font-weight:bold}
 table{width:100%;border-collapse:collapse;background:#fff;font-size:12px}th,td{padding:9px 5px;text-align:center;border-bottom:1px solid #eee}th:first-child,td:first-child{text-align:left}
 input,select{width:100%;padding:10px;margin:6px 0;border:1px solid #ddd;border-radius:8px}
 .btn{background:#1a2a5e;color:#fff;border:0;padding:12px;border-radius:10px;font-weight:bold;width:100%;cursor:pointer}.btn-green{background:#2e7d32}.btn-red{background:#e53935}.btn-gold{background:#FFD700;color:#111}
@@ -41,10 +40,118 @@ input,select{width:100%;padding:10px;margin:6px 0;border:1px solid #ddd;border-r
 .player-row{display:flex;gap:6px;margin-bottom:6px}.player-row input{margin:0}.player-row select{margin:0}
 .count-badge{background:#FFD700;color:#111;padding:4px 10px;border-radius:20px;font-weight:bold;font-size:12px}
 .organizer-badge{background:#FFD700;color:#111;padding:6px 12px;border-radius:20px;font-weight:900;font-size:12px;display:inline-block;margin-top:6px}
-.hero-logo{width:120px;height:120px;border-radius:50%;border:3px solid gold;display:block;margin:0 auto 10px;object-fit:cover;box-shadow:0 4px 12px rgba(0,0,0,.3)}
 </style>
 </head>
 <body>
-<header id="hdr" class="green"><div class="top"><span style="display:flex;align-items:center;gap:8px"><img src="victor-edward-logo.png" onerror="this.src='https://via.placeholder.com/38'"> <span id="headerTitle">DLS FRIEND ZONE COM...</span></span><span>↗ ⋮</span></div>
+<header id="hdr" class="green"><div class="top"><span id="headerTitle">DLS FRIEND ZONE COM...</span><span>↗ ⋮</span></div>
 <div class="tabs">
-<button onclick="show('
+<button onclick="show('home',this)" class="active">🏠 Home</button>
+<button onclick="show('cats',this)">Categories</button>
+<button onclick="show('games',this)">Games</button>
+<button onclick="show('tablePage',this)">Table</button>
+<button onclick="show('register',this)" style="background:#FFD700;color:#111">📝 Register</button>
+<button onclick="show('admin',this)" style="background:#fff;color:#111">+ Admin</button>
+<button onclick="show('media',this)">Ranking</button>
+</div></header>
+
+<div id="home" class="page active">
+<div class="topbox">
+<div class="card">🥇<br><b>TOP SCORER</b><br><span id="topScorerHome">-</span><br><small id="topScorerGoals">0 goals</small></div>
+<div class="card">🎯<br><b>TOP ASSIST</b><br><span id="topAssistHome">-</span><br><small id="topAssistCount">0 assists</small></div>
+<div class="card">👥<br><b>TEAMS</b><br><span id="teamCountHome">0</span><br><small>Registered</small></div>
+</div>
+<div class="card"><div class="logo-row"><div class="logo">DLS<br>FRIEND<br>ZONE</div><div class="banner">DLS<br>FRIEND ZONE</div><button class="follow" onclick="this.textContent='✓ Following'">+ Follow</button></div>
+<p style="margin-top:8px;color:green;font-size:12px">● Private • 33 followers</p>
+<h2 id="tourName">DLS FRIEND ZONE COMPETITIONS</h2><p id="tourSub" style="color:#888">DFZ WORLD CUP</p>
+<!-- ORGANIZER WATSOPANO - VICTOR EDWARD -->
+<div class="info">📅 PERIOD<br><b id="tourPeriod">16 Nov 2026</b><br>● STATUS<br><b>Not provided</b><br>👤 ORGANIZER<br><b>VICTOR EDWARD</b><br><span class="organizer-badge">👑 ORGANIZER: VICTOR EDWARD</span><br>🌐 TOURNAMENT WEBSITE<br><b>copafacil.com/-26jid</b><br>📞 TELEPHONE<br><b>+27 65 367 4390</b></div>
+<h3 style="margin-top:14px">TOURNAMENT RESULT</h3>
+<div class="podium"><div><small>2. PLACE</small><div>🏆</div><b id="p2">-</b><div class="box silver">2</div></div><div><small>1. PLACE</small><div>🏆</div><b id="p1">-</b><div class="box gold">1</div></div><div><small>3. PLACE</small><div>🏆</div><b id="p3">-</b><div class="box bronze">3</div></div></div>
+<button class="btn btn-gold" style="margin-top:14px" onclick="show('register',null)">📝 REGISTER TEAM YANU APA</button>
+<p style="text-align:center;color:#888;font-size:12px;margin-top:10px">Organized by <b>VICTOR EDWARD</b> • 📞 +27 65 367 4390</p>
+</div></div>
+
+<div id="cats" class="page">
+<p style="font-size:12px;color:#888;margin-bottom:10px">Ma Tournament 10 okha omwe mwasewera ✅ • Organizer: VICTOR EDWARD</p>
+<div class="cat" onclick="openTour('DFZ WORLD CUP','green','16 Nov 2026','-','-','-')"><span>🏆</span><div class="pill c-green">DFZ WORLD CUP</div><span>›</span></div>
+<div class="cat" onclick="openTour('DLS FRIEND ZONE ELITE CUP','navy','1 Nov - 10 Nov 2026','NON CHALLANT GUY','BADDEST FC','-')"><span>🏆</span><div class="pill c-navy">DLS FRIEND ZONE ELITE CUP</div><span>›</span></div>
+<div class="cat" onclick="openTour('DFZ DIAMOND CUP','purple','21 Oct 2026','PARIS SG','NON CHALLANT GUY','-')"><span>🏆</span><div class="pill c-purple">DFZ DIAMOND CUP</div><span>›</span></div>
+<div class="cat" onclick="openTour('DFZ CLUB WORLD CUP','green','14 Oct - 19 Oct 2026','PARIS SAINT-GERMAN','FLAMENGO','-')"><span>🏆</span><div class="pill c-green">DFZ CLUB WORLD CUP</div><span>›</span></div>
+<div class="cat" onclick="openTour('DFZ INDEPENDENCE TOURNAMENT','lightblue','1 Oct 2026','THE VISION','ALANI FC','-')"><span>🏆</span><div class="pill c-blue">DFZ INDEPENDENCE TOURNAMENT</div><span>›</span></div>
+<div class="cat" onclick="openTour('FRIEND ZONE LEAGUE S7','brightgreen','29 Sep - 13 Oct 2026','EVABEL DYNASTY','THE VISION','ALANI FC')"><span>🏆</span><div class="pill c-brightgreen">FRIEND ZONE LEAGUE S7</div><span>›</span></div>
+<div class="cat" onclick="openTour('SUPER CUP FINAL','brightgreen','27 Sep 2026','BULL SHIT','PIRATE ZN','-')"><span>🏆</span><div class="pill c-green">SUPER CUP FINAL</div><span>›</span></div>
+<div class="cat" onclick="openTour('FRIEND ZONE EUROPA LEAGUE','teal','20 Sep - 27 Sep 2026','BULL SHIT','-','-')"><span>🏆</span><div class="pill c-cyan">FRIEND ZONE EUROPA LEAGUE</div><span>›</span></div>
+<div class="cat" onclick="openTour('FRIEND ZONE CHAMPIONS LEAGUE','red','20 Sep - 27 Sep 2026','PIRATE ZN','M-RISE','-')"><span>🏆</span><div class="pill c-red">FRIEND ZONE CHAMPIONS LEAGUE</div><span>›</span></div>
+<div class="cat" onclick="openTour('FRIEND ZONE MINI TOURNAMENT','red','25 Mar - 31 Mar 2026','HOLLYDEE FC','LIVERPOOL','HOME OF LEGENDS')"><span>🏆</span><div class="pill c-red">FRIEND ZONE MINI TOURNAMENT</div><span>›</span></div>
+</div>
+
+<div id="games" class="page">
+<h3>MATCHES</h3>
+<div id="gamesList"></div>
+<div class="match"><small>ELITE CUP • FINAL • CLOSED</small><div class="teams"><div class="team"><div class="badge" style="background:#e91e63">BF</div>BADDEST FC</div><div class="score">0 : 1</div><div class="team"><div class="badge" style="background:#9c27b0">NCG</div>NON CHALLANT GUY</div></div></div>
+<div class="match"><small>DIAMOND CUP • FINAL • CLOSED</small><div class="teams"><div class="team"><div class="badge" style="background:#e91e63">PS</div>PARIS SG</div><div class="score">1 : 0</div><div class="team"><div class="badge" style="background:#9c27b0">NCG</div>NON CHALLANT GUY</div></div></div>
+<div class="match"><small>CLUB WORLD CUP • FINAL • CLOSED</small><div class="teams"><div class="team"><div class="badge" style="background:#e91e63">PS</div>PARIS SAINT-GERMAN</div><div class="score">3 : 2</div><div class="team"><div class="badge" style="background:#f44336">FLA</div>FLAMENGO</div></div></div>
+<div class="match"><small>SUPER CUP FINAL • CLOSED</small><div class="teams"><div class="team"><div class="badge" style="background:#111">BSL</div>BULL SHIT</div><div class="score">5 : 2</div><div class="team"><div class="badge" style="background:#e91e63">PZL</div>PIRATE ZN</div></div></div>
+</div>
+
+<div id="tablePage" class="page">
+<h3>LEADERBOARD - 1st Stage</h3>
+<div class="rank-tabs"><button class="active" onclick="showTable('world',this)">DFZ WORLD CUP</button><button onclick="showTable('elite',this)">ELITE CUP</button><button onclick="showTable('league7',this)">LEAGUE S7</button><button onclick="showTable('europa',this)">EUROPA</button><button onclick="showTable('champ',this)">CHAMPIONS</button><button onclick="showTable('registered',this)">REGISTERED TEAMS</button></div>
+<div id="tbl-world"><p class="grp">GROUP A - PORTUGAL 6, AUSTRIA 3, BELGIUM 3, SOUTH KOREA 0</p><p class="grp">GROUP B - ENGLAND 6, BRAZIL 0, MOROCCO 0, ITALY 0</p><p class="grp">GROUP C - COLOMBIA 6, GHANA 3, NETHERLANDS 0, IVORY COAST 0</p><p class="grp">GROUP D - GERMANY 0, CROATIA 0, MEXICO 0, CANADA 0</p><p class="grp">GROUP E - NIGERIA 9, SWITZERLAND 3, SENEGAL 0, EGYPT 0</p><p class="grp">GROUP F - SPAIN 6, FRANCE 0, JAPAN 0, NORWAY 0</p></div>
+<div id="tbl-elite" style="display:none"><p class="grp">GROUP A - KOLI MONEY 11, ABUSI JUNIOR 8, CHELSEA FOR LIFE 8, PARIS SG 6</p><p class="grp">GROUP B - BALLERINO 18, REAL MADRID 12, MONEY UNITED 2, BAYERN 2</p><p class="grp">GROUP C - NON CHALLANT 13, UNDERDOG 12, LIVERPOOL 9, GOD NEVER FAIL 1</p><p class="grp">GROUP D - AJ STAR 15, CHELSEA 7, REDSTAR 4, PARIS SG 2</p><p class="grp">GROUP E - BADDEST 16, KELLY MONEY 8, KAPZY 7, SOUTH AFRICA 0</p><p class="grp">GROUP F - MAN CITY 15, GENERAL LAMZY 12, BE BRILLIANT 9, M-RISE 9</p></div>
+<div id="tbl-league7" style="display:none"><table><tr><th>TEAMS</th><th>PTS</th><th>MP</th><th>W</th><th>D</th><th>L</th></tr><tr><td>1 EVABEL DYNASTY</td><td><b>129</b></td><td>46</td><td>42</td><td>3</td><td>1</td></tr><tr><td>2 THE VISION</td><td><b>121</b></td><td>46</td><td>39</td><td>4</td><td>3</td></tr><tr><td>3 ALANI FC</td><td><b>107</b></td><td>46</td><td>33</td><td>8</td><td>5</td></tr><tr><td>4 NON CHALLANT GUY</td><td><b>105</b></td><td>46</td><td>34</td><td>3</td><td>9</td></tr></table></div>
+<div id="tbl-europa" style="display:none"><table><tr><th>TEAMS</th><th>PTS</th><th>MP</th><th>W</th><th>D</th><th>L</th></tr><tr><td>1 BALLERINO UNITED</td><td><b>24</b></td><td>8</td><td>8</td><td>0</td><td>0</td></tr><tr><td>2 THE VISION</td><td><b>21</b></td><td>8</td><td>7</td><td>0</td><td>1</td></tr><tr><td>3 LA MASIA ACADEMY</td><td><b>19</b></td><td>8</td><td>6</td><td>1</td><td>1</td></tr></table></div>
+<div id="tbl-champ" style="display:none"><table><tr><th>TEAMS</th><th>PTS</th><th>MP</th><th>W</th><th>D</th><th>L</th></tr><tr><td>1 GLE MERLIN DL</td><td><b>21</b></td><td>8</td><td>7</td><td>0</td><td>1</td></tr><tr><td>2 PIRATE ZN</td><td><b>20</b></td><td>8</td><td>6</td><td>2</td><td>0</td></tr><tr><td>3 TOP PLAYER FC</td><td><b>17</b></td><td>8</td><td>5</td><td>2</td><td>1</td></tr></table></div>
+<div id="tbl-registered" style="display:none"><div id="registeredTable"></div></div>
+</div>
+
+<div id="register" class="page">
+<div class="card">
+<h2>📝 REGISTER TEAM YATSOPANO</h2>
+<p style="font-size:13px;color:#666">Organizer: <b>VICTOR EDWARD</b> • 📞 +27 65 367 4390<br>Lembani zonse za team yanu!</p>
+<label>🏆 Tournament Imene Mukufuna Kusewera</label>
+<select id="regTour"><option>DFZ WORLD CUP</option><option>DLS FRIEND ZONE ELITE CUP</option><option>DFZ DIAMOND CUP</option><option>DFZ CLUB WORLD CUP</option><option>DFZ INDEPENDENCE TOURNAMENT</option><option>FRIEND ZONE LEAGUE S7</option><option>SUPER CUP FINAL</option><option>FRIEND ZONE EUROPA LEAGUE</option><option>FRIEND ZONE CHAMPIONS LEAGUE</option><option>FRIEND ZONE MINI TOURNAMENT</option></select>
+<label>⚽ Dzina la Team *</label><input id="regTeamName" placeholder="Ex: ELON FATHER / MAN CITY / HOLLYDEE FC">
+<label>👤 Dzina la Manager / Coach *</label><input id="regManager" placeholder="Ex: Machinga Boy Vic">
+<label>📞 Nambala ya Phone *</label><input id="regPhone" placeholder="Ex: +27 65 367 4390" value="+27 ">
+<label>💬 WhatsApp Number</label><input id="regWhatsApp" placeholder="Ex: +27 65 367 4390">
+<label>👑 Captain wa Team</label><input id="regCaptain" placeholder="Ex: Haaland">
+<label>🎨 Mtundu wa Team / Kit Colour</label>
+<select id="regColor"><option value="#1a2a5e">🔵 Blue</option><option value="#e53935">🔴 Red</option><option value="#2e7d32">🟢 Green</option><option value="#FFD700">🟡 Yellow / Gold</option><option value="#111111">⚫ Black</option><option value="#9c27b0">🟣 Purple</option><option value="#ff9800">🟠 Orange</option></select>
+<label>📸 Logo ya Team</label>
+<div class="upload" onclick="document.getElementById('teamLogo').click()">📸 Dinani Apa Kuti Muike Logo ya Team<input type="file" id="teamLogo" accept="image/*" hidden onchange="previewTeamLogo(this)"><img id="teamLogoPreview" style="display:none;max-width:120px;margin:auto"></div>
+<h3 style="margin-top:16px">👥 MA PLAYER - Lembani 11</h3>
+<div id="playersList">
+<div class="player-row"><input placeholder="1. Player - Ex: Haaland" class="pName"><select class="pPos"><option>FW</option><option>MF</option><option>DF</option><option>GK</option></select><input placeholder="No." type="number" value="9" class="pNo" style="width:70px"></div>
+<div class="player-row"><input placeholder="2. Player" class="pName"><select class="pPos"><option>MF</option><option>FW</option><option>DF</option><option>GK</option></select><input placeholder="No." type="number" value="10" class="pNo" style="width:70px"></div>
+<div class="player-row"><input placeholder="3. Player" class="pName"><select class="pPos"><option>DF</option><option>MF</option><option>FW</option><option>GK</option></select><input placeholder="No." type="number" value="4" class="pNo" style="width:70px"></div>
+<div class="player-row"><input placeholder="4. Player" class="pName"><select class="pPos"><option>GK</option><option>DF</option><option>MF</option><option>FW</option></select><input placeholder="No." type="number" value="1" class="pNo" style="width:70px"></div>
+</div>
+<button class="btn" style="background:#eee;color:#111;margin-top:6px" onclick="addPlayerRow()">+ Add Player Wina</button>
+<button class="btn btn-green" style="margin-top:16px" onclick="registerTeam()">✅ REGISTER TEAM - SUNGITSANI</button>
+<p id="regMsg" style="color:green;font-weight:bold;margin-top:10px;text-align:center"></p>
+</div>
+<div class="card">
+<h3>👥 MA TEAM OLEM betsEDWA <span class="count-badge" id="teamCount">0 Teams</span></h3>
+<input placeholder="🔍 Sakani team..." oninput="filterTeams(this.value)">
+<div id="teamsList"><p style="text-align:center;color:#888">Palibe team yomwe yalembetsedwa pano.</p></div>
+<button class="btn btn-red" style="margin-top:10px" onclick="clearTeams()">🗑️ Chotsani Ma Team Onse</button>
+</div>
+</div>
+
+<div id="admin" class="page">
+<div class="card">
+<h2>📸 ADD NEW GAME RESULT</h2>
+<p style="font-size:12px;color:#888">Admin: VICTOR EDWARD • +27 65 367 4390</p>
+<label>Tournament</label><select id="fTour"><option>DFZ WORLD CUP</option><option>DLS FRIEND ZONE ELITE CUP</option><option>DFZ DIAMOND CUP</option><option>DFZ CLUB WORLD CUP</option><option>DFZ INDEPENDENCE TOURNAMENT</option><option>FRIEND ZONE LEAGUE S7</option><option>SUPER CUP FINAL</option><option>FRIEND ZONE EUROPA LEAGUE</option><option>FRIEND ZONE CHAMPIONS LEAGUE</option><option>FRIEND ZONE MINI TOURNAMENT</option></select>
+<label>Home Team</label><input id="fHome" placeholder="Sankhani team yomwe mwalembetsa" list="teamNamesList"><datalist id="teamNamesList"></datalist>
+<label>Away Team</label><input id="fAway" placeholder="Sankhani team yomwe mwalembetsa" list="teamNamesList">
+<div style="display:flex;gap:8px"><div style="flex:1"><label>Home Score</label><input id="fHS" type="number" value="3"></div><div style="flex:1"><label>Away Score</label><input id="fAS" type="number" value="0"></div></div>
+<label>📸 SCREENSHOT YA GAME</label>
+<div class="upload" onclick="document.getElementById('shot').click()">📸 Dinani Apa Kuti Muike Screenshot<input type="file" id="shot" accept="image/*" hidden onchange="previewShot(this)"><img id="shotPreview" style="display:none"></div>
+<h3 style="margin-top:16px">⚽ SCORERS - TEAM pa Chigoli Chilichonse</h3>
+<div id="homeScorers"><div class="scorer-row"><input class="team-input hsTeam" placeholder="Team"><input class="player-input hsName" placeholder="Player"><input class="goal-input hsGoals" type="number" value="1"></div></div>
+<button class="btn" style="background:#eee;color:#111;margin-top:6px" onclick="addGoalRow('homeScorers','hsTeam','hsName','hsGoals')">+ Add Chigoli Chinanso</button>
+<h3 style="margin-top:16px">🎯 ASSISTS</h3>
+<div id="assists"><div class="scorer-row"><input class="team-input astTeam" placeholder="Team"><input class="player-input astName" placeholder="Player"><input class="goal-input astCount" type="number" value="1"></div></div>
+<button class="btn" style="background:#eee;color:#111;margin-top:6px" onclick="addGoalRow('assist
