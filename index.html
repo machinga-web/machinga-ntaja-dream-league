@@ -1,20 +1,19 @@
 <!DOCTYPE html>
 <html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>DLS FRIEND ZONE COMPETITIONS - V36 - 8 LEAGUES</title>
+<title>DLS FRIEND ZONE - V37 - CATEGORIES YOKHA</title>
 <style>
 *{margin:0;padding:0;box-sizing:border-box;font-family:Arial}
-body{background:#fff;padding-bottom:20px}
+body{background:#fff;padding-bottom:80px}
 header{background:#1a5c2a;color:#fff;padding:8px 10px;position:sticky;top:0;z-index:99}
 header .top{display:flex;align-items:center;gap:10px}
 header b{font-size:15px;flex:1;white-space:nowrap;overflow:hidden}
 .tabs{display:flex;gap:6px;margin-top:8px;overflow-x:auto;padding-bottom:2px}
-.tabs button{flex-shrink:0;padding:9px 14px;border:0;border-radius:10px;background:rgba(255,255,255,.22);color:#fff;font-weight:bold;font-size:13px}
+.tabs button{flex-shrink:0;padding:10px 16px;border:0;border-radius:10px;background:rgba(255,255,255,.22);color:#fff;font-weight:bold;font-size:13px}
 .tabs button.active{background:#fff;color:#111}
 .page{display:none;padding:12px}.page.active{display:block}
-.card{background:#fff;border-radius:12px;padding:12px;margin-bottom:10px}
-.btn{background:#1a5c2a;color:#fff;border:0;padding:13px;border-radius:10px;font-weight:bold;width:100%;margin-top:8px}
+.card{background:#fff;border-radius:12px;padding:12px;margin-bottom:10px;border:1px solid #eee}
+.btn{background:#1a5c2a;color:#fff;border:0;padding:14px;border-radius:10px;font-weight:bold;width:100%;margin-top:8px;font-size:15px}
 .banner{width:100%;height:140px;background:linear-gradient(135deg,#2b1055,#7597de);border-radius:12px;display:grid;place-items:center;color:#FFD700;font-weight:900;font-size:28px;text-align:center;line-height:1.1}
-.banner small{font-size:12px;color:#fff}
 .avatar{width:72px;height:72px;border-radius:50%;background:#f5c518;color:#111;display:grid;place-items:center;font-weight:900;font-size:20px;border:3px solid #fff;margin-top:-36px;margin-left:12px;position:relative;z-index:2}
 .follow{float:right;background:#1a5c2a;color:#fff;border:0;padding:10px 18px;border-radius:20px;font-weight:bold;margin-top:-30px;margin-right:10px}
 .pill-cat{background:#e8f5e9;color:#1a5c2a;padding:6px 12px;border-radius:20px;font-size:12px;font-weight:bold;display:inline-block}
@@ -36,55 +35,77 @@ header b{font-size:15px;flex:1;white-space:nowrap;overflow:hidden}
 .toggle b{border-bottom:2px solid #1a5c2a;padding-bottom:2px}
 table{width:100%;border-collapse:collapse;font-size:13px}th,td{padding:9px 4px;text-align:center;border-bottom:1px solid #eee}th:first-child,td:first-child{text-align:left}
 .grpTitle{font-weight:900;margin:16px 0 6px;font-size:14px}
-.cat2{display:flex;align-items:center;gap:10px;background:#fff;padding:12px;border-bottom:1px solid #eee;cursor:pointer}
+.cat2{display:flex;align-items:center;gap:10px;background:#fff;padding:14px;border-bottom:1px solid #eee;cursor:pointer}
+.cat2:active{background:#e8f5e9}
 .cat2-num{width:36px;height:36px;border-radius:50%;background:#1a5c2a;color:#fff;display:grid;place-items:center;font-weight:900;flex-shrink:0}
 .cat2-logo{width:48px;height:48px;border-radius:50%;background:#111;color:#FFD700;display:grid;place-items:center;font-weight:900;font-size:9px;text-align:center;flex-shrink:0;line-height:1.2}
-.cat2-pill{flex:1;color:#fff;font-weight:bold;font-size:13px;padding:12px 10px;border-radius:6px;line-height:1.3}
+.cat2-pill{flex:1;color:#fff;font-weight:bold;font-size:13px;padding:13px 10px;border-radius:6px;line-height:1.3}
 .c-green{background:#2e7d32}.c-navy{background:#283593}.c-purple{background:#7b1fa2}.c-teal{background:#00838f}.c-blue2{background:#1565c0}.c-black{background:#111}.c-gold{background:#d69a1a}.c-red{background:#e53935}
-.bottom{position:fixed;bottom:0;left:0;right:0;background:#fff;border-top:1px solid #eee;display:flex;justify-content:space-around;padding:8px 2px;font-size:11px;z-index:99;color:#888}
-.bottom span{flex:1;text-align:center}.bottom span.active{color:#1a5c2a;font-weight:bold}
+.bottom{position:fixed;bottom:0;left:0;right:0;background:#fff;border-top:1px solid #eee;display:flex;justify-content:space-around;padding:10px 2px;font-size:11px;z-index:99;color:#888}
+.bottom span{flex:1;text-align:center;padding:4px}.bottom span.active{color:#1a5c2a;font-weight:bold}
 input,select{width:100%;padding:12px;margin:6px 0;border:1px solid #ddd;border-radius:8px}
 .add-box{background:#FFF8E1;border:2px dashed #d69a1a;border-radius:12px;padding:12px;margin-bottom:10px}
 .add-match-box{background:#E8F5E9;border:2px dashed #2e7d32;border-radius:12px;padding:12px;margin-bottom:10px}
-.podium{display:flex;align-items:flex-end;gap:8px;text-align:center}.podium>div{flex:1}.box{color:#fff;padding:14px 0;font-weight:900;font-size:18px;border-radius:6px}.gold{background:#FFC107;color:#333}.silver{background:#9e9e9e}.bronze{background:#FF7043}
+.league-head{text-align:center;background:#111;color:#fff;border-radius:12px;padding:14px;margin-bottom:12px}
+.league-head h2{color:#FFD700}
+.subtabs{display:flex;gap:6px;margin-bottom:10px;overflow-x:auto}
+.subtabs button{flex-shrink:0;padding:10px 16px;border:1px solid #ddd;background:#fff;border-radius:20px;font-weight:bold}
+.subtabs button.active{background:#1a5c2a;color:#fff}
+.mini-sec{display:none}.mini-sec.active{display:block}
 </style></head>
 <body>
-<header><div class="top"><span>←</span><b>DLS FRIEND ZONE COMF<br><small style="font-weight:normal;font-size:11px" id="hdrSub">DFZ WORLD CUP</small></b><span>↗</span><span>⋮</span></div>
+<header><div class="top"><span>←</span><b>DLS FRIEND ZONE COMF<br><small style="font-weight:normal;font-size:11px" id="hdrSub">DLS FRIEND ZONE COMPETITIONS</small></b><span>↗</span><span>⋮</span></div>
 <div class="tabs">
 <button id="btn-home" class="active" onclick="goPage('home')">🏠 Home</button>
+<button id="btn-cats" onclick="goPage('cats')">☰ Categories</button>
 <button id="btn-games" onclick="goPage('games')">🎮 Games</button>
 <button id="btn-tablePage" onclick="goPage('tablePage')">☰ Table</button>
 <button id="btn-ranking" onclick="goPage('ranking')">📊 Ranking</button>
-<button id="btn-cats" onclick="goPage('cats')">☰ Categories</button>
 <button id="btn-register" onclick="goPage('register')">📝 Register</button>
 </div></header>
 
+<!-- HOME - PALIBENSO MA LEAGUE APA! - BUTTON IMODZI YOKHA YOPITA KU CATEGORIES -->
 <div id="home" class="page active">
 <div class="banner">DLS<br>FRIEND ZONE<br><small>🏆 DLS FRIEND ZONE COMPETITIONS</small></div>
 <div style="position:relative"><div class="avatar">🏆</div><button class="follow">+ Follow</button></div>
 <p style="color:#1a5c2a;font-size:12px;margin:8px 0 0 12px">• Private</p>
 <h1 style="font-size:26px;line-height:1.1;margin:6px 12px">DLS FRIEND ZONE<br>COMPETITIONS</h1>
-<div style="margin:0 12px"><span class="pill-cat" id="homeCat">DFZ WORLD CUP</span></div>
-<div class="info2" style="margin:12px">📅 PERIOD<br><b id="homePeriod">16 Nov 2026</b><br>• STATUS<br><b>Not provided</b></div>
-<div id="homeResult" style="margin:0 12px"></div>
+<div style="margin:0 12px"><span class="pill-cat">DLS FRIEND ZONE COMPETITIONS</span></div>
+<div class="info2" style="margin:12px">📅 PERIOD<br><b>16 Nov 2026</b><br>• STATUS<br><b>Not provided</b><br>👤 ORGANIZER<br><b>VICTOR EDWARD</b><br>📞 TELEPHONE<br><b>+27 65 367 4390</b></div>
 <p style="font-size:11px;color:#888;letter-spacing:1px;margin:14px 12px 4px">MESSAGES</p>
 <div class="msg" style="margin:0 12px">👤 Send a message... <span style="margin-left:auto;color:#1a5c2a">➤</span></div>
-<button class="btn" onclick="goPage('cats')">🏆 ONANI MA CATEGORIES - 8 LEAGUES OKHA</button>
-<button class="btn" style="background:#111" onclick="openTour('premier')">1️⃣ PREMIER LEAGUE - MA TEAM 20 ENIENI</button>
-<button class="btn" style="background:#d69a1a" onclick="openTour('laliga')">2️⃣ LALIGA - MA TEAM 20 ENIENI</button>
-<button class="btn" style="background:#e53935" onclick="openTour('champions')">3️⃣ CHAMPION LEAGUE - MA TEAM 16 ENIENI</button>
-<button class="btn" style="background:#283593" onclick="openTour('facup')">4️⃣ FA CUP - MA TEAM 16 ENIENI</button>
-<button class="btn" style="background:#7b1fa2" onclick="openTour('uefa')">5️⃣ UEFA CHAMPION CUP - MA TEAM 16 ENIENI</button>
-<button class="btn" style="background:#2e7d32" onclick="openTour('worldcup')">6️⃣ WORLD CUP 🌍 - NGATI VIDEO - GROUP A-F</button>
-<button class="btn" style="background:#00838f" onclick="openTour('tournament')">7️⃣ TOURNAMENT CUP - ✍️ LEMBANI NOKHA</button>
-<button class="btn" style="background:#1565c0" onclick="openTour('challenge')">8️⃣ FRIEND CHALLENGE - ✍️ LEMBANI NOKHA</button>
+<button class="btn" style="font-size:17px;padding:16px" onclick="goPage('cats')">🏆 ONANI MA CATEGORIES - DINANI APA - MA LEAGUE 8 ONSE ALI KUNO 👆</button>
+<p style="text-align:center;color:#888;font-size:13px;margin-top:10px">Ma League onse ali <b>mkati mwa Categories</b> - osati pa Home!</p>
+<button class="btn" onclick="goPage('register')">📝 REGISTER TEAM YANU APA</button>
 </div>
 
-<div id="games" class="page">
-<p style="font-size:11px;color:#888;letter-spacing:1px">MATCHES</p>
-<h2>1st Stage <span style="font-size:14px">⌄</span></h2>
-<div class="rounds" id="roundPills"></div>
-<div id="gamesList"></div>
+<!-- CATEGORIES - MA LEAGUE 8 ONSE ALI APA OKHA! -->
+<div id="cats" class="page">
+<div class="card" style="text-align:center"><h2>🏆 Categories</h2><p style="color:#888;font-size:13px">Dinani League iliyonse - Idzatsegula Page yake!</p></div>
+<div class="cat2" onclick="openLeague('premier')"><div class="cat2-num">1</div><div class="cat2-logo">DLS<br>FRIEND<br>ZONE</div><div class="cat2-pill c-black">PREMIER LEAGUE 🏴󐁧󐁢󐁥󐁮󐁧󐁿 - MA TEAM 20</div><span style="font-size:20px">›</span></div>
+<div class="cat2" onclick="openLeague('laliga')"><div class="cat2-num">2</div><div class="cat2-logo">DLS<br>FRIEND<br>ZONE</div><div class="cat2-pill c-gold">LALIGA 🇪🇸 - MA TEAM 20</div><span style="font-size:20px">›</span></div>
+<div class="cat2" onclick="openLeague('champions')"><div class="cat2-num">3</div><div class="cat2-logo">DLS<br>FRIEND<br>ZONE</div><div class="cat2-pill c-red">CHAMPION LEAGUE - MA TEAM 16</div><span style="font-size:20px">›</span></div>
+<div class="cat2" onclick="openLeague('facup')"><div class="cat2-num">4</div><div class="cat2-logo">DLS<br>FRIEND<br>ZONE</div><div class="cat2-pill c-navy">FA CUP - MA TEAM 16</div><span style="font-size:20px">›</span></div>
+<div class="cat2" onclick="openLeague('uefa')"><div class="cat2-num">5</div><div class="cat2-logo">DLS<br>FRIEND<br>ZONE</div><div class="cat2-pill c-purple">UEFA CHAMPION CUP - MA TEAM 16</div><span style="font-size:20px">›</span></div>
+<div class="cat2" onclick="openLeague('worldcup')"><div class="cat2-num">6</div><div class="cat2-logo">🏆</div><div class="cat2-pill c-green">WORLD CUP 🌍 - MA DZIKO 24 - NGATI VIDEO</div><span style="font-size:20px">›</span></div>
+<div class="cat2" onclick="openLeague('tournament')" style="border:2px dashed #00838f"><div class="cat2-num">7</div><div class="cat2-logo">DLS<br>FRIEND<br>ZONE</div><div class="cat2-pill c-teal">TOURNAMENT CUP 🏆 - ✍️ LEMBANI NOKHA</div><span style="font-size:20px">›</span></div>
+<div class="cat2" onclick="openLeague('challenge')" style="border:2px dashed #1565c0"><div class="cat2-num">8</div><div class="cat2-logo">DLS<br>FRIEND<br>ZONE</div><div class="cat2-pill c-blue2">FRIEND CHALLENGE 🤝 - ✍️ LEMBANI NOKHA</div><span style="font-size:20px">›</span></div>
+<button class="btn" onclick="goPage('home')">⬅ BWERERANI KU HOME</button>
+</div>
+
+<!-- LEAGUE DETAIL - PAGE YA LEAGUE ILIYONSE - IMASEGUKA MUKADINA MU CATEGORIES -->
+<div id="leagueDetail" class="page">
+<div class="league-head"><h2 id="ldTitle">LEAGUE</h2><p>👑 ORGANIZER: VICTOR EDWARD • 📞 +27 65 367 4390</p><p id="ldSub" style="font-size:13px;margin-top:6px"></p><p id="ldChampion" style="color:#FFD700;font-weight:bold;margin-top:6px"></p></div>
+
+<!-- MABOKOSI OLEMBA - KWA TOURNAMENT / CHALLENGE OKHA -->
+<div id="addTeamBox" class="add-box" style="display:none">
+<h3>✍️ LEMBANI TEAM APA - <span id="addTeamLeagueName"></span></h3>
+<label>Dzina la Team *</label><input id="customTeamName" placeholder="Ex: ELON FATHER / SAMMY FC">
+<label>Manager</label><input id="customManager" placeholder="Ex: Machinga Boy Vic">
+<label>Captain</label><input id="customCaptain" placeholder="Ex: Haaland">
+<button class="btn" onclick="addCustomTeam()">➕ ADD TEAM</button>
+<p id="addTeamMsg" style="color:green;font-weight:bold;text-align:center;margin-top:6px"></p>
+</div>
 <div id="addMatchBox" class="add-match-box" style="display:none">
 <h3>⚽ LEMBANI MATCH RESULT APA</h3>
 <label>Home Team</label><select id="matchHome"></select>
@@ -95,51 +116,30 @@ input,select{width:100%;padding:12px;margin:6px 0;border:1px solid #ddd;border-r
 <button class="btn" onclick="addCustomMatch()">✅ SAVE MATCH</button>
 <p id="addMatchMsg" style="color:green;font-weight:bold;text-align:center;margin-top:6px"></p>
 </div>
+
+<div class="subtabs">
+<button id="tabBtn-teams" class="active" onclick="showMini('teams')">👥 Teams</button>
+<button id="tabBtn-games" onclick="showMini('games')">🎮 Games</button>
+<button id="tabBtn-table" onclick="showMini('table')">☰ Table</button>
+<button id="tabBtn-ranking" onclick="showMini('ranking')">📊 Ranking</button>
 </div>
 
-<div id="tablePage" class="page">
-<p class="lead">LEADERBOARD</p>
-<h2>1st Stage <span style="font-size:14px">⌄</span></h2>
-<div class="toggle"><span id="toggleGroup" onclick="setTableMode('group')"><b>By group</b></span><span id="toggleOverall" onclick="setTableMode('overall')">Overall</span></div>
-<div id="tableList"></div>
-<p style="font-size:11px;color:#888;margin-top:10px">Pts points • MP matches played • W wins • D draws • L losses</p>
+<div id="mini-teams" class="mini-sec active"><h3 style="margin-bottom:8px">👥 MA TEAM ONSE - NDI LOGO</h3><div id="ldTeams"></div></div>
+<div id="mini-games" class="mini-sec"><h3>MATCHES - 1st Stage</h3><div class="rounds" id="roundPills"></div><div id="gamesList"></div></div>
+<div id="mini-table" class="mini-sec"><div style="display:flex;justify-content:space-between;align-items:center"><h3>LEADERBOARD - 1st Stage</h3><div class="toggle"><span id="toggleGroup" onclick="setTableMode('group')"><b>By group</b></span><span id="toggleOverall" onclick="setTableMode('overall')">Overall</span></div></div><div id="tableList"></div></div>
+<div id="mini-ranking" class="mini-sec"><h3>🏅 TOP SCORER / ASSIST</h3><div id="rankingList"></div>
+<div id="addScorerBox" class="add-box" style="display:none"><h3>✍️ LEMBANI TOP SCORER</h3><label>Dzina la Player</label><input id="customScorerName" placeholder="Ex: Haaland"><label>Team</label><input id="customScorerTeam" placeholder="Ex: ELON FATHER"><label>Goals</label><input id="customScorerGoals" type="number" value="1"><button class="btn" onclick="addScorer()">➕ ADD SCORER</button></div>
 </div>
 
-<div id="ranking" class="page">
-<div style="display:flex;gap:6px;overflow-x:auto"><button style="padding:8px 16px;border:0;border-radius:20px;background:#1a5c2a;color:#fff;font-weight:bold">Scorers</button><button style="padding:8px 16px;border:1px solid #ddd;border-radius:20px;background:#fff">Assists</button><button style="padding:8px 16px;border:1px solid #ddd;border-radius:20px;background:#fff">Penalties</button></div>
-<div style="display:flex;justify-content:space-between;margin:12px 0"><span>All stages ⌄</span><span style="color:#888" id="rankCount">0 Players</span></div>
-<div id="rankingList" style="text-align:center;color:#888;padding:30px 0">No data yet</div>
-<div id="addScorerBox" class="add-box" style="display:none">
-<h3>✍️ LEMBANI TOP SCORER / ASSIST</h3>
-<label>Dzina la Player</label><input id="customScorerName" placeholder="Ex: Haaland">
-<label>Team</label><input id="customScorerTeam" placeholder="Ex: ELON FATHER">
-<label>Goals / Assists</label><input id="customScorerGoals" type="number" value="1">
-<button class="btn" onclick="addScorer()">➕ ADD SCORER</button>
-</div>
-<div id="addTeamBox" class="add-box" style="display:none">
-<h3>✍️ LEMBANI TEAM APA - <span id="addTeamLeagueName"></span></h3>
-<label>Dzina la Team *</label><input id="customTeamName" placeholder="Ex: ELON FATHER / SAMMY FC">
-<label>Manager</label><input id="customManager" placeholder="Ex: Machinga Boy Vic">
-<label>Captain</label><input id="customCaptain" placeholder="Ex: Haaland">
-<button class="btn" onclick="addCustomTeam()">➕ ADD TEAM</button>
-<p id="addTeamMsg" style="color:green;font-weight:bold;text-align:center;margin-top:6px"></p>
-</div>
+<button class="btn" onclick="goPage('register')">📝 REGISTER TEAM MU LEAGUE IYI</button>
+<button class="btn" style="background:#111" onclick="goPage('cats')">⬅ BWERERANI KU CATEGORIES - MA LEAGUE ONSE</button>
+<button class="btn" onclick="goPage('home')">🏠 BWERERANI KU HOME</button>
 </div>
 
-<!-- CATEGORIES - 8 OKHA - ZOMWE MWANENA -->
-<div id="cats" class="page">
-<div class="card" style="text-align:center"><h2>🏆 Categories</h2><p style="color:#888;font-size:13px">Ma League 8 okha - Zomwe munanena!</p></div>
-<div class="cat2" onclick="openTour('premier')"><div class="cat2-num">1</div><div class="cat2-logo">DLS<br>FRIEND<br>ZONE</div><div class="cat2-pill c-black">PREMIER LEAGUE 🏴󐁧󐁢󐁥󐁮󐁧󐁿</div><span>›</span></div>
-<div class="cat2" onclick="openTour('laliga')"><div class="cat2-num">2</div><div class="cat2-logo">DLS<br>FRIEND<br>ZONE</div><div class="cat2-pill c-gold">LALIGA 🇪🇸</div><span>›</span></div>
-<div class="cat2" onclick="openTour('champions')"><div class="cat2-num">3</div><div class="cat2-logo">DLS<br>FRIEND<br>ZONE</div><div class="cat2-pill c-red">CHAMPION LEAGUE</div><span>›</span></div>
-<div class="cat2" onclick="openTour('facup')"><div class="cat2-num">4</div><div class="cat2-logo">DLS<br>FRIEND<br>ZONE</div><div class="cat2-pill c-navy">FA CUP</div><span>›</span></div>
-<div class="cat2" onclick="openTour('uefa')"><div class="cat2-num">5</div><div class="cat2-logo">DLS<br>FRIEND<br>ZONE</div><div class="cat2-pill c-purple">UEFA CHAMPION CUP</div><span>›</span></div>
-<div class="cat2" onclick="openTour('worldcup')"><div class="cat2-num">6</div><div class="cat2-logo">🏆</div><div class="cat2-pill c-green">WORLD CUP 🌍 - NGATI VIDEO</div><span>›</span></div>
-<div class="cat2" onclick="openTour('tournament')" style="border:2px dashed #00838f"><div class="cat2-num">7</div><div class="cat2-logo">DLS<br>FRIEND<br>ZONE</div><div class="cat2-pill c-teal">TOURNAMENT CUP 🏆 - ✍️ LEMBANI NOKHA</div><span>›</span></div>
-<div class="cat2" onclick="openTour('challenge')" style="border:2px dashed #1565c0"><div class="cat2-num">8</div><div class="cat2-logo">DLS<br>FRIEND<br>ZONE</div><div class="cat2-pill c-blue2">FRIEND CHALLENGE 🤝 - ✍️ LEMBANI NOKHA</div><span>›</span></div>
-<button class="btn" onclick="goPage('register')">📝 REGISTER TEAM</button>
-<button class="btn" onclick="goPage('home')">⬅ BWERERANI KU HOME</button>
-</div>
+<!-- PAGES AKALE - KUTI MA BUTTON AKALE ASAPHWEKE - AMAFIKIRA KU LEAGUE DETAIL -->
+<div id="games" class="page"><div class="card"><h2>🎮 Games</h2><p>Dinani League mu Categories kuti muwone Games ake.</p><br><button class="btn" onclick="goPage('cats')">🏆 ONANI CATEGORIES</button></div></div>
+<div id="tablePage" class="page"><div class="card"><h2>☰ Table</h2><p>Dinani League mu Categories kuti muwone Table yake.</p><br><button class="btn" onclick="goPage('cats')">🏆 ONANI CATEGORIES</button></div></div>
+<div id="ranking" class="page"><div class="card"><h2>📊 Ranking</h2><p>Dinani League mu Categories kuti muwone Ranking yake.</p><br><button class="btn" onclick="goPage('cats')">🏆 ONANI CATEGORIES</button></div></div>
 
 <div id="register" class="page">
 <div class="card"><h2>📝 REGISTER TEAM</h2><p>Organizer: <b>VICTOR EDWARD</b> • 📞 +27 65 367 4390</p><br>
@@ -156,37 +156,29 @@ input,select{width:100%;padding:12px;margin:6px 0;border:1px solid #ddd;border-r
 
 <div class="bottom">
 <span id="b-home" class="active" onclick="goPage('home')">🏠<br>Home</span>
+<span id="b-cats" onclick="goPage('cats')">☰<br>Categories</span>
 <span id="b-games" onclick="goPage('games')">🎮<br>Games</span>
 <span id="b-tablePage" onclick="goPage('tablePage')">☰<br>Table</span>
 <span id="b-ranking" onclick="goPage('ranking')">📊<br>Ranking</span>
-<span id="b-cats" onclick="goPage('cats')">☰<br>Categories</span>
 <span id="b-register" onclick="goPage('register')">📝<br>Register</span>
 </div>
 <script>
 var currentTour='worldcup'; var currentRound=1; var tableMode='group';
-function logo(name,bg){var s=name.replace(/[^A-Z]/g,''); return '<div class="mlogo" style="background:'+bg+'">'+(s.substring(0,3)||'DFZ')+'</div>';}
+function logo(name,bg){var s=(name||'').replace(/[^A-Z]/g,''); return '<div class="mlogo" style="background:'+(bg||'#111')+'">'+(s.substring(0,3)||'DFZ')+'</div>';}
 function T(name,bg,pts,mp,w,d,l,grp){return {name:name,bg:bg,pts:pts,mp:mp,w:w,d:d,l:l,grp:grp||'A'};}
 var TOURS={
-// 1 PREMIER - MA TEAM 20 ENIENI
-premier:{title:'PREMIER LEAGUE',period:'2025/26',color:'#111',
+premier:{title:'1️⃣ PREMIER LEAGUE',sub:'Ma Team 20 ENIENI • England 2025/26',champ:'',color:'#111',
 groups:{A:[T('ARSENAL','#ef0107',28,12,9,1,2,'A'),T('ASTON VILLA','#95bfe5',22,12,7,1,4,'A'),T('BOURNEMOUTH','#da291c',20,12,6,2,4,'A'),T('BRENTFORD','#e30613',18,12,5,3,4,'A'),T('BRIGHTON','#0057b8',19,12,5,4,3,'A'),T('BURNLEY','#6c1d45',10,12,3,1,8,'A'),T('CHELSEA','#034694',23,12,7,2,3,'A'),T('CRYSTAL PALACE','#1b458f',19,12,5,4,3,'A'),T('EVERTON','#003399',18,12,5,3,4,'A'),T('FULHAM','#000',17,12,5,2,5,'A'),T('LEEDS UNITED','#ffcd00',14,12,4,2,6,'A'),T('LIVERPOOL','#c8102e',22,12,7,1,4,'A'),T('MANCHESTER CITY','#6cabdd',25,12,8,1,3,'A'),T('MANCHESTER UNITED','#da291c',21,12,6,3,3,'A'),T('NEWCASTLE UNITED','#000',20,12,6,2,4,'A'),T('NOTTINGHAM FOREST','#dd0000',15,12,4,3,5,'A'),T('SUNDERLAND','#eb172b',19,12,5,4,3,'A'),T('TOTTENHAM HOTSPUR','#132257',21,12,6,3,3,'A'),T('WEST HAM UNITED','#7a263a',12,12,3,3,6,'A'),T('WOLVERHAMPTON','#fdb913',8,12,2,2,8,'A')]},
-matches:[{round:1,grp:'-',h:'ARSENAL',hbg:'#ef0107',a:'MANCHESTER CITY',abg:'#6cabdd',score:'1 : 1',status:'CLOSED'},{round:1,grp:'-',h:'LIVERPOOL',hbg:'#c8102e',a:'CHELSEA',abg:'#034694',score:'2 : 1',status:'CLOSED'},{round:2,grp:'-',h:'MANCHESTER CITY',hbg:'#6cabdd',a:'LIVERPOOL',abg:'#c8102e',score:'2 : 0',status:'CLOSED'}],
-scorers:['Haaland - MANCHESTER CITY - 14 goals','Gyokeres - ARSENAL - 11 goals'],assists:['Saka - ARSENAL - 8 assists']},
-// 2 LALIGA - MA TEAM 20 ENIENI
-laliga:{title:'LALIGA',period:'2025/26',color:'#d69a1a',
+matches:[{round:1,grp:'-',h:'ARSENAL',hbg:'#ef0107',a:'MANCHESTER CITY',abg:'#6cabdd',score:'1 : 1',status:'CLOSED'},{round:1,grp:'-',h:'LIVERPOOL',hbg:'#c8102e',a:'CHELSEA',abg:'#034694',score:'2 : 1',status:'CLOSED'}],
+scorers:['Haaland - MANCHESTER CITY - 14 goals','Gyokeres - ARSENAL - 11 goals']},
+laliga:{title:'2️⃣ LALIGA',sub:'Ma Team 20 ENIENI • Spain 2025/26',champ:'',color:'#d69a1a',
 groups:{A:[T('DEPORTIVO ALAVES','#0067b1',12,12,3,3,6,'A'),T('ATHLETIC CLUB BILBAO','#ee2523',18,12,5,3,4,'A'),T('ATLETICO DE MADRID','#cb3524',24,12,7,3,2,'A'),T('FC BARCELONA','#a50044',31,12,10,1,1,'A'),T('REAL BETIS','#00954c',20,12,6,2,4,'A'),T('CELTA DE VIGO','#00bcd4',15,12,4,3,5,'A'),T('ELCHE CF','#009a44',16,12,4,4,4,'A'),T('RCD ESPANYOL','#0067b1',17,12,5,2,5,'A'),T('GETAFE CF','#00529f',13,12,3,4,5,'A'),T('GIRONA FC','#cd2534',11,12,3,2,7,'A'),T('LEVANTE UD','#8e1f2f',10,12,2,4,6,'A'),T('RCD MALLORCA','#e30613',14,12,3,5,4,'A'),T('CA OSASUNA','#d00027',13,12,3,4,5,'A'),T('REAL OVIEDO','#0067b1',9,12,2,3,7,'A'),T('RAYO VALLECANO','#e30613',16,12,4,4,4,'A'),T('REAL MADRID','#fff',28,12,9,1,2,'A'),T('REAL SOCIEDAD','#0067b1',18,12,5,3,4,'A'),T('SEVILLA FC','#d00027',19,12,5,4,3,'A'),T('VALENCIA CF','#ff7a00',16,12,4,4,4,'A'),T('VILLARREAL CF','#ffe667',26,12,8,2,2,'A')]},
-matches:[{round:1,grp:'-',h:'REAL MADRID',hbg:'#fff',a:'FC BARCELONA',abg:'#a50044',score:'2 : 1',status:'CLOSED'},{round:1,grp:'-',h:'ATLETICO DE MADRID',hbg:'#cb3524',a:'SEVILLA FC',abg:'#d00027',score:'2 : 0',status:'CLOSED'}],
-scorers:['Mbappe - REAL MADRID - 15 goals','Lewandowski - FC BARCELONA - 11 goals'],assists:['Yamal - FC BARCELONA - 9 assists']},
-// 3 CHAMPION LEAGUE - MA TEAM 16 ENIENI
-champions:{title:'CHAMPION LEAGUE',period:'2025/26',color:'#c05a5a',
+matches:[{round:1,grp:'-',h:'REAL MADRID',hbg:'#fff',a:'FC BARCELONA',abg:'#a50044',score:'2 : 1',status:'CLOSED'}],
+scorers:['Mbappe - REAL MADRID - 15 goals','Lewandowski - FC BARCELONA - 11 goals']},
+champions:{title:'3️⃣ CHAMPION LEAGUE',sub:'Ma Team 16 ENIENI',champ:'',color:'#c05a5a',
 groups:{A:[T('REAL MADRID','#fff',12,4,4,0,0,'A'),T('MANCHESTER CITY','#6cabdd',10,4,3,1,0,'A'),T('FC BAYERN MUNICH','#dc052d',9,4,3,0,1,'A'),T('PARIS SAINT-GERMAIN','#004170',10,4,3,1,0,'A'),T('FC BARCELONA','#a50044',9,4,3,0,1,'A'),T('LIVERPOOL','#c8102e',8,4,2,2,0,'A'),T('ARSENAL','#ef0107',8,4,2,2,0,'A'),T('INTER MILAN','#111',7,4,2,1,1,'A'),T('BORUSSIA DORTMUND','#fde100',7,4,2,1,1,'A'),T('ATLETICO DE MADRID','#cb3524',6,4,2,0,2,'A'),T('AC MILAN','#fb090b',6,4,2,0,2,'A'),T('JUVENTUS','#111',5,4,1,2,1,'A'),T('FC PORTO','#003da5',4,4,1,1,2,'A'),T('SL BENFICA','#e30613',4,4,1,1,2,'A'),T('AFC AJAX','#d2122e',3,4,1,0,3,'A'),T('CELTIC FC','#018749',2,4,0,2,2,'A')]},
-matches:[{round:1,grp:'-',h:'REAL MADRID',hbg:'#fff',a:'MANCHESTER CITY',abg:'#6cabdd',score:'2 : 1',status:'CLOSED'},{round:1,grp:'FINAL',h:'M-RISE',hbg:'#9c27b0',a:'PIRATE ZN',abg:'#e53935',score:'1 : 2',status:'CLOSED'}],
-scorers:['Mbappe - REAL MADRID - 7 goals'],assists:['Dembele - PARIS SAINT-GERMAIN - 5 assists']},
-// 4 FA CUP - MA TEAM 16 ENIENI
-facup:{title:'FA CUP',period:'2025/26',color:'#283593',
+matches:[{round:1,grp:'-',h:'REAL MADRID',hbg:'#fff',a:'MANCHESTER CITY',abg:'#6cabdd',score:'2 : 1',status:'CLOSED'}],
+scorers:['Mbappe - REAL MADRID - 7 goals']},
+facup:{title:'4️⃣ FA CUP',sub:'Ma Team 16 ENIENI • England',champ:'',color:'#283593',
 groups:{A:[T('ARSENAL','#ef0107',9,3,3,0,0,'A'),T('MANCHESTER CITY','#6cabdd',6,3,2,0,1,'A'),T('LIVERPOOL','#c8102e',6,3,2,0,1,'A'),T('CHELSEA','#034694',6,3,2,0,1,'A'),T('MANCHESTER UNITED','#da291c',4,3,1,1,1,'A'),T('TOTTENHAM HOTSPUR','#132257',4,3,1,1,1,'A'),T('NEWCASTLE UNITED','#000',4,3,1,1,1,'A'),T('ASTON VILLA','#95bfe5',3,3,1,0,2,'A'),T('BRIGHTON','#0057b8',3,3,1,0,2,'A'),T('WEST HAM UNITED','#7a263a',3,3,1,0,2,'A'),T('EVERTON','#003399',3,3,1,0,2,'A'),T('NOTTINGHAM FOREST','#dd0000',3,3,1,0,2,'A'),T('FULHAM','#000',3,3,1,0,2,'A'),T('CRYSTAL PALACE','#1b458f',6,3,2,0,1,'A'),T('BRENTFORD','#e30613',3,3,1,0,2,'A'),T('BOURNEMOUTH','#da291c',3,3,1,0,2,'A')]},
-matches:[{round:1,grp:'FINAL',h:'ARSENAL',hbg:'#ef0107',a:'MANCHESTER CITY',abg:'#6cabdd',score:'2 : 1',status:'CLOSED'},{round:1,grp:'-',h:'CRYSTAL PALACE',hbg:'#1b458f',a:'LIVERPOOL',abg:'#c8102e',score:'1 : 0',status:'CLOSED'}],
-scorers:['Saka - ARSENAL - 5 goals'],assists:['Odegaard - ARSENAL - 4 assists']},
-// 5 UEFA CHAMPION CUP - MA TEAM 16 ENIENI
-uefa:{title:'UEFA CHAMPION CUP',period:'2025/26',color:'#7b1fa2',
-groups:{A:[T('REAL MADRID','#fff',12,4,4,0,0,'A'),T('MANCHESTER CITY','#6cabdd',10,4,3,1,0,'A'),T('FC BAYERN MUNI
+matches
