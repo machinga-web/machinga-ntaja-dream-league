@@ -1,170 +1,184 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>DLS SUPER LEAGUE - V10 ULTIMATE - CHAMPIONS + VIDEO</title>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DLS FRIEND ZONE - AUTO ADMIN</title>
 <style>
-*{margin:0;padding:0;box-sizing:border-box}
-body{font-family:Arial;background:#f1f2f5;color:#111}
-.header-dark{background:#12182b;color:white;padding:12px 14px;display:flex;align-items:center;gap:10px;border-bottom:3px solid gold}
-.tabs{display:flex;background:#1e2642;color:#a0a8c0;overflow-x:auto}
-.tab{padding:12px 10px;font-size:10px;white-space:nowrap;cursor:pointer;border-bottom:3px solid transparent}
-.tab.active{color:white;border-bottom:3px solid gold;font-weight:800}
-.content{padding:8px;max-width:650px;margin:auto}
-.card{background:white;border-radius:14px;padding:12px;margin-bottom:8px;box-shadow:0 1px 3px rgba(0,0,0,0.1)}
-.champion-banner{background:linear-gradient(90deg,gold,#ffcc00,#ff9900);color:#000;padding:14px;border-radius:12px;border:3px solid #fff;text-align:center;font-weight:900;animation:glow 2s infinite}
-@keyframes glow{0%,100%{box-shadow:0 0 10px gold}50%{box-shadow:0 0 25px gold}}
-.team-logo{width:50px;height:50px;background:white;border-radius:50%;padding:3px;border:3px solid gold}
-.team-logo img{width:100%;height:100%;object-fit:contain;border-radius:50%}
-.badge-real{width:36px;height:36px;background:white;border-radius:50%;padding:2px;border:2px solid gold;display:flex;align-items:center;justify-content:center}
-.badge-real img{width:100%;height:100%;object-fit:contain}
-.inp{width:34px;height:30px;text-align:center;font-weight:800;border:2px solid gold;border-radius:6px}
-.btn{background:gold;font-weight:800;padding:11px;border-radius:10px;border:2px solid #000;width:100%;cursor:pointer;margin-top:6px}
-table{width:100%;font-size:11px} th{background:#12182b;color:white;padding:6px;font-size:10px} td{padding:6px;text-align:center;border-bottom:1px solid #eee}
-.chip{background:gold;padding:3px 7px;border-radius:8px;font-size:9px;font-weight:700;margin:2px;display:inline-block;border:1px solid #000}
-.video-card{background:linear-gradient(#000,#12182b);color:white;border-radius:12px;padding:10px;margin-bottom:8px;border:2px solid gold}
-.play-btn{width:50px;height:50px;background:gold;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:24px;color:#000;margin:10px auto;cursor:pointer}
-.hidden{display:none}
-.modal{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.88);z-index:999;overflow:auto}
-.modal-content{background:white;margin:3% auto;width:94%;max-width:520px;border-radius:14px;border:4px solid gold;padding:12px;max-height:90vh;overflow:auto}
-.close{float:right;font-size:26px;color:red;cursor:pointer}
-.input-small{width:44%;padding:6px;border:1px solid #ddd;border-radius:6px;font-size:11px}
+*{margin:0;padding:0;box-sizing:border-box;font-family:Arial,sans-serif}
+body{background:#f2f2f2;padding-bottom:80px}
+header{background:#1a2a5e;color:#fff;padding:12px;position:sticky;top:0;z-index:20}
+header.red{background:#e53935}header.olive{background:#9e9d4a}
+.top{display:flex;justify-content:space-between;font-weight:bold}
+.tabs{display:flex;gap:6px;margin-top:10px}.tabs button{flex:1;border:0;padding:9px;border-radius:8px;background:rgba(255,255,255,.2);color:#fff;font-weight:bold;cursor:pointer}.tabs button.active{background:#fff;color:#1a2a5e}
+.page{display:none;padding:12px}.page.active{display:block}
+.card{background:#fff;border-radius:12px;padding:14px;margin-bottom:12px}
+.logo-row{display:flex;gap:10px;align-items:center}
+.logo{width:60px;height:60px;border-radius:50%;background:#111;color:#FFD700;display:grid;place-items:center;font-weight:900;font-size:11px;text-align:center;border:2px solid gold}
+.banner{flex:1;height:70px;background:linear-gradient(135deg,#111,#4a148c);color:#FFD700;display:grid;place-items:center;font-weight:900;border-radius:10px}
+.follow{background:#1a2a5e;color:#fff;border:0;padding:8px 14px;border-radius:20px;font-weight:bold}
+.info{font-size:13px;line-height:2;color:#333;margin-top:10px}
+.podium{display:flex;align-items:flex-end;gap:8px;text-align:center}.podium>div{flex:1}.box{color:#fff;padding:16px 0;font-weight:900;font-size:20px;border-radius:6px}.gold{background:#FFC107;color:#333}.silver{background:#9e9e9e}.bronze{background:#FF7043}
+.cat{display:flex;align-items:center;gap:10px;background:#fff;padding:10px;border-radius:10px;margin-bottom:8px;cursor:pointer}
+.pill{flex:1;color:#fff;font-weight:bold;font-size:13px;padding:12px;border-radius:6px}
+.c-green{background:#2e7d32}.c-navy{background:#283593}.c-purple{background:#8e24aa}.c-teal{background:#00695c}.c-blue{background:#5c6bc0}.c-cyan{background:#00838f}.c-red{background:#ef5350}.c-grey{background:#78909c}.c-olive{background:#9e9d4a}.c-pink{background:#d81b60}
+.match{background:#fff;border-radius:10px;padding:12px;margin-bottom:8px;text-align:center}
+.teams{display:flex;justify-content:space-between;align-items:center;margin-top:8px}
+.team{width:32%;text-align:center;font-size:12px;font-weight:bold}.badge{width:48px;height:48px;border-radius:50%;display:grid;place-items:center;color:#fff;font-weight:900;margin:auto;border:3px solid #ddd;font-size:12px}
+.score{font-size:22px;font-weight:900}
+table{width:100%;border-collapse:collapse;background:#fff;font-size:12px}th,td{padding:9px 5px;text-align:center;border-bottom:1px solid #eee}th:first-child,td:first-child{text-align:left}
+input,select{width:100%;padding:10px;margin:6px 0;border:1px solid #ddd;border-radius:8px}
+.btn{background:#1a2a5e;color:#fff;border:0;padding:12px;border-radius:10px;font-weight:bold;width:100%;cursor:pointer}
+.btn-green{background:#2e7d32}.btn-red{background:#e53935}
+.upload{border:2px dashed #1a2a5e;border-radius:12px;padding:16px;text-align:center;background:#eef2ff;cursor:pointer}
+.upload img{max-width:100%;border-radius:10px;margin-top:10px}
+.rank-tabs{display:flex;gap:8px;margin:10px 0}.rank-tabs button{padding:8px 14px;border-radius:20px;border:0;background:#ddd;font-weight:bold}.rank-tabs button.active{background:#e53935;color:#fff}
+.topbox{display:flex;gap:10px}.topbox .card{flex:1;text-align:center}
+.bottom{position:fixed;bottom:0;left:0;right:0;background:#1a2a5e;color:#fff;display:flex;justify-content:space-around;padding:12px;font-size:12px}
+.scorer-row{display:flex;gap:6px}.scorer-row input{flex:1}
 </style>
 </head>
 <body>
-
-<div class="header-dark">
-  <div class="team-logo"><img src="https://upload.wikimedia.org/wikipedia/en/e/eb/Manchester_City_FC_badge.svg"></div>
-  <div><div style="font-size:15px;font-weight:800;color:gold">MAN CITY FC - MACHINGA BOY VIC - V10 ULTIMATE</div><div style="font-size:10px;color:#a0a8c0">12 Games • 28 Players • Champions Trophy • Video Highlights</div></div>
-</div>
-
+<header id="hdr"><div class="top"><span id="headerTitle">DLS FRIEND ZONE COM...</span><span>↗ ⋮</span></div>
 <div class="tabs">
-  <div class="tab active" onclick="showTab('matches')">Matches 12</div>
-  <div class="tab" onclick="showTab('standings')">Table + Trophy</div>
-  <div class="tab" onclick="showTab('squad')">Squads</div>
-  <div class="tab" onclick="showTab('scorer')">Scorer</div>
-  <div class="tab" onclick="showTab('video')">Videos</div>
+<button onclick="show('home',this)" class="active">🏠 Home</button>
+<button onclick="show('cats',this)">☰ Categories</button>
+<button onclick="show('games',this)">Games</button>
+<button onclick="show('tablePage',this)">Table</button>
+<button onclick="show('admin',this)" style="background:#FFD700;color:#111">+ Admin</button>
+<button onclick="show('media',this)">Ranking</button>
+</div></header>
+
+<!-- HOME -->
+<div id="home" class="page active">
+<div class="topbox">
+<div class="card">🥇<br><b>TOP SCORER</b><br><span id="topScorerHome">-</span><br><small id="topScorerGoals">0 goals</small></div>
+<div class="card">🎯<br><b>TOP ASSIST</b><br><span id="topAssistHome">-</span><br><small id="topAssistCount">0 assists</small></div>
+</div>
+<div class="card"><div class="logo-row"><div class="logo">DLS<br>FRIEND<br>ZONE</div><div class="banner">DLS<br>FRIEND ZONE</div><button class="follow" onclick="this.textContent='✓ Following'">+ Follow</button></div>
+<p style="margin-top:8px;color:green;font-size:12px">● Private • 33 followers</p>
+<h2 id="tourName">DLS FRIEND ZONE COMPETITIONS</h2>
+<div class="info">📅 PERIOD<br><b id="tourPeriod">18 Feb 2026</b><br>● STATUS<br><b>Not provided</b><br>👤 ORGANIZER<br><b>OLA MJOE</b><br>🌐 TOURNAMENT WEBSITE<br><b>Tournament website</b><br>📞 TELEPHONE<br><b>09115674467</b></div>
+<h3 style="margin-top:14px">TOURNAMENT RESULT</h3>
+<div class="podium"><div><small>2. PLACE</small><div>🏆</div><b id="p2">SAMMY FC</b><div class="box silver">2</div></div><div><small>1. PLACE</small><div>🏆</div><b id="p1">ELON FATHER</b><div class="box gold">1</div></div><div><small>3. PLACE</small><div>🏆</div><b id="p3">HOLLYDEE FC</b><div class="box bronze">3</div></div></div>
+</div></div>
+
+<!-- CATEGORIES -->
+<div id="cats" class="page">
+<div class="cat" onclick="openTour('DFZ WORLD CUP','navy','18 Feb 2026','HIM ALONE','KOP KIDS','SAMMY FC')"><span>🏆</span><div class="pill c-green">DFZ WORLD CUP</div><span>›</span></div>
+<div class="cat" onclick="openTour('DLS FRIEND ZONE ELITE CUP','navy','18 Feb 2026','HIM ALONE','KOP KIDS','-')"><span>🏆</span><div class="pill c-navy">DLS FRIEND ZONE ELITE CUP</div><span>›</span></div>
+<div class="cat"><span>🏆</span><div class="pill c-purple">DFZ DIAMOND CUP</div><span>›</span></div>
+<div class="cat"><span>🏆</span><div class="pill c-green">DFZ CLUB WORLD CUP</div><span>›</span></div>
+<div class="cat"><span>🏆</span><div class="pill c-blue">DFZ INDEPENDENCE TOURNAMENT</div><span>›</span></div>
+<div class="cat"><span>🏆</span><div class="pill c-teal">FRIEND ZONE LEAGUE S7</div><span>›</span></div>
+<div class="cat"><span>🏆</span><div class="pill c-green">SUPER CUP FINAL</div><span>›</span></div>
+<div class="cat"><span>🏆</span><div class="pill c-cyan">FRIEND ZONE EUROPA LEAGUE</div><span>›</span></div>
+<div class="cat"><span>🏆</span><div class="pill c-red">FRIEND ZONE CHAMPIONS LEAGUE</div><span>›</span></div>
+<div class="cat"><span>🏆</span><div class="pill c-grey">FRIEND ZONE TOURNAMENT</div><span>›</span></div>
+<div class="cat"><span>🏆</span><div class="pill c-teal">FRIEND ZONE LEAGUE S6</div><span>›</span></div>
+<div class="cat" onclick="openTour('FRIEND ZONE MINI TOURNAMENT','red','19 Jun 2026','HIM ALONE','KOP KIDS','-')"><span>🏆</span><div class="pill c-red">FRIEND ZONE MINI TOURNAMENT</div><span>›</span></div>
+<div class="cat" onclick="openTour('FRIEND ZONE LEAGUE S5','navy','20 May 2026','ELON FATHER','SAMMY FC','HOLLYDEE FC')"><span>🏆</span><div class="pill c-navy">FRIEND ZONE LEAGUE S5</div><span>›</span></div>
+<div class="cat"><span>🏆</span><div class="pill c-grey">DLS FRIEND ZONE PREMIER LEAGUE S4</div><span>›</span></div>
+<div class="cat"><span>🏆</span><div class="pill c-pink">DLS FRIEND ZONE LALIGA S3</div><span>›</span></div>
+<div class="cat"><span>🏆</span><div class="pill c-purple">FRIEND ZONE EUROPEAN LEAGUE</div><span>›</span></div>
+<div class="cat" onclick="openTour('FRIEND ZONE LEAGUE S2','olive','18 Feb - 17 Mar 2026','Motoloma pae','Zeezco fc','Lone Lee Fc')"><span>🏆</span><div class="pill c-olive">FRIEND ZONE LEAGUE S2</div><span>›</span></div>
 </div>
 
-<div class="content">
-
-<!-- MATCHES -->
-<div id="matches-tab">
-  <div id="championPreview" class="hidden"></div>
-  <div class="card" style="border:2px solid gold"><b>⚔️ 12 GAMES - FINAL SEASON</b></div>
-  <div id="fixtureList"></div>
-  <button class="btn" onclick="saveGames()">💾 Save & Check Champion</button>
+<!-- GAMES -->
+<div id="games" class="page">
+<h3>MATCHES</h3>
+<div id="gamesList"></div>
+<div class="match"><small>DFZ WORLD CUP • CLOSED</small><div class="teams"><div class="team"><div class="badge" style="background:#7b1fa2">NOR</div>NORWAY</div><div class="score">0 : 2</div><div class="team"><div class="badge" style="background:#e91e63">SPA</div>SPAIN</div></div></div>
+<div class="match"><small>MINI FINAL • CLOSED</small><div class="teams"><div class="team"><div class="badge" style="background:#111">HIM</div>HIM ALONE</div><div class="score">3 : 0</div><div class="team"><div class="badge" style="background:#e91e63">KK</div>KOP KIDS</div></div></div>
 </div>
 
-<!-- TABLE + TROPHY -->
-<div id="standings-tab" class="hidden">
-  <div id="trophyArea"></div>
-  <div class="card"><b>📊 LOG TABLE - 12 Games</b><table id="logTable"></table></div>
-  <div class="card" id="celebrationCard" style="display:none;background:linear-gradient(#001428,gold);color:white;text-align:center;border:3px solid gold"><b style="color:gold">🎉 CHAMPIONS CELEBRATION POSTER 🎉</b><br><small>Download poster yanu ya Gold Premium!</small><br><button class="btn" onclick="alert('Poster yanu ili pamwambapa - Download!')">📸 View Poster</button></div>
+<!-- TABLE - AUTO -->
+<div id="tablePage" class="page">
+<h3>LEADERBOARD - Auto Calculated</h3>
+<p style="font-size:12px;color:#666">Table iyi imadzipanga yokha mukangowonjezera game mu Admin!</p>
+<table><tr><th>TEAMS</th><th>PTS</th><th>MP</th><th>W</th><th>D</th><th>L</th><th>GF</th><th>GA</th></tr><tbody id="tableBody"></tbody></table>
 </div>
 
-<!-- SQUADS -->
-<div id="squad-tab" class="hidden">
-  <div class="card"><b>👕 Squads 4 Teams - Ndi Logos Zenizeni</b></div>
-  <div class="card" style="border:3px solid #6CB4EE;cursor:pointer" onclick="openSquad('manCity')"><div style="display:flex;gap:10px;align-items:center"><div class="team-logo"><img src="https://upload.wikimedia.org/wikipedia/en/e/eb/Manchester_City_FC_badge.svg"></div><div><b>MAN CITY FC - VIC - MAN CITY LOGO - 28</b><br><small>Yanu - Gold Premium - Tap</small></div></div></div>
-  <div class="card" style="cursor:pointer" onclick="openSquad('tbo')"><div style="display:flex;gap:10px;align-items:center"><div class="team-logo"><img src="https://upload.wikimedia.org/wikipedia/commons/1/1b/FC_Bayern_M%C3%BCnchen_logo_%282017%29.svg"></div><div><b>TBO CITY - BAYERN LOGO - 19</b><br><small>Tap to view</small></div></div></div>
-  <div class="card" style="cursor:pointer" onclick="openSquad('crazy')"><div style="display:flex;gap:10px;align-items:center"><div class="team-logo"><img src="https://upload.wikimedia.org/wikipedia/en/0/0c/Liverpool_FC.svg"></div><div><b>CRAZY GAME - LIVERPOOL LOGO - 20</b><br><small>Tap</small></div></div></div>
-  <div class="card" style="cursor:pointer" onclick="openSquad('gunman')"><div style="display:flex;gap:10px;align-items:center"><div class="team-logo"><img src="https://upload.wikimedia.org/wikipedia/en/c/cc/Chelsea_FC.svg"></div><div><b>GUNMAN FC - CHELSEA LOGO - 19</b><br><small>Tap</small></div></div></div>
+<!-- ADMIN - SCREENSHOT + SCORE -->
+<div id="admin" class="page">
+<div class="card">
+<h2>📸 ADD NEW GAME RESULT</h2>
+<p style="font-size:13px;color:#666">1. Ikani Screenshot ya Game<br>2. Lembani Score + Scorers + Assists<br>3. Dinani SAVE - Table, Top Scorer, Top Assist zimadzipanga zokha!</p>
+<label>Tournament</label>
+<select id="fTour"><option>DFZ WORLD CUP</option><option>FRIEND ZONE LEAGUE S7</option><option>FRIEND ZONE LEAGUE S5</option><option>FRIEND ZONE MINI TOURNAMENT</option><option>FRIEND ZONE LEAGUE S2</option></select>
+<label>Home Team</label><input id="fHome" placeholder="Ex: ELON FATHER" value="ELON FATHER">
+<label>Away Team</label><input id="fAway" placeholder="Ex: SAMMY FC" value="SAMMY FC">
+<div style="display:flex;gap:8px"><div style="flex:1"><label>Home Score</label><input id="fHS" type="number" value="3"></div><div style="flex:1"><label>Away Score</label><input id="fAS" type="number" value="0"></div></div>
+
+<label>📸 SCREENSHOT YA GAME (DLS Result)</label>
+<div class="upload" onclick="document.getElementById('shot').click()">📸 Dinani Apa Kuti Muike Screenshot<br><small>JPG / PNG - Screenshot ya DLS</small><input type="file" id="shot" accept="image/*" hidden onchange="previewShot(this)"><img id="shotPreview" style="display:none"></div>
+
+<h3 style="margin-top:14px">⚽ SCORERS (Home)</h3>
+<div id="homeScorers"><div class="scorer-row"><input placeholder="Player Name - Ex: Haaland" class="hsName"><input placeholder="Goals" type="number" value="1" class="hsGoals"></div></div>
+<button class="btn" style="background:#eee;color:#111;margin-top:6px" onclick="addRow('homeScorers','hsName','hsGoals')">+ Add Scorer</button>
+
+<h3 style="margin-top:14px">⚽ SCORERS (Away)</h3>
+<div id="awayScorers"><div class="scorer-row"><input placeholder="Player Name" class="asName"><input placeholder="Goals" type="number" value="1" class="asGoals"></div></div>
+<button class="btn" style="background:#eee;color:#111;margin-top:6px" onclick="addRow('awayScorers','asName','asGoals')">+ Add Scorer</button>
+
+<h3 style="margin-top:14px">🎯 ASSISTS</h3>
+<div id="assists"><div class="scorer-row"><input placeholder="Player Name - Assist" class="astName"><input placeholder="Assists" type="number" value="1" class="astCount"></div></div>
+<button class="btn" style="background:#eee;color:#111;margin-top:6px" onclick="addRow('assists','astName','astCount')">+ Add Assist</button>
+
+<button class="btn btn-green" style="margin-top:16px" onclick="saveGame()">✅ SAVE GAME - AUTO UPDATE TABLE + TOP SCORER + TOP ASSIST</button>
+<button class="btn btn-red" style="margin-top:8px" onclick="clearAll()">🗑️ Clear All Data</button>
+<p id="saveMsg" style="color:green;font-weight:bold;margin-top:10px;text-align:center"></p>
 </div>
 
-<!-- SCORER -->
-<div id="scorer-tab" class="hidden"><div class="card"><b>🥇 TOP SCORER</b><table id="scorerTable"></table><br><div style="display:flex;gap:4px"><input id="scorerName" class="input-small" placeholder="Player"><input id="scorerTeam" class="input-small" placeholder="Team"><input id="scorerGoals" class="input-small" type="number" placeholder="G" style="width:15%"></div><button class="btn" onclick="addScorer()">➕ Add Goal</button></div></div>
-
-<!-- VIDEO HIGHLIGHTS -->
-<div id="video-tab" class="hidden">
-  <div class="card" style="background:#12182b;color:white"><b style="color:gold">🎥 MATCH HIGHLIGHTS - DLS SUPER LEAGUE - 12 GAMES</b><br><small>Onani zigoli zabwino kwambiri</small></div>
-  
-  <div class="video-card"><b>Game 1: Man City FC 3-1 TBO City FC (Bayern)</b><br><small>Yamal 91' ⚽ | Mbappe 88' ⚽ | Haaland 90' ⚽</small><div class="play-btn" onclick="alert('Video: Man City vs TBO - Yamal solo goal! 🔥')">▶️</div><small>Views: 1.2K • Machinga Boy VIC Channel</small></div>
-  
-  <div class="video-card"><b>Game 3: Man City FC 2-2 Crazy Game FC (Liverpool)</b><br><small>Dembele 99' ⚽⚽ vs Haaland 91' ⚽</small><div class="play-btn" onclick="alert('Video: Crazy Game draw vs Man City - Last minute equalizer!')">▶️</div><small>Views: 890 • DLS Highlights</small></div>
-  
-  <div class="video-card"><b>Game 5: Man City FC 4-0 Gunman FC (Chelsea)</b><br><small>Haaland hat-trick + De Bruyne assist 🎯</small><div class="play-btn" onclick="alert('Video: Man City 4-0 Gunman - Haaland 3 goals! ⚽⚽⚽')">▶️</div><small>Views: 2.1K • Top Goals</small></div>
-  
-  <div class="video-card" style="border-color:#22c55e"><b>🏆 FINAL - Champions Celebration</b><br><small>Machinga Boy VIC lifting trophy - Gold Premium Party!</small><div class="play-btn" style="background:#22c55e" onclick="alert('Video: Champions celebration - Etihad Stadium fireworks! 🎆🏆')">🏆</div><small>Live • DLS Super League Final</small></div>
-  
-  <div class="card"><b>📤 Add Your Own Highlight Link</b><br><div style="display:flex;gap:4px;margin-top:6px"><input id="videoTitle" class="input-small" placeholder="Game Title" style="width:60%"><input id="videoLink" class="input-small" placeholder="YouTube link" style="width:40%"></div><button class="btn" onclick="alert('Video link saved! Imapezeka mu app!')">➕ Add Video</button></div>
+<div class="card"><h3>📸 Ma Screenshot Amene Mwawaika</h3><div id="shotGallery"></div></div>
 </div>
 
+<!-- RANKING -->
+<div id="media" class="page">
+<h3>🏆 RANKING - Auto</h3>
+<div class="rank-tabs"><button class="active" onclick="showRank('scorer',this)">Scorers</button><button onclick="showRank('assist',this)">Assists</button><button onclick="showRank('pen',this)">Penalties</button></div>
+<div id="rankScorer"></div><div id="rankAssist" style="display:none"></div>
+<p style="text-align:center;color:#888;margin-top:20px">No media yet - Screenshot zili mu Admin</p>
 </div>
 
-<div id="squadModal" class="modal"><div class="modal-content"><span class="close" onclick="closeModal()">&times;</span><h3 id="modalTitle" style="border-bottom:3px solid gold;padding-bottom:6px;font-size:13px"></h3><div id="modalBody"></div><button class="btn" onclick="closeModal()">Tsekani</button></div></div>
+<div class="bottom"><span>🏠 Home</span><span>Categories</span><span>Games</span><span>Table</span><span>+ Admin</span><span>Ranking</span></div>
 
 <script>
-let games=[
- {id:1,home:"Man City FC",away:"TBO City FC",hg:0,ag:0,homeLogo:"https://upload.wikimedia.org/wikipedia/en/e/eb/Manchester_City_FC_badge.svg",awayLogo:"https://upload.wikimedia.org/wikipedia/commons/1/1b/FC_Bayern_M%C3%BCnchen_logo_%282017%29.svg"},
- {id:2,home:"Crazy Game FC",away:"Gunman FC",hg:0,ag:0,homeLogo:"https://upload.wikimedia.org/wikipedia/en/0/0c/Liverpool_FC.svg",awayLogo:"https://upload.wikimedia.org/wikipedia/en/c/cc/Chelsea_FC.svg"},
- {id:3,home:"Man City FC",away:"Crazy Game FC",hg:0,ag:0,homeLogo:"https://upload.wikimedia.org/wikipedia/en/e/eb/Manchester_City_FC_badge.svg",awayLogo:"https://upload.wikimedia.org/wikipedia/en/0/0c/Liverpool_FC.svg"},
- {id:4,home:"TBO City FC",away:"Gunman FC",hg:0,ag:0,homeLogo:"https://upload.wikimedia.org/wikipedia/commons/1/1b/FC_Bayern_M%C3%BCnchen_logo_%282017%29.svg",awayLogo:"https://upload.wikimedia.org/wikipedia/en/c/cc/Chelsea_FC.svg"},
- {id:5,home:"Man City FC",away:"Gunman FC",hg:0,ag:0,homeLogo:"https://upload.wikimedia.org/wikipedia/en/e/eb/Manchester_City_FC_badge.svg",awayLogo:"https://upload.wikimedia.org/wikipedia/en/c/cc/Chelsea_FC.svg"},
- {id:6,home:"TBO City FC",away:"Crazy Game FC",hg:0,ag:0,homeLogo:"https://upload.wikimedia.org/wikipedia/commons/1/1b/FC_Bayern_M%C3%BCnchen_logo_%282017%29.svg",awayLogo:"https://upload.wikimedia.org/wikipedia/en/0/0c/Liverpool_FC.svg"},
- {id:7,home:"TBO City FC",away:"Man City FC",hg:0,ag:0,homeLogo:"https://upload.wikimedia.org/wikipedia/commons/1/1b/FC_Bayern_M%C3%BCnchen_logo_%282017%29.svg",awayLogo:"https://upload.wikimedia.org/wikipedia/en/e/eb/Manchester_City_FC_badge.svg"},
- {id:8,home:"Gunman FC",away:"Crazy Game FC",hg:0,ag:0,homeLogo:"https://upload.wikimedia.org/wikipedia/en/c/cc/Chelsea_FC.svg",awayLogo:"https://upload.wikimedia.org/wikipedia/en/0/0c/Liverpool_FC.svg"},
- {id:9,home:"Crazy Game FC",away:"Man City FC",hg:0,ag:0,homeLogo:"https://upload.wikimedia.org/wikipedia/en/0/0c/Liverpool_FC.svg",awayLogo:"https://upload.wikimedia.org/wikipedia/en/e/eb/Manchester_City_FC_badge.svg"},
- {id:10,home:"Gunman FC",away:"TBO City FC",hg:0,ag:0,homeLogo:"https://upload.wikimedia.org/wikipedia/en/c/cc/Chelsea_FC.svg",awayLogo:"https://upload.wikimedia.org/wikipedia/commons/1/1b/FC_Bayern_M%C3%BCnchen_logo_%282017%29.svg"},
- {id:11,home:"Gunman FC",away:"Man City FC",hg:0,ag:0,homeLogo:"https://upload.wikimedia.org/wikipedia/en/c/cc/Chelsea_FC.svg",awayLogo:"https://upload.wikimedia.org/wikipedia/en/e/eb/Manchester_City_FC_badge.svg"},
- {id:12,home:"Crazy Game FC",away:"TBO City FC",hg:0,ag:0,homeLogo:"https://upload.wikimedia.org/wikipedia/en/0/0c/Liverpool_FC.svg",awayLogo:"https://upload.wikimedia.org/wikipedia/commons/1/1b/FC_Bayern_M%C3%BCnchen_logo_%282017%29.svg"}
-];
-const fullSquads={
- manCity:{name:"MAN CITY FC - MACHINGA BOY VIC - MAN CITY LOGO - 28 PLAYERS",logo:"https://upload.wikimedia.org/wikipedia/en/e/eb/Manchester_City_FC_badge.svg",formation:"4-3-3 Attack - Gold Premium",starting:["91 Yamal RW","90 Kvaratskhelia LW","90 Ziyech RW","89 Mendes LB","88 Valverde CM","85 Szoboszlai AM","92 Rodri DM","85 Van Dijk CB","91 Cannavaro CB","89 Dias CB","95 Donnarumma GK"],subs:["93 Mbappe CF","91 Haaland CF","87 Dembele CF","87 Aubameyang CF","86 De Bruyne AM","86 Pedri CM","85 Bellingham AM","85 Caicedo DM"],reserves:["87 Saliba CB","87 Raya GK","88 Hakimi RB","84 Semenyo RW","82 Cherki RW","82 Foden AM","82 Fernandez CM","81 Simon GK","80 Cucurella LB","79 Ndiaye RW","79 Anderson DM","79 Ait-Nouri LB","79 Khusanov CB","79 Nunes RB","75 Bouaddi CM"]},
- tbo:{name:"TBO CITY FC - BAYERN LOGO - 19 PLAYERS",logo:"https://upload.wikimedia.org/wikipedia/commons/1/1b/FC_Bayern_M%C3%BCnchen_logo_%282017%29.svg",formation:"4-2-3-1",starting:["93 Haaland CF","87 Doku LW","86 Cherki RW","92 Yamal RW","94 Rodri DM","87 Anderson DM","88 O'Reilly LB","87 Gvardiol CB","83 Khusanov CB","89 Hakimi RB","90 Donnarumma GK"],subs:["89 Guler AM","86 Foden AM","82 Ndiaye RW","89 Mendes LB","79 Rulli GK","89 Pedri CM","80 Yildiz SS","86 Kounde LB"],reserves:[]},
- crazy:{name:"CRAZY GAME FC - LIVERPOOL LOGO - 20 PLAYERS",logo:"https://upload.wikimedia.org/wikipedia/en/0/0c/Liverpool_FC.svg",formation:"ULTRA 99",starting:["99 Dembele CF","99 Haaland CF","98 Fernandes AM","99 Vini Jr LW","98 Olise RW","98 Valverde CM","89 Balde LB","95 Dias CB","95 Hakimi RB","94 Courtois GK"],subs:["98 Vitinha CM","96 Mbappe CF","90 Yamal RW","82 Cancelo RB","91 Palmer AM","88 Williams LM","93 Raphinha LW","89 Cannavaro CB"],reserves:["95 Pedri CM","94 Calhanoglu DM"]},
- gunman:{name:"GUNMAN FC - CHELSEA LOGO - 19 PLAYERS",logo:"https://upload.wikimedia.org/wikipedia/en/c/cc/Chelsea_FC.svg",formation:"4-3-3",starting:["86 Raphinha LW","90 Haaland CF","90 Yamal RW","90 Dimarco LWB","82 Camavinga CM","87 Caicedo DM","91 Hakimi RB","88 Mendes LB","88 Gabriel CB","83 Alexander-Arnold RB","87 Donnarumma GK"],subs:["86 Szczesny GK","81 Huijsen CB","81 Guehi CB","85 Van Dijk CB","82 Rudiger CB","85 Bellingham AM","82 Modric CM","90 Dembele CF"],reserves:[]}
-};
-let scorers=[{p:"Mbappe 93",t:"Man City FC",g:0},{p:"Haaland 93",t:"TBO (Bayern)",g:0},{p:"Dembele 99",t:"Crazy (Liverpool)",g:0},{p:"Haaland 90",t:"Gunman (Chelsea)",g:0}];
-let assists=[];
-
-function renderGames(){
- let h=""; games.forEach((g,i)=>{
-  h+=`<div class="card" style="padding:10px"><div style="font-size:9px;color:#666;margin-bottom:6px">GAME ${g.id} • ROUND ${Math.ceil(g.id/2)} • DLS SUPER LEAGUE</div><div style="display:flex;justify-content:space-between;align-items:center"><div style="display:flex;align-items:center;gap:6px;width:38%"><div class="badge-real"><img src="${g.homeLogo}"></div><b style="font-size:11px">${g.home}</b></div><div style="display:flex;gap:4px;align-items:center"><input class="inp" id="hg${i}" value="${g.hg}" type="number" min="0"> - <input class="inp" id="ag${i}" value="${g.ag}" type="number" min="0"></div><div style="display:flex;align-items:center;gap:6px;width:38%;justify-content:flex-end"><b style="font-size:11px">${g.away}</b><div class="badge-real"><img src="${g.awayLogo}"></div></div></div></div>`;
- }); document.getElementById("fixtureList").innerHTML=h; calcTable();
+let teams={}; let scorers={}; let assists={}; let games=[];
+let initial=[["ELON FATHER",119,42,39,2,1,0,0],["SAMMY FC",116,42,38,2,2,0,0],["HOLLYDEE FC",101,42,33,2,7,0,0],["SUPER DAY FA",95,42,30,5,7,0,0],["WIN OR I WIN",90,42,28,6,8,0,0]];
+initial.forEach(t=>{teams[t[0]]={pts:t[1],mp:t[2],w:t[3],d:t[4],l:t[5],gf:t[6],ga:t[7]}});
+function show(id,btn){document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));document.getElementById(id).classList.add('active');document.querySelectorAll('.tabs button').forEach(b=>b.classList.remove('active'));if(btn)btn.classList.add('active')}
+function openTour(n,c,p,p1,p2,p3){document.getElementById('headerTitle').textContent=n;document.getElementById('tourName').textContent=n;document.getElementById('tourPeriod').textContent=p;document.getElementById('p1').textContent=p1;document.getElementById('p2').textContent=p2;document.getElementById('p3').textContent=p3;let h=document.getElementById('hdr');h.className='';h.classList.add(c);show('home',document.querySelector('.tabs button'));window.scrollTo(0,0)}
+function addRow(id,nc,gc){let d=document.createElement('div');d.className='scorer-row';d.innerHTML='<input placeholder="Player Name" class="'+nc+'"><input placeholder="Goals" type="number" value="1" class="'+gc+'">';document.getElementById(id).appendChild(d)}
+function previewShot(el){let f=el.files[0];if(!f)return;let r=new FileReader();r.onload=e=>{let img=document.getElementById('shotPreview');img.src=e.target.result;img.style.display='block';img.dataset.src=e.target.result};r.readAsDataURL(f)}
+function ensureTeam(name){if(!teams[name])teams[name]={pts:0,mp:0,w:0,d:0,l:0,gf:0,ga:0}}
+function saveGame(){
+let home=document.getElementById('fHome').value.trim()||'HOME';let away=document.getElementById('fAway').value.trim()||'AWAY';
+let hs=parseInt(document.getElementById('fHS').value||0);let as=parseInt(document.getElementById('fAS').value||0);
+ensureTeam(home);ensureTeam(away);
+teams[home].mp++;teams[away].mp++;teams[home].gf+=hs;teams[home].ga+=as;teams[away].gf+=as;teams[away].ga+=hs;
+if(hs>as){teams[home].w++;teams[home].pts+=3;teams[away].l++}else if(as>hs){teams[away].w++;teams[away].pts+=3;teams[home].l++}else{teams[home].d++;teams[away].d++;teams[home].pts+=1;teams[away].pts+=1}
+document.querySelectorAll('.hsName').forEach((el,i)=>{let n=el.value.trim();if(n){let g=parseInt(document.querySelectorAll('.hsGoals')[i].value||0);scorers[n]=(scorers[n]||0)+g}});
+document.querySelectorAll('.asName').forEach((el,i)=>{let n=el.value.trim();if(n){let g=parseInt(document.querySelectorAll('.asGoals')[i].value||0);scorers[n]=(scorers[n]||0)+g}});
+document.querySelectorAll('.astName').forEach((el,i)=>{let n=el.value.trim();if(n){let g=parseInt(document.querySelectorAll('.astCount')[i].value||0);assists[n]=(assists[n]||0)+g}});
+let shot=document.getElementById('shotPreview').src;let html='<div class="match"><small>'+document.getElementById('fTour').value+' • CLOSED</small>';
+if(shot&&shot.length>100)html+='<img src="'+shot+'" style="width:100%;border-radius:10px;margin-top:8px">';
+html+='<div class="teams"><div class="team"><div class="badge" style="background:#1a2a5e">'+home.substring(0,3).toUpperCase()+'</div>'+home+'</div><div class="score">'+hs+' : '+as+'</div><div class="team"><div class="badge" style="background:#e53935">'+away.substring(0,3).toUpperCase()+'</div>'+away+'</div></div></div>';
+document.getElementById('gamesList').insertAdjacentHTML('afterbegin',html);
+if(shot&&shot.length>100)document.getElementById('shotGallery').insertAdjacentHTML('afterbegin','<img src="'+shot+'" style="width:100%;border-radius:10px;margin-bottom:8px"><p>'+home+' '+hs+'-'+as+' '+away+'</p>');
+renderAll();document.getElementById('saveMsg').textContent='✅ Game Yasungidwa! Table + Top Scorer + Top Assist Zasintha Zokha!';show('tablePage',null);
 }
-function calcTable(){
- let teams={"Man City FC":{P:0,W:0,D:0,L:0,GF:0,GA:0,Pts:0},"TBO City FC":{P:0,W:0,D:0,L:0,GF:0,GA:0,Pts:0},"Crazy Game FC":{P:0,W:0,D:0,L:0,GF:0,GA:0,Pts:0},"Gunman FC":{P:0,W:0,D:0,L:0,GF:0,GA:0,Pts:0}};
- let playedCount=0;
- games.forEach(g=>{
-  let hasScore=g.hg!==0 || g.ag!==0 || localStorage.getItem("dls_v10_ultimate");
-  if(g.hg===0 && g.ag===0 && !hasScore) return;
-  playedCount++;
-  let hk=g.home.includes("Man City")?"Man City FC":g.home.includes("TBO")?"TBO City FC":g.home.includes("Crazy")?"Crazy Game FC":"Gunman FC";
-  let ak=g.away.includes("Man City")?"Man City FC":g.away.includes("TBO")?"TBO City FC":g.away.includes("Crazy")?"Crazy Game FC":"Gunman FC";
-  teams[hk].P++; teams[ak].P++; teams[hk].GF+=g.hg; teams[hk].GA+=g.ag; teams[ak].GF+=g.ag; teams[ak].GA+=g.hg;
-  if(g.hg>g.ag){teams[hk].W++; teams[hk].Pts+=3; teams[ak].L++;} else if(g.hg<g.ag){teams[ak].W++; teams[ak].Pts+=3; teams[hk].L++;} else{teams[hk].D++; teams[ak].D++; teams[hk].Pts++; teams[ak].Pts++;}
- });
- let sorted=Object.entries(teams).sort((a,b)=>b[1].Pts-a[1].Pts);
- let html=`<tr><th>#</th><th style="text-align:left">TEAM</th><th>LOGO</th><th>P</th><th>Pts</th></tr>`;
- sorted.forEach((e,i)=>{
-  let logoKey=e[0].includes("Man City")?"manCity":e[0].includes("TBO")?"tbo":e[0].includes("Crazy")?"crazy":"gunman";
-  let logo=fullSquads[logoKey].logo;
-  html+=`<tr style="background:${i==0?'#fffbeb':'white'}"><td>${i+1} ${i==0?'🏆':''}</td><td style="text-align:left;font-size:10px">${e[0]}</td><td><img src="${logo}" style="width:22px;height:22px"></td><td>${e[1].P}</td><td><b>${e[1].Pts}</b></td></tr>`;
- });
- document.getElementById("logTable").innerHTML=html;
- 
- // Trophy logic
- if(playedCount>=10){
-  let champ=sorted[0];
-  let trophyHTML=`<div class="champion-banner">🏆 CHAMPION - ${champ[0]} - ${champ[1].Pts} PTS - DLS SUPER LEAGUE 12 GAMES! 🏆<br><small style="font-size:11px">MACHINGA BOY VIC - THE KING OF DLS</small></div>`;
-  document.getElementById("trophyArea").innerHTML=trophyHTML;
-  document.getElementById("championPreview").innerHTML=trophyHTML;
-  document.getElementById("championPreview").classList.remove("hidden");
-  document.getElementById("celebrationCard").style.display="block";
- } else {
-  document.getElementById("trophyArea").innerHTML=`<div class="card" style="text-align:center;color:#666"><small>🏆 Trophy iziwoneka mutasewera ma game 10+ - Tsopano mwasewera ${playedCount}/12</small></div>`;
- }
- renderScorer();
+function renderAll(){
+let sorted=Object.entries(teams).sort((a,b)=>b[1].pts-a[1].pts||(b[1].gf-b[1].ga)-(a[1].gf-a[1].ga));
+document.getElementById('tableBody').innerHTML=sorted.map(([n,t],i)=>'<tr><td>'+(i+1)+' '+n+'</td><td><b>'+t.pts+'</b></td><td>'+t.mp+'</td><td>'+t.w+'</td><td>'+t.d+'</td><td>'+t.l+'</td><td>'+t.gf+'</td><td>'+t.ga+'</td></tr>').join('');
+let sSorted=Object.entries(scorers).sort((a,b)=>b[1]-a[1]);let aSorted=Object.entries(assists).sort((a,b)=>b[1]-a[1]);
+if(sSorted.length){document.getElementById('topScorerHome').textContent=sSorted[0][0];document.getElementById('topScorerGoals').textContent=sSorted[0][1]+' goals'}
+if(aSorted.length){document.getElementById('topAssistHome').textContent=aSorted[0][0];document.getElementById('topAssistCount').textContent=aSorted[0][1]+' assists'}
+document.getElementById('rankScorer').innerHTML='<h4>🥇 TOP SCORERS</h4>'+ (sSorted.length?sSorted.map(([n,g],i)=>'<div class="card">'+(i+1)+'. '+n+' - <b>'+g+' goals</b></div>').join(''):'<p>No data yet - Ikani game mu Admin</p>');
+document.getElementById('rankAssist').innerHTML='<h4>🎯 TOP ASSISTS</h4>'+ (aSorted.length?aSorted.map(([n,g],i)=>'<div class="card">'+(i+1)+'. '+n+' - <b>'+g+' assists</b></div>').join(''):'<p>No data yet</p>');
 }
-function renderScorer(){let h=`<tr><th>#</th><th style="text-align:left">Player</th><th>Team</th><th>G</th></tr>`; scorers.sort((a,b)=>b.g-a.g).forEach((s,i)=>{h+=`<tr><td>${i+1}</td><td style="text-align:left">${s.p}</td><td style="font-size:9px">${s.t}</td><td><b>${s.g}</b></td></tr>`}); let el=document.getElementById("scorerTable"); if(el) el.innerHTML=h;}
-function saveGames(){games.forEach((g,i)=>{g.hg=parseInt(document.getElementById("hg"+i).value)||0; g.ag=parseInt(document.getElementById("ag"+i).value)||0;}); localStorage.setItem("dls_v10_ultimate",JSON.stringify({games,scorers})); calcTable(); let total=games.filter(g=>g.hg!==0||g.ag!==0).length; if(total>=12){alert("🏆 LEAGUE YATHA! Champion wapezeka! Onani Table + Trophy Tab!");} else{alert(`✅ Game ${total}/12 zasungidwa!`);} }
-function addScorer(){let p=document.getElementById("scorerName").value, t=document.getElementById("scorerTeam").value, g=parseInt(document.getElementById("scorerGoals").value)||1; if(!p) return; let f=scorers.find(x=>x.p.toLowerCase()==p.toLowerCase()); if(f) f.g+=g; else scorers.push({p,t,g}); renderScorer(); saveGames();}
-function openSquad(k){let s=fullSquads[k]; document.getElementById("modalTitle").innerHTML=`<img src="${s.logo}" style="width:28px;height:28px;vertical-align:middle"> ${s.name}<br><small>${s.formation}</small>`; let h="<b>STARTING XI:</b><br>"; s.starting.forEach(p=>{let cl=p.includes("GK")?"chip gk":"chip"; h+=`<span class="${cl}">${p}</span>`}); h+="<br><br><b>SUBS:</b><br>"; s.subs.forEach(p=>{h+=`<span class="chip">${p}</span>`}); if(s.reserves.length>0){h+="<br><br><b>RESERVES:</b><br>"; s.reserves.forEach(p=>{h+=`<span class="chip" style="background:#dbeafe">${p}</span>`});} document.getElementById("modalBody").innerHTML=h; document.getElementById("squadModal").style.display="block";}
-function closeModal(){document.getElementById("squadModal").style.display="none";}
-function showTab(id){document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active')); event.target.classList.add('active'); ["matches","standings","squad","scorer","video"].forEach(x=>document.getElementById(x+"-tab").classList.add("hidden")); document.getElementById(id+"-tab").classList.remove("hidden"); if(id!=="matches") calcTable();}
-let saved=localStorage.getItem("dls_v10_ultimate"); if(saved){let d=JSON.parse(saved); games=d.games||games; scorers=d.scorers||scorers;} renderGames();
+function showRank(type,btn){document.getElementById('rankScorer').style.display=type==='scorer'?'block':'none';document.getElementById('rankAssist').style.display=type==='assist'?'block':'none';document.querySelectorAll('#media .rank-tabs button').forEach(b=>b.classList.remove('active'));btn.classList.add('active')}
+function clearAll(){if(confirm('Chotsani zonse?')){teams={};scorers={};assists={};document.getElementById('gamesList').innerHTML='';document.getElementById('shotGallery').innerHTML='';renderAll()}}
+renderAll();
 </script>
 </body>
 </html>
