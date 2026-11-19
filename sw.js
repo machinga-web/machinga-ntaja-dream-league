@@ -1,83 +1,170 @@
 <!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>MACHINGA BOY VIC - V4 FULL SQUAD 28</title>
+<html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>DLS FRIEND ZONE - V46</title>
 <style>
-body{font-family:Arial;background:#001428;color:white;padding:6px;margin:0}
-.header{background:linear-gradient(90deg,gold,#ffcc00);color:#000;padding:14px;text-align:center;font-weight:900;font-size:17px;border-radius:12px;border:3px solid #fff}
-.logos{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin:12px 0}
-.logo-card{background:linear-gradient(180deg,#0a3d8f,#001428);border:3px solid gold;border-radius:16px;padding:12px;text-align:center;cursor:pointer}
-.logo-circle{width:70px;height:70px;background:radial-gradient(gold,#ffcc00);border-radius:50%;margin:0 auto 6px;display:flex;align-items:center;justify-content:center;font-size:32px;border:3px solid white}
-.card{background:#fff;color:#000;border-radius:12px;padding:12px;margin-bottom:12px;border-left:6px solid gold}
-table{width:100%;border-collapse:collapse} th{background:#0a3d8f;color:white;padding:6px;font-size:11px} td{padding:6px;text-align:center;border-bottom:1px solid #ddd;font-size:12px}
-.modal{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.88);z-index:999;overflow:auto}
-.modal-content{background:white;color:black;margin:3% auto;width:94%;max-width:520px;border-radius:16px;border:4px solid gold;padding:15px;max-height:85vh;overflow:auto}
-.close{float:right;font-size:28px;font-weight:bold;cursor:pointer;color:red}
-.chip{background:linear-gradient(gold,#ffcc00);padding:4px 8px;border-radius:12px;font-size:10px;font-weight:bold;margin:2px;display:inline-block;border:1px solid #000}
-.chip.gk{background:linear-gradient(#ff4444,#ff8844);color:white}
-.chip.reserve{background:#e6f0ff;border:1px solid #0a3d8f}
-.match-row{display:flex;justify-content:space-between;align-items:center;background:#f0f6ff;padding:6px;border-radius:7px;margin-bottom:4px;font-size:12px}
-button{background:gold;font-weight:bold;padding:10px;border-radius:8px;border:2px solid #000;width:100%;cursor:pointer}
-.live-input{width:28px;text-align:center;font-weight:bold;border:2px solid gold;border-radius:4px}
-</style>
-</head>
+*{margin:0;padding:0;box-sizing:border-box;font-family:Arial}
+body{background:#fff;padding-bottom:70px}
+#splash{position:fixed;inset:0;z-index:999;background:linear-gradient(160deg,#0f766e,#1e3a8a);display:flex;flex-direction:column;align-items:center;justify-content:center;color:#fff;cursor:pointer;animation:splashOut .5s ease 2.8s forwards}
+@keyframes splashOut{to{opacity:0;visibility:hidden}}
+#splash .logoBox{width:84px;height:84px;background:#111;color:#FFD700;display:grid;place-items:center;font-weight:900;font-size:22px;text-align:center;line-height:1;border-radius:8px}
+#splash h2{margin-top:16px;font-size:19px;text-align:center}
+#splash .bar{width:180px;height:4px;background:rgba(255,255,255,.25);border-radius:10px;margin-top:18px;overflow:hidden}
+#splash .bar i{display:block;height:100%;width:0;background:#a7f3d0;animation:load 2s forwards}
+@keyframes load{to{width:100%}}
+header{background:#1e2a5a;color:#fff;padding:8px 10px;position:sticky;top:0;z-index:99}
+header .top{display:flex;align-items:center;gap:10px}
+header b{font-size:14px;flex:1}
+.tabs{display:flex;gap:6px;margin-top:8px}
+.tabs button{flex:1;padding:12px 4px;border:0;border-radius:10px;background:rgba(255,255,255,.2);color:#fff;font-weight:bold;font-size:12px}
+.tabs button.active{background:#fff;color:#111}
+.page{display:none;padding:0}.page.active{display:block}
+.card{padding:12px}
+.btn{background:#1e2a5a;color:#fff;border:0;padding:13px;border-radius:10px;font-weight:bold;width:100%;margin-top:8px}
+.btn-small{background:#1e2a5a;color:#fff;border:0;padding:8px 10px;border-radius:8px;font-weight:bold;font-size:12px}
+.btn-green{background:#16a34a;color:#fff;border:0;padding:8px 10px;border-radius:8px;font-weight:bold;font-size:12px}
+input,select{width:100%;padding:11px;margin:5px 0;border:1px solid #ddd;border-radius:8px}
+.banner{height:120px;background:linear-gradient(135deg,#0f766e,#1e3a8a)}
+.avatar{width:72px;height:72px;border-radius:50%;background:#111;color:#FFD700;display:grid;place-items:center;font-weight:900;font-size:14px;text-align:center;line-height:1;border:3px solid #fff;margin-top:-36px;margin-left:12px}
+.follow{float:right;background:#1e2a5a;color:#fff;border:0;padding:10px 18px;border-radius:20px;font-weight:bold;margin-top:-30px;margin-right:10px}
+.info{font-size:12px;color:#666;letter-spacing:1px;margin:14px 12px 4px}
+.info2{font-size:13px;line-height:1.9;color:#333;margin:0 12px}.info2 b{font-size:14px;color:#111}
+.awards{display:flex;gap:10px;margin:10px 12px}
+.award{flex:1;border:1px solid #eee;border-radius:12px;padding:12px;text-align:center}
+.award.gold{border-color:#FFD700;background:#fffdf0}
+.msgRow{display:flex;gap:10px;padding:10px 12px;border-bottom:1px solid #f2f2f2}
+.msgRow .av{width:36px;height:36px;border-radius:50%;display:grid;place-items:center;color:#fff;font-weight:900;flex-shrink:0}
+.cat{display:flex;align-items:center;gap:10px;background:#fff;padding:12px;border-bottom:1px solid #eee;cursor:pointer}
+.cat:active{background:#eef2ff}
+.cat .trophy{width:36px;height:36px;border-radius:50%;background:#f2f2f2;display:grid;place-items:center;font-size:16px;flex-shrink:0}
+.cat .pill{flex:1;color:#fff;font-weight:bold;font-size:13px;padding:12px 10px;border-radius:6px}
+.linkBox{background:#f8fafc;border:1px solid #e2e8f0;border-radius:12px;padding:12px;margin:0 12px 10px}
+.linkBox .url{font-size:12px;color:#1e2a5a;word-break:break-all;background:#fff;padding:8px;border-radius:8px;border:1px solid #e2e8f0;margin:6px 0}
+.lead{font-size:12px;color:#1e2a5a;letter-spacing:1px;font-weight:bold;padding:12px 12px 0}
+.stageRow{display:flex;align-items:center;gap:10px;padding:6px 12px 10px}
+.stageRow select{width:auto;padding:6px;border:0;font-weight:900;font-size:20px;background:transparent}
+.rounds{display:flex;gap:6px;padding:0 12px 10px;overflow-x:auto}
+.rounds button{flex-shrink:0;padding:9px 16px;border:1px solid #ddd;background:#fff;border-radius:20px;font-weight:bold}
+.rounds button.active{background:#1e2a5a;color:#fff}
+.stats{display:flex;gap:8px;padding:0 12px 10px}
+.stats div{flex:1;text-align:center;border-bottom:1px solid #eee;padding-bottom:8px}
+.stats b{font-size:18px;display:block}.stats span{font-size:10px;color:#888}
+.matchBox{padding:10px 12px;border-bottom:1px solid #f2f2f2}
+.matchBox .grp{font-size:11px;color:#888;text-align:center}
+.matchBox .closed{font-size:10px;color:#888;background:#f2f2f2;padding:2px 8px;border-radius:10px}
+.matchRow{display:flex;align-items:center;gap:8px;text-align:center}
+.mteam{flex:1}
+.logoC{width:52px;height:52px;border-radius:50%;display:grid;place-items:center;color:#fff;font-weight:900;font-size:12px;margin:0 auto;border:2px solid #eee}
+.mname{font-size:12px;margin-top:4px}
+.mscore{font-size:22px;font-weight:900}
+.toggle{display:flex;gap:16px;font-size:14px;margin-left:auto}
+.toggle span{padding-bottom:4px;color:#666}
+.toggle span.active{color:#111;font-weight:bold;border-bottom:3px solid #1e2a5a}
+.grpTitle{font-weight:900;margin:16px 12px 6px}
+table{width:100%;border-collapse:collapse;font-size:13px}th,td{padding:9px 4px;text-align:center;border-bottom:1px solid #eee}th:first-child,td:first-child{text-align:left;padding-left:12px}td.teamcell{display:flex;align-items:center;gap:8px;text-align:left;font-weight:bold}
+.logoS{width:28px;height:28px;border-radius:50%;display:grid;place-items:center;color:#fff;font-weight:900;font-size:8px;flex-shrink:0}
+.subtabs{display:flex;gap:5px;padding:10px 12px;overflow-x:auto}
+.subtabs button{flex-shrink:0;padding:9px 14px;border:1px solid #ddd;background:#fff;border-radius:20px;font-weight:bold;font-size:13px}
+.subtabs button.active{background:#1e2a5a;color:#fff}
+.mini{display:none}.mini.active{display:block}
+.bracketTabs{display:flex;gap:6px;padding:0 12px 10px;overflow-x:auto}
+.bracketTabs button{flex-shrink:0;padding:9px 14px;border:1px solid #ddd;background:#fff;border-radius:20px;font-weight:bold}
+.bracketTabs button.active{background:#1e2a5a;color:#fff}
+.tie{margin:0 12px 14px}
+.tie-title{font-size:11px;color:#666;margin-bottom:4px}
+.tie-card{border:1px solid #eee;border-radius:12px;overflow:hidden}
+.tie-row{display:flex;align-items:center;gap:8px;padding:10px;border-bottom:1px solid #f2f2f2}
+.tie-row b{flex:1;font-size:13px}
+.tie-score{font-size:13px;width:26px;text-align:center;border-left:1px solid #eee}
+.bottom{position:fixed;bottom:0;left:0;right:0;background:#fff;border-top:1px solid #eee;display:flex;padding:10px 2px;font-size:11px;z-index:99}
+.bottom div{flex:1;text-align:center;color:#888}
+.bottom div.active{color:#1e2a5a;font-weight:bold}
+.toast{position:fixed;bottom:80px;left:50%;transform:translateX(-50%);background:#111;color:#fff;padding:10px 18px;border-radius:20px;font-size:13px;font-weight:bold;z-index:1000;display:none}
+</style></head>
 <body>
-<div class="header">🏆 MACHINGA BOY VIC - FULL SQUAD 28 - V4 🏆<br><small>Dinani Logo Kuti Muone Players Onse</small></div>
+<div id="toast" class="toast">✅ Link Yakopedwa!</div>
+<div id="splash" onclick="hideSplash()"><div class="logoBox">DLS<br>FRIEND<br>ZONE</div><h2>DLS FRIEND ZONE<br>COMPETITIONS</h2><div class="bar"><i></i></div><div style="margin-top:16px;background:#fff;color:#111;padding:10px 20px;border-radius:20px;font-weight:900;font-size:13px">👆 DINANI APA KUTI MULOWE</div></div>
 
-<div class="logos">
-<div class="logo-card" onclick="showTeam('manCity')"><div class="logo-circle">🔵</div><b>MAN CITY VIC</b><br><small>28 Players - TAP</small></div>
-<div class="logo-card" onclick="showTeam('tbo')"><div class="logo-circle">🏙️</div><b>TBO CITY</b><br><small>19 Players - TAP</small></div>
-<div class="logo-card" onclick="showTeam('crazy')"><div class="logo-circle">🎮</div><b>CRAZY GAME</b><br><small>20 Players - TAP</small></div>
-<div class="logo-card" onclick="showTeam('gunman')"><div class="logo-circle">🔫</div><b>GUNMAN</b><br><small>19 Players - TAP</small></div>
+<header><div class="top"><span>←</span><b>DLS FRIEND ZONE<br><small style="font-weight:normal;font-size:11px" id="hdrSub">DLS FRIEND ZONE COMPETITIONS</small></b><span>↗</span><span>⋮</span></div>
+<div class="tabs">
+<button id="t-home" class="active" onclick="showPage('home')">🏠 Home</button>
+<button id="t-cats" onclick="showPage('cats')">☰ Categories</button>
+<button id="t-league" onclick="showPage('leagueDetail')">🎮 Games</button>
+<button id="t-table" onclick="showPage('leagueDetail');showMini('table')">☰ Table</button>
+<button id="t-links" onclick="showPage('links')">🔗 Links</button>
+</div></header>
+
+<div id="home" class="page active">
+<div class="banner"></div>
+<div style="position:relative"><div class="avatar">DLS<br>ZONE</div><button class="follow" onclick="this.textContent=this.textContent.includes('Follow')?'✓ Following':'+ Follow'">+ Follow</button></div>
+<p style="color:#1e2a5a;font-size:12px;margin:8px 0 0 12px">• Private • 33 followers</p>
+<h1 style="font-size:26px;line-height:1.1;margin:6px 12px">DLS FRIEND ZONE<br>COMPETITIONS</h1>
+<div class="info2" style="margin:6px 12px">📅 PERIOD<br><b>18 Feb 2026</b><br>• STATUS<br><b>Not provided</b><br>👤 ORGANIZER<br><b>OLA MJOE</b><br>🌐 TOURNAMENT WEBSITE<br><span style="color:#1e2a5a">Tournament website ↗</span><br>📞 TELEPHONE<br><b>09115674467</b></div>
+<div class="linkBox"><b>🔗 LINK YA HOME:</b><div class="url" id="homeLink">machinga-web.github.io</div><div style="display:flex;gap:8px"><button class="btn-green" onclick="copyLink(getHomeLink(),'Home')">📋 COPY LINK</button><button class="btn-small" onclick="shareLink(getHomeLink(),'DLS FRIEND ZONE')">↗ SHARE</button></div></div>
+<p class="info">AWARDS</p>
+<div class="awards"><div class="award gold"><div style="font-size:28px">🏆</div><div style="font-size:11px;color:#888">CHAMPION</div><b style="color:#d69a1a">HIMSELF</b></div><div class="award"><div style="font-size:28px">🏆</div><div style="font-size:11px;color:#888">2ND PLACE</div><b>KOP KIDS</b></div></div>
+<p class="info">MESSAGES</p>
+<div class="msgRow"><div class="av" style="background:#f59e0b">S</div><div><b>salim nuno</b><br><span style="color:#888;font-size:13px">ok</span><br><span style="color:#1e2a5a;font-size:12px">Reply</span></div><span style="margin-left:auto;font-size:11px;color:#aaa">17/11 ⋮</span></div>
+<div class="msgRow"><div class="av" style="background:#111">O</div><div><b>ogbodo David</b><br><span style="color:#888;font-size:13px">how IR</span><br><span style="color:#1e2a5a;font-size:12px">Reply</span></div><span style="margin-left:auto;font-size:11px;color:#aaa">27/07 ⋮</span></div>
+<div class="msgRow"><div class="av" style="background:#e11d48">H</div><div><b>Hamuzar Kambalame</b><br><span style="color:#888;font-size:13px">join</span><br><span style="color:#1e2a5a;font-size:12px">Reply</span></div><span style="margin-left:auto;font-size:11px;color:#aaa">29/03 ⋮</span></div>
+<div class="msgRow"><div class="av" style="background:#f97316">H</div><div><b>HOLLY DEE</b><br><span style="color:#888;font-size:13px">hello</span><br><span style="color:#1e2a5a;font-size:12px">Reply</span></div><span style="margin-left:auto;font-size:11px;color:#aaa">02/05 ⋮</span></div>
+<button class="btn" style="margin:12px;width:calc(100% - 24px)" onclick="showPage('cats')">🏆 ONANI MA CATEGORIES - DINANI APA</button>
+<button class="btn" style="margin:0 12px;width:calc(100% - 24px)" onclick="showPage('links')">🔗 ONANI MA LINKS ONSE</button>
 </div>
 
-<div class="card"><h3>📊 LOG TABLE</h3><table id="logTable"></table></div>
-<div class="card"><h3>⚔️ LIVE SCORE</h3><div id="matches"></div><button onclick="saveScores()">💾 Save</button></div>
+<!-- CATEGORIES - MA LEAGUE ONSE ALEMBEDWA MU HTML - AMAWONEKA NTHAWI ZONSE! -->
+<div id="cats" class="page">
+<div class="card" style="text-align:center"><h2>🏆 Categories - Ma League 20</h2><p style="color:#888;font-size:13px">Dinani League - Idzatseguka! Dinani 📋 kuti mukope Link!</p></div>
 
-<div id="playerModal" class="modal"><div class="modal-content"><span class="close" onclick="closeModal()">&times;</span><h3 id="modalTitle" style="color:#0a3d8f;border-bottom:2px solid gold"></h3><div id="modalBody"></div><button onclick="closeModal()" style="margin-top:10px">Tsekani</button></div></div>
+<div class="cat" onclick="openLeague('worldcup')"><div class="trophy">🏆</div><div class="pill" style="background:#1a5c2a">DFZ WORLD CUP</div><span>›</span></div>
+<div style="display:flex;gap:6px;margin:0 12px 10px"><button class="btn-green" style="flex:1" onclick="copyLink(getLeagueLink('worldcup'),'DFZ WORLD CUP')">📋 COPY LINK</button><button class="btn-small" style="flex:1" onclick="shareLink(getLeagueLink('worldcup'),'DFZ WORLD CUP')">↗ SHARE</button></div>
 
-<script>
-const squads={
- manCity:{
-  name:"MAN CITY FC - MACHINGA BOY VIC - FULL 28",
-  formation:"4-3-3 Attack - 28 Players",
-  starting:["91 Yamal RW","90 Kvaratskhelia LW","90 Ziyech RW","89 Mendes LB","88 Valverde CM","85 Szoboszlai AM","92 Rodri DM","85 Van Dijk CB","91 Cannavaro CB","89 Dias CB","95 Donnarumma GK"],
-  subs:["93 Mbappe CF","91 Haaland CF","87 Dembele CF","87 Aubameyang CF","86 De Bruyne AM","86 Pedri CM","85 Bellingham AM","85 Caicedo DM"],
-  reserves:["87 Saliba CB","87 Raya GK","88 Hakimi RB","84 Semenyo RW","82 Cherki RW","82 Foden AM","82 Fernandez CM","81 Simon GK","80 Cucurella LB","79 Ndiaye RW","79 Anderson DM","79 Ait-Nouri LB","79 Khusanov CB","79 Nunes RB","75 Bouaddi CM"]
- },
- tbo:{name:"TBO CITY FC - HANEEF",formation:"4-2-3-1",starting:["93 Haaland CF","87 Doku LW","86 Cherki RW","92 Yamal RW","94 Rodri DM","87 Anderson DM","88 O'Reilly LB","87 Gvardiol CB","83 Khusanov CB","89 Hakimi RB","90 Donnarumma GK"],subs:["89 Guler AM","86 Foden AM","82 Ndiaye RW","89 Mendes LB","79 Rulli GK","89 Pedri CM","80 Yildiz SS","86 Kounde LB"],reserves:[]},
- crazy:{name:"CRAZY GAME FC - CFC",formation:"ULTRA 99",starting:["99 Dembele CF","99 Haaland CF","98 Fernandes AM","99 Vini Jr LW","98 Olise RW","98 Valverde CM","89 Balde LB","95 Dias CB","95 Hakimi RB","94 Courtois GK"],subs:["98 Vitinha CM","96 Mbappe CF","90 Yamal RW","82 Cancelo RB","91 Palmer AM","88 Williams LM","93 Raphinha LW","89 Cannavaro CB"],reserves:["95 Pedri CM","94 Calhanoglu DM","94 Mendes LB","90 Martinelli LW"]},
- gunman:{name:"GUNMAN FC - LAHEEMU",formation:"4-3-3",starting:["86 Raphinha LW","90 Haaland CF","90 Yamal RW","90 Dimarco LWB","82 Camavinga CM","87 Caicedo DM","91 Hakimi RB","88 Mendes LB","88 Gabriel CB","83 Alexander-Arnold RB","87 Donnarumma GK"],subs:["86 Szczesny GK","81 Huijsen CB","81 Guehi CB","85 Van Dijk CB","82 Rudiger CB","85 Bellingham AM","82 Modric CM","90 Dembele CF"],reserves:[]}
-};
+<div class="cat" onclick="openLeague('elite')"><div class="trophy">🏆</div><div class="pill" style="background:#1e2a5a">DLS FRIEND ZONE ELITE CUP</div><span>›</span></div>
+<div style="display:flex;gap:6px;margin:0 12px 10px"><button class="btn-green" style="flex:1" onclick="copyLink(getLeagueLink('elite'),'ELITE CUP')">📋 COPY LINK</button><button class="btn-small" style="flex:1" onclick="shareLink(getLeagueLink('elite'),'ELITE CUP')">↗ SHARE</button></div>
 
-let fixtures=[
- {home:"Crazy Game FC",away:"Man City FC",hg:2,ag:1},
- {home:"Man City FC",away:"TBO City FC",hg:2,ag:1},
- {home:"Crazy Game FC",away:"Gunman FC",hg:3,ag:0},
- {home:"TBO City FC",away:"Gunman FC",hg:1,ag:1},
- {home:"Man City FC",away:"Gunman FC",hg:4,ag:0},
- {home:"TBO City FC",away:"Crazy Game FC",hg:2,ag:2}
-];
+<div class="cat" onclick="openLeague('diamond')"><div class="trophy">🏆</div><div class="pill" style="background:#7c3aed">DFZ DIAMOND CUP</div><span>›</span></div>
+<div style="display:flex;gap:6px;margin:0 12px 10px"><button class="btn-green" style="flex:1" onclick="copyLink(getLeagueLink('diamond'),'DIAMOND CUP')">📋 COPY LINK</button><button class="btn-small" style="flex:1" onclick="shareLink(getLeagueLink('diamond'),'DIAMOND CUP')">↗ SHARE</button></div>
 
-function showTeam(k){
- let s=squads[k];
- document.getElementById("modalTitle").innerHTML=s.name+"<br><small>"+s.formation+"</small>";
- let h="<b style='color:#0a3d8f'>STARTING XI (11):</b><br>";
- s.starting.forEach(p=>{let cls=p.includes("GK")?"chip gk":"chip"; h+=`<span class="${cls}">${p}</span>`});
- h+="<br><br><b style='color:#0a3d8f'>SUBS BENCH (8/8):</b><br>";
- s.subs.forEach(p=>{h+=`<span class="chip">${p}</span>`});
- if(s.reserves.length>0){h+="<br><br><b style='color:#0a3d8f'>RESERVES ("+s.reserves.length+"):</b><br>"; s.reserves.forEach(p=>{h+=`<span class="chip reserve">${p}</span>`});}
- h+="<br><br><small>Total: "+(s.starting.length+s.subs.length+s.reserves.length)+" Players</small>";
- document.getElementById("modalBody").innerHTML=h;
- document.getElementById("playerModal").style.display="block";
-}
-function closeModal(){document.getElementById("playerModal").style.display="none";}
-function renderMatches(){let html=""; fixtures.forEach((f,i)=>{html+=`<div class="match-row"><span style="width:35%">${f.home}</span><span><input class="live-input" id="hg${i}" value="${f.hg}" type="number"> - <input class="live-input" id="ag${i}" value="${f.ag}" type="number"></span><span style="width:35%;text-align:right">${f.away}</span></div>`}); document.getElementById("matches").innerHTML=html;}
-function calculateTable(){let teams={}; ["Man City FC","TBO City FC","Crazy Game FC","Gunman FC"].forEach(t=>{teams[t]={P:0,W:0,D:0,L:0,GF:0,GA:0,Pts:0}}); fixtures.forEach(f=>{teams[f.home].P++; teams[f.away].P++; teams[f.home].GF+=f.hg; teams[f.home].GA+=f.ag; teams[f.away].GF+=f.ag; teams[f.away].GA+=f.hg; if(f.hg>f.ag){teams[f.home].W++; teams[f.home].Pts+=3; teams[f.away].L++;} else if(f.hg<f.ag){teams[f.away].W++; teams[f.away].Pts+=3; teams[f.home].L++;} else{teams[f.home].D++; teams[f.away].D++; teams[f.home].Pts+=1; teams[f.away].Pts+=1;}}); let sorted=Object.entries(teams).sort((a,b)=>b[1].Pts-a[1].Pts); let t=`<tr><th>#</th><th>TEAM</th><th>P</th><th>W</th><th>Pts</th></tr>`; sorted.forEach((en,i)=>{let c=i==0?'#fff8dc':i==1?'#e6f7ff':'white'; t+=`<tr style="background:${c}"><td>${i+1}</td><td style="text-align:left">${en[0]}</td><td>${en[1].P}</td><td>${en[1].W}</td><td><b>${en[1].Pts}</b></td></tr>`}); document.getElementById("logTable").innerHTML=t;}
-function saveScores(){fixtures.forEach((f,i)=>{f.hg=parseInt(document.getElementById("hg"+i).value)||0; f.ag=parseInt(document.getElementById("ag"+i).value)||0;}); localStorage.setItem("dls_v4",JSON.stringify(fixtures)); calculateTable(); alert("Zasungidwa!");}
-let saved=localStorage.getItem("dls_v4"); if(saved){fixtures=JSON.parse(saved);} renderMatches(); calculateTable();
-</script>
-</body>
-</html>
+<div class="cat" onclick="openLeague('clubwc')"><div class="trophy">🏆</div><div class="pill" style="background:#15803d">DFZ CLUB WORLD CUP</div><span>›</span></div>
+<div style="display:flex;gap:6px;margin:0 12px 10px"><button class="btn-green" style="flex:1" onclick="copyLink(getLeagueLink('clubwc'),'CLUB WORLD CUP')">📋 COPY LINK</button><button class="btn-small" style="flex:1" onclick="shareLink(getLeagueLink('clubwc'),'CLUB WORLD CUP')">↗ SHARE</button></div>
+
+<div class="cat" onclick="openLeague('indep')"><div class="trophy">🏆</div><div class="pill" style="background:#64748b">DFZ INDEPENDENCE TOURNAMENT</div><span>›</span></div>
+<div style="display:flex;gap:6px;margin:0 12px 10px"><button class="btn-green" style="flex:1" onclick="copyLink(getLeagueLink('indep'),'INDEPENDENCE')">📋 COPY LINK</button><button class="btn-small" style="flex:1" onclick="shareLink(getLeagueLink('indep'),'INDEPENDENCE')">↗ SHARE</button></div>
+
+<div class="cat" onclick="openLeague('leagueS7')"><div class="trophy">🏆</div><div class="pill" style="background:#16a34a">FRIEND ZONE LEAGUE S7</div><span>›</span></div>
+<div style="display:flex;gap:6px;margin:0 12px 10px"><button class="btn-green" style="flex:1" onclick="copyLink(getLeagueLink('leagueS7'),'LEAGUE S7')">📋 COPY LINK</button><button class="btn-small" style="flex:1" onclick="shareLink(getLeagueLink('leagueS7'),'LEAGUE S7')">↗ SHARE</button></div>
+
+<div class="cat" onclick="openLeague('super')"><div class="trophy">🏆</div><div class="pill" style="background:#16a34a">SUPER CUP FINAL</div><span>›</span></div>
+<div style="display:flex;gap:6px;margin:0 12px 10px"><button class="btn-green" style="flex:1" onclick="copyLink(getLeagueLink('super'),'SUPER CUP')">📋 COPY LINK</button><button class="btn-small" style="flex:1" onclick="shareLink(getLeagueLink('super'),'SUPER CUP')">↗ SHARE</button></div>
+
+<div class="cat" onclick="openLeague('europa')"><div class="trophy">🏆</div><div class="pill" style="background:#0d9488">FRIEND ZONE EUROPA LEAGUE</div><span>›</span></div>
+<div style="display:flex;gap:6px;margin:0 12px 10px"><button class="btn-green" style="flex:1" onclick="copyLink(getLeagueLink('europa'),'EUROPA')">📋 COPY LINK</button><button class="btn-small" style="flex:1" onclick="shareLink(getLeagueLink('europa'),'EUROPA')">↗ SHARE</button></div>
+
+<div class="cat" onclick="openLeague('champions')"><div class="trophy">🏆</div><div class="pill" style="background:#dc2626">FRIEND ZONE CHAMPIONS LEAGUE</div><span>›</span></div>
+<div style="display:flex;gap:6px;margin:0 12px 10px"><button class="btn-green" style="flex:1" onclick="copyLink(getLeagueLink('champions'),'CHAMPIONS')">📋 COPY LINK</button><button class="btn-small" style="flex:1" onclick="shareLink(getLeagueLink('champions'),'CHAMPIONS')">↗ SHARE</button></div>
+
+<div class="cat" onclick="openLeague('fz')"><div class="trophy">🏆</div><div class="pill" style="background:#a7f3d0;color:#111">FZ TOURNAMENT</div><span>›</span></div>
+<div style="display:flex;gap:6px;margin:0 12px 10px"><button class="btn-green" style="flex:1" onclick="copyLink(getLeagueLink('fz'),'FZ TOURNAMENT')">📋 COPY LINK</button><button class="btn-small" style="flex:1" onclick="shareLink(getLeagueLink('fz'),'FZ TOURNAMENT')">↗ SHARE</button></div>
+
+<div class="cat" onclick="openLeague('fztour')"><div class="trophy">🏆</div><div class="pill" style="background:#9ca3af">FRIEND ZONE TOURNAMENT</div><span>›</span></div>
+<div style="display:flex;gap:6px;margin:0 12px 10px"><button class="btn-green" style="flex:1" onclick="copyLink(getLeagueLink('fztour'),'FZ TOURNAMENT')">📋 COPY LINK</button><button class="btn-small" style="flex:1" onclick="shareLink(getLeagueLink('fztour'),'FZ TOURNAMENT')">↗ SHARE</button></div>
+
+<div class="cat" onclick="openLeague('champ2')"><div class="trophy">🏆</div><div class="pill" style="background:#0d9488">FRIEND ZONE CHAMPIONS LEAGUE</div><span>›</span></div>
+<div style="display:flex;gap:6px;margin:0 12px 10px"><button class="btn-green" style="flex:1" onclick="copyLink(getLeagueLink('champ2'),'CHAMPIONS 2')">📋 COPY LINK</button><button class="btn-small" style="flex:1" onclick="shareLink(getLeagueLink('champ2'),'CHAMPIONS 2')">↗ SHARE</button></div>
+
+<div class="cat" onclick="openLeague('fztour2')"><div class="trophy">🏆</div><div class="pill" style="background:#dc2626">FRIEND ZONE TOURNAMENT</div><span>›</span></div>
+<div style="display:flex;gap:6px;margin:0 12px 10px"><button class="btn-green" style="flex:1" onclick="copyLink(getLeagueLink('fztour2'),'FZ TOURNAMENT 2')">📋 COPY LINK</button><button class="btn-small" style="flex:1" onclick="shareLink(getLeagueLink('fztour2'),'FZ TOURNAMENT 2')">↗ SHARE</button></div>
+
+<div class="cat" onclick="openLeague('leagueS6')"><div class="trophy">🏆</div><div class="pill" style="background:#0d9488">FRIEND ZONE LEAGUE S6</div><span>›</span></div>
+<div style="display:flex;gap:6px;margin:0 12px 10px"><button class="btn-green" style="flex:1" onclick="copyLink(getLeagueLink('leagueS6'),'LEAGUE S6')">📋 COPY LINK</button><button class="btn-small" style="flex:1" onclick="shareLink(getLeagueLink('leagueS6'),'LEAGUE S6')">↗ SHARE</button></div>
+
+<div class="cat" onclick="openLeague('mini')"><div class="trophy">🏆</div><div class="pill" style="background:#dc2626">FRIEND ZONE MINI TOURNAMENT</div><span>›</span></div>
+<div style="display:flex;gap:6px;margin:0 12px 10px"><button class="btn-green" style="flex:1" onclick="copyLink(getLeagueLink('mini'),'MINI')">📋 COPY LINK</button><button class="btn-small" style="flex:1" onclick="shareLink(getLeagueLink('mini'),'MINI')">↗ SHARE</button></div>
+
+<div class="cat" onclick="openLeague('leagueS5')"><div class="trophy">🏆</div><div class="pill" style="background:#c4b5fd;color:#111">FRIEND ZONE LEAGUE S5</div><span>›</span></div>
+<div style="display:flex;gap:6px;margin:0 12px 10px"><button class="btn-green" style="flex:1" onclick="copyLink(getLeagueLink('leagueS5'),'LEAGUE S5')">📋 COPY LINK</button><button class="btn-small" style="flex:1" onclick="shareLink(getLeagueLink('leagueS5'),'LEAGUE S5')">↗ SHARE</button></div>
+
+<div class="cat" onclick="openLeague('premierS4')"><div class="trophy">🏆</div><div class="pill" style="background:#111">DLS FRIEND ZONE PREMIER LEAGUE S4</div><span>›</span></div>
+<div style="display:flex;gap:6px;margin:0 12px 10px"><button class="btn-green" style="flex:1" onclick="copyLink(getLeagueLink('premierS4'),'PREMIER S4')">📋 COPY LINK</button><button class="btn-small" style="flex:1" onclick="shareLink(getLeagueLink('premierS4'),'PREMIER S4')">↗ SHARE</button></div>
+
+<div class="cat" onclick="openLeague('laligaS3')"><div class="trophy">🏆</div><div class="pill" style="background:#7c3aed">DLS FRIEND ZONE LALIGA S3</div><span>›</span></div>
+<div style="display:flex;gap:6px;margin:0 12px 10px"><button class="btn-green" style="flex:1" onclick="copyLink(getLeagueLink('laligaS3'),'LALIGA S3')">📋 COPY LINK</button><button class="btn-small" style="flex:1" onclick="shareLink(getLeagueLink('laligaS3'),'LALIGA S3')">↗ SHARE</
