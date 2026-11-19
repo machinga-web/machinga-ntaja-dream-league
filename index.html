@@ -1,229 +1,184 @@
 <!DOCTYPE html>
 <html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>DLS FRIEND ZONE - V38</title>
+<title>DLS FRIEND ZONE - V42 - FA CUP BRACKET</title>
 <style>
 *{margin:0;padding:0;box-sizing:border-box;font-family:Arial}
 body{background:#fff;padding-bottom:80px}
-header{background:#1a5c2a;color:#fff;padding:10px;position:sticky;top:0;z-index:99}
+header{background:#d32f2f;color:#fff;padding:8px 10px;position:sticky;top:0;z-index:99}
+header .top{display:flex;align-items:center;gap:10px}
+header b{font-size:15px;flex:1;white-space:nowrap;overflow:hidden}
 .tabs{display:flex;gap:6px;margin-top:8px}
-.tabs button{flex:1;padding:12px 4px;border:0;border-radius:10px;background:rgba(255,255,255,.25);color:#fff;font-weight:bold;font-size:13px;white-space:nowrap}
+.tabs button{flex:1;padding:11px 4px;border:0;border-radius:10px;background:rgba(255,255,255,.25);color:#fff;font-weight:bold;font-size:13px}
 .tabs button.active{background:#fff;color:#111}
-.page{display:none;padding:12px}
-.page.active{display:block}
-.card{background:#fff;border:1px solid #eee;border-radius:12px;padding:12px;margin-bottom:10px}
-.btn{background:#1a5c2a;color:#fff;border:0;padding:15px;border-radius:10px;font-weight:bold;width:100%;margin-top:8px;font-size:15px}
-.cat{display:flex;align-items:center;gap:10px;background:#fff;padding:14px;border:1px solid #eee;border-radius:12px;margin-bottom:8px;cursor:pointer}
-.cat:active{background:#e8f5e9}
-.num{width:36px;height:36px;border-radius:50%;background:#1a5c2a;color:#fff;display:grid;place-items:center;font-weight:900;flex-shrink:0}
+.page{display:none;padding:0}.page.active{display:block}
+.card{padding:12px}
+.btn{background:#1a5c2a;color:#fff;border:0;padding:14px;border-radius:10px;font-weight:bold;width:100%;margin-top:8px;font-size:14px}
+.btn-small{background:#d32f2f;color:#fff;border:0;padding:8px 12px;border-radius:8px;font-weight:bold;font-size:12px}
+.cat{display:flex;align-items:center;gap:10px;background:#fff;padding:14px;border:1px solid #eee;border-radius:12px;margin:0 12px 8px;cursor:pointer}
+.cat:active{background:#ffe8e8}
+.num{width:36px;height:36px;border-radius:50%;background:#d32f2f;color:#fff;display:grid;place-items:center;font-weight:900;flex-shrink:0}
 .pill{flex:1;color:#fff;font-weight:bold;font-size:14px;padding:13px 10px;border-radius:8px}
 .bottom{position:fixed;bottom:0;left:0;right:0;background:#fff;border-top:1px solid #eee;display:flex;padding:10px 2px;font-size:12px}
 .bottom div{flex:1;text-align:center;color:#888;padding:4px}
-.bottom div.active{color:#1a5c2a;font-weight:bold}
-input,select{width:100%;padding:12px;margin:6px 0;border:1px solid #ddd;border-radius:8px}
-.mlogo{width:50px;height:50px;border-radius:50%;display:grid;place-items:center;color:#fff;font-weight:900;font-size:12px;margin:0 auto;border:2px solid #eee}
-.mteam{flex:1;text-align:center;font-size:12px}
-.match{display:flex;align-items:center;gap:6px;padding:10px 0;border-bottom:1px solid #eee}
-table{width:100%;border-collapse:collapse;font-size:13px}th,td{padding:9px 4px;text-align:center;border-bottom:1px solid #eee}th:first-child,td:first-child{text-align:left}
-.subtabs{display:flex;gap:6px;margin-bottom:10px}
-.subtabs button{flex:1;padding:10px;border:1px solid #ddd;background:#fff;border-radius:20px;font-weight:bold}
-.subtabs button.active{background:#1a5c2a;color:#fff}
+.bottom div.active{color:#d32f2f;font-weight:bold}
+input,select{width:100%;padding:11px;margin:5px 0;border:1px solid #ddd;border-radius:8px}
+.logo{width:32px;height:32px;border-radius:50%;display:grid;place-items:center;color:#fff;font-weight:900;font-size:9px;flex-shrink:0;border:1px solid #eee;line-height:1}
+.logo-big{width:52px;height:52px;border-radius:50%;display:grid;place-items:center;color:#fff;font-weight:900;font-size:13px;flex-shrink:0;border:2px solid #eee;line-height:1}
+.teamrow{display:flex;align-items:center;gap:10px;background:#fff;padding:10px;border-bottom:1px solid #f2f2f2}
+.match{display:flex;align-items:center;gap:6px;padding:12px 0;border-bottom:1px solid #eee}
+.mteam{flex:1;text-align:center;font-size:12px;font-weight:bold}
+.fix{border:1px solid #eee;border-radius:12px;padding:10px;margin-bottom:8px;background:#f9f9f9}
+.fix-inputs{display:flex;gap:6px;align-items:center;margin-top:8px}
+.fix-inputs input{text-align:center;font-weight:900;font-size:16px}
+.lead{font-size:12px;color:#d32f2f;letter-spacing:1px;font-weight:bold;padding:12px 12px 0}
+.stage-row{display:flex;justify-content:space-between;align-items:center;padding:6px 12px 10px;border-bottom:1px solid #eee}
+.stage-row h2{font-size:24px}
+.toggle{display:flex;gap:16px;font-size:14px}
+.toggle span{padding-bottom:4px;cursor:pointer;color:#666}
+.toggle span.active{color:#111;font-weight:bold;border-bottom:3px solid #d32f2f}
+.grpTitle{font-weight:900;margin:16px 12px 6px;font-size:14px}
+table{width:100%;border-collapse:collapse;font-size:14px}
+table th{padding:8px 4px;text-align:center;color:#333;font-size:12px;border-bottom:1px solid #eee}
+table th:first-child{text-align:left;padding-left:12px}
+table td{padding:10px 4px;text-align:center;border-bottom:1px solid #f2f2f2}
+table td:first-child{text-align:left;padding-left:12px}
+table td.rank{color:#888;width:28px}
+table td.teamcell{display:flex;align-items:center;gap:10px;text-align:left;font-weight:bold}
+table td.pts{font-weight:bold}
+.subtabs{display:flex;gap:5px;padding:10px 12px;overflow-x:auto}
+.subtabs button{flex-shrink:0;padding:10px 14px;border:1px solid #ddd;background:#fff;border-radius:20px;font-weight:bold;font-size:13px}
+.subtabs button.active{background:#d32f2f;color:#fff}
+.rounds{display:flex;gap:6px;margin:0 12px 10px;overflow-x:auto}
+.rounds button{flex-shrink:0;padding:9px 16px;border:1px solid #ddd;background:#fff;border-radius:20px;font-weight:bold}
+.rounds button.active{background:#d32f2f;color:#fff}
 .mini{display:none}.mini.active{display:block}
+/* BRACKET NGATI CHOCHI */
+.bracket-tabs{display:flex;align-items:center;gap:0;padding:10px 0;border-bottom:1px solid #eee;overflow-x:auto}
+.bracket-tabs div{flex:1;text-align:center;font-weight:bold;color:#d32f2f;padding:8px;white-space:nowrap;cursor:pointer;border-right:1px solid #eee}
+.bracket-tabs div.active{color:#d32f2f}
+.bracket-tabs div.inactive{color:#888}
+.bracket-wrap{display:flex;gap:12px;padding:12px;overflow-x:auto;align-items:flex-start}
+.bracket-col{flex-shrink:0;width:260px}
+.bracket-col h4{font-size:12px;color:#888;margin-bottom:8px;white-space:nowrap}
+.tie{margin-bottom:18px}
+.tie-title{font-size:11px;color:#666;margin-bottom:4px;white-space:nowrap}
+.tie-card{border:1px solid #eee;border-radius:12px;overflow:hidden;background:#fff;box-shadow:0 1px 4px rgba(0,0,0,.06)}
+.tie-row{display:flex;align-items:center;gap:8px;padding:10px;border-bottom:1px solid #f2f2f2}
+.tie-row:last-child{border-bottom:0}
+.tie-row b{flex:1;font-size:13px;white-space:nowrap;overflow:hidden}
+.tie-score{font-size:14px;width:26px;text-align:center;color:#333;border-left:1px solid #eee;padding-left:6px}
+.tie-score2{font-size:14px;width:26px;text-align:center;font-weight:bold;border-left:1px solid #eee;padding-left:6px}
+.winner{color:#d32f2f;font-weight:900}
+.connector{color:#d32f2f;font-weight:900;text-align:center;margin:4px 0}
+.expand-btn{background:#d32f2f;color:#fff;border:0;width:42px;height:42px;border-radius:12px;font-size:18px;float:right;margin:0 12px 10px}
 </style></head>
 <body>
-<header><b>DLS FRIEND ZONE COMPETITIONS</b><br><small id="hdrSub">DLS FRIEND ZONE COMPETITIONS</small>
+<header><div class="top"><span>←</span><b>DLS FRIEND ZONE COMF<br><small style="font-weight:normal;font-size:11px" id="hdrSub">FRIEND ZONE MINI TOURNAMENT</small></b><span>↗</span><span>⋮</span></div>
 <div class="tabs">
-<button id="t-home" class="active" onclick="showPage('home')">🏠 Home</button>
-<button id="t-cats" onclick="showPage('cats')">☰ Categories</button>
-<button id="t-register" onclick="showPage('register')">📝 Register</button>
+<button id="t-home" onclick="showPage('home')">🏠</button>
+<button id="t-cats" onclick="showPage('cats')">☰</button>
+<button id="t-league" class="active" onclick="showPage('leagueDetail')">☰ Table</button>
+<button id="t-ranking" onclick="showPage('leagueDetail');showMini('ranking')">📊</button>
+<button id="t-register" onclick="showPage('register')">📹</button>
 </div></header>
 
-<!-- HOME -->
 <div id="home" class="page active">
-<div class="card" style="text-align:center;background:#111;color:#fff"><h2 style="color:#FFD700">🏆 DLS FRIEND ZONE</h2><p>👑 VICTOR EDWARD • 📞 +27 65 367 4390</p></div>
-<div class="card"><h2>DLS FRIEND ZONE COMPETITIONS</h2><p>📅 PERIOD: <b>16 Nov 2026</b><br>• STATUS: <b>Not provided</b></p></div>
-<button class="btn" style="font-size:18px;padding:18px" onclick="showPage('cats')">🏆 ONANI MA CATEGORIES APA 👆<br><small>Dinani apa kuti muwone ma League 8</small></button>
-<button class="btn" onclick="showPage('register')">📝 REGISTER TEAM</button>
-<p style="text-align:center;color:#888;margin-top:10px;font-size:13px">Ma League ali mkati mwa Categories okha!</p>
+<div class="card" style="text-align:center;background:#111;color:#fff;border-radius:12px;margin:12px"><h2 style="color:#FFD700">🏆 DLS FRIEND ZONE</h2><p>👑 VICTOR EDWARD • 📞 +27 65 367 4390</p></div>
+<div class="card"><h2>DLS FRIEND ZONE COMPETITIONS</h2><p>📅 PERIOD: <b>16 Nov 2026</b></p></div>
+<button class="btn" style="margin:0 12px;width:calc(100% - 24px);font-size:18px;padding:18px" onclick="showPage('cats')">🏆 ONANI MA CATEGORIES APA 👆</button>
+<button class="btn" style="margin:12px;width:calc(100% - 24px)" onclick="showPage('register')">📝 REGISTER TEAM</button>
 </div>
 
-<!-- CATEGORIES - APA POKHA PALI MA LEAGUE -->
 <div id="cats" class="page">
-<div class="card" style="text-align:center"><h2>🏆 Categories - Ma League 8</h2><p>Dinani League iliyonse - Idzatseguka!</p></div>
-<div class="cat" onclick="openLeague('premier')"><div class="num">1</div><div class="pill" style="background:#111">PREMIER LEAGUE 🏴󐁧󐁢󐁥󐁮󐁧󐁿</div><span>›</span></div>
-<div class="cat" onclick="openLeague('laliga')"><div class="num">2</div><div class="pill" style="background:#d69a1a">LALIGA 🇪🇸</div><span>›</span></div>
-<div class="cat" onclick="openLeague('champions')"><div class="num">3</div><div class="pill" style="background:#e53935">CHAMPION LEAGUE</div><span>›</span></div>
-<div class="cat" onclick="openLeague('facup')"><div class="num">4</div><div class="pill" style="background:#283593">FA CUP</div><span>›</span></div>
-<div class="cat" onclick="openLeague('uefa')"><div class="num">5</div><div class="pill" style="background:#7b1fa2">UEFA CHAMPION CUP</div><span>›</span></div>
-<div class="cat" onclick="openLeague('worldcup')"><div class="num">6</div><div class="pill" style="background:#2e7d32">WORLD CUP 🌍 - NGATI VIDEO</div><span>›</span></div>
+<div class="card" style="text-align:center"><h2>🏆 Categories - Ma League 8</h2><p>FA CUP = Bracket ngati chochi! Ma League ena = Table!</p></div>
+<div class="cat" onclick="openLeague('premier')"><div class="num">1</div><div class="pill" style="background:#111">PREMIER LEAGUE 🏴󐁧󐁢󐁥󐁮󐁧󐁿 - TABLE</div><span>›</span></div>
+<div class="cat" onclick="openLeague('laliga')"><div class="num">2</div><div class="pill" style="background:#d69a1a">LALIGA 🇪🇸 - TABLE</div><span>›</span></div>
+<div class="cat" onclick="openLeague('champions')"><div class="num">3</div><div class="pill" style="background:#e53935">CHAMPION LEAGUE - TABLE</div><span>›</span></div>
+<div class="cat" onclick="openLeague('facup')"><div class="num">4</div><div class="pill" style="background:#d32f2f">FA CUP 🏆 - BRACKET NGATI CHOCHI!</div><span>›</span></div>
+<div class="cat" onclick="openLeague('uefa')"><div class="num">5</div><div class="pill" style="background:#7b1fa2">UEFA CHAMPION CUP - TABLE</div><span>›</span></div>
+<div class="cat" onclick="openLeague('worldcup')"><div class="num">6</div><div class="pill" style="background:#2e7d32">WORLD CUP 🌍 - TABLE GROUP A-F</div><span>›</span></div>
 <div class="cat" onclick="openLeague('tournament')"><div class="num">7</div><div class="pill" style="background:#00838f">TOURNAMENT CUP - ✍️ LEMBANI NOKHA</div><span>›</span></div>
 <div class="cat" onclick="openLeague('challenge')"><div class="num">8</div><div class="pill" style="background:#1565c0">FRIEND CHALLENGE - ✍️ LEMBANI NOKHA</div><span>›</span></div>
-<button class="btn" onclick="showPage('home')">⬅ BWERERANI KU HOME</button>
+<button class="btn" style="margin:0 12px;width:calc(100% - 24px)" onclick="showPage('home')">⬅ BWERERANI KU HOME</button>
 </div>
 
-<!-- LEAGUE DETAIL - IMASEGUKA MUKADINA LEAGUE MU CATEGORIES -->
 <div id="leagueDetail" class="page">
-<div class="card" style="text-align:center;background:#111;color:#fff"><h2 id="ldTitle" style="color:#FFD700">LEAGUE</h2><p id="ldSub">-</p><p>👑 VICTOR EDWARD • 📞 +27 65 367 4390</p></div>
+<div class="card" style="text-align:center;background:#111;color:#fff;border-radius:12px;margin:12px"><h2 id="ldTitle" style="color:#FFD700">FA CUP</h2><p id="ldSub">-</p><p>👑 VICTOR EDWARD • 📞 +27 65 367 4390</p></div>
 
-<div id="addBox" style="display:none" class="card">
-<h3>✍️ LEMBANI TEAM APA</h3>
-<label>Dzina la Team *</label><input id="customTeamName" placeholder="Ex: ELON FATHER">
-<label>Manager</label><input id="customManager" placeholder="Ex: Machinga Boy Vic">
-<button class="btn" onclick="addTeam()">➕ ADD TEAM</button>
-<p id="addTeamMsg" style="color:green;font-weight:bold;text-align:center"></p>
-<h3 style="margin-top:14px">⚽ LEMBANI MATCH</h3>
-<label>Home Team</label><select id="matchHome"></select>
-<label>Home Goals</label><input id="matchHomeGoals" type="number" value="0">
-<label>Away Team</label><select id="matchAway"></select>
-<label>Away Goals</label><input id="matchAwayGoals" type="number" value="0">
-<button class="btn" onclick="addMatch()">✅ SAVE MATCH</button>
-<p id="addMatchMsg" style="color:green;font-weight:bold;text-align:center"></p>
+<div id="addBox" style="display:none;margin:0 12px" class="card">
+<h3>✍️ LEMBANI TEAM APA</h3><label>Dzina la Team *</label><input id="customTeamName" placeholder="Ex: ELON FATHER"><button class="btn" onclick="addTeam()">➕ ADD TEAM</button><p id="addTeamMsg" style="color:green;font-weight:bold;text-align:center"></p>
 </div>
 
 <div class="subtabs">
-<button id="s-teams" class="active" onclick="showMini('teams')">👥 Teams</button>
-<button id="s-games" onclick="showMini('games')">🎮 Games</button>
-<button id="s-table" onclick="showMini('table')">☰ Table</button>
+<button id="s-teams" onclick="showMini('teams')">👥 Teams</button>
+<button id="s-fixtures" onclick="showMini('fixtures')">📅 Fixtures</button>
+<button id="s-results" onclick="showMini('results')">✅ Results</button>
+<button id="s-table" class="active" onclick="showMini('table')">☰ Table / Bracket</button>
 <button id="s-ranking" onclick="showMini('ranking')">📊 Ranking</button>
 </div>
 
-<div id="mini-teams" class="mini active"><h3>👥 MA TEAM</h3><div id="ldTeams"></div></div>
-<div id="mini-games" class="mini"><h3>🎮 GAMES</h3><div id="ldGames"></div></div>
-<div id="mini-table" class="mini"><h3>☰ TABLE</h3><div id="ldTable"></div></div>
-<div id="mini-ranking" class="mini"><h3>📊 RANKING - TOP SCORER</h3><div id="ldRanking"></div></div>
+<div id="mini-teams" class="mini"><h3 style="padding:0 12px">👥 MA TEAM</h3><div id="ldTeams"></div></div>
+<div id="mini-fixtures" class="mini">
+<h3 style="padding:0 12px">📅 FIXTURES - ROUND 1, 2, 3</h3>
+<div class="rounds"><button id="r-0" onclick="setFixRound(0)">All</button><button id="r-1" class="active" onclick="setFixRound(1)">Round 1</button><button id="r-2" onclick="setFixRound(2)">Round 2</button><button id="r-3" onclick="setFixRound(3)">Round 3</button></div>
+<div id="ldFixtures" style="padding:0 12px"></div>
+</div>
+<div id="mini-results" class="mini"><h3 style="padding:0 12px">✅ RESULTS</h3><div id="ldResults" style="padding:0 12px"></div></div>
 
-<button class="btn" onclick="showPage('cats')">⬅ BWERERANI KU CATEGORIES</button>
-<button class="btn" onclick="showPage('home')">🏠 BWERERANI KU HOME</button>
+<!-- TABLE / BRACKET - FA CUP = BRACKET, ENA = TABLE -->
+<div id="mini-table" class="mini active">
+<div id="normalTableWrap">
+<p class="lead">LEADERBOARD</p>
+<div class="stage-row"><h2>1st Stage ⌄</h2><div class="toggle"><span id="tg-group" class="active" onclick="setTableMode('group')">By group</span><span id="tg-overall" onclick="setTableMode('overall')">Overall</span></div></div>
+<div id="ldTable"></div>
+</div>
+<div id="bracketWrap" style="display:none">
+<p class="lead">LEADERBOARD</p>
+<div class="stage-row"><h2>1st Stage ⌄</h2></div>
+<div class="bracket-tabs"><div id="bt-r16" class="active" onclick="setBracketTab('r16')">Round of 16</div><div id="bt-qf" onclick="setBracketTab('qf')">Quarter Finals</div><div id="bt-sf" onclick="setBracketTab('sf')">Semi Finals</div><div id="bt-final" onclick="setBracketTab('final')">Final</div></div>
+<button class="expand-btn" onclick="alert('Bracket yathunthu - Swerani kumanzere kuti muwone Quarter / Semi / Final!')">⤢</button>
+<div style="clear:both"></div>
+<div id="bracketContent"></div>
+<p style="font-size:12px;color:#888;padding:12px">FA CUP = Knockout! Wopambana amapita ku Round yotsatira! Lembani Result mu Fixtures kuti Wopambana apite patsogolo!</p>
+<div style="padding:0 12px"><h3>✍️ LEMBANI RESULT YA BRACKET</h3><label>Sankhani Match ya Bracket</label><select id="bracketMatch"></select><div style="display:flex;gap:8px"><div style="flex:1"><label>Home Goals</label><input id="bracketHG" type="number" value="0"></div><div style="padding-top:28px;font-weight:900">-</div><div style="flex:1"><label>Away Goals</label><input id="bracketAG" type="number" value="0"></div></div><label>2nd Leg - Home Goals (posankha - ngati mu chithunzi)</label><input id="bracketHG2" type="number" value="0" placeholder="0"><label>2nd Leg - Away Goals</label><input id="bracketAG2" type="number" value="0" placeholder="0"><button class="btn" onclick="saveBracketResult()">✅ SAVE BRACKET RESULT - WOPAMBANA APITA PATSOGOLO</button><p id="bracketMsg" style="color:green;font-weight:bold;text-align:center"></p></div>
+</div>
 </div>
 
-<!-- REGISTER -->
+<div id="mini-ranking" class="mini"><h3 style="padding:0 12px">📊 TOP SCORER</h3><div id="ldRanking" style="padding:0 12px"></div><div style="padding:0 12px"><label>Lembani Top Scorer</label><input id="customScorerName" placeholder="Ex: Haaland - 2 goals"><button class="btn" onclick="addScorer()">➕ ADD SCORER</button></div></div>
+
+<div style="padding:0 12px"><button class="btn" onclick="showPage('cats')">⬅ BWERERANI KU CATEGORIES</button><button class="btn" onclick="showPage('home')">🏠 BWERERANI KU HOME</button></div>
+</div>
+
 <div id="register" class="page">
-<div class="card"><h2>📝 REGISTER TEAM</h2>
-<label>League</label><select id="regTour"><option>PREMIER LEAGUE</option><option>LALIGA</option><option>CHAMPION LEAGUE</option><option>FA CUP</option><option>UEFA CHAMPION CUP</option><option>WORLD CUP</option><option>TOURNAMENT CUP</option><option>FRIEND CHALLENGE</option></select>
-<label>Dzina la Team *</label><input id="regTeamName" placeholder="Ex: ELON FATHER">
-<label>Manager *</label><input id="regManager" placeholder="Ex: Machinga Boy Vic">
-<button class="btn" onclick="registerTeam()">✅ REGISTER TEAM</button>
-<p id="regMsg" style="color:green;font-weight:bold;text-align:center"></p>
-</div>
+<div class="card"><h2>📝 REGISTER TEAM</h2><label>League</label><select id="regTour"><option>PREMIER LEAGUE</option><option>LALIGA</option><option>CHAMPION LEAGUE</option><option>FA CUP</option><option>UEFA CHAMPION CUP</option><option>WORLD CUP</option><option>TOURNAMENT CUP</option><option>FRIEND CHALLENGE</option></select><label>Dzina la Team *</label><input id="regTeamName" placeholder="Ex: ELON FATHER"><label>Manager *</label><input id="regManager" placeholder="Ex: Machinga Boy Vic"><button class="btn" onclick="registerTeam()">✅ REGISTER TEAM</button><p id="regMsg" style="color:green;font-weight:bold;text-align:center"></p></div>
 <div class="card"><h3>Ma Team: <span id="teamCount">0</span></h3><div id="teamsList">Palibe team pano.</div></div>
 </div>
 
-<div class="bottom">
-<div id="b-home" class="active" onclick="showPage('home')">🏠<br>Home</div>
-<div id="b-cats" onclick="showPage('cats')">☰<br>Categories</div>
-<div id="b-register" onclick="showPage('register')">📝<br>Register</div>
-</div>
+<div class="bottom"><div id="b-home" onclick="showPage('home')">🏠<br>Home</div><div id="b-cats" onclick="showPage('cats')">☰<br>Categories</div><div id="b-register" onclick="showPage('register')">📝<br>Register</div></div>
 
 <script>
-var cur='worldcup';
+var cur='facup'; var fixRound=1; var tableMode='group'; var bracketTab='r16';
 function showPage(id){
   var pages=document.querySelectorAll('.page');
   for(var i=0;i<pages.length;i++){pages[i].classList.remove('active'); pages[i].style.display='none';}
-  var p=document.getElementById(id);
-  if(p){p.classList.add('active'); p.style.display='block';}
-  var tabs=document.querySelectorAll('.tabs button');
-  for(var j=0;j<tabs.length;j++){tabs[j].classList.remove('active');}
+  var p=document.getElementById(id); if(p){p.classList.add('active'); p.style.display='block';}
+  var tabs=document.querySelectorAll('.tabs button'); for(var j=0;j<tabs.length;j++){tabs[j].classList.remove('active');}
   var t=document.getElementById('t-'+id); if(t) t.classList.add('active');
-  var bots=document.querySelectorAll('.bottom div');
-  for(var k=0;k<bots.length;k++){bots[k].classList.remove('active');}
+  var bots=document.querySelectorAll('.bottom div'); for(var k=0;k<bots.length;k++){bots[k].classList.remove('active');}
   var b=document.getElementById('b-'+id); if(b) b.classList.add('active');
   window.scrollTo(0,0);
 }
 function showMini(name){
-  var secs=document.querySelectorAll('.mini');
-  for(var i=0;i<secs.length;i++){secs[i].classList.remove('active');}
+  var secs=document.querySelectorAll('.mini'); for(var i=0;i<secs.length;i++){secs[i].classList.remove('active');}
   document.getElementById('mini-'+name).classList.add('active');
-  var btns=document.querySelectorAll('.subtabs button');
-  for(var j=0;j<btns.length;j++){btns[j].classList.remove('active');}
+  var btns=document.querySelectorAll('.subtabs button'); for(var j=0;j<btns.length;j++){btns[j].classList.remove('active');}
   document.getElementById('s-'+name).classList.add('active');
 }
-function T(n,bg,pts,mp,w,d,l){return {name:n,bg:bg,pts:pts,mp:mp,w:w,d:d,l:l};}
+function setFixRound(r){fixRound=r; var btns=document.querySelectorAll('.rounds button'); for(var i=0;i<btns.length;i++){btns[i].classList.remove('active');} document.getElementById('r-'+r).classList.add('active'); renderLeague();}
+function setTableMode(m){tableMode=m; document.getElementById('tg-group').className=m=='group'?'active':''; document.getElementById('tg-overall').className=m=='overall'?'active':''; renderTableOnly();}
+function setBracketTab(t){bracketTab=t; var ids=['r16','qf','sf','final']; for(var i=0;i<ids.length;i++){document.getElementById('bt-'+ids[i]).className=ids[i]==t?'active':'inactive';} renderBracket();}
+function T(n,short,bg,fg,flag,pts,mp,w,d,l,grp){return {name:n,short:short,bg:bg,fg:fg||'#fff',flag:flag||'',pts:pts,mp:mp,w:w,d:d,l:l,grp:grp||'A'};}
 var DATA={
-premier:{title:'1️⃣ PREMIER LEAGUE',sub:'Ma Team 20 ENIENI • England',teams:[T('ARSENAL','#ef0107',28,12,9,1,2),T('ASTON VILLA','#95bfe5',22,12,7,1,4),T('BOURNEMOUTH','#da291c',20,12,6,2,4),T('BRENTFORD','#e30613',18,12,5,3,4),T('BRIGHTON','#0057b8',19,12,5,4,3),T('BURNLEY','#6c1d45',10,12,3,1,8),T('CHELSEA','#034694',23,12,7,2,3),T('CRYSTAL PALACE','#1b458f',19,12,5,4,3),T('EVERTON','#003399',18,12,5,3,4),T('FULHAM','#000',17,12,5,2,5),T('LEEDS UNITED','#ffcd00',14,12,4,2,6),T('LIVERPOOL','#c8102e',22,12,7,1,4),T('MANCHESTER CITY','#6cabdd',25,12,8,1,3),T('MANCHESTER UNITED','#da291c',21,12,6,3,3),T('NEWCASTLE UNITED','#000',20,12,6,2,4),T('NOTTINGHAM FOREST','#dd0000',15,12,4,3,5),T('SUNDERLAND','#eb172b',19,12,5,4,3),T('TOTTENHAM HOTSPUR','#132257',21,12,6,3,3),T('WEST HAM UNITED','#7a263a',12,12,3,3,6),T('WOLVERHAMPTON','#fdb913',8,12,2,2,8)],matches:[['ARSENAL','MANCHESTER CITY','1 : 1'],['LIVERPOOL','CHELSEA','2 : 1']],scorers:['Haaland - MANCHESTER CITY - 14 goals','Gyokeres - ARSENAL - 11 goals'],custom:false},
-laliga:{title:'2️⃣ LALIGA',sub:'Ma Team 20 ENIENI • Spain',teams:[T('REAL MADRID','#fff',28,12,9,1,2),T('FC BARCELONA','#a50044',31,12,10,1,1),T('ATLETICO DE MADRID','#cb3524',24,12,7,3,2),T('VILLARREAL CF','#ffe667',26,12,8,2,2),T('SEVILLA FC','#d00027',19,12,5,4,3),T('VALENCIA CF','#ff7a00',16,12,4,4,4),T('REAL SOCIEDAD','#0067b1',18,12,5,3,4),T('ATHLETIC CLUB BILBAO','#ee2523',18,12,5,3,4),T('REAL BETIS','#00954c',20,12,6,2,4),T('CELTA DE VIGO','#00bcd4',15,12,4,3,5),T('GETAFE CF','#00529f',13,12,3,4,5),T('GIRONA FC','#cd2534',11,12,3,2,7),T('RCD ESPANYOL','#0067b1',17,12,5,2,5),T('CA OSASUNA','#d00027',13,12,3,4,5),T('RCD MALLORCA','#e30613',14,12,3,5,4),T('RAYO VALLECANO','#e30613',16,12,4,4,4),T('LEVANTE UD','#8e1f2f',10,12,2,4,6),T('ELCHE CF','#009a44',16,12,4,4,4),T('DEPORTIVO ALAVES','#0067b1',12,12,3,3,6),T('REAL OVIEDO','#0067b1',9,12,2,3,7)],matches:[['REAL MADRID','FC BARCELONA','2 : 1']],scorers:['Mbappe - REAL MADRID - 15 goals'],custom:false},
-champions:{title:'3️⃣ CHAMPION LEAGUE',sub:'Ma Team 16 ENIENI',teams:[T('REAL MADRID','#fff',12,4,4,0,0),T('MANCHESTER CITY','#6cabdd',10,4,3,1,0),T('FC BAYERN MUNICH','#dc052d',9,4,3,0,1),T('PARIS SAINT-GERMAIN','#004170',10,4,3,1,0),T('FC BARCELONA','#a50044',9,4,3,0,1),T('LIVERPOOL','#c8102e',8,4,2,2,0),T('ARSENAL','#ef0107',8,4,2,2,0),T('INTER MILAN','#111',7,4,2,1,1),T('BORUSSIA DORTMUND','#fde100',7,4,2,1,1),T('ATLETICO DE MADRID','#cb3524',6,4,2,0,2),T('AC MILAN','#fb090b',6,4,2,0,2),T('JUVENTUS','#111',5,4,1,2,1),T('FC PORTO','#003da5',4,4,1,1,2),T('SL BENFICA','#e30613',4,4,1,1,2),T('AFC AJAX','#d2122e',3,4,1,0,3),T('CELTIC FC','#018749',2,4,0,2,2)],matches:[['REAL MADRID','MANCHESTER CITY','2 : 1']],scorers:['Mbappe - REAL MADRID - 7 goals'],custom:false},
-facup:{title:'4️⃣ FA CUP',sub:'Ma Team 16 ENIENI',teams:[T('ARSENAL','#ef0107',9,3,3,0,0),T('MANCHESTER CITY','#6cabdd',6,3,2,0,1),T('LIVERPOOL','#c8102e',6,3,2,0,1),T('CHELSEA','#034694',6,3,2,0,1),T('MANCHESTER UNITED','#da291c',4,3,1,1,1),T('TOTTENHAM HOTSPUR','#132257',4,3,1,1,1),T('NEWCASTLE UNITED','#000',4,3,1,1,1),T('ASTON VILLA','#95bfe5',3,3,1,0,2),T('BRIGHTON','#0057b8',3,3,1,0,2),T('WEST HAM UNITED','#7a263a',3,3,1,0,2),T('EVERTON','#003399',3,3,1,0,2),T('NOTTINGHAM FOREST','#dd0000',3,3,1,0,2),T('FULHAM','#000',3,3,1,0,2),T('CRYSTAL PALACE','#1b458f',6,3,2,0,1),T('BRENTFORD','#e30613',3,3,1,0,2),T('BOURNEMOUTH','#da291c',3,3,1,0,2)],matches:[['ARSENAL','MANCHESTER CITY','2 : 1']],scorers:['Saka - ARSENAL - 5 goals'],custom:false},
-uefa:{title:'5️⃣ UEFA CHAMPION CUP',sub:'Ma Team 16 ENIENI',teams:[T('REAL MADRID','#fff',12,4,4,0,0),T('MANCHESTER CITY','#6cabdd',10,4,3,1,0),T('FC BAYERN MUNICH','#dc052d',10,4,3,1,0),T('PARIS SAINT-GERMAIN','#004170',10,4,3,1,0),T('FC BARCELONA','#a50044',9,4,3,0,1),T('LIVERPOOL','#c8102e',8,4,2,2,0),T('ARSENAL','#ef0107',8,4,2,2,0),T('INTER MILAN','#111',7,4,2,1,1),T('BORUSSIA DORTMUND','#fde100',7,4,2,1,1),T('ATLETICO DE MADRID','#cb3524',6,4,2,0,2),T('AC MILAN','#fb090b',6,4,2,0,2),T('JUVENTUS','#111',5,4,1,2,1),T('RB LEIPZIG','#001e5a',4,4,1,1,2),T('BAYER LEVERKUSEN','#e32221',4,4,1,1,2),T('FC PORTO','#003da5',4,4,1,1,2),T('SL BENFICA','#e30613',4,4,1,1,2)],matches:[['REAL MADRID','FC BAYERN MUNICH','2 : 1']],scorers:['Mbappe - REAL MADRID - 8 goals'],custom:false},
-worldcup:{title:'6️⃣ WORLD CUP',sub:'Ma Dziko 24 • GROUP A-F • NGATI VIDEO',teams:[T('PORTUGAL','#046a38',6,2,2,0,0),T('AUSTRIA','#ed2939',3,2,1,0,1),T('BELGIUM','#ed2939',3,2,1,0,1),T('SOUTH KOREA','#cd2e3a',0,2,0,0,2),T('ENGLAND','#fff',6,2,2,0,0),T('BRAZIL','#009739',0,0,0,0,0),T('MOROCCO','#c1272d',0,0,0,0,0),T('ITALY','#009246',0,2,0,0,2),T('COLOMBIA','#fcd116',6,2,2,0,0),T('GHANA','#fcd116',3,1,1,0,0),T('NETHERLANDS','#ff5a00',0,1,0,0,1),T('IVORY COAST','#ff8200',0,2,0,0,2),T('GERMANY','#111',0,0,0,0,0),T('CROATIA','#ff0000',0,0,0,0,0),T('MEXICO','#006847',0,0,0,0,0),T('CANADA','#ff0000',0,0,0,0,0),T('NIGERIA','#008751',9,4,3,0,1),T('SWITZERLAND','#da291c',3,2,1,0,1),T('SENEGAL','#00853f',0,0,0,0,0),T('EGYPT','#ce1126',0,2,0,0,2),T('SPAIN','#c60b1e',6,2,2,0,0),T('FRANCE','#002654',0,0,0,0,0),T('JAPAN','#bc002d',0,0,0,0,0),T('NORWAY','#ba0c2f',0,2,0,0,2)],matches:[['BELGIUM','PORTUGAL','-'],['AUSTRIA','SOUTH KOREA','1 : 1 - IN PROGRESS'],['BRAZIL','ENGLAND','-'],['MOROCCO','ITALY','-'],['COLOMBIA','NETHERLANDS','-'],['IVORY COAST','GHANA','-'],['CROATIA','GERMANY','-'],['MEXICO','CANADA','-'],['SWITZERLAND','SENEGAL','-'],['NIGERIA','EGYPT','2 : 0 - CLOSED'],['FRANCE','SPAIN','-'],['JAPAN','NORWAY','2 : 0 - CLOSED']],scorers:[],custom:false},
-tournament:{title:'7️⃣ TOURNAMENT CUP',sub:'✍️ Lembani Nokha',teams:[],matches:[],scorers:[],custom:true},
-challenge:{title:'8️⃣ FRIEND CHALLENGE',sub:'✍️ Lembani Nokha',teams:[],matches:[],scorers:[],custom:true}
-};
-function openLeague(key){
-  cur=key;
-  var L=DATA[key];
-  if(!L){alert('League sinatseguke!'); return;}
-  document.getElementById('hdrSub').textContent=L.title;
-  document.getElementById('ldTitle').textContent=L.title;
-  document.getElementById('ldSub').textContent=L.sub;
-  document.getElementById('addBox').style.display=L.custom?'block':'none';
-  // Teams
-  var th='';
-  if(L.teams.length==0){th='<p style="text-align:center;color:#888;padding:20px">Palibe Team pano - Lembani Team pamwamba!</p>';}
-  for(var i=0;i<L.teams.length;i++){var tm=L.teams[i]; th+='<div style="display:flex;align-items:center;gap:10px;background:#fff;padding:10px;border:1px solid #eee;border-radius:10px;margin-bottom:6px"><div class="mlogo" style="background:'+tm.bg+'">'+tm.name.replace(/[^A-Z]/g,'').substring(0,3)+'</div><div style="flex:1"><b>'+tm.name+'</b><br><small>'+L.title+'</small></div><span>⚽</span></div>';}
-  document.getElementById('ldTeams').innerHTML=th;
-  // Games
-  var gh='';
-  if(L.matches.length==0){gh='<p style="text-align:center;color:#888;padding:20px">Palibe Matches pano</p>';}
-  for(var j=0;j<L.matches.length;j++){var m=L.matches[j]; gh+='<div class="match"><div class="mteam"><b>'+m[0]+'</b></div><div style="font-weight:900">'+m[2]+'</div><div class="mteam"><b>'+m[1]+'</b></div></div>';}
-  document.getElementById('ldGames').innerHTML=gh;
-  // Table - sort by PTS
-  var sorted=L.teams.slice().sort(function(a,b){return b.pts-a.pts;});
-  var tb='<table><tr><th>TEAM</th><th>PTS</th><th>MP</th><th>W</th><th>D</th><th>L</th></tr>';
-  for(var k=0;k<sorted.length;k++){var r=sorted[k]; tb+='<tr><td>'+(k+1)+' '+r.name+'</td><td><b>'+r.pts+'</b></td><td>'+r.mp+'</td><td>'+r.w+'</td><td>'+r.d+'</td><td>'+r.l+'</td></tr>';}
-  tb+='</table>';
-  if(L.teams.length==0) tb='<p style="text-align:center;color:#888">Palibe Table pano</p>';
-  document.getElementById('ldTable').innerHTML=tb;
-  // Ranking
-  var rk='';
-  if(L.scorers.length==0){rk='<p style="text-align:center;color:#888;padding:20px">No data yet</p>';}
-  for(var s=0;s<L.scorers.length;s++){rk+='<p style="padding:10px;border-bottom:1px solid #eee"><b>'+(s+1)+'. '+L.scorers[s]+'</b></p>';}
-  document.getElementById('ldRanking').innerHTML=rk;
-  // Fill match selects
-  var h=document.getElementById('matchHome'); var a=document.getElementById('matchAway');
-  h.innerHTML=''; a.innerHTML='';
-  for(var t2=0;t2<L.teams.length;t2++){var o=document.createElement('option'); o.value=L.teams[t2].name; o.textContent=L.teams[t2].name; h.appendChild(o); var o2=document.createElement('option'); o2.value=L.teams[t2].name; o2.textContent=L.teams[t2].name; a.appendChild(o2);}
-  if(L.teams.length>1) a.selectedIndex=1;
-  var sel=document.getElementById('regTour');
-  var map={premier:'PREMIER LEAGUE',laliga:'LALIGA',champions:'CHAMPION LEAGUE',facup:'FA CUP',uefa:'UEFA CHAMPION CUP',worldcup:'WORLD CUP',tournament:'TOURNAMENT CUP',challenge:'FRIEND CHALLENGE'};
-  if(map[key]) sel.value=map[key];
-  showMini('teams');
-  showPage('leagueDetail');
-}
-function getColor(n){var c=['#e91e63','#2196f3','#9c27b0','#2e7d32','#ff9800','#e53935','#00838f','#795548']; var s=0; for(var i=0;i<n.length;i++){s+=n.charCodeAt(i);} return c[s%c.length];}
-function addTeam(){
-  var L=DATA[cur]; if(!L.custom) return;
-  var name=document.getElementById('customTeamName').value.trim();
-  var mgr=document.getElementById('customManager').value.trim();
-  if(!name){alert('Lembani Dzina la Team!'); return;}
-  L.teams.push({name:name.toUpperCase(),bg:getColor(name),pts:0,mp:0,w:0,d:0,l:0});
-  document.getElementById('addTeamMsg').textContent='✅ Team '+name.toUpperCase()+' Yawonjezedwa!';
-  document.getElementById('customTeamName').value=''; document.getElementById('customManager').value='';
-  openLeague(cur);
-}
-function addMatch(){
-  var L=DATA[cur]; if(!L.custom) return;
-  var home=document.getElementById('matchHome').value; var away=document.getElementById('matchAway').value;
-  var hg=parseInt(document.getElementById('matchHomeGoals').value||'0'); var ag=parseInt(document.getElementById('matchAwayGoals').value||'0');
-  if(home==away){alert('Sankhani ma Team osiyana!'); return;}
-  L.matches.push([home,away,hg+' : '+ag]);
-  function find(n){for(var i=0;i<L.teams.length;i++){if(L.teams[i].name==n) return L.teams[i];} return null;}
-  var hr=find(home); var ar=find(away);
-  if(hr && ar){hr.mp++; ar.mp++; if(hg>ag){hr.pts+=3; hr.w++; ar.l++;} else if(ag>hg){ar.pts+=3; ar.w++; hr.l++;} else{hr.pts+=1; ar.pts+=1; hr.d++; ar.d++;}}
-  document.getElementById('addMatchMsg').textContent='✅ Match '+home+' '+hg+'-'+ag+' '+away+' Yasungidwa!';
-  openLeague(cur); showMini('games');
-}
-var teams=[];
-function registerTeam(){
-  var n=document.getElementById('regTeamName').value.trim(); var m=document.getElementById('regManager').value.trim();
-  if(!n||!m){alert('Lembani Dzina la Team ndi Manager!'); return;}
-  var tour=document.getElementById('regTour').value;
-  teams.push(n+' - '+m+' - '+tour);
-  document.getElementById('regMsg').textContent='✅ Team '+n+' Yalembetsedwa ku '+tour+'!';
-  document.getElementById('teamCount').textContent=teams.length;
-  document.getElementById('teamsList').innerHTML=teams.join('<br>');
-  if(tour=='TOURNAMENT CUP'){DATA.tournament.teams.push({name:n.toUpperCase(),bg:getColor(n),pts:0,mp:0,w:0,d:0,l:0});}
-  if(tour=='FRIEND CHALLENGE'){DATA.challenge.teams.push({name:n.toUpperCase(),bg:getColor(n),pts:0,mp:0,w:0,d:0,l:0});}
-  document.getElementById('regTeamName').value='';
-}
-showPage('home');
-</script>
-</body></html>
+premier:{title:'PREMIER LEAGUE',sub:'Ma Team 20 • Table',custom:false,teams:[T('ARSENAL','ARS','#ef0107','#fff','🏴󐁧󐁢󐁥󐁮󐁧󐁿',28,12,9,1,2,'A'),T('ASTON VILLA','AVL','#95bfe5','#111','🏴󐁧󐁢󐁥󐁮󐁧󐁿',22,12,7,1,4,'A'),T('BOURNEMOUTH','BOU','#da291c','#fff','🏴󐁧󐁢󐁥󐁮󐁧󐁿',20,12,6,2,4,'A'),T('BRENTFORD','BRE','#e30613','#fff','🏴󐁧󐁢󐁥󐁮󐁧󐁿',18,12,5,3,4,'A'),T('BRIGHTON','BHA','#0057b8','#fff','🏴󐁧󐁢󐁥󐁮󐁧󐁿',19,12,5,4,3,'A'),T('BURNLEY','BUR','#6c1d45','#fff','🏴󐁧󐁢󐁥󐁮󐁧󐁿',10,12,3,1,8,'A'),T('CHELSEA','CHE','#034694','#fff','🏴󐁧󐁢󐁥󐁮󐁧󐁿',23,12,7,2,3,'A'),T('CRYSTAL PALACE','CRY','#1b458f','#fff','🏴󐁧󐁢󐁥󐁮󐁧󐁿',19,12,5,4,3,'A'),T('EVERTON','EVE','#003399','#fff','🏴󐁧󐁢󐁥󐁮󐁧󐁿',18,12,5,3,4,'A'),T('FULHAM','FUL','#000','#fff','🏴󐁧󐁢󐁥󐁮󐁧󐁿',17,12,5,2,5,'A'),T('LEEDS UNITED','LEE','#ffcd00','#111','🏴󐁧󐁢󐁥󐁮󐁧󐁿',14,12,4,2,6,'A'),T('LIVERPOOL','LIV','#c8102e','#fff','🏴󐁧󐁢󐁥󐁮󐁧󐁿',22,12,7,1,4,'A'),T('MANCHESTER CITY','MCI','#6cabdd','#111','🏴󐁧󐁢󐁥󐁮󐁧󐁿',25,12,8,1,3,'A'),T('MANCHESTER UNITED','MUN','#da291c','#fff','🏴󐁧󐁢󐁥󐁮󐁧󐁿',21,12,6,3,3,'A'),T('NEWCASTLE UNITED','NEW','#000','#fff','🏴󐁧󐁢󐁥󐁮󐁧󐁿',20,12,6,2,4,'A'),T('NOTTINGHAM FOREST','NFO','#dd0000','#fff','🏴󐁧󐁢󐁥󐁮󐁧󐁿',15,12,4,3,5,'A'),T('SUNDERLAND','SUN','#eb172b','#fff','🏴󐁧󐁢󐁥󐁮󐁧󐁿',19,12,5,4,3,'A'),T('TOTTENHAM HOTSPUR','TOT','#132257','#fff','🏴󐁧󐁢󐁥󐁮󐁧󐁿',21,12,6,3,3,'A'),T('WEST HAM UNITED','WHU','#7a263a','#fff','🏴󐁧󐁢󐁥󐁮󐁧󐁿',12,12,3,3,6,'A'),T('WOLVERHAMPTON','WOL','#fdb913','#111','🏴󐁧󐁢󐁥󐁮󐁧󐁿',8,12,2,2,8,'A')],fixtures:[],results:[],scorers:['Haaland - MANCHESTER CITY - 14 goals']},
+laliga:{title:'LALIGA',sub:'Ma Team 20 • Table',custom:false,teams:[T('REAL MADRID','RMA','#fff','#111','🇪🇸',28,12,9,1,2,'A'),T('FC BARCELONA','BAR','#a50044','#fff','🇪🇸',31,12,10,1,1,'A'),T('ATLETICO DE MADRID','ATM','#cb3524','#fff','🇪🇸',24,12,7,3,2,'A'),T('VILLARREAL CF','VIL','#ffe667','#111','🇪🇸',26,12,8,2,2,'A'),T('SEVILLA FC','SEV','#d00027','#fff','🇪🇸',19,12,5,4,3,'A'),T('VALENCIA CF','VAL','#ff7a00','#fff','🇪🇸',16,12,4,4,4,'A'),T('REAL SOCIEDAD','RSO','#0067b1','#fff','🇪🇸',18,12,5,3,4,'A'),T('ATHLETIC CLUB BILBAO','ATH','#ee2523','#fff','🇪🇸',18,12,5,3,4,'A'),T('REAL BETIS','BET','#00954c','#fff','🇪🇸',20,12,6,2,4,'A'),T('CELTA DE VIGO','CEL','#00bcd4','#fff','🇪🇸',15,12,4,3,5,'A'),T('GETAFE CF','GET','#00529f','#fff','🇪🇸',13,12,3,4,5,'A'),T('GIRONA FC','GIR','#cd2534','#fff','🇪🇸',11,12,3,2,7,'A'),T('RCD ESPANYOL','ESP','#0067b1','#fff','🇪🇸',17,12,5,2,5,'A'),T('CA OSASUNA','OSA','#d00027','#fff','🇪🇸',13,12,3,4,5,'A'),T('RCD MALLORCA','MLL','#e30613','#fff','🇪🇸',14,12,3,5,4,'A'),T('RAYO VALLECANO','RAY','#e30613','#fff','🇪🇸',16,12,4,4,4,'A'),T('LEVANTE UD','LEV','#8e1f2f','#fff','🇪🇸',10,12,2,4,6,'A'),T('ELCHE CF','ELC','#009a44','#fff','🇪🇸',16,12,4,4,4,'A'),T('DEPORTIVO ALAVES','ALA','#0067b1','#fff','🇪🇸',12,12,3,3,6,'A'),T('REAL OVIEDO','OVI','#0067b1','#fff','🇪🇸',9,12,2,3,7,'A')],fixtures:[],results:[],scorers:['Mbappe - REAL MADRID - 15 goals']},
+champions:{title:'CHAMPION LEAGUE',sub:'Ma Team 16 • Table',custom:false,teams:[T('REAL MADRID','RMA','#fff','#111','🇪🇸',12,4,4,0,0,'A'),T('MANCHESTER CITY','MCI','#6cabdd','#111','🏴󐁧󐁢󐁥󐁮󐁧󐁿',10,4,3,1,0,'A'),T('FC BAYERN MUNICH','BAY','#dc052d','#fff','🇩🇪',9,4,3,0,1,'A'),T('PARIS SAINT-GERMAIN','PSG','#004170','#fff','🇫🇷',10,4,3,1,0,'A'),T('FC BARCELONA','BAR','#a50044','#fff','🇪🇸',9,4,3,0,1,'A'),T('LIVERPOOL','LIV','#c8102e','#fff','🏴󐁧󐁢󐁥󐁮󐁧󐁿',8,4,2,2,0,'A'),T('ARSENAL','ARS','#ef0107','#fff','🏴󐁧󐁢󐁥󐁮󐁧󐁿',8,4,2,2,0,'A'),T('INTER MILAN','INT','#111','#fff','🇮🇹',7,4,2,1,1,'A'),T('BORUSSIA DORTMUND','BVB','#fde100','#111','🇩🇪',7,4,2,1,1,'A'),T('ATLETICO DE MADRID','ATM','#cb3524','#fff','🇪🇸',6,4,2,0,2,'A'),T('AC MILAN','MIL','#fb090b','#fff','🇮🇹',6,4,2,0,2,'A'),T('JUVENTUS','JUV','#111','#fff','🇮🇹',5,4,1,2,1,'A'),T('FC PORTO','POR','#003da5','#fff','🇵🇹',4,4,1,1,2,'A'),T('SL BENFICA','BEN','#e30613','#fff','🇵🇹',4,4,1,1,2,'A'),T('AFC AJAX','AJA','#d2122e','#fff','🇳🇱',3,4,1,0,3,'A'),T('CELTIC FC','CEL','#018749','#fff','🏴󐁧?
