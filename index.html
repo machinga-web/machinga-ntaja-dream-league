@@ -1,17 +1,18 @@
 <!DOCTYPE html>
 <html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>DLS FRIEND ZONE COMPETITIONS - V43</title>
+<title>DLS FRIEND ZONE COMPETITIONS - V45 - LINKS</title>
 <style>
 *{margin:0;padding:0;box-sizing:border-box;font-family:Arial}
 body{background:#fff;padding-bottom:70px}
-/* SPLASH NGATI VIDEO */
-#splash{position:fixed;inset:0;z-index:999;background:linear-gradient(160deg,#0f766e 0%,#1e3a8a 60%,#1e293b 100%);display:flex;flex-direction:column;align-items:center;justify-content:center;color:#fff}
+#splash{position:fixed;inset:0;z-index:999;background:linear-gradient(160deg,#0f766e 0%,#1e3a8a 60%,#1e293b 100%);display:flex;flex-direction:column;align-items:center;justify-content:center;color:#fff;cursor:pointer;animation:splashOut .5s ease 2.8s forwards}
+@keyframes splashOut{to{opacity:0;visibility:hidden;pointer-events:none}}
 #splash .logoWrap{width:110px;height:110px;border-radius:50%;border:2px solid #a7f3d0;display:grid;place-items:center;background:rgba(255,255,255,.08)}
 #splash .logoBox{width:84px;height:84px;background:#111;color:#FFD700;display:grid;place-items:center;font-weight:900;font-size:22px;text-align:center;line-height:1;border-radius:8px}
 #splash h2{margin-top:16px;font-size:19px;text-align:center;line-height:1.2}
 #splash .bar{width:180px;height:4px;background:rgba(255,255,255,.25);border-radius:10px;margin-top:18px;overflow:hidden}
-#splash .bar i{display:block;height:100%;width:0;background:#a7f3d0;animation:load 2.2s forwards}
+#splash .bar i{display:block;height:100%;width:0;background:#a7f3d0;animation:load 2s forwards}
 @keyframes load{to{width:100%}}
+#splash .tap{margin-top:16px;background:#fff;color:#111;padding:10px 20px;border-radius:20px;font-weight:900;font-size:13px}
 header{background:#1e2a5a;color:#fff;padding:8px 10px;position:sticky;top:0;z-index:99}
 header .top{display:flex;align-items:center;gap:10px}
 header b{font-size:14px;flex:1;white-space:nowrap;overflow:hidden}
@@ -22,8 +23,8 @@ header b{font-size:14px;flex:1;white-space:nowrap;overflow:hidden}
 .card{padding:12px}
 .btn{background:#1e2a5a;color:#fff;border:0;padding:13px;border-radius:10px;font-weight:bold;width:100%;margin-top:8px}
 .btn-small{background:#1e2a5a;color:#fff;border:0;padding:8px 12px;border-radius:8px;font-weight:bold;font-size:12px}
+.btn-green{background:#16a34a;color:#fff;border:0;padding:8px 12px;border-radius:8px;font-weight:bold;font-size:12px}
 input,select{width:100%;padding:11px;margin:5px 0;border:1px solid #ddd;border-radius:8px}
-/* HOME NGATI VIDEO */
 .banner{height:120px;background:linear-gradient(135deg,#0f766e,#1e3a8a);position:relative}
 .avatar{width:72px;height:72px;border-radius:50%;background:#111;color:#FFD700;display:grid;place-items:center;font-weight:900;font-size:14px;text-align:center;line-height:1;border:3px solid #fff;margin-top:-36px;margin-left:12px;position:relative;z-index:2}
 .follow{float:right;background:#1e2a5a;color:#fff;border:0;padding:10px 18px;border-radius:20px;font-weight:bold;margin-top:-30px;margin-right:10px}
@@ -38,16 +39,19 @@ input,select{width:100%;padding:11px;margin:5px 0;border:1px solid #ddd;border-r
 .msgRow{display:flex;gap:10px;padding:10px 12px;border-bottom:1px solid #f2f2f2}
 .msgRow .av{width:36px;height:36px;border-radius:50%;display:grid;place-items:center;color:#fff;font-weight:900;flex-shrink:0;font-size:14px}
 .msgRow .date{margin-left:auto;font-size:11px;color:#aaa}
-/* CATEGORIES NGATI VIDEO */
 .cat{display:flex;align-items:center;gap:10px;background:#fff;padding:12px;border-bottom:1px solid #eee;cursor:pointer}
 .cat:active{background:#eef2ff}
 .cat .trophy{width:36px;height:36px;border-radius:50%;background:#f2f2f2;display:grid;place-items:center;font-size:16px;flex-shrink:0}
 .cat .pill{flex:1;color:#fff;font-weight:bold;font-size:13px;padding:12px 10px;border-radius:6px;line-height:1.3}
 .cat .logoMini{width:36px;height:36px;border-radius:50%;background:#111;color:#FFD700;display:grid;place-items:center;font-weight:900;font-size:9px;flex-shrink:0;line-height:1}
-/* GAMES / TABLE NGATI VIDEO */
+/* LINKS */
+.linkBox{background:#f8fafc;border:1px solid #e2e8f0;border-radius:12px;padding:12px;margin:0 12px 10px}
+.linkBox .url{font-size:12px;color:#1e2a5a;word-break:break-all;background:#fff;padding:8px;border-radius:8px;border:1px solid #e2e8f0;margin:6px 0}
+.linkRow{display:flex;gap:8px;align-items:center;background:#fff;padding:10px;border:1px solid #eee;border-radius:12px;margin:0 12px 8px}
+.linkRow .pill2{flex:1;color:#fff;font-weight:bold;font-size:12px;padding:10px;border-radius:6px}
+.linkRow .urlSmall{font-size:11px;color:#666;word-break:break-all}
 .lead{font-size:12px;color:#1e2a5a;letter-spacing:1px;font-weight:bold;padding:12px 12px 0}
 .stageRow{display:flex;align-items:center;gap:10px;padding:6px 12px 10px}
-.stageRow h2{font-size:22px}
 .stageRow select{width:auto;padding:6px;border:0;font-weight:900;font-size:20px;background:transparent}
 .rounds{display:flex;gap:6px;padding:0 12px 10px;overflow-x:auto}
 .rounds button{flex-shrink:0;padding:9px 16px;border:1px solid #ddd;background:#fff;border-radius:20px;font-weight:bold}
@@ -55,9 +59,8 @@ input,select{width:100%;padding:11px;margin:5px 0;border:1px solid #ddd;border-r
 .stats{display:flex;gap:8px;padding:0 12px 10px}
 .stats div{flex:1;text-align:center;border-bottom:1px solid #eee;padding-bottom:8px}
 .stats b{font-size:18px;display:block}.stats span{font-size:10px;color:#888}
-.statsToggle{text-align:center;font-size:12px;color:#666;padding:4px}
 .matchBox{padding:10px 12px;border-bottom:1px solid #f2f2f2}
-.matchBox .grp{font-size:11px;color:#888;text-align:center;letter-spacing:1px}
+.matchBox .grp{font-size:11px;color:#888;text-align:center}
 .matchBox .closed{font-size:10px;color:#888;text-align:center;background:#f2f2f2;display:inline-block;padding:2px 8px;border-radius:10px;margin:4px auto}
 .matchRow{display:flex;align-items:center;gap:8px;text-align:center}
 .mteam{flex:1}
@@ -84,16 +87,14 @@ table{width:100%;border-collapse:collapse;font-size:13px}th,td{padding:9px 4px;t
 .tie-row:last-child{border-bottom:0}
 .tie-row b{flex:1;font-size:13px}
 .tie-score{font-size:13px;width:26px;text-align:center;border-left:1px solid #eee}
-.fix{border:1px solid #eee;border-radius:12px;padding:10px;margin:0 12px 8px;background:#f9f9f9}
-.fix-inputs{display:flex;gap:6px;align-items:center;margin-top:8px}
-.fix-inputs input{text-align:center;font-weight:900}
 .bottom{position:fixed;bottom:0;left:0;right:0;background:#fff;border-top:1px solid #eee;display:flex;padding:10px 2px;font-size:11px;z-index:99}
 .bottom div{flex:1;text-align:center;color:#888}
 .bottom div.active{color:#1e2a5a;font-weight:bold}
+.toast{position:fixed;bottom:80px;left:50%;transform:translateX(-50%);background:#111;color:#fff;padding:10px 18px;border-radius:20px;font-size:13px;font-weight:bold;z-index:1000;display:none}
 </style></head>
 <body>
-<!-- SPLASH NGATI VIDEO -->
-<div id="splash"><div class="logoWrap"><div class="logoBox">DLS<br>FRIEND<br>ZONE</div></div><h2>DLS FRIEND ZONE<br>COMPETITIONS</h2><div class="bar"><i></i></div></div>
+<div id="toast" class="toast">✅ Link Yakopedwa!</div>
+<div id="splash" onclick="hideSplash()"><div class="logoWrap"><div class="logoBox">DLS<br>FRIEND<br>ZONE</div></div><h2>DLS FRIEND ZONE<br>COMPETITIONS</h2><div class="bar"><i></i></div><div style="margin-top:16px;background:#fff;color:#111;padding:10px 20px;border-radius:20px;font-weight:900;font-size:13px">👆 DINANI APA KUTI MULOWE</div></div>
 
 <header><div class="top"><span>←</span><b>DLS FRIEND ZONE COM...<br><small style="font-weight:normal;font-size:11px" id="hdrSub">DLS FRIEND ZONE COMPETITIONS</small></b><span>↗</span><span>⋮</span></div>
 <div class="tabs">
@@ -101,36 +102,42 @@ table{width:100%;border-collapse:collapse;font-size:13px}th,td{padding:9px 4px;t
 <button id="t-cats" onclick="showPage('cats')">☰ Categories</button>
 <button id="t-league" onclick="showPage('leagueDetail')">🎮 Games</button>
 <button id="t-table" onclick="showPage('leagueDetail');showMini('table')">☰ Table</button>
-<button id="t-ranking" onclick="showPage('leagueDetail');showMini('ranking')">📊 Ranking</button>
+<button id="t-links" onclick="showPage('links')">🔗 Links</button>
 <button id="t-media" onclick="showPage('leagueDetail');showMini('media')">📹 Media</button>
 </div></header>
 
-<!-- HOME NGATI VIDEO -->
 <div id="home" class="page active">
 <div class="banner"></div>
 <div style="position:relative"><div class="avatar">DLS<br>ZONE</div><button class="follow" onclick="this.textContent=this.textContent.includes('Follow')?'✓ Following':'+ Follow'">+ Follow</button></div>
 <p style="color:#1e2a5a;font-size:12px;margin:8px 0 0 12px">• Private • 33 followers</p>
 <h1 style="font-size:26px;line-height:1.1;margin:6px 12px">DLS FRIEND ZONE<br>COMPETITIONS</h1>
 <div class="info2" style="margin:6px 12px">📅 PERIOD<br><b>18 Feb 2026</b><br>• STATUS<br><b>Not provided</b><br>👤 ORGANIZER<br><b>OLA MJOE</b> <span>↗</span><br>🌐 TOURNAMENT WEBSITE<br><span>Tournament website ↗</span><br>📞 TELEPHONE<br><b>09115674467</b></div>
+<div class="linkBox"><b>🔗 LINK YA HOME - Tumizani kwa anzanu:</b><div class="url" id="homeLink">-</div><div style="display:flex;gap:8px"><button class="btn-green" onclick="copyLink(getHomeLink(),'Home')">📋 COPY LINK</button><button class="btn-small" onclick="shareLink(getHomeLink(),'DLS FRIEND ZONE COMPETITIONS')">↗ SHARE</button></div></div>
 <p class="info">AWARDS</p>
 <div class="awards"><div class="award gold"><div class="t">🏆</div><div style="font-size:11px;color:#888">CHAMPION</div><b style="color:#d69a1a">HIMSELF</b></div><div class="award"><div class="t">🏆</div><div style="font-size:11px;color:#888">2ND PLACE</div><b>KOP KIDS</b></div></div>
 <p class="info">MESSAGES</p>
 <div class="msg">👤 Send a message... <span style="margin-left:auto;color:#1e2a5a">➤</span></div>
 <div id="msgList"></div>
-<button class="btn" style="margin:12px;width:calc(100% - 24px)" onclick="showPage('cats')">🏆 ONANI MA CATEGORIES - MA LEAGUE ONSE ALI KUNO</button>
+<button class="btn" style="margin:12px;width:calc(100% - 24px)" onclick="showPage('cats')">🏆 ONANI MA CATEGORIES</button>
+<button class="btn" style="margin:0 12px;width:calc(100% - 24px)" onclick="showPage('links')">🔗 ONANI MA LINKS ONSE - DINANI APA</button>
 </div>
 
-<!-- CATEGORIES NGATI VIDEO - MA LEAGUE ONSE A MU VIDEO -->
 <div id="cats" class="page">
-<div class="card" style="text-align:center"><h2>🏆 Categories</h2><p style="color:#888;font-size:13px">Dinani League - Idzatseguka ngati mu video!</p></div>
+<div class="card" style="text-align:center"><h2>🏆 Categories</h2><p style="color:#888;font-size:13px">Dinani League - Kapena dinani 📋 kuti mukope Link yake!</p></div>
 <div id="catsList"></div>
 </div>
 
-<!-- LEAGUE DETAIL -->
+<!-- LINKS PAGE - MA LINK ONSE -->
+<div id="links" class="page">
+<div class="card" style="text-align:center"><h2>🔗 MA LINKS ONSE</h2><p style="color:#888;font-size:13px">Dinani 📋 COPY - Tumizani Link pa WhatsApp - Munthu akadina amatsegula League imeneyo!</p><p style="font-size:12px;color:#1e2a5a;margin-top:6px">Mwachitsanzo: Ngati mutumiza Link ya DFZ WORLD CUP, munthu akadina amapita ku DFZ WORLD CUP pomwepo - osati ku Home!</p></div>
+<div class="linkBox"><b>🏠 LINK YA HOME (Main):</b><div class="url" id="mainLink">-</div><button class="btn-green" onclick="copyLink(getHomeLink(),'Home')">📋 COPY HOME LINK</button></div>
+<div id="linksList"></div>
+</div>
+
 <div id="leagueDetail" class="page">
 <div class="card" style="text-align:center;background:#111;color:#fff;border-radius:12px;margin:12px"><h2 id="ldTitle" style="color:#FFD700">DFZ WORLD CUP</h2><p id="ldSub">DLS FRIEND ZONE COMPETITIONS</p><p>👑 OLA MJOE • 📞 09115674467</p></div>
-<div id="addBox" style="display:none;margin:0 12px" class="card"><h3>✍️ LEMBANI TEAM APA</h3><label>Dzina la Team *</label><input id="customTeamName" placeholder="Ex: ELON FATHER"><button class="btn" onclick="addTeam()">➕ ADD TEAM</button><p id="addTeamMsg" style="color:green;font-weight:bold;text-align:center"></p></div>
-
+<!-- LINK YA LEAGUE IYI -->
+<div class="linkBox"><b>🔗 LINK YA LEAGUE IYI - Tumizani kwa anzanu:</b><div class="url" id="currentLink">-</div><div style="display:flex;gap:8px"><button class="btn-green" onclick="copyLink(getLeagueLink(cur),DATA[cur].title)">📋 COPY LINK</button><button class="btn-small" onclick="shareLink(getLeagueLink(cur),DATA[cur].title)">↗ SHARE</button><button class="btn-small" style="background:#fff;color:#1e2a5a;border:1px solid #1e2a5a" onclick="showPage('links')">🔗 MA LINK ONSE</button></div><p id="copyMsg" style="color:green;font-weight:bold;font-size:12px;margin-top:6px"></p></div>
 <div class="subtabs">
 <button id="s-home" onclick="showMini('home')">🏠 Home</button>
 <button id="s-games" class="active" onclick="showMini('games')">🎮 Games</button>
@@ -138,50 +145,57 @@ table{width:100%;border-collapse:collapse;font-size:13px}th,td{padding:9px 4px;t
 <button id="s-ranking" onclick="showMini('ranking')">📊 Ranking</button>
 <button id="s-media" onclick="showMini('media')">📹 Media</button>
 </div>
-
 <div id="mini-home" class="mini"><div style="padding:0 12px"><h3>👥 MA TEAM</h3><div id="ldTeams"></div></div></div>
-
 <div id="mini-games" class="mini active">
 <p class="lead">MATCHES</p>
-<div class="stageRow"><select id="stageSel" onchange="setStage(this.value)"><option value="1">1st Stage ⌄</option><option value="2">2nd Stage ⌄</option></select><span style="color:#888;font-size:12px">Stage</span></div>
-<div id="gamesStage1">
-<div class="rounds" id="roundPills"></div>
-<div class="stats" id="roundStats"></div>
-<p class="statsToggle" onclick="toggleStats()">⌄ Round statistics ⌄</p>
-<div id="statsDetail" style="display:none;padding:0 12px 10px;font-size:13px;line-height:2"></div>
-<div id="gamesList"></div>
+<div class="stageRow"><select id="stageSel" onchange="setStage(this.value)"><option value="1">1st Stage ⌄</option><option value="2">2nd Stage ⌄</option></select></div>
+<div id="gamesStage1"><div class="rounds" id="roundPills"></div><div class="stats" id="roundStats"></div><div id="gamesList"></div></div>
+<div id="gamesStage2" style="display:none"><div class="bracketTabs"><button id="bt-r16" class="active" onclick="setBracketTab('r16')">Round of 16</button><button id="bt-qf" onclick="setBracketTab('qf')">Quarter Finals</button><button id="bt-sf" onclick="setBracketTab('sf')">Semi Final</button><button id="bt-final" onclick="setBracketTab('final')">Final</button></div><div id="bracketGames"></div></div>
 </div>
-<div id="gamesStage2" style="display:none">
-<div class="bracketTabs"><button id="bt-r16" class="active" onclick="setBracketTab('r16')">Round of 16</button><button id="bt-qf" onclick="setBracketTab('qf')">Quarter Finals</button><button id="bt-sf" onclick="setBracketTab('sf')">Semi Final</button><button id="bt-final" onclick="setBracketTab('final')">Final</button></div>
-<div id="bracketGames"></div>
-</div>
-</div>
-
 <div id="mini-table" class="mini">
 <p class="lead">LEADERBOARD</p>
 <div class="stageRow"><select id="tableStageSel" onchange="setTableStage(this.value)"><option value="1">1st Stage ⌄</option><option value="2">2nd Stage ⌄</option><option value="stats">Statistics ⌄</option></select><div class="toggle" id="tableToggle"><span id="tg-group" class="active" onclick="setTableMode('group')">By group</span><span id="tg-overall" onclick="setTableMode('overall')">Overall</span></div></div>
-<div id="table1st"><div id="ldTable"></div><p style="font-size:11px;color:#888;padding:12px">Pts points • MP matches played • W wins • D draws • L losses • GF goals for • GA goals against • GD goals difference • % improvement</p></div>
+<div id="table1st"><div id="ldTable"></div></div>
 <div id="table2nd" style="display:none"><div class="bracketTabs"><button id="tbt-r16" class="active" onclick="setBracketTab('r16')">Round of 16</button><button id="tbt-qf" onclick="setBracketTab('qf')">Quarter Finals</button><button id="tbt-sf" onclick="setBracketTab('sf')">Semi Final</button><button id="tbt-final" onclick="setBracketTab('final')">Final</button></div><div id="bracketTable"></div></div>
 <div id="tableStats" style="display:none;padding:0 12px"><h3>BEST ATTACK</h3><div id="bestAttack"></div><h3 style="margin-top:14px">BEST DEFENSE</h3><div id="bestDefense"></div></div>
 </div>
-
-<div id="mini-ranking" class="mini">
-<div class="subtabs"><button class="active">Scorers</button><button>Assists</button><button>Penalties</button><button>Goalkeeper</button><button>Best Players</button></div>
-<p style="padding:0 12px;color:#888;font-size:13px">All stages ⌄ <span style="float:right">0 Players</span></p>
-<p style="text-align:center;color:#888;padding:30px">No data yet</p>
-<div style="padding:0 12px"><label>Lembani Scorer</label><input id="customScorerName" placeholder="Ex: Haaland - 2 goals"><button class="btn" onclick="addScorer()">➕ ADD SCORER</button><div id="ldRanking"></div></div>
-</div>
-
+<div id="mini-ranking" class="mini"><div class="subtabs"><button class="active">Scorers</button><button>Assists</button><button>Penalties</button><button>Goalkeeper</button><button>Best Players</button></div><p style="padding:0 12px;color:#888;font-size:13px">All stages ⌄ <span style="float:right">0 Players</span></p><p style="text-align:center;color:#888;padding:30px">No data yet</p><div style="padding:0 12px"><label>Lembani Scorer</label><input id="customScorerName" placeholder="Ex: Haaland - 2 goals"><button class="btn" onclick="addScorer()">➕ ADD SCORER</button><div id="ldRanking"></div></div></div>
 <div id="mini-media" class="mini"><div style="padding:0 12px"><button class="btn">+ Add Media</button><p style="text-align:center;color:#888;padding:30px">No media yet</p></div></div>
-
 <div style="padding:0 12px"><button class="btn" onclick="showPage('cats')">⬅ BWERERANI KU CATEGORIES</button></div>
 </div>
 
-<div class="bottom"><div id="b-home" class="active" onclick="showPage('home')">🏠<br>Home</div><div id="b-cats" onclick="showPage('cats')">☰<br>Categories</div><div id="b-league" onclick="showPage('leagueDetail')">🎮<br>Games</div><div id="b-table" onclick="showPage('leagueDetail');showMini('table')">☰<br>Table</div></div>
+<div class="bottom"><div id="b-home" class="active" onclick="showPage('home')">🏠<br>Home</div><div id="b-cats" onclick="showPage('cats')">☰<br>Categories</div><div id="b-league" onclick="showPage('leagueDetail')">🎮<br>Games</div><div id="b-links" onclick="showPage('links')">🔗<br>Links</div></div>
 
 <script>
-setTimeout(function(){document.getElementById('splash').style.display='none';},2400);
-var cur='worldcup'; var fixRound=1; var tableMode='group'; var stage='1'; var tableStage='1'; var bracketTab='r16'; var statsOpen=false;
+function hideSplash(){var s=document.getElementById('splash'); if(s){s.style.display='none';}}
+setTimeout(hideSplash,2800);
+// ===== LINKS - CODE YA LINKS - NGATI COPAFACIL =====
+// League iliyonse ili ndi Link yake: machinga-web.github.io/#worldcup
+// Mukadina Link, imatsegula League imeneyo pomwepo!
+function getBaseUrl(){var u=window.location.href.split('#')[0].split('?')[0]; return u;}
+function getHomeLink(){return getBaseUrl();}
+function getLeagueLink(key){return getBaseUrl()+'#'+key;}
+function getLeagueLinkWithTab(key,tab){return getBaseUrl()+'#'+key+'?tab='+tab;}
+function copyLink(link,name){
+  if(navigator.clipboard && navigator.clipboard.writeText){navigator.clipboard.writeText(link).then(function(){showToast('✅ Link ya '+name+' Yakopedwa!');});}
+  else{var ta=document.createElement('textarea'); ta.value=link; document.body.appendChild(ta); ta.select(); document.execCommand('copy'); document.body.removeChild(ta); showToast('✅ Link ya '+name+' Yakopedwa!');}
+  var cm=document.getElementById('copyMsg'); if(cm) cm.textContent='✅ Link Yakopedwa: '+link;
+}
+function shareLink(link,title){
+  var text='🏆 '+title+' - DLS FRIEND ZONE COMPETITIONS - Dinani Link kuti muwone Games / Table / Ranking: '+link;
+  if(navigator.share){navigator.share({title:title,text:text,url:link});}
+  else{copyLink(link,title);}
+}
+function showToast(msg){var t=document.getElementById('toast'); t.textContent=msg; t.style.display='block'; setTimeout(function(){t.style.display='none';},2500);}
+function openFromLink(){
+  var h=window.location.hash; // #worldcup kapena #worldcup?tab=table
+  if(!h || h.length<2) return false;
+  var raw=h.substring(1); var parts=raw.split('?'); var key=parts[0];
+  var tab='games'; if(parts[1]){var p=new URLSearchParams(parts[1]); if(p.get('tab')) tab=p.get('tab');}
+  if(DATA[key]){openLeague(key,tab); return true;}
+  return false;
+}
+var cur='worldcup'; var fixRound=1; var tableMode='group'; var bracketTab='r16';
 function showPage(id){
   var pages=document.querySelectorAll('.page');
   for(var i=0;i<pages.length;i++){pages[i].classList.remove('active'); pages[i].style.display='none';}
@@ -191,6 +205,7 @@ function showPage(id){
   var bots=document.querySelectorAll('.bottom div'); for(var k=0;k<bots.length;k++){bots[k].classList.remove('active');}
   var b=document.getElementById('b-'+id); if(b) b.classList.add('active');
   window.scrollTo(0,0);
+  if(id=='home'){history.replaceState(null,'',getBaseUrl());}
 }
 function showMini(name){
   var secs=document.querySelectorAll('.mini'); for(var i=0;i<secs.length;i++){secs[i].classList.remove('active');}
@@ -198,21 +213,5 @@ function showMini(name){
   var btns=document.querySelectorAll('.subtabs button'); for(var j=0;j<btns.length;j++){btns[j].classList.remove('active');}
   var b=document.getElementById('s-'+name); if(b) b.classList.add('active');
 }
-function setStage(v){stage=v; document.getElementById('gamesStage1').style.display=v=='1'?'block':'none'; document.getElementById('gamesStage2').style.display=v=='2'?'block':'none'; renderBracketGames();}
-function setTableStage(v){tableStage=v; document.getElementById('table1st').style.display=v=='1'?'block':'none'; document.getElementById('table2nd').style.display=v=='2'?'block':'none'; document.getElementById('tableStats').style.display=v=='stats'?'block':'none'; document.getElementById('tableToggle').style.display=v=='1'?'flex':'none'; renderTableOnly(); renderBracketTable();}
-function setTableMode(m){tableMode=m; document.getElementById('tg-group').className=m=='group'?'active':''; document.getElementById('tg-overall').className=m=='overall'?'active':''; renderTableOnly();}
-function setFixRound(r){fixRound=r; var btns=document.querySelectorAll('.rounds button'); for(var i=0;i<btns.length;i++){btns[i].classList.remove('active');} document.getElementById('rp-'+r).classList.add('active'); renderGames();}
-function setBracketTab(t){bracketTab=t; var ids=['r16','qf','sf','final']; for(var i=0;i<ids.length;i++){var a=document.getElementById('bt-'+ids[i]); if(a) a.className=ids[i]==t?'active':''; var b=document.getElementById('tbt-'+ids[i]); if(b) b.className=ids[i]==t?'active':'';} renderBracketGames(); renderBracketTable();}
-function toggleStats(){statsOpen=!statsOpen; document.getElementById('statsDetail').style.display=statsOpen?'block':'none';}
-// MESSAGES NGATI VIDEO
-var MSGS=[['salim nuno','ok','17/11','#f59e0b','S'],['ogbodo David','how IR','27/07','#111','O'],['Hamuzar Kambalame','join','29/03','#e11d48','H'],['HOLLY DEE','hello','02/05','#f97316','H'],['Opeleyeru yusuff','Hello how are you','18/02','#111','O'],['Hamuzar Kambalame','hello boss','29/03','#e11d48','H']];
-var mh=''; for(var i=0;i<MSGS.length;i++){mh+='<div class="msgRow"><div class="av" style="background:'+MSGS[i][3]+'">'+MSGS[i][4]+'</div><div><b>'+MSGS[i][0]+'</b><br><span style="color:#888;font-size:13px">'+MSGS[i][1]+'</span><br><span style="color:#1e2a5a;font-size:12px">Reply</span></div><span class="date">'+MSGS[i][2]+' ⋮</span></div>';}
-document.getElementById('msgList').innerHTML=mh;
-// CATEGORIES NGATI VIDEO
-var CATS=[
-['worldcup','DFZ WORLD CUP','#1a5c2a','🏆'],['elite','DLS FRIEND ZONE ELITE CUP','#1e2a5a','🏆'],['diamond','DFZ DIAMOND CUP','#7c3aed','🏆'],['clubwc','DFZ CLUB WORLD CUP','#15803d','🏆'],['indep','DFZ INDEPENDENCE TOURNAMENT','#64748b','🏆'],['leagueS7','FRIEND ZONE LEAGUE S7','#16a34a','DLS'],['super','SUPER CUP FINAL','#16a34a','🏆'],['europa','FRIEND ZONE EUROPA LEAGUE','#0d9488','🏆'],['champions','FRIEND ZONE CHAMPIONS LEAGUE','#dc2626','🏆'],['fz','FZ TOURNAMENT','#a7f3d0','DLS'],['fztour','FRIEND ZONE TOURNAMENT','#9ca3af','DLS'],['champ2','FRIEND ZONE CHAMPIONS LEAGUE','#0d9488','🏆'],['fztour2','FRIEND ZONE TOURNAMENT','#dc2626','DLS'],['leagueS6','FRIEND ZONE LEAGUE S6','#0d9488','🏆'],['mini','FRIEND ZONE MINI TOURNAMENT','#dc2626','🏆'],['leagueS5','FRIEND ZONE LEAGUE S5','#c4b5fd','🏆'],['premierS4','DLS FRIEND ZONE PREMIER LEAGUE S4','#111','DLS'],['laligaS3','DLS FRIEND ZONE LALIGA S3','#7c3aed','DLS'],['champ3','FRIEND ZONE CHAMPIONS LEAGUE','#a855f7','🏆'],['miniS2','FRIEND ZONE MINI TOURNAMENT S2','#111','🏆']
-];
-var ch=''; for(var c=0;c<CATS.length;c++){ch+='<div class="cat" onclick="openLeague(\''+CATS[c][0]+'\')">'+(CATS[c][3]=='DLS'?'<div class="logoMini">DLS</div>':'<div class="trophy">🏆</div>')+'<div class="pill" style="background:'+CATS[c][2]+'">'+CATS[c][1]+'</div><span>›</span></div>';}
-document.getElementById('catsList').innerHTML=ch;
-function T(n,short,bg,fg,pts,mp,w,d,l,grp,gf,ga){return {name:n,short:short,bg:bg,fg:fg||'#fff',pts:pts,mp:mp,w:w,d:d,l:l,grp:grp||'A',gf:gf||0,ga:ga||0};}
-// DFZ WORLD CU
+function setStage(v){document.getElementById('gamesStage1').style.display=v=='1'?'block':'none'; document.getElementById('gamesStage2').style.display=v=='2'?'block':'none'; renderBracketGames();}
+function setTableStage(v){document.getElementById('table1st').style.di
